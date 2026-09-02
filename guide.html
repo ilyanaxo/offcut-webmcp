@@ -1,0 +1,434 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="How to use, run, and test Offcut's shared human-agent cutting-stock workbench."
+    />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'none'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'none'"
+    />
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+    <title>Offcut — Use, run & test the workbench</title>
+    <style>
+      :root {
+        color-scheme: light;
+        font-family: system-ui, sans-serif;
+        color: #243d32;
+        background: #f7f2e8;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+      }
+      main {
+        max-width: 900px;
+        margin: auto;
+        padding: 40px 24px 80px;
+      }
+      nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 16px;
+        border-bottom: 1px solid #c7cdbf;
+        padding-bottom: 20px;
+      }
+      a {
+        color: #244d3e;
+        text-underline-offset: 0.2em;
+      }
+      a:focus-visible {
+        outline: 3px solid #956710;
+        outline-offset: 5px;
+      }
+      h1 {
+        font-family: Georgia, serif;
+        font-weight: 500;
+        font-size: clamp(36px, 6vw, 58px);
+        line-height: 1.08;
+        margin: 40px 0 20px;
+      }
+      h2 {
+        margin: 36px 0 12px;
+        font-size: 22px;
+      }
+      h3 {
+        margin-top: 24px;
+        font-size: 17px;
+      }
+      p,
+      li {
+        font-size: 16px;
+        line-height: 1.65;
+      }
+      li {
+        margin-block: 8px;
+      }
+      code {
+        font-size: 0.9em;
+        overflow-wrap: anywhere;
+      }
+      pre {
+        overflow-x: auto;
+        padding: 20px;
+        border: 1px solid #c7cdbf;
+        background: #fffdf8;
+        line-height: 1.6;
+      }
+      pre code {
+        overflow-wrap: normal;
+      }
+      .note {
+        padding: 16px 20px;
+        border-left: 4px solid #b58634;
+        background: #f0e6d2;
+      }
+      .table-wrap {
+        overflow-x: auto;
+      }
+      table {
+        border-collapse: collapse;
+        width: 100%;
+        font-size: 14px;
+      }
+      th,
+      td {
+        text-align: left;
+        padding: 12px;
+        border-bottom: 1px solid #c7cdbf;
+        vertical-align: top;
+      }
+      footer {
+        margin-top: 40px;
+        border-top: 1px solid #c7cdbf;
+        padding-top: 20px;
+      }
+      @media print {
+        main {
+          padding: 0;
+        }
+        nav {
+          display: none;
+        }
+        a {
+          color: inherit;
+        }
+        pre,
+        .note {
+          break-inside: avoid;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <nav aria-label="Guide navigation">
+        <strong>offcut. / workbench guide</strong><a href="./">Open the workbench</a>
+      </nav>
+      <h1>Measure your stock.<br />Let an agent arrange.<br />Keep the final call.</h1>
+      <p>
+        Offcut is a browser-only cutting-stock workbench for small workshops and makerspaces. It
+        plans one-dimensional crosscuts from the usable material you already have. People and
+        browser agents work with the same committed measurements, protected stock and proposals.
+      </p>
+      <p class="note">
+        No application login, application server, model key or paid API is required by this website.
+        The starter job is an original illustrative example, not a real customer's workshop. Verify
+        or replace its measurements before using a cut sheet.
+      </p>
+
+      <h2>Use the workbench</h2>
+      <ol>
+        <li>
+          <strong>Record a homogeneous batch.</strong> Give the project a name and
+          material/cross-section description. Add each physical board or existing offcut separately.
+          Enter usable lengths in integer millimetres, after deducting end trim and unusable
+          defects.
+        </li>
+        <li>
+          <strong>Record the job.</strong> Enter finished part lengths and exact quantities. Set
+          your blade kerf and the minimum length you consider a useful reusable remnant. This is
+          your workshop policy, not a universal threshold.
+        </li>
+        <li>
+          <strong>Commit edits.</strong> Press Enter or leave a field to save it. Escape cancels an
+          unfinished field edit. Invalid or unfinished fields/new rows block human solving and
+          release. Native tools read committed measurements, not uncommitted text in an editor.
+        </li>
+        <li>
+          <strong>Protect stock.</strong> The protection button keeps that physical length untouched
+          under every objective. The agent cannot unlock it through a registered tool.
+        </li>
+        <li>
+          <strong>Find and compare proposals.</strong> Choose Use less stock, Handle fewer boards,
+          or Keep useful offcuts. These are genuinely different objectives; a higher finished-part
+          yield is not always less discarded material.
+        </li>
+        <li>
+          <strong>Review an exact fresh complete proposal.</strong> Check its stock IDs, quantities,
+          offsets, kerf and restrictions. The acknowledgement and approval are a separate UI step.
+          No WebMCP tool is exposed for approval.
+        </li>
+        <li>
+          <strong>Release the approved cut sheet.</strong> Download CSV or print. Both use the
+          actual approved plan, even if a different draft is selected. Changes to committed
+          measurements invalidate approval; reloading the page restores measurements only, not plans
+          or approval.
+        </li>
+      </ol>
+      <p>
+        There are at most 24 stock lengths, 16 requirement entries and 40 produced parts per
+        planning batch. Approval/export do not reserve, consume or physically cut inventory. Record
+        your actual remaining usable stock yourself for the next job.
+      </p>
+
+      <h2>Use your real browser agent</h2>
+      <p>
+        Open the workbench in ChatGPT's in-app browser, or a WebMCP-capable Chrome browser with a
+        real browser-agent host. Chrome's testing flag exposes the browser API; it does not itself
+        create or connect an agent.
+      </p>
+      <p>
+        For Chrome 149 or later, enable <code>chrome://flags/#enable-webmcp-testing</code> and
+        restart, or launch an isolated test browser with <code>--enable-features=WebMCP</code>. The
+        app uses the real <code>document.modelContext</code> where available, with only the actual
+        native <code>navigator.modelContext</code> surface as the Chrome-149 compatibility path. It
+        installs no polyfill.
+      </p>
+      <p>
+        Wait for the site's real registration status. “Native WebMCP ready” means registration
+        succeeded, not that a particular model has connected. The activity panel attributes real UI
+        actions and native tool invocations separately.
+      </p>
+      <pre><code>Inspect my Offcut workshop. Compare complete plans for all three
+objectives: least_stock, fewest_boards and least_waste. Respect protected
+stock and the current kerf/reusable-remnant settings. Account separately
+for sawdust, short scrap and reusable remnants. Stage the least-stock
+plan for my review. Do not approve it.</code></pre>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Native tool</th>
+              <th scope="col">Actual capability</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>get_workshop</code></td>
+              <td>
+                Read current committed measurements, revision, protection, requirements and proposal
+                summaries.
+              </td>
+            </tr>
+            <tr>
+              <td><code>plan_cuts</code></td>
+              <td>
+                Generate a checked objective/exclusion proposal for the entire recorded job, bound
+                to the current revision.
+              </td>
+            </tr>
+            <tr>
+              <td><code>inspect_plan</code></td>
+              <td>
+                Read exact layouts, quantities, material balance, freshness and approval status.
+              </td>
+            </tr>
+            <tr>
+              <td><code>compare_plans</code></td>
+              <td>Compare two or three complete fresh plans and actual metric deltas.</td>
+            </tr>
+            <tr>
+              <td><code>stage_plan_for_review</code></td>
+              <td>
+                Open review for a complete fresh exact plan; return awaiting-human-approval, not
+                approval.
+              </td>
+            </tr>
+            <tr>
+              <td><code>export_cut_list</code></td>
+              <td>
+                Return CSV text only for a complete fresh plan released through the approval UI.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note">
+        <strong>Permission boundary:</strong> approval is absent from the registered tool surface.
+        This is not authentication of a physical human. Trusted same-origin scripts, developer
+        tools, or an agent granted browser/UI-control permissions can still operate the page. Retain
+        the final approval decision in your agent's permissions and workflow.
+      </p>
+
+      <h2>Physical model and honest result confidence</h2>
+      <p>For every used stock length, Offcut enforces:</p>
+      <pre><code>sum(finished part lengths) + part count × blade kerf
+  + final remnant = usable stock length</code></pre>
+      <p>
+        Each produced part consumes one saw pass, including the last. No free final factory-end cut
+        is assumed. At a 3 mm kerf, a 997 mm part fits a 1,000 mm usable board; a 1,000 mm part does
+        not fit under this conservative policy. It is not a universal model of every possible
+        end-cut convention.
+      </p>
+      <p>
+        Positive remnants at or above your threshold are reusable; shorter positive remnants are
+        short scrap; zero is neither. Waste is sawdust plus short scrap. Unopened stock is not
+        waste. For a fixed complete job and kerf, modelled sawdust is constant, so the meaningful
+        trade-offs are stock opened, stock pieces handled and remnant distribution.
+      </p>
+      <p>
+        The deterministic branch-and-bound search is limited to 100,000 search nodes. “Optimal for
+        this objective” is reported only after valid exhaustive search/pruning with a complete
+        result. At the limit, a feasible plan remains a feasible plan with optimality unproved.
+        Failure to find a complete plan under a search bound is not a proof of infeasibility.
+        Partial proposals identify missing quantities and cannot be approved/exported.
+      </p>
+      <p class="note">
+        This is a planning estimate, not machine-control, a certified design, or a safe-cutting
+        guarantee. It does not model angled cuts, grain matching, clamping, rough-board defect
+        placement or different material sections. Verify stock identity, usable measurements, actual
+        blade kerf and safe workholding at the bench.
+      </p>
+
+      <h2>A demonstrated trade-off, not an invented savings claim</h2>
+      <p>
+        For the illustrative 14-part job, with A-01 protected, 3 mm kerf and a 400 mm
+        reusable-remnant threshold, the executed planner found:
+      </p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Objective</th>
+              <th scope="col">Stock opened</th>
+              <th scope="col">Stock pieces</th>
+              <th scope="col">Sawdust</th>
+              <th scope="col">Short scrap</th>
+              <th scope="col">Reusable remnants</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Use less stock</th>
+              <td>7,200 mm</td>
+              <td>3</td>
+              <td>42 mm</td>
+              <td>158 mm</td>
+              <td>0 mm</td>
+            </tr>
+            <tr>
+              <th scope="row">Handle fewer boards</th>
+              <td>7,200 mm</td>
+              <td>3</td>
+              <td>42 mm</td>
+              <td>158 mm</td>
+              <td>0 mm</td>
+            </tr>
+            <tr>
+              <th scope="row">Keep useful offcuts</th>
+              <td>10,080 mm</td>
+              <td>6</td>
+              <td>42 mm</td>
+              <td>0 mm</td>
+              <td>3,038 mm</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        All produce the same 7,000 mm of finished parts and keep A-01 untouched. The last plan
+        discards 158 mm less short scrap, but opens 2,880 mm more stock and handles three more
+        lengths. Those are scenario-specific computed results, not measured workshop-wide, money or
+        carbon savings.
+      </p>
+
+      <h2>Run the source</h2>
+      <p>
+        Source:
+        <a href="https://github.com/ilyanaxo/offcut-webmcp">github.com/ilyanaxo/offcut-webmcp</a>.
+        The project is a static React/TypeScript application built with Vite. Use Bun 1.4 or later;
+        the tested Node runtime meets the package's Node 22.12-or-later requirement.
+      </p>
+      <pre><code>git clone https://github.com/ilyanaxo/offcut-webmcp.git
+cd offcut-webmcp
+bun install --frozen-lockfile
+bun run build
+bun run preview</code></pre>
+      <p>
+        The production preview is <code>http://127.0.0.1:4173/</code>. For development,
+        <code>bun run dev</code> uses <code>http://127.0.0.1:5173/</code>. No environment secrets
+        are required. Deploy the generated <code>dist/</code> directory to static HTTPS hosting;
+        relative asset URLs support a project subdirectory.
+      </p>
+      <h3>Run observable-contract checks</h3>
+      <pre><code>bun run test
+# Keep the production preview running, then in another terminal:
+bun run test:browser
+bun run format:check</code></pre>
+      <p>
+        Browser tests use installed Google Chrome with its sandbox enabled.
+        <code>CHROME_PATH</code> can select a different installed Chrome executable;
+        <code>OFFCUT_BASE_URL</code> can target your HTTPS deployment. The suite does not secretly
+        start a server or install a native-API polyfill. Native and ordinary/manual browser projects
+        are separate.
+      </p>
+      <p>
+        Browser-test temporary profiles default to <code>.cache/browser-tests</code> in the project.
+        An explicit <code>TMPDIR</code> overrides this location. On systems with per-user quotas on
+        <code>/tmp</code>, choose a private directory on a filesystem with enough actual quota
+        headroom, not just globally reported free space.
+      </p>
+      <p>
+        The tests defend physical feasibility/quantities/accounting and all three objectives against
+        independent exhaustive small-instance assignments, actual bounded-search behavior,
+        revision/approval transitions, persistence, CSV content and the real browser surface. Native
+        registration/discovery/execution were exercised in Chrome 149.0.7827.155 and 152.0.7977.64.
+        This is not a claim that a ChatGPT in-app-browser window was visually exercised.
+      </p>
+
+      <h2>Data, rights and implementation references</h2>
+      <p>
+        Validated measurements are saved in localStorage on this site's origin when available.
+        Plans, approvals, activity and native registration last for the current page session. The
+        website has no application backend or model calls. A browser agent receives tool results and
+        may process them under its provider's policies; hosting/browser policies also apply.
+      </p>
+      <p>
+        The application source and original visual/example assets use the repository's MIT license.
+        Runtime dependency copyrights and licenses are preserved in
+        <a href="./THIRD_PARTY_LICENSES.txt">THIRD_PARTY_LICENSES.txt</a>. No customer data or
+        copied workshop photographs are used in the illustrative example.
+      </p>
+      <ul>
+        <li>
+          <a href="https://webmachinelearning.github.io/webmcp/">Current WebMCP specification</a>
+        </li>
+        <li>
+          <a href="https://developer.chrome.com/docs/ai/webmcp">Chrome's WebMCP documentation</a>
+        </li>
+        <li><a href="https://learn.chatgpt.com/docs/webmcp">OpenAI's WebMCP guide</a></li>
+        <li>
+          <a
+            href="https://docs.opencutlist.org/features/parts/parts-list/cutting-diagrams/dimensional.md"
+            >OpenCutList's existing dimensional-stock workflow</a
+          >
+          — a workflow reference, not code or artwork copied into Offcut.
+        </li>
+      </ul>
+      <footer>
+        <p>
+          Help opened from the workbench uses a separate tab so your active planning session can
+          remain open. Reloading or opening a fresh workbench page restores measurements, not
+          approval.
+        </p>
+      </footer>
+    </main>
+  </body>
+</html>
