@@ -1,0 +1,9 @@
+node_modules/
+dist/
+bun.lock
+artifacts/
+playwright-report/
+test-results/
+submission/*.mp4
+submission/*.wav
+submission/screenshots/

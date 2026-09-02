@@ -1,0 +1,12 @@
+node_modules/
+dist/
+.cache/
+.env
+.env.*
+!.env.example
+playwright-report/
+test-results/
+artifacts/verification/
+artifacts/raw-video/
+*.log
+.DS_Store
