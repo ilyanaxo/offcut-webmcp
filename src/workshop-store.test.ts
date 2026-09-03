@@ -2,7 +2,15 @@ import { describe, expect, test } from 'bun:test';
 import { WorkshopError } from './errors';
 import { createSampleWorkspace } from './sample';
 import { LIMITS } from './types';
-import type { Objective, PlanRecord, WorkshopSnapshot, WorkshopStore, Workspace } from './types';
+import type {
+  Actor,
+  Objective,
+  PlanRecord,
+  PlanRequest,
+  WorkshopSnapshot,
+  WorkshopStore,
+  Workspace,
+} from './types';
 import { createWorkshopStore } from './workshop-store';
 
 const STORAGE_KEY = 'offcut.measurements.v1';
@@ -13,11 +21,13 @@ function memoryStorage() {
     values,
     failReads: false,
     failWrites: false,
+    writeAttempts: 0,
     getItem(key: string) {
       if (this.failReads) throw new Error('Storage access denied');
       return values.get(key) ?? null;
     },
     setItem(key: string, value: string) {
+      this.writeAttempts++;
       if (this.failWrites) throw new Error('Storage quota exhausted');
       values.set(key, value);
     },
@@ -88,6 +98,7 @@ function expectNoRestoredSession(snapshot: WorkshopSnapshot, prior: WorkshopSnap
   expect(snapshot.selectedPlanId).toBeNull();
   expect(snapshot.reviewPlanId).toBeNull();
   expect(snapshot.approvedPlanId).toBeNull();
+  expect(snapshot.pendingMeasurements).toBe(false);
   expect(snapshot.events.length).toBeGreaterThan(0);
   expect(snapshot.events.every((event) => event.actor === 'system')).toBe(true);
   const oldEvents = new Set(prior.events.map((event) => event.id));
@@ -156,49 +167,65 @@ const humanEdits: HumanEdit[] = [
 ];
 
 describe('human measurement commits', () => {
-  test('equal and empty edits leave the live review, approval and snapshot untouched', () => {
-    const store = createJob();
-    approvedAndReviewing(store);
-    const before = store.getSnapshot();
-    const workspace = before.workspace;
-    const board = workspace.stock[0]!;
-    const part = workspace.requirements[0]!;
-    const equalEdits = [
-      () => store.updateProject({ title: workspace.title, material: workspace.material }),
-      () =>
-        store.updateStock(board.id, {
-          label: board.label,
-          lengthMm: board.lengthMm,
-          kind: board.kind,
-          locked: board.locked,
-        }),
-      () =>
-        store.updateRequirement(part.id, {
-          label: part.label,
-          lengthMm: part.lengthMm,
-          quantity: part.quantity,
-        }),
-      () => store.setSettings({ ...workspace.settings }),
-      () => store.updateProject({}),
-      () => store.updateStock(board.id, {}),
-      () => store.updateRequirement(part.id, {}),
-      () => store.setSettings({}),
-    ];
-    for (const edit of equalEdits) {
-      edit();
-      expect(store.getSnapshot()).toBe(before);
-    }
-  });
+  test.each([false, true])(
+    'equal and empty edits are no-ops with failing storage and pending=%s',
+    (pending) => {
+      const storage = memoryStorage();
+      const store = createJob(storage);
+      approvedAndReviewing(store);
+      store.setPendingMeasurements(pending);
+      storage.failWrites = true;
+      const writeAttempts = storage.writeAttempts;
+      let notifications = 0;
+      const unsubscribe = store.subscribe(() => {
+        notifications++;
+      });
+      const before = store.getSnapshot();
+      const workspace = before.workspace;
+      const board = workspace.stock[0]!;
+      const part = workspace.requirements[0]!;
+      const equalEdits = [
+        () => store.updateProject({ title: workspace.title, material: workspace.material }),
+        () =>
+          store.updateStock(board.id, {
+            label: board.label,
+            lengthMm: board.lengthMm,
+            kind: board.kind,
+            locked: board.locked,
+          }),
+        () =>
+          store.updateRequirement(part.id, {
+            label: part.label,
+            lengthMm: part.lengthMm,
+            quantity: part.quantity,
+          }),
+        () => store.setSettings({ ...workspace.settings }),
+        () => store.updateProject({}),
+        () => store.updateStock(board.id, {}),
+        () => store.updateRequirement(part.id, {}),
+        () => store.setSettings({}),
+      ];
+      for (const edit of equalEdits) {
+        edit();
+        expect(store.getSnapshot()).toBe(before);
+        expect(storage.writeAttempts).toBe(writeAttempts);
+        expect(notifications).toBe(0);
+      }
+      unsubscribe();
+    },
+  );
 
   test.each(humanEdits)(
     '$name changes revise once and invalidate both release decisions',
     ({ apply }) => {
       const store = createJob();
       const { approved, reviewing } = approvedAndReviewing(store);
+      store.setPendingMeasurements(true);
       const before = store.getSnapshot();
       apply(store, before.workspace);
       const after = store.getSnapshot();
       expect(after.workspace.revision).toBe(before.workspace.revision + 1);
+      expect(after.pendingMeasurements).toBe(true);
       expect(measurements(after.workspace)).not.toEqual(measurements(before.workspace));
       expect(after.reviewPlanId).toBeNull();
       expect(after.approvedPlanId).toBeNull();
@@ -222,6 +249,7 @@ describe('human measurement commits', () => {
   test('invalid human edits fail atomically instead of invalidating a valid decision', () => {
     const store = createJob();
     approvedAndReviewing(store);
+    store.setPendingMeasurements(true);
     const before = store.getSnapshot();
     const board = before.workspace.stock[0]!;
     const part = before.workspace.requirements[0]!;
@@ -262,6 +290,180 @@ describe('human measurement commits', () => {
         });
         expect(store.getSnapshot()).toBe(before);
       }
+    }
+  });
+});
+
+describe('pending measurement state and publication guards', () => {
+  test('flag changes publish only an ephemeral immutable root and equal flags are strict no-ops', () => {
+    const storage = memoryStorage();
+    const store = createJob(storage);
+    approvedAndReviewing(store);
+    const committed = store.getSnapshot();
+    const saved = storage.getItem(STORAGE_KEY);
+    const writeAttempts = storage.writeAttempts;
+    let notifications = 0;
+    const unsubscribe = store.subscribe(() => {
+      notifications++;
+    });
+    const reportPending = store.setPendingMeasurements;
+    expect(committed.pendingMeasurements).toBe(false);
+    reportPending(false);
+    expect(store.getSnapshot()).toBe(committed);
+    expect(notifications).toBe(0);
+    reportPending(true);
+    const pending = store.getSnapshot();
+    expect(pending).not.toBe(committed);
+    expect(pending).toEqual({ ...committed, pendingMeasurements: true });
+    expect(Object.isFrozen(pending)).toBe(true);
+    expect(pending.workspace).toBe(committed.workspace);
+    expect(pending.plans).toBe(committed.plans);
+    expect(pending.events).toBe(committed.events);
+    expect(pending.bridge).toBe(committed.bridge);
+    expect(notifications).toBe(1);
+    reportPending(true);
+    expect(store.getSnapshot()).toBe(pending);
+    expect(notifications).toBe(1);
+    reportPending(false);
+    const settled = store.getSnapshot();
+    expect(settled).not.toBe(pending);
+    expect(settled).toEqual(committed);
+    expect(settled.workspace).toBe(committed.workspace);
+    expect(settled.plans).toBe(committed.plans);
+    expect(settled.events).toBe(committed.events);
+    expect(settled.bridge).toBe(committed.bridge);
+    expect(notifications).toBe(2);
+    reportPending(false);
+    expect(store.getSnapshot()).toBe(settled);
+    expect(notifications).toBe(2);
+    expect(storage.getItem(STORAGE_KEY)).toBe(saved);
+    expect(storage.writeAttempts).toBe(writeAttempts);
+    expect(committed.pendingMeasurements).toBe(false);
+    expect(pending.pendingMeasurements).toBe(true);
+    unsubscribe();
+  });
+
+  test.each([false, true])('non-boolean flags reject atomically when pending=%s', (pending) => {
+    const store = createJob();
+    approvedAndReviewing(store);
+    store.setPendingMeasurements(pending);
+    const before = store.getSnapshot();
+    for (const value of [undefined, null, 0, 1, 'false', 'true', {}, []]) {
+      expectCode(() => store.setPendingMeasurements(value as unknown as boolean), 'INVALID_INPUT');
+      expect(store.getSnapshot()).toBe(before);
+    }
+  });
+
+  test.each(['human', 'webmcp'] as const)(
+    'pending drafts block %s review staging until they settle',
+    (actor) => {
+      const store = createJob();
+      const workspace = store.getSnapshot().workspace;
+      store.setPendingMeasurements(true);
+      const plan = store.proposePlan(
+        { expectedRevision: workspace.revision, objective: 'least_stock' },
+        actor,
+      );
+      expect(plan.reusedFromPlanId).toBeNull();
+      const pending = store.getSnapshot();
+      expect(pending.workspace).toBe(workspace);
+      expectCode(
+        () => store.stagePlan(plan.id, pending.workspace.revision, actor),
+        'PENDING_MEASUREMENTS',
+      );
+      expect(store.getSnapshot()).toBe(pending);
+      expect(pending.reviewPlanId).toBeNull();
+      expect(pending.approvedPlanId).toBeNull();
+      store.setPendingMeasurements(false);
+      expect(store.stagePlan(plan.id, pending.workspace.revision, actor)).toBe(plan);
+      const reviewing = store.getSnapshot();
+      expect(reviewing.workspace).toBe(pending.workspace);
+      expect(reviewing.reviewPlanId).toBe(plan.id);
+      expect(store.stagePlan(plan.id, pending.workspace.revision, actor)).toBe(plan);
+      expect(store.getSnapshot()).toBe(reviewing);
+    },
+  );
+
+  test('drafts preserve exact committed approval and review but forbid restaging and approval', () => {
+    const store = createJob();
+    const { approved, reviewing } = approvedAndReviewing(store);
+    store.setPendingMeasurements(true);
+    const pending = store.getSnapshot();
+    expectCode(
+      () => store.stagePlan(reviewing.id, pending.workspace.revision, 'webmcp'),
+      'PENDING_MEASUREMENTS',
+    );
+    expectCode(() => store.approvePlan(reviewing.id), 'PENDING_MEASUREMENTS');
+    expect(store.getSnapshot()).toBe(pending);
+    const draft = store.proposePlan(
+      { expectedRevision: pending.workspace.revision, objective: approved.solution.objective },
+      'webmcp',
+    );
+    const proposed = store.getSnapshot();
+    expect(proposed.workspace).toBe(pending.workspace);
+    expect(proposed.pendingMeasurements).toBe(true);
+    expect(proposed.approvedPlanId).toBe(approved.id);
+    expect(proposed.reviewPlanId).toBe(reviewing.id);
+    expect(draft.id).not.toBe(approved.id);
+    expect(draft.reusedFromPlanId).toBe(approved.id);
+    expect(draft.solution).toBe(approved.solution);
+    expectCode(() => store.recordExport(draft.id, 'webmcp'), 'APPROVAL_REQUIRED');
+    expectCode(() => store.approvePlan(draft.id), 'REVIEW_REQUIRED');
+    expectCode(
+      () => store.stagePlan(draft.id, pending.workspace.revision, 'webmcp'),
+      'PENDING_MEASUREMENTS',
+    );
+    expect(store.getSnapshot()).toBe(proposed);
+    store.recordExport(approved.id, 'webmcp');
+    const exported = store.getSnapshot();
+    expect(exported.workspace).toBe(pending.workspace);
+    expect(exported.approvedPlanId).toBe(approved.id);
+    expect(exported.reviewPlanId).toBe(reviewing.id);
+    expect(exported.pendingMeasurements).toBe(true);
+    expect(exported.events.at(-1)).toMatchObject({
+      actor: 'webmcp',
+      action: 'Approved cut sheet exported',
+    });
+    store.setPendingMeasurements(false);
+    expect(store.getSnapshot().approvedPlanId).toBe(approved.id);
+    expect(store.getSnapshot().reviewPlanId).toBe(reviewing.id);
+    expect(store.approvePlan(reviewing.id)).toBe(reviewing);
+    expect(store.getSnapshot().approvedPlanId).toBe(reviewing.id);
+  });
+
+  test('pending publication errors do not replace actor, revision, identity, completeness or review errors', () => {
+    const store = createJob();
+    const stale = propose(store);
+    store.updateProject({ title: 'A newer committed job' });
+    const fresh = propose(store);
+    const other = propose(store, 'fewest_boards');
+    const workspace = store.getSnapshot().workspace;
+    const partial = store.proposePlan({
+      expectedRevision: workspace.revision,
+      objective: 'least_stock',
+      excludedStockIds: workspace.stock.filter((board) => !board.locked).map((board) => board.id),
+    });
+    expect(partial.solution.complete).toBe(false);
+    store.stagePlan(fresh.id, workspace.revision);
+    store.setPendingMeasurements(true);
+    const before = store.getSnapshot();
+    const rejections: [() => unknown, string][] = [
+      [() => store.stagePlan(fresh.id, workspace.revision, 'agent' as Actor), 'INVALID_INPUT'],
+      [() => store.stagePlan(fresh.id, -1), 'INVALID_INPUT'],
+      [() => store.stagePlan(fresh.id, stale.basedOnRevision), 'REVISION_CONFLICT'],
+      [() => store.stagePlan('missing-plan', workspace.revision), 'PLAN_NOT_FOUND'],
+      [() => store.approvePlan('missing-plan'), 'PLAN_NOT_FOUND'],
+      [() => store.stagePlan(stale.id, workspace.revision), 'STALE_PLAN'],
+      [() => store.approvePlan(stale.id), 'STALE_PLAN'],
+      [() => store.stagePlan(partial.id, workspace.revision), 'INCOMPLETE_PLAN'],
+      [() => store.approvePlan(partial.id), 'INCOMPLETE_PLAN'],
+      [() => store.approvePlan(other.id), 'REVIEW_REQUIRED'],
+      [() => store.stagePlan(fresh.id, workspace.revision), 'PENDING_MEASUREMENTS'],
+      [() => store.approvePlan(fresh.id), 'PENDING_MEASUREMENTS'],
+    ];
+    for (const [call, code] of rejections) {
+      expectCode(call, code);
+      expect(store.getSnapshot()).toBe(before);
     }
   });
 });
@@ -431,11 +633,13 @@ describe('exact-plan review and release transitions', () => {
     (operation) => {
       const store = createJob();
       const { approved, reviewing } = approvedAndReviewing(store);
+      store.setPendingMeasurements(true);
       const before = store.getSnapshot();
       store[operation]();
       const replaced = store.getSnapshot();
       expect(replaced.workspace.revision).toBe(before.workspace.revision + 1);
       expect(replaced.plans).toEqual([]);
+      expect(replaced.pendingMeasurements).toBe(false);
       expect(replaced.selectedPlanId).toBeNull();
       expect(replaced.reviewPlanId).toBeNull();
       expect(replaced.approvedPlanId).toBeNull();
@@ -478,6 +682,346 @@ describe('exact-plan review and release transitions', () => {
     store.approvePlan(reviewing.id);
     expect(store.getSnapshot().approvedPlanId).toBe(reviewing.id);
   });
+
+  test('activity keeps the last 80 append-ordered events, including a two-event failed save', () => {
+    const storage = memoryStorage();
+    const store = createJob(storage);
+    approvedAndReviewing(store);
+    store.setPendingMeasurements(true);
+    const before = store.getSnapshot();
+    for (let index = 0; index < 85; index++) {
+      store.recordActivity('webmcp', 'Inspection note', `Activity ${index}`);
+    }
+    const recorded = store.getSnapshot();
+    expect(recorded.events).toHaveLength(80);
+    expect(recorded.events.map((event) => event.detail)).toEqual(
+      Array.from({ length: 80 }, (_, index) => `Activity ${index + 5}`),
+    );
+    expect(new Set(recorded.events.map((event) => event.id)).size).toBe(80);
+    expect(recorded.workspace).toBe(before.workspace);
+    expect(recorded.plans).toBe(before.plans);
+    expect(recorded.reviewPlanId).toBe(before.reviewPlanId);
+    expect(recorded.approvedPlanId).toBe(before.approvedPlanId);
+    expect(recorded.pendingMeasurements).toBe(true);
+    expect(before.events).not.toBe(recorded.events);
+    expect(before.events.length).toBeLessThan(80);
+    storage.failWrites = true;
+    store.setSettings({ kerfMm: 4 });
+    const failedSave = store.getSnapshot();
+    expect(failedSave.events).toHaveLength(80);
+    expect(failedSave.events[0]!.detail).toBe('Activity 7');
+    expect(failedSave.events.slice(-2).map((event) => event.action)).toEqual([
+      'Physical settings updated',
+      'Local measurement save failed',
+    ]);
+    expect(recorded.events[0]!.detail).toBe('Activity 5');
+    expect(failedSave.pendingMeasurements).toBe(true);
+  });
+});
+
+describe('retained checked-solution reuse', () => {
+  test.each(['least_stock', 'fewest_boards', 'least_waste'] as const)(
+    '%s reuse creates a new frozen unapproved identity, actor, selection and honest event',
+    (objective) => {
+      const store = createJob();
+      const first = propose(store, objective);
+      expect(first.reusedFromPlanId).toBeNull();
+      approve(store, first);
+      const before = store.getSnapshot();
+      const reused = store.proposePlan(
+        { expectedRevision: before.workspace.revision, objective, excludedStockIds: [] },
+        'webmcp',
+      );
+      const after = store.getSnapshot();
+      expect(reused).not.toBe(first);
+      expect(reused.id).not.toBe(first.id);
+      expect(reused.reusedFromPlanId).toBe(first.id);
+      expect(reused.actor).toBe('webmcp');
+      expect(reused.basedOnRevision).toBe(before.workspace.revision);
+      expect(reused.solution).toBe(first.solution);
+      expect(reused.solution.search).toBe(first.solution.search);
+      expect(Reflect.set(reused, 'reusedFromPlanId', 'forged-source')).toBe(false);
+      expect(Reflect.set(reused.solution.search, 'nodes', 0)).toBe(false);
+      expect(first.actor).toBe('human');
+      expect(first.reusedFromPlanId).toBeNull();
+      expect(after.workspace).toBe(before.workspace);
+      expect(after.selectedPlanId).toBe(reused.id);
+      expect(after.approvedPlanId).toBe(first.id);
+      expect(after.reviewPlanId).toBeNull();
+      expect(after.plans).toEqual([first, reused]);
+      expect(after.events).toHaveLength(before.events.length + 1);
+      expect(after.events.at(-1)).toMatchObject({ actor: 'webmcp', action: 'Plan proposed' });
+      expect(after.events.at(-1)!.id).not.toBe(before.events.at(-1)!.id);
+      expect(after.events.at(-1)!.detail).toContain(reused.id);
+      expect(after.events.at(-1)!.detail).toContain(first.id);
+      expect(after.events.at(-1)!.detail).toContain('original computation');
+      expect(after.events.at(-1)!.detail).toContain('no new solver search');
+      expectCode(() => store.recordExport(reused.id, 'webmcp'), 'APPROVAL_REQUIRED');
+      expectCode(() => store.approvePlan(reused.id), 'REVIEW_REQUIRED');
+      expect(store.getSnapshot()).toBe(after);
+      store.recordExport(first.id, 'webmcp');
+      store.stagePlan(reused.id, before.workspace.revision);
+      expect(store.approvePlan(reused.id)).toBe(reused);
+      expect(store.getSnapshot().approvedPlanId).toBe(reused.id);
+      expectCode(() => store.recordExport(first.id), 'APPROVAL_REQUIRED');
+      expect(before.approvedPlanId).toBe(first.id);
+    },
+  );
+
+  test('reordered additional sets reuse workspace-canonical exclusions without retaining caller arrays', () => {
+    const store = createJob();
+    const workspace = store.getSnapshot().workspace;
+    const excluded = workspace.stock[0]!;
+    const protectedBoard = workspace.stock.find((board) => board.locked)!;
+    const inputExclusions = [protectedBoard.id, excluded.id];
+    const reordered = [...inputExclusions].reverse();
+    const first = store.proposePlan({
+      expectedRevision: workspace.revision,
+      objective: 'least_stock',
+      excludedStockIds: inputExclusions,
+    });
+    inputExclusions.push(workspace.stock[2]!.id);
+    const reused = store.proposePlan({
+      expectedRevision: workspace.revision,
+      objective: 'least_stock',
+      excludedStockIds: reordered,
+    });
+    reordered.push(workspace.stock[1]!.id);
+    expect(first.solution.complete).toBe(true);
+    expect(first.solution.excludedStockIds).toEqual([excluded.id, protectedBoard.id]);
+    expect(reused.reusedFromPlanId).toBe(first.id);
+    expect(reused.solution).toBe(first.solution);
+    expect(reused.solution.excludedStockIds).toEqual([excluded.id, protectedBoard.id]);
+    expect(store.getSnapshot().workspace).toBe(workspace);
+  });
+
+  test('different objectives and declared additional sets miss even when protection makes constraints equal', () => {
+    const store = createJob();
+    const first = propose(store);
+    for (const objective of ['fewest_boards', 'least_waste'] as const) {
+      const differentObjective = propose(store, objective);
+      expect(differentObjective.reusedFromPlanId).toBeNull();
+      expect(differentObjective.solution).not.toBe(first.solution);
+    }
+    const workspace = store.getSnapshot().workspace;
+    const protectedId = workspace.stock.find((board) => board.locked)!.id;
+    const protectedOverlap = store.proposePlan({
+      expectedRevision: workspace.revision,
+      objective: 'least_stock',
+      excludedStockIds: [protectedId],
+    });
+    expect(protectedOverlap.reusedFromPlanId).toBeNull();
+    expect(protectedOverlap.solution).not.toBe(first.solution);
+    expect(protectedOverlap.solution.layouts).toEqual(first.solution.layouts);
+    expect(protectedOverlap.solution.excludedStockIds).toEqual([protectedId]);
+    expect(first.solution.excludedStockIds).toEqual([]);
+    const differentExclusion = store.proposePlan({
+      expectedRevision: workspace.revision,
+      objective: 'least_stock',
+      excludedStockIds: [workspace.stock[0]!.id],
+    });
+    expect(differentExclusion.reusedFromPlanId).toBeNull();
+    expect(differentExclusion.solution).not.toBe(first.solution);
+    const repeatOverlap = store.proposePlan({
+      expectedRevision: workspace.revision,
+      objective: 'least_stock',
+      excludedStockIds: [protectedId],
+    });
+    expect(repeatOverlap.reusedFromPlanId).toBe(protectedOverlap.id);
+    expect(repeatOverlap.solution).toBe(protectedOverlap.solution);
+  });
+
+  test('reverting measurements does not permit reuse across revisions', () => {
+    const store = createJob();
+    const first = propose(store);
+    store.setSettings({ kerfMm: 4 });
+    store.setSettings({ kerfMm: 3 });
+    const recomputed = propose(store);
+    expect(recomputed.basedOnRevision).toBe(first.basedOnRevision + 2);
+    expect(recomputed.reusedFromPlanId).toBeNull();
+    expect(recomputed.solution).not.toBe(first.solution);
+    expect(recomputed.solution).toEqual(first.solution);
+    expect(store.getSnapshot().plans).toEqual([first, recomputed]);
+  });
+
+  test('evicted records do not form a hidden cross-retention cache', () => {
+    const store = createJob();
+    const first = propose(store, 'least_waste');
+    for (let index = 0; index < LIMITS.savedPlans; index++) propose(store, 'fewest_boards');
+    expect(store.getSnapshot().plans.some((plan) => plan.id === first.id)).toBe(false);
+    const recomputed = propose(store, 'least_waste');
+    expect(recomputed.reusedFromPlanId).toBeNull();
+    expect(recomputed.solution).not.toBe(first.solution);
+    expect(store.getSnapshot().plans).toHaveLength(LIMITS.savedPlans);
+  });
+
+  test('checked partial solutions may be reused but cannot become a cut sheet', () => {
+    const store = createJob();
+    const workspace = store.getSnapshot().workspace;
+    const excludedStockIds = workspace.stock
+      .filter((board) => !board.locked)
+      .map((board) => board.id);
+    const first = store.proposePlan({
+      expectedRevision: workspace.revision,
+      objective: 'least_stock',
+      excludedStockIds,
+    });
+    const reused = store.proposePlan({
+      expectedRevision: workspace.revision,
+      objective: 'least_stock',
+      excludedStockIds: [...excludedStockIds].reverse(),
+    });
+    expect(first.solution.complete).toBe(false);
+    expect(reused.id).not.toBe(first.id);
+    expect(reused.reusedFromPlanId).toBe(first.id);
+    expect(reused.solution).toBe(first.solution);
+    const before = store.getSnapshot();
+    for (const call of [
+      () => store.stagePlan(reused.id, workspace.revision),
+      () => store.approvePlan(reused.id),
+      () => store.recordExport(reused.id),
+    ]) {
+      expectCode(call, 'INCOMPLETE_PLAN');
+      expect(store.getSnapshot()).toBe(before);
+    }
+  });
+
+  test('a budget-exhausted partial and its reused identity remain unapproved and unreleasable', () => {
+    const store = createJob();
+    const priorApproved = propose(store);
+    approve(store, priorApproved);
+    const released = store.getSnapshot();
+    store.clearWorkspace();
+    store.updateProject({
+      title: 'Bounded-search observed fixture',
+      material: 'Uniform synthetic batch',
+    });
+    store.setSettings({ kerfMm: 3, minReusableMm: 400 });
+    for (let index = 0; index < 14; index++) {
+      store.addStock({ label: `Board ${index + 1}`, lengthMm: 2279, kind: 'board', locked: false });
+    }
+    for (const [index, lengthMm] of [
+      300, 440, 580, 620, 710, 830, 950, 1020, 1140, 1270,
+    ].entries()) {
+      store.addRequirement({ label: `Part ${index + 1}`, lengthMm, quantity: 4 });
+    }
+    const workspace = store.getSnapshot().workspace;
+    const first = propose(store);
+    expect(first.basedOnRevision).toBe(workspace.revision);
+    expect(first.reusedFromPlanId).toBeNull();
+    expect(first.solution.complete).toBe(false);
+    expect(first.solution.search).toMatchObject({
+      nodes: 100_000,
+      limit: 100_000,
+      provenOptimal: false,
+    });
+    expect(first.solution.layouts.reduce((total, layout) => total + layout.cuts.length, 0)).toBe(
+      38,
+    );
+    expect(first.solution.unfulfilled).toHaveLength(1);
+    expect(first.solution.unfulfilled[0]).toMatchObject({
+      requirementId: workspace.requirements[0]!.id,
+      quantity: 2,
+    });
+    expect(first.solution.unfulfilled[0]!.reason).toContain('infeasibility is not proven');
+    expect(store.getSnapshot().workspace).toBe(workspace);
+    expect(store.getSnapshot().approvedPlanId).toBeNull();
+    const reused = propose(store);
+    expect(reused.id).not.toBe(first.id);
+    expect(reused.id).not.toBe(priorApproved.id);
+    expect(reused.basedOnRevision).toBe(workspace.revision);
+    expect(reused.reusedFromPlanId).toBe(first.id);
+    expect(reused.solution).toBe(first.solution);
+    expect(reused.solution.search).toBe(first.solution.search);
+    const guarded = store.getSnapshot();
+    expect(guarded.workspace).toBe(workspace);
+    expect(guarded.approvedPlanId).toBeNull();
+    expect(guarded.reviewPlanId).toBeNull();
+    for (const plan of [first, reused]) {
+      for (const call of [
+        () => store.stagePlan(plan.id, workspace.revision, 'webmcp'),
+        () => store.approvePlan(plan.id),
+        () => store.recordExport(plan.id, 'webmcp'),
+      ]) {
+        expectCode(call, 'INCOMPLETE_PLAN');
+        expect(store.getSnapshot()).toBe(guarded);
+      }
+    }
+    expect(released.approvedPlanId).toBe(priorApproved.id);
+  });
+
+  test('cache candidates never make duplicate, unknown or malformed additional exclusions acceptable', () => {
+    const store = createJob();
+    const workspace = store.getSnapshot().workspace;
+    const knownId = workspace.stock[0]!.id;
+    const request: PlanRequest = { expectedRevision: workspace.revision, objective: 'least_stock' };
+    store.proposePlan(request);
+    store.proposePlan({ ...request, excludedStockIds: [knownId] });
+    const before = store.getSnapshot();
+    const invalidExclusions: [unknown, string][] = [
+      [[knownId, knownId], 'INVALID_EXCLUSIONS'],
+      [[knownId, 'missing-stock'], 'UNKNOWN_STOCK'],
+      [['missing-stock'], 'UNKNOWN_STOCK'],
+      [[''], 'UNKNOWN_STOCK'],
+      [[` ${knownId}`], 'UNKNOWN_STOCK'],
+      [['x'.repeat(65)], 'UNKNOWN_STOCK'],
+      [[1], 'INVALID_EXCLUSIONS'],
+      [[null], 'INVALID_EXCLUSIONS'],
+      [new Array(1), 'INVALID_EXCLUSIONS'],
+      [Array.from({ length: LIMITS.stockBoards + 1 }, () => knownId), 'INVALID_EXCLUSIONS'],
+      [null, 'INVALID_INPUT'],
+      ['not-an-array', 'INVALID_INPUT'],
+      [{}, 'INVALID_INPUT'],
+    ];
+    for (const [excludedStockIds, code] of invalidExclusions) {
+      expectCode(
+        () => store.proposePlan({ ...request, excludedStockIds: excludedStockIds as string[] }),
+        code,
+      );
+      expect(store.getSnapshot()).toBe(before);
+    }
+  });
+
+  test('request field, prototype, objective, actor and revision guards still precede reuse', () => {
+    const store = createJob();
+    const request: PlanRequest = {
+      expectedRevision: store.getSnapshot().workspace.revision,
+      objective: 'least_stock',
+    };
+    store.proposePlan(request);
+    const before = store.getSnapshot();
+    let accessorReads = 0;
+    const accessorRequest = Object.defineProperty(
+      { expectedRevision: request.expectedRevision },
+      'objective',
+      {
+        enumerable: true,
+        get() {
+          accessorReads++;
+          return request.objective;
+        },
+      },
+    );
+    const invalidRequests: [unknown, string][] = [
+      [null, 'INVALID_INPUT'],
+      [{ ...request, approved: true }, 'INVALID_INPUT'],
+      [Object.assign(Object.create({ inherited: true }), request), 'INVALID_INPUT'],
+      [accessorRequest, 'INVALID_INPUT'],
+      [{ ...request, objective: 'toString' }, 'INVALID_OBJECTIVE'],
+      [{ ...request, objective: null }, 'INVALID_OBJECTIVE'],
+      [{ expectedRevision: request.expectedRevision }, 'INVALID_OBJECTIVE'],
+      [{ ...request, expectedRevision: -1 }, 'INVALID_INPUT'],
+      [{ ...request, expectedRevision: request.expectedRevision - 1 }, 'REVISION_CONFLICT'],
+      [{ ...request, expectedRevision: request.expectedRevision + 1 }, 'REVISION_CONFLICT'],
+    ];
+    for (const [input, code] of invalidRequests) {
+      expectCode(() => store.proposePlan(input as PlanRequest), code);
+      expect(store.getSnapshot()).toBe(before);
+    }
+    expect(accessorReads).toBe(0);
+    expectCode(() => store.proposePlan(request, 'agent' as Actor), 'INVALID_INPUT');
+    expect(store.getSnapshot()).toBe(before);
+  });
 });
 
 describe('immutable published state', () => {
@@ -490,12 +1034,14 @@ describe('immutable published state', () => {
     const layout = plan.solution.layouts[0]!;
     const mutations: [object, string, unknown][] = [
       [snapshot, 'approvedPlanId', 'forged-plan'],
+      [snapshot, 'pendingMeasurements', true],
       [snapshot.workspace, 'revision', snapshot.workspace.revision + 100],
       [snapshot.workspace.stock[0]!, 'lengthMm', 1],
       [snapshot.workspace.stock.find((board) => board.locked)!, 'locked', false],
       [snapshot.workspace.requirements[0]!, 'quantity', 40],
       [snapshot.workspace.settings, 'kerfMm', 0],
       [plan, 'id', 'forged-plan'],
+      [plan, 'reusedFromPlanId', 'forged-source'],
       [plan, 'basedOnRevision', snapshot.workspace.revision + 1],
       [plan.solution, 'complete', false],
       [plan.solution.metrics, 'stockUsedMm', 1],
@@ -563,6 +1109,15 @@ const corruptions: Corruption[] = [
   { name: 'unsupported version', serialize: (valid) => JSON.stringify({ ...valid, version: 2 }) },
   { name: 'missing version', serialize: (valid) => JSON.stringify({ workspace: valid.workspace }) },
   { name: 'missing measurements', serialize: () => JSON.stringify({ version: 1 }) },
+  {
+    name: 'session pending-measurement flag',
+    serialize: (valid) => JSON.stringify({ ...valid, pendingMeasurements: true }),
+  },
+  {
+    name: 'nested pending-measurement flag',
+    serialize: (valid) =>
+      JSON.stringify({ ...valid, workspace: { ...valid.workspace, pendingMeasurements: true } }),
+  },
   {
     name: 'session approval, plans and history',
     serialize: (valid, session) =>
@@ -684,6 +1239,7 @@ describe('versioned measurement-only persistence', () => {
     const store = createJob(storage);
     const savedBeforePlanning = storage.getItem(STORAGE_KEY)!;
     const { approved, reviewing } = approvedAndReviewing(store);
+    store.setPendingMeasurements(true);
     store.recordExport(approved.id, 'webmcp');
     store.updateProject({ title: store.getSnapshot().workspace.title });
     const session = store.getSnapshot();
@@ -707,6 +1263,7 @@ describe('versioned measurement-only persistence', () => {
     expect(session.approvedPlanId).toBe(approved.id);
     expect(session.reviewPlanId).toBe(reviewing.id);
     expect(session.workspace.stock[0]!.lengthMm).toBe(700);
+    expect(session.pendingMeasurements).toBe(true);
   });
 
   test.each(corruptions)(
@@ -741,6 +1298,84 @@ describe('versioned measurement-only persistence', () => {
     },
   );
 
+  test.each([
+    {
+      field: 'stock',
+      limit: LIMITS.stockBoards,
+      message: 'Saved stock must contain at most 24 boards.',
+    },
+    {
+      field: 'requirements',
+      limit: LIMITS.requirements,
+      message: 'Saved requirements must contain at most 16 distinct entries.',
+    },
+  ] as const)(
+    'over-limit saved $field reject before any row descriptor walk without touching storage',
+    ({ field, limit, message }) => {
+      const storage = memoryStorage();
+      const serialized = JSON.stringify({
+        version: 1,
+        workspace: {
+          ...measurements(createSampleWorkspace()),
+          stock: [{ unsupported: true }],
+          requirements: [{ unsupported: true }],
+          [field]: Array.from({ length: limit + 1 }, () => ({ unsupported: true })),
+        },
+      });
+      storage.setItem(STORAGE_KEY, serialized);
+      storage.failWrites = true;
+      const writeAttempts = storage.writeAttempts;
+      const store = createWorkshopStore(storage);
+      const rejected = store.getSnapshot();
+      expect(rejected.workspace).toEqual(createSampleWorkspace());
+      expect(rejected.pendingMeasurements).toBe(false);
+      expect(rejected.notice).toContain('Saved measurements were rejected');
+      expect(rejected.notice).toContain(message);
+      expect(
+        rejected.events.find((event) => event.action === 'Saved measurements rejected')!.detail,
+      ).toContain(message);
+      expect(storage.getItem(STORAGE_KEY)).toBe(serialized);
+      expect(storage.writeAttempts).toBe(writeAttempts);
+      store.updateProject({ title: rejected.workspace.title });
+      store.setSettings({ ...rejected.workspace.settings });
+      expect(store.getSnapshot()).toBe(rejected);
+      expect(storage.getItem(STORAGE_KEY)).toBe(serialized);
+      expect(storage.writeAttempts).toBe(writeAttempts);
+    },
+  );
+
+  test('valid saved arrays at the 24-board and 16-requirement boundaries still restore', () => {
+    const storage = memoryStorage();
+    const recorded: Omit<Workspace, 'revision'> = {
+      ...measurements(createSampleWorkspace()),
+      stock: Array.from({ length: 24 }, (_, index) => ({
+        id: `stock-${index}`,
+        label: `Board ${index + 1}`,
+        lengthMm: 1000,
+        kind: 'board' as const,
+        locked: false,
+      })),
+      requirements: Array.from({ length: 16 }, (_, index) => ({
+        id: `part-${index}`,
+        label: `Part ${index + 1}`,
+        lengthMm: 100,
+        quantity: 1,
+      })),
+    };
+    const serialized = JSON.stringify({ version: 1, workspace: recorded });
+    storage.setItem(STORAGE_KEY, serialized);
+    const writeAttempts = storage.writeAttempts;
+    const restored = createWorkshopStore(storage).getSnapshot();
+    expect(restored.workspace).toEqual({ ...recorded, revision: 0 });
+    expect(restored.pendingMeasurements).toBe(false);
+    expect(restored.plans).toEqual([]);
+    expect(restored.approvedPlanId).toBeNull();
+    expect(restored.reviewPlanId).toBeNull();
+    expect(restored.notice).toContain('Saved measurements were loaded');
+    expect(storage.getItem(STORAGE_KEY)).toBe(serialized);
+    expect(storage.writeAttempts).toBe(writeAttempts);
+  });
+
   test('unreadable storage leaves data intact, reports the failure, and can save a later human replacement', () => {
     const storage = memoryStorage();
     const original = createJob(storage);
@@ -771,6 +1406,7 @@ describe('versioned measurement-only persistence', () => {
     const storage = memoryStorage();
     const store = createJob(storage);
     approvedAndReviewing(store);
+    store.setPendingMeasurements(true);
     const before = store.getSnapshot();
     const oldSaved = storage.getItem(STORAGE_KEY)!;
     storage.failWrites = true;
@@ -778,6 +1414,7 @@ describe('versioned measurement-only persistence', () => {
     const unsaved = store.getSnapshot();
     expect(unsaved.workspace.stock[0]!.lengthMm).toBe(703);
     expect(unsaved.workspace.revision).toBe(before.workspace.revision + 1);
+    expect(unsaved.pendingMeasurements).toBe(true);
     expect(unsaved.reviewPlanId).toBeNull();
     expect(unsaved.approvedPlanId).toBeNull();
     expect(unsaved.notice).toContain('could not be saved');
@@ -788,10 +1425,19 @@ describe('versioned measurement-only persistence', () => {
       action: 'Local measurement save failed',
     });
     expect(storage.getItem(STORAGE_KEY)).toBe(oldSaved);
+    const failedWriteAttempts = storage.writeAttempts;
+    store.updateStock(unsaved.workspace.stock[0]!.id, { lengthMm: 703 });
+    store.updateProject({});
+    store.setSettings({ ...unsaved.workspace.settings });
+    expect(store.getSnapshot()).toBe(unsaved);
+    expect(storage.writeAttempts).toBe(failedWriteAttempts);
     const reopened = createWorkshopStore(storage).getSnapshot();
     expect(reopened.workspace).toEqual({ ...measurements(before.workspace), revision: 0 });
     expectNoRestoredSession(reopened, before);
     storage.failWrites = false;
+    store.setSettings({ kerfMm: unsaved.workspace.settings.kerfMm });
+    expect(store.getSnapshot()).toBe(unsaved);
+    expect(storage.writeAttempts).toBe(failedWriteAttempts);
     store.updateProject({ title: 'Saved after quota recovery' });
     expect(store.getSnapshot().notice).toContain('Current measurements are now saved locally');
     expect(store.getSnapshot().events.at(-1)).toMatchObject({

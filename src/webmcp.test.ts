@@ -72,6 +72,13 @@ function nativePlan(
   const id = (result.plan as PlanRecord).id;
   const plan = store.getSnapshot().plans.find((candidate) => candidate.id === id);
   expect(plan).toBeDefined();
+  expect((result.plan as PlanRecord).solution).toEqual(plan!.solution);
+  expect(result.plan).toMatchObject({
+    reusedFromPlanId: plan!.reusedFromPlanId,
+    pendingMeasurements: store.getSnapshot().pendingMeasurements,
+    approved: false,
+    canRequestReview: plan!.solution.complete && !store.getSnapshot().pendingMeasurements,
+  });
   return plan!;
 }
 
@@ -119,6 +126,7 @@ function expectRejected(
   expect(result.error!.message.length).toBeGreaterThan(0);
   const after = store.getSnapshot();
   expect(after.workspace).toBe(before.workspace);
+  expect(after.pendingMeasurements).toBe(before.pendingMeasurements);
   expect(after.plans).toBe(before.plans);
   expect(after.selectedPlanId).toBe(before.selectedPlanId);
   expect(after.reviewPlanId).toBe(before.reviewPlanId);
@@ -129,20 +137,51 @@ function expectRejected(
   return result;
 }
 
+// Follow the exporter tests' quoted-cell reader, consuming every byte and escaped quote.
+function csvRows(csv: string): string[][] {
+  const cell = /"((?:[^"]|"")*)"(,|\r\n)/gy;
+  const rows: string[][] = [];
+  let row: string[] = [];
+  let consumed = 0;
+  let match: RegExpExecArray | null;
+  while ((match = cell.exec(csv)) !== null) {
+    row.push(match[1]!.replaceAll('""', '"'));
+    consumed = cell.lastIndex;
+    if (match[2] === '\r\n') {
+      rows.push(row);
+      row = [];
+    }
+  }
+  expect(consumed).toBe(csv.length);
+  expect(row).toEqual([]);
+  return rows;
+}
+
 describe('actual native planning, inspection, comparison and release', () => {
   test('all six tools preserve human physical constraints and only a human approval releases the exact plan', () => {
     const store = createJob();
     const tools = createToolDefinitions(store);
     const physical = store.getSnapshot().workspace;
     expect(tools.map((tool) => tool.name).sort()).toEqual([...TOOL_NAMES].sort());
+    for (const tool of tools) {
+      expect(tool.annotations).toEqual({
+        readOnlyHint: !['plan_cuts', 'stage_plan_for_review'].includes(tool.name),
+        untrustedContentHint: true,
+      });
+    }
     const workshop = invoke(tools, 'get_workshop', {});
     expect(workshop).toMatchObject({
       ok: true,
       workspace: physical,
+      pendingMeasurements: false,
       totalRequiredParts: 2,
       requiredPartsMm: 1200,
     });
     expect(workshop.protectedStockIds).toEqual([physical.stock[3]!.id]);
+    expect(store.getSnapshot().events.at(-1)).toMatchObject({
+      actor: 'webmcp',
+      action: 'get_workshop',
+    });
     expect(store.getSnapshot().approvedPlanId).toBeNull();
 
     const first = nativePlan(store, tools, 'least_stock');
@@ -177,6 +216,8 @@ describe('actual native planning, inspection, comparison and release', () => {
       plan: {
         id: first.id,
         solution: first.solution,
+        reusedFromPlanId: null,
+        pendingMeasurements: false,
         fresh: true,
         approved: false,
         awaitingHumanApproval: false,
@@ -191,6 +232,8 @@ describe('actual native planning, inspection, comparison and release', () => {
       ok: true,
       revision: physical.revision,
       baselinePlanId: first.id,
+      protectedStockIds: [physical.stock[3]!.id],
+      sameConstraints: true,
     });
     const rows = comparison.plans as {
       id: string;
@@ -205,6 +248,9 @@ describe('actual native planning, inspection, comparison and release', () => {
     expect(rows).toHaveLength(2);
     expect(rows[0]).toMatchObject({
       id: first.id,
+      reusedFromPlanId: null,
+      excludedStockIds: [],
+      sameConstraintsAsFirst: true,
       deltaFromFirst: {
         stockUsedMm: 0,
         boardCount: 0,
@@ -215,6 +261,9 @@ describe('actual native planning, inspection, comparison and release', () => {
     });
     expect(rows[1]).toMatchObject({
       id: second.id,
+      reusedFromPlanId: null,
+      excludedStockIds: [],
+      sameConstraintsAsFirst: true,
       deltaFromFirst: { stockUsedMm: 100, boardCount: -1, wasteMm: -194, reusableMm: 294 },
     });
     expect(rows[1]!.deltaFromFirst.utilizationPercentagePoints).toBeCloseTo(
@@ -261,9 +310,20 @@ describe('actual native planning, inspection, comparison and release', () => {
       planId: first.id,
       revision: physical.revision,
       mimeType: 'text/csv;charset=utf-8',
+      filename: `offcut-my-next-project-r${physical.revision}-${first.id}.csv`,
     });
     expect(exported.csv as string).toContain(`"${first.id}"`);
     expect(exported.csv as string).not.toContain(`"${draft.id}"`);
+    const [firstHeader, ...firstCsvRows] = csvRows(exported.csv as string);
+    expect(firstHeader).toHaveLength(17);
+    expect(firstHeader![8]).toBe('Part ID');
+    expect(firstCsvRows).toHaveLength(2);
+    for (const row of firstCsvRows) {
+      expect(row).toHaveLength(17);
+      expect(row[2]).toBe(first.id);
+      expect(row[8]).toBe(physical.requirements[0]!.id);
+      expect(row[9]).toBe(physical.requirements[0]!.label);
+    }
     expect(store.getSnapshot().events.at(-1)).toMatchObject({
       actor: 'webmcp',
       action: 'Approved cut sheet exported',
@@ -271,6 +331,28 @@ describe('actual native planning, inspection, comparison and release', () => {
     expectRejected(store, tools, 'export_cut_list', { planId: draft.id }, 'APPROVAL_REQUIRED');
     expect(store.getSnapshot().workspace).toBe(physical);
     expect(store.getSnapshot().approvedPlanId).toBe(first.id);
+
+    expect(
+      invoke(tools, 'stage_plan_for_review', {
+        planId: second.id,
+        expectedRevision: physical.revision,
+      }),
+    ).toMatchObject({ ok: true, status: 'awaiting_human_approval' });
+    store.approvePlan(second.id);
+    const secondExport = invoke(tools, 'export_cut_list', { planId: second.id });
+    expect(secondExport).toMatchObject({
+      ok: true,
+      planId: second.id,
+      filename: `offcut-my-next-project-r${physical.revision}-${second.id}.csv`,
+    });
+    expect(secondExport.filename).not.toBe(exported.filename);
+    const [, ...secondCsvRows] = csvRows(secondExport.csv as string);
+    expect(secondCsvRows).toHaveLength(2);
+    expect(new Set(firstCsvRows.map((row) => row[4])).size).toBe(2);
+    expect(new Set(secondCsvRows.map((row) => row[4])).size).toBe(1);
+    expect(secondCsvRows.every((row) => row[2] === second.id)).toBe(true);
+    expectRejected(store, tools, 'export_cut_list', { planId: first.id }, 'APPROVAL_REQUIRED');
+    expect(store.getSnapshot().workspace).toBe(physical);
   });
 
   test('additional exclusions only reserve more stock, and an actual incomplete native plan cannot enter review', () => {
@@ -295,10 +377,11 @@ describe('actual native planning, inspection, comparison and release', () => {
     expect(incomplete.solution.unfulfilled).toMatchObject([
       { requirementId: physical.requirements[0]!.id, quantity: 2 },
     ]);
+    store.setPendingMeasurements(true);
     const inspection = invoke(tools, 'inspect_plan', { planId: incomplete.id });
     expect(inspection).toMatchObject({
       ok: true,
-      plan: { fresh: true, canRequestReview: false, approved: false },
+      plan: { fresh: true, pendingMeasurements: true, canRequestReview: false, approved: false },
     });
     expectRejected(
       store,
@@ -318,6 +401,442 @@ describe('actual native planning, inspection, comparison and release', () => {
     expect(store.getSnapshot().workspace).toBe(physical);
     expect(store.getSnapshot().approvedPlanId).toBeNull();
   });
+
+  test('effective comparisons retain declared additional exclusions and allow honest different-constraint what-ifs', () => {
+    const store = createJob();
+    const tools = createToolDefinitions(store);
+    const workspace = store.getSnapshot().workspace;
+    const protectedId = workspace.stock[3]!.id;
+    const first = nativePlan(store, tools, 'least_stock');
+    const overlap = nativePlan(store, tools, 'least_stock', [protectedId]);
+    const restricted = nativePlan(store, tools, 'least_stock', [workspace.stock[0]!.id]);
+    // Equal effective constraints do not erase different declared reuse keys.
+    expect(overlap.reusedFromPlanId).toBeNull();
+    const comparison = invoke(tools, 'compare_plans', {
+      planIds: [first.id, overlap.id, restricted.id],
+    });
+    expect(comparison).toMatchObject({
+      ok: true,
+      revision: workspace.revision,
+      baselinePlanId: first.id,
+      protectedStockIds: [protectedId],
+      sameConstraints: false,
+      plans: [
+        { id: first.id, excludedStockIds: [], sameConstraintsAsFirst: true },
+        {
+          id: overlap.id,
+          excludedStockIds: [protectedId],
+          sameConstraintsAsFirst: true,
+          deltaFromFirst: { stockUsedMm: 0, boardCount: 0, wasteMm: 0, reusableMm: 0 },
+        },
+        {
+          id: restricted.id,
+          excludedStockIds: [workspace.stock[0]!.id],
+          sameConstraintsAsFirst: false,
+          deltaFromFirst: { stockUsedMm: 100, boardCount: -1, wasteMm: -194, reusableMm: 294 },
+        },
+      ],
+    });
+    for (const planIds of [
+      [first.id, overlap.id],
+      [overlap.id, first.id],
+    ]) {
+      expect(invoke(tools, 'compare_plans', { planIds })).toMatchObject({
+        ok: true,
+        baselinePlanId: planIds[0],
+        protectedStockIds: [protectedId],
+        sameConstraints: true,
+        plans: [{ sameConstraintsAsFirst: true }, { sameConstraintsAsFirst: true }],
+      });
+    }
+    expect(store.getSnapshot().workspace).toBe(workspace);
+    expect(store.getSnapshot().approvedPlanId).toBeNull();
+  });
+
+  test('equal-sized different exclusion sets remain different even when their material balances match', () => {
+    const store = createJob();
+    const tools = createToolDefinitions(store);
+    const workspace = store.getSnapshot().workspace;
+    const firstId = workspace.stock[0]!.id;
+    const secondId = workspace.stock[1]!.id;
+    const protectedId = workspace.stock[3]!.id;
+    const first = nativePlan(store, tools, 'least_stock', [firstId]);
+    const different = nativePlan(store, tools, 'least_stock', [secondId]);
+    const overlap = nativePlan(store, tools, 'least_stock', [protectedId, firstId]);
+    expect(different.solution.metrics).toEqual(first.solution.metrics);
+    expect(overlap.solution.excludedStockIds).toEqual([firstId, protectedId]);
+    expect(overlap.reusedFromPlanId).toBeNull();
+    expect(
+      invoke(tools, 'compare_plans', {
+        planIds: [first.id, different.id, overlap.id],
+      }),
+    ).toMatchObject({
+      ok: true,
+      protectedStockIds: [protectedId],
+      sameConstraints: false,
+      plans: [
+        { id: first.id, excludedStockIds: [firstId], sameConstraintsAsFirst: true },
+        {
+          id: different.id,
+          excludedStockIds: [secondId],
+          sameConstraintsAsFirst: false,
+          deltaFromFirst: {
+            stockUsedMm: 0,
+            boardCount: 0,
+            wasteMm: 0,
+            reusableMm: 0,
+            utilizationPercentagePoints: 0,
+          },
+        },
+        {
+          id: overlap.id,
+          excludedStockIds: [firstId, protectedId],
+          sameConstraintsAsFirst: true,
+        },
+      ],
+    });
+  });
+
+  test('reused checked search results have new unapproved IDs and visible provenance, never inherited approval', () => {
+    const store = createJob();
+    const tools = createToolDefinitions(store);
+    const workspace = store.getSnapshot().workspace;
+    const exclusions = [workspace.stock[0]!.id, workspace.stock[3]!.id];
+    const first = nativePlan(store, tools, 'least_stock', exclusions);
+    expect(first.reusedFromPlanId).toBeNull();
+    expect(
+      invoke(tools, 'stage_plan_for_review', {
+        planId: first.id,
+        expectedRevision: workspace.revision,
+      }),
+    ).toMatchObject({ ok: true, status: 'awaiting_human_approval' });
+    store.approvePlan(first.id);
+    const reused = nativePlan(store, tools, 'least_stock', [...exclusions].reverse());
+    expect(reused.id).not.toBe(first.id);
+    expect(reused.reusedFromPlanId).toBe(first.id);
+    expect(reused.solution).toBe(first.solution);
+    expect(reused.solution.search).toEqual(first.solution.search);
+    expect(store.getSnapshot()).toMatchObject({
+      selectedPlanId: reused.id,
+      approvedPlanId: first.id,
+      reviewPlanId: null,
+    });
+    expect(invoke(tools, 'inspect_plan', { planId: reused.id })).toMatchObject({
+      ok: true,
+      plan: {
+        id: reused.id,
+        reusedFromPlanId: first.id,
+        basedOnRevision: workspace.revision,
+        pendingMeasurements: false,
+        fresh: true,
+        approved: false,
+        awaitingHumanApproval: false,
+        canRequestReview: true,
+        solution: { excludedStockIds: exclusions, search: first.solution.search },
+      },
+    });
+    expect(invoke(tools, 'get_workshop', {})).toMatchObject({
+      ok: true,
+      pendingMeasurements: false,
+      plans: [
+        { id: first.id, reusedFromPlanId: null, approved: true },
+        {
+          id: reused.id,
+          reusedFromPlanId: first.id,
+          approved: false,
+          search: first.solution.search,
+        },
+      ],
+    });
+    expect(invoke(tools, 'compare_plans', { planIds: [first.id, reused.id] })).toMatchObject({
+      ok: true,
+      sameConstraints: true,
+      plans: [
+        { id: first.id, reusedFromPlanId: null },
+        {
+          id: reused.id,
+          reusedFromPlanId: first.id,
+          provenOptimal: first.solution.search.provenOptimal,
+        },
+      ],
+    });
+    expectRejected(store, tools, 'export_cut_list', { planId: reused.id }, 'APPROVAL_REQUIRED');
+    expect(invoke(tools, 'export_cut_list', { planId: first.id })).toMatchObject({
+      ok: true,
+      planId: first.id,
+      filename: `offcut-my-next-project-r${workspace.revision}-${first.id}.csv`,
+    });
+    store.setSettings({ kerfMm: 4 });
+    const fresh = nativePlan(store, tools, 'least_stock', exclusions);
+    expect(fresh.reusedFromPlanId).toBeNull();
+    expect(fresh.solution).not.toBe(first.solution);
+    expect(fresh.solution.metrics.kerfMm).toBe(8);
+    expect(invoke(tools, 'inspect_plan', { planId: reused.id })).toMatchObject({
+      ok: true,
+      plan: {
+        id: reused.id,
+        reusedFromPlanId: first.id,
+        fresh: false,
+        approved: false,
+        canRequestReview: false,
+      },
+    });
+  });
+
+  test('pending measurements block staging while native inspection and planning use committed values, then recover', () => {
+    const { store, tools, first, second } = createSession();
+    const workspace = store.getSnapshot().workspace;
+    store.setPendingMeasurements(true);
+    expect(invoke(tools, 'get_workshop', {})).toMatchObject({
+      ok: true,
+      workspace,
+      pendingMeasurements: true,
+    });
+    expect(invoke(tools, 'inspect_plan', { planId: first.id })).toMatchObject({
+      ok: true,
+      plan: {
+        id: first.id,
+        pendingMeasurements: true,
+        fresh: true,
+        approved: false,
+        awaitingHumanApproval: false,
+        canRequestReview: false,
+        solution: first.solution,
+      },
+    });
+    const draft = nativePlan(store, tools, 'least_waste');
+    expect(draft.basedOnRevision).toBe(workspace.revision);
+    expect(draft.solution.complete).toBe(true);
+    expect(draft.solution.metrics.kerfMm).toBe(6);
+    expect(invoke(tools, 'compare_plans', { planIds: [first.id, second.id] })).toMatchObject({
+      ok: true,
+      revision: workspace.revision,
+      sameConstraints: true,
+    });
+    expectRejected(
+      store,
+      tools,
+      'stage_plan_for_review',
+      {
+        planId: first.id,
+        expectedRevision: workspace.revision,
+      },
+      'PENDING_MEASUREMENTS',
+    );
+    expect(store.getSnapshot()).toMatchObject({
+      pendingMeasurements: true,
+      selectedPlanId: draft.id,
+      reviewPlanId: null,
+      approvedPlanId: null,
+    });
+    expect(store.getSnapshot().workspace).toBe(workspace);
+    store.setPendingMeasurements(false);
+    expect(
+      invoke(tools, 'stage_plan_for_review', {
+        planId: first.id,
+        expectedRevision: workspace.revision,
+      }),
+    ).toMatchObject({
+      ok: true,
+      status: 'awaiting_human_approval',
+      plan: {
+        id: first.id,
+        pendingMeasurements: false,
+        canRequestReview: true,
+        awaitingHumanApproval: true,
+        approved: false,
+      },
+    });
+    expect(store.getSnapshot().workspace).toBe(workspace);
+  });
+
+  test('pending drafts preserve existing review and approval and still allow the exact approved committed native export', () => {
+    const { store, tools, first, second } = createSession();
+    const workspace = store.getSnapshot().workspace;
+    invoke(tools, 'stage_plan_for_review', {
+      planId: first.id,
+      expectedRevision: workspace.revision,
+    });
+    store.approvePlan(first.id);
+    invoke(tools, 'stage_plan_for_review', {
+      planId: second.id,
+      expectedRevision: workspace.revision,
+    });
+    store.setPendingMeasurements(true);
+    expect(invoke(tools, 'inspect_plan', { planId: first.id })).toMatchObject({
+      ok: true,
+      plan: {
+        id: first.id,
+        pendingMeasurements: true,
+        approved: true,
+        awaitingHumanApproval: false,
+        canRequestReview: false,
+      },
+    });
+    expect(invoke(tools, 'inspect_plan', { planId: second.id })).toMatchObject({
+      ok: true,
+      plan: {
+        id: second.id,
+        pendingMeasurements: true,
+        approved: false,
+        awaitingHumanApproval: true,
+        canRequestReview: false,
+      },
+    });
+    for (const planId of [second.id, first.id]) {
+      expectRejected(
+        store,
+        tools,
+        'stage_plan_for_review',
+        {
+          planId,
+          expectedRevision: workspace.revision,
+        },
+        'PENDING_MEASUREMENTS',
+      );
+    }
+    const exported = invoke(tools, 'export_cut_list', { planId: first.id });
+    expect(exported).toMatchObject({
+      ok: true,
+      planId: first.id,
+      revision: workspace.revision,
+      filename: `offcut-my-next-project-r${workspace.revision}-${first.id}.csv`,
+    });
+    const [, ...rows] = csvRows(exported.csv as string);
+    expect(rows).toHaveLength(2);
+    expect(rows.every((row) => row.length === 17 && row[2] === first.id)).toBe(true);
+    expectRejected(store, tools, 'export_cut_list', { planId: second.id }, 'APPROVAL_REQUIRED');
+    expect(store.getSnapshot()).toMatchObject({
+      pendingMeasurements: true,
+      selectedPlanId: second.id,
+      reviewPlanId: second.id,
+      approvedPlanId: first.id,
+    });
+    expect(store.getSnapshot().workspace).toBe(workspace);
+    store.setPendingMeasurements(false);
+    expect(
+      invoke(tools, 'stage_plan_for_review', {
+        planId: second.id,
+        expectedRevision: workspace.revision,
+      }),
+    ).toMatchObject({ ok: true, status: 'awaiting_human_approval' });
+    store.approvePlan(second.id);
+    expect(invoke(tools, 'inspect_plan', { planId: second.id })).toMatchObject({
+      ok: true,
+      plan: {
+        id: second.id,
+        pendingMeasurements: false,
+        approved: true,
+        awaitingHumanApproval: false,
+      },
+    });
+  });
+
+  test('full 40-part native layouts and 17-column CSV retain distinct requirement IDs despite identical human labels', () => {
+    const store = createWorkshopStore(null);
+    store.clearWorkspace();
+    store.setSettings({ kerfMm: 20, minReusableMm: 100 });
+    store.addStock({
+      label: 'Maximum usable length',
+      lengthMm: 100_000,
+      kind: 'board',
+      locked: false,
+    });
+    const label = 'Panel, "same label"';
+    store.addRequirement({ label, lengthMm: 1000, quantity: 20 });
+    store.addRequirement({ label, lengthMm: 1000, quantity: 20 });
+    const workspace = store.getSnapshot().workspace;
+    const tools = createToolDefinitions(store);
+    expect(invoke(tools, 'get_workshop', {})).toMatchObject({
+      ok: true,
+      workspace: { requirements: workspace.requirements },
+      totalRequiredParts: 40,
+      requiredPartsMm: 40_000,
+    });
+    const plan = nativePlan(store, tools, 'least_stock');
+    expect(plan.solution.complete).toBe(true);
+    expect(plan.solution.layouts).toHaveLength(1);
+    expect(plan.solution.layouts[0]!.cuts).toHaveLength(40);
+    expect(plan.solution.metrics).toMatchObject({
+      partsMm: 40_000,
+      kerfMm: 800,
+      reusableMm: 59_200,
+    });
+    expect(invoke(tools, 'inspect_plan', { planId: plan.id })).toMatchObject({
+      ok: true,
+      plan: { id: plan.id, solution: plan.solution },
+    });
+    expect(
+      invoke(tools, 'stage_plan_for_review', {
+        planId: plan.id,
+        expectedRevision: workspace.revision,
+      }),
+    ).toMatchObject({
+      ok: true,
+      status: 'awaiting_human_approval',
+      plan: { id: plan.id, solution: plan.solution, approved: false },
+    });
+    store.approvePlan(plan.id);
+    const exported = invoke(tools, 'export_cut_list', { planId: plan.id });
+    expect(exported).toMatchObject({
+      ok: true,
+      planId: plan.id,
+      filename: `offcut-my-next-project-r${workspace.revision}-${plan.id}.csv`,
+    });
+    const [header, ...rows] = csvRows(exported.csv as string);
+    expect(header).toEqual([
+      'Project',
+      'Material (same cross-section)',
+      'Plan ID',
+      'Workspace revision',
+      'Board ID',
+      'Board label',
+      'Usable stock length (mm)',
+      'Cut order',
+      'Part ID',
+      'Part',
+      'Part instance',
+      'Part length (mm)',
+      'Start from usable edge (mm)',
+      'End before kerf (mm)',
+      'Kerf after this part (mm)',
+      'Final remnant (mm)',
+      'Remnant class',
+    ]);
+    expect(rows).toHaveLength(40);
+    const layout = plan.solution.layouts[0]!;
+    for (let index = 0; index < rows.length; index++) {
+      const cut = layout.cuts[index]!;
+      expect(rows[index]).toEqual([
+        workspace.title,
+        workspace.material,
+        plan.id,
+        String(workspace.revision),
+        layout.stockId,
+        layout.stockLabel,
+        '100000',
+        String(index + 1),
+        cut.requirementId,
+        label,
+        String(cut.instance),
+        '1000',
+        String(cut.offsetMm),
+        String(cut.offsetMm + cut.lengthMm),
+        '20',
+        index === rows.length - 1 ? '59200' : '',
+        index === rows.length - 1 ? 'reusable' : '',
+      ]);
+    }
+    expect(new Set(rows.map((row) => row[8])).size).toBe(2);
+    for (const requirement of workspace.requirements) {
+      const matching = rows.filter((row) => row[8] === requirement.id);
+      expect(matching).toHaveLength(20);
+      expect(matching.map((row) => Number(row[10])).sort((left, right) => left - right)).toEqual(
+        Array.from({ length: 20 }, (_, index) => index + 1),
+      );
+    }
+    expect(store.getSnapshot().workspace).toBe(workspace);
+  });
 });
 
 describe('handler validation independent of native input schemas', () => {
@@ -332,6 +851,7 @@ describe('handler validation independent of native input schemas', () => {
     (name) => {
       const { store, tools, first, second } = createSession();
       store.stagePlan(second.id, store.getSnapshot().workspace.revision);
+      store.setPendingMeasurements(true);
       const input = validInput(name, store.getSnapshot(), first, second);
       const fields: [string, unknown][] = [
         ['unknown', true],
@@ -339,6 +859,11 @@ describe('handler validation independent of native input schemas', () => {
         ['approved', true],
         ['approvedPlanId', first.id],
         ['reviewPlanId', first.id],
+        ['pendingMeasurements', false],
+        ['reusedFromPlanId', first.id],
+        ['protectedStockIds', []],
+        ['sameConstraints', true],
+        ['sameConstraintsAsFirst', true],
         ['actor', 'human'],
         ['settings', { kerfMm: 0, minReusableMm: 0 }],
         ['kerfMm', 0],
@@ -404,6 +929,7 @@ describe('handler validation independent of native input schemas', () => {
     (name) => {
       const { store, tools, first, second } = createSession();
       const base = validInput(name, store.getSnapshot(), first, second);
+      store.setPendingMeasurements(true);
       for (const planId of [
         undefined,
         null,
@@ -429,14 +955,19 @@ describe('handler validation independent of native input schemas', () => {
     const { store, tools } = createSession();
     const workspace = store.getSnapshot().workspace;
     const knownId = workspace.stock[0]!.id;
+    const protectedId = workspace.stock[3]!.id;
     const malformed = [
       null,
       knownId,
       { stockId: knownId },
       [knownId, knownId],
+      [protectedId, protectedId],
+      [knownId, protectedId, protectedId],
       [''],
       ['   '],
       [` ${knownId}`],
+      [`${knownId} `],
+      [` ${protectedId}`],
       ['s'.repeat(65)],
       [1],
       [{ id: knownId, locked: false }],
@@ -463,6 +994,23 @@ describe('handler validation independent of native input schemas', () => {
       'UNKNOWN_STOCK',
     );
     expect(unknown.error!.details).toEqual({ stockId: 'missing-stock' });
+    for (const excludedStockIds of [
+      [protectedId, 'missing-stock'],
+      ['missing-stock', protectedId],
+    ]) {
+      const rejected = expectRejected(
+        store,
+        tools,
+        'plan_cuts',
+        {
+          expectedRevision: workspace.revision,
+          objective: 'least_stock',
+          excludedStockIds,
+        },
+        'UNKNOWN_STOCK',
+      );
+      expect(rejected.error!.details).toEqual({ stockId: 'missing-stock' });
+    }
   });
 
   test('compare_plans requires two or three distinct existing IDs, not a partial or coerced list', () => {
@@ -500,6 +1048,7 @@ describe('revision freshness and native cancellation', () => {
     invoke(tools, 'stage_plan_for_review', { planId: first.id, expectedRevision: oldRevision });
     store.approvePlan(first.id);
     store.updateProject({ title: 'Human changed the job after approval' });
+    store.setPendingMeasurements(true);
     const currentRevision = store.getSnapshot().workspace.revision;
     const conflict = expectRejected(
       store,
@@ -539,6 +1088,7 @@ describe('revision freshness and native cancellation', () => {
         id: first.id,
         basedOnRevision: oldRevision,
         currentRevision,
+        pendingMeasurements: true,
         fresh: false,
         approved: false,
         awaitingHumanApproval: false,
@@ -546,7 +1096,11 @@ describe('revision freshness and native cancellation', () => {
       },
     });
     const workshop = invoke(tools, 'get_workshop', {});
-    expect(workshop).toMatchObject({ ok: true, workspace: { revision: currentRevision } });
+    expect(workshop).toMatchObject({
+      ok: true,
+      pendingMeasurements: true,
+      workspace: { revision: currentRevision },
+    });
     expect(workshop.plans).toMatchObject([
       { id: first.id, fresh: false, approved: false },
       { id: second.id, fresh: false, approved: false },
@@ -563,6 +1117,7 @@ describe('revision freshness and native cancellation', () => {
       store.stagePlan(first.id, store.getSnapshot().workspace.revision);
       store.approvePlan(first.id);
       store.stagePlan(second.id, store.getSnapshot().workspace.revision);
+      store.setPendingMeasurements(true);
       const controller = new AbortController();
       const tools =
         scope === 'registration' ? createToolDefinitions(store, controller.signal) : originalTools;
@@ -580,6 +1135,7 @@ describe('revision freshness and native cancellation', () => {
       }
       expect(store.getSnapshot()).toMatchObject({
         approvedPlanId: first.id,
+        pendingMeasurements: true,
         reviewPlanId: second.id,
         selectedPlanId: second.id,
       });

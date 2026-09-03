@@ -251,6 +251,16 @@ export function solveCutPlan(
         (produced === partialCount && producedMm < partialPartsMm))
     )
       return;
+    // Reject only score prefixes that are already strictly worse. Tied prefixes
+    // still need the waste scan, and least_waste has no known prefix yet.
+    if (complete && hasComplete) {
+      if (objective === 'least_stock' && stockMm > bestStockMm) return;
+      if (
+        objective === 'fewest_boards' &&
+        (count > bestBoards || (count === bestBoards && stockMm > bestStockMm))
+      )
+        return;
+    }
     let wasteMm = produced * kerf;
     for (let index = 0; index < boardCount; index++) {
       if (uses[index] !== 0 && remaining[index] < reusableThreshold) wasteMm += remaining[index];
@@ -378,8 +388,10 @@ export function solveCutPlan(
     const minimumBoard =
       depth !== 0 && parts[depth - 1].consumedMm === cost ? assignment[depth - 1] : 0;
     const groupQuantity = groupEnd[depth] - depth;
+    const gcd = suffixGcd[depth];
     let capacity = 0;
     let openCapacity = 0;
+    let partSlots = 0;
     let groupSlots = 0;
     let openGroupSlots = 0;
     let unavoidableScrap = 0;
@@ -387,9 +399,15 @@ export function solveCutPlan(
     for (let board = 0; board < boardCount; board++) {
       const residual = remaining[board];
       const open = uses[board] !== 0;
+      let uncuttableMm = residual;
       if (residual >= smallestCost) {
-        capacity += residual;
-        if (open) openCapacity += residual;
+        // Future consumption on each board is a multiple of the suffix GCD.
+        uncuttableMm = gcd === 1 ? 0 : residual % gcd;
+        const roundedCapacity = residual - uncuttableMm;
+        capacity += roundedCapacity;
+        if (open) openCapacity += roundedCapacity;
+        // Every remaining part costs at least smallestCost; ignore group restrictions.
+        partSlots += Math.floor(residual / smallestCost);
       }
       const slots = board >= minimumBoard ? Math.floor(residual / cost) : 0;
       groupSlots += slots;
@@ -399,14 +417,19 @@ export function solveCutPlan(
         // An uncuttable remnant is fixed; a short cuttable one cannot fall below
         // residual mod gcd(remaining cut lengths INCLUDING their kerfs).
         if (residual < reusableThreshold) {
-          unavoidableScrap += residual < smallestCost ? residual : residual % suffixGcd[depth];
+          unavoidableScrap += uncuttableMm;
         }
         if (residual > 0 && residual >= reusableThreshold) reusablePossible = true;
       } else if (residual > smallestCost && residual - smallestCost >= reusableThreshold) {
         reusablePossible = true;
       }
     }
-    if (suffixDemand[depth] > capacity || groupQuantity > groupSlots) return;
+    if (
+      suffixDemand[depth] > capacity ||
+      partCount - depth > partSlots ||
+      groupQuantity > groupSlots
+    )
+      return;
 
     if (hasComplete) {
       const neededCapacity = Math.max(0, suffixDemand[depth] - openCapacity);
@@ -414,7 +437,8 @@ export function solveCutPlan(
       let additionalBoards = 0;
       let largestCapacity = 0;
       let largestSlots = 0;
-      // The k longest unopened boards maximize both capacity and equal-part slots.
+      // The k longest unopened boards maximize rounded capacity and equal-part slots.
+      // Both stay monotone in length, including the group's minimum-board cutoff.
       // Even this optimistic packing must satisfy both necessary conditions.
       for (
         let board = boardCount - 1;
@@ -423,7 +447,7 @@ export function solveCutPlan(
       ) {
         if (uses[board] !== 0 || lengths[board] < smallestCost) continue;
         additionalBoards++;
-        largestCapacity += lengths[board];
+        largestCapacity += gcd === 1 ? lengths[board] : lengths[board] - (lengths[board] % gcd);
         if (board >= minimumBoard) largestSlots += Math.floor(lengths[board] / cost);
       }
       let shortestStock = 0;

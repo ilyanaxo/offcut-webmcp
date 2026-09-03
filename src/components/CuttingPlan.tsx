@@ -1,9 +1,27 @@
-import { useRef } from 'react';
+import { memo, useRef } from 'react';
 import { OBJECTIVES, type BoardLayout, type PlanRecord, type Workspace } from '../types';
 import Icon from './Icon';
 
 type Palette = ReadonlyMap<string, number>;
-const mm = (value: number) => `${value.toLocaleString('en-US')} mm`;
+const numberFormat = new Intl.NumberFormat('en-US');
+const dateTimeFormat = new Intl.DateTimeFormat('en-US', {
+  year: 'numeric',
+  month: 'numeric',
+  day: 'numeric',
+  hour: 'numeric',
+  minute: '2-digit',
+  second: '2-digit',
+});
+
+export function formatNumber(value: number): string {
+  return numberFormat.format(value);
+}
+
+const mm = (value: number) => `${formatNumber(value)} mm`;
+
+export function formatPlanDateTime(iso: string): string {
+  return dateTimeFormat.format(new Date(iso));
+}
 
 export function PlanReference({ id }: { id: string }) {
   return (
@@ -12,6 +30,72 @@ export function PlanReference({ id }: { id: string }) {
     </span>
   );
 }
+
+const PlanIdentityTable = memo(function PlanIdentityTable({ plan }: { plan: PlanRecord }) {
+  const requirements = new Map<string, string>();
+  for (const layout of plan.solution.layouts) {
+    for (const cut of layout.cuts) requirements.set(cut.requirementId, cut.label);
+  }
+  for (const part of plan.solution.unfulfilled) requirements.set(part.requirementId, part.label);
+
+  return (
+    <table
+      className="data-table full-reference-table"
+      aria-label={`Full references for plan ${plan.id}`}
+    >
+      <caption>
+        Part copies share their actual requirement ID; the cut order identifies each instance.
+      </caption>
+      <thead>
+        <tr>
+          <th scope="col">Reference</th>
+          <th scope="col">Full ID</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">
+            Plan
+            <span className="reference-label">{OBJECTIVES[plan.solution.objective].label}</span>
+          </th>
+          <td>
+            <code>{plan.id}</code>
+          </td>
+        </tr>
+        {plan.reusedFromPlanId !== null && (
+          <tr>
+            <th scope="row">Reused solution from plan</th>
+            <td>
+              <code>{plan.reusedFromPlanId}</code>
+            </td>
+          </tr>
+        )}
+        {plan.solution.layouts.map((layout) => (
+          <tr key={`board-${layout.stockId}`}>
+            <th scope="row">
+              Board
+              <span className="reference-label">{layout.stockLabel}</span>
+            </th>
+            <td>
+              <code>{layout.stockId}</code>
+            </td>
+          </tr>
+        ))}
+        {[...requirements].map(([id, label]) => (
+          <tr key={`requirement-${id}`}>
+            <th scope="row">
+              Part requirement
+              <span className="reference-label">{label}</span>
+            </th>
+            <td>
+              <code>{id}</code>
+            </td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  );
+});
 
 function CutOrder({ layout }: { layout: BoardLayout }) {
   const perCutKerf = layout.cuts.length ? layout.kerfMm / layout.cuts.length : 0;
@@ -41,6 +125,7 @@ function CutOrder({ layout }: { layout: BoardLayout }) {
               <td>{index + 1}</td>
               <th scope="row">
                 {cut.label} <span className="small-text">#{cut.instance}</span>
+                <span className="reference table-reference">{cut.requirementId}</span>
               </th>
               <td>{mm(cut.lengthMm)}</td>
               <td>{mm(cut.offsetMm)}</td>
@@ -150,7 +235,7 @@ function BoardDiagram({
   );
 }
 
-export default function CuttingPlan({
+const CuttingPlan = memo(function CuttingPlan({
   plan,
   workspace,
   palette,
@@ -201,7 +286,7 @@ export default function CuttingPlan({
   const producedCount = accounting.reduce((total, part) => total + part.produced, 0);
   const requestedCount = accounting.reduce((total, part) => total + part.requested, 0);
   const excludedIds = solution.excludedStockIds;
-  const protectedStock = workspace.stock.filter((board) => board.locked);
+  const protectedStock = stale ? [] : workspace.stock.filter((board) => board.locked);
 
   return (
     <div className={`cutting-plan${stale ? ' cutting-plan--stale' : ''}`} data-plan-id={plan.id}>
@@ -268,9 +353,15 @@ export default function CuttingPlan({
         </div>
         <div>
           <dt>Boards handled</dt>
-          <dd>{metrics.boardCount.toLocaleString('en-US')}</dd>
+          <dd>{numberFormat.format(metrics.boardCount)}</dd>
         </div>
       </dl>
+      {!print && (
+        <details className="full-references" key={plan.id}>
+          <summary>Full plan, board & part IDs</summary>
+          <PlanIdentityTable plan={plan} />
+        </details>
+      )}
       {!solution.complete && (
         <section
           className="missing-parts"
@@ -335,7 +426,8 @@ export default function CuttingPlan({
           </ul>
           <p className="field-hint diagram-note">
             Lengths share one proportional scale across these boards. Thin kerf strips may be
-            narrower than a screen pixel; the exact cut order lists every saw pass.
+            narrower than a screen pixel, and short segments may not fit a label; the exact cut
+            order and remnant accounting give the full measurements.
           </p>
           {solution.layouts.map((layout) => (
             <BoardDiagram
@@ -355,11 +447,12 @@ export default function CuttingPlan({
         </p>
         <p
           className="balance-equation"
+          role="math"
           aria-label={`${mm(metrics.stockUsedMm)} stock equals ${mm(metrics.partsMm)} parts plus ${mm(metrics.kerfMm)} sawdust plus ${mm(metrics.reusableMm)} reusable remnants plus ${mm(metrics.scrapMm)} short scrap`}
         >
-          {mm(metrics.stockUsedMm)} = {metrics.partsMm.toLocaleString('en-US')} +{' '}
-          {metrics.kerfMm.toLocaleString('en-US')} + {metrics.reusableMm.toLocaleString('en-US')} +{' '}
-          {metrics.scrapMm.toLocaleString('en-US')} mm
+          {mm(metrics.stockUsedMm)} = {numberFormat.format(metrics.partsMm)} +{' '}
+          {numberFormat.format(metrics.kerfMm)} + {numberFormat.format(metrics.reusableMm)} +{' '}
+          {numberFormat.format(metrics.scrapMm)} mm
         </p>
         <p className="field-hint">
           Waste is sawdust + short scrap ({mm(metrics.kerfMm + metrics.scrapMm)}). Reusable remnants
@@ -404,7 +497,10 @@ export default function CuttingPlan({
             <tbody>
               {accounting.map((part) => (
                 <tr key={part.id}>
-                  <th scope="row">{part.label}</th>
+                  <th scope="row">
+                    {part.label}
+                    <span className="reference table-reference">{part.id}</span>
+                  </th>
                   <td>{part.requested}</td>
                   <td>{part.produced}</td>
                   <td className={part.requested > part.produced ? 'text-warning' : undefined}>
@@ -416,42 +512,56 @@ export default function CuttingPlan({
           </table>
         </div>
       </section>
-      {(protectedStock.length > 0 || excludedIds.length > 0) && (
+      {(stale || protectedStock.length > 0 || excludedIds.length > 0) && (
         <section className="excluded-stock" aria-label="Protected and excluded stock">
           <Icon name="lock" />
           <div>
-            <h4>{stale ? 'Restrictions & current protection' : 'Left out of this plan'}</h4>
+            <h4>{stale ? 'Recorded restrictions' : 'Left out of this plan'}</h4>
             {protectedStock.length > 0 && (
               <p>
-                <strong>{stale ? 'Currently protected' : 'Protected stock'}:</strong>{' '}
+                <strong>Protected stock:</strong>{' '}
                 {protectedStock
                   .map((board) => `${board.label} (${board.id}, ${mm(board.lengthMm)})`)
                   .join('; ')}
                 .
               </p>
             )}
-            {excludedIds.length > 0 && (
-              <p>
-                <strong>Recorded exclusions:</strong>{' '}
-                {excludedIds
-                  .map((id) => {
-                    const board = workspace.stock.find((entry) => entry.id === id);
-                    return board && !stale ? `${board.label} (${id})` : id;
-                  })
-                  .join('; ')}
-                .
-              </p>
-            )}
+            <p>
+              <strong>{stale ? 'Recorded additional exclusions' : 'Additional exclusions'}:</strong>{' '}
+              {excludedIds.length > 0
+                ? excludedIds
+                    .map((id) => {
+                      const board = stale
+                        ? undefined
+                        : workspace.stock.find((entry) => entry.id === id);
+                      return board ? `${board.label} (${id})` : id;
+                    })
+                    .join('; ')
+                : 'None'}
+              .
+            </p>
             {stale && (
-              <p>Current protections do not make an old proposal usable. Find a fresh plan.</p>
+              <p>
+                Protections from revision {plan.basedOnRevision} are not stored with this retained
+                plan. Current protections are not applied to its historical basis. Find a fresh
+                plan.
+              </p>
             )}
           </div>
         </section>
       )}
       <div className="search-note">
+        {plan.reusedFromPlanId !== null && (
+          <p>
+            <strong>Checked solution reused</strong> from plan{' '}
+            <PlanReference id={plan.reusedFromPlanId} />. Search statistics and optimality status
+            describe the original computation, not a new search. Reuse does not carry another plan’s
+            approval; approval belongs to this plan’s exact ID.
+          </p>
+        )}
         <p>
-          <strong>Deterministic branch-and-bound.</strong> {search.nodes.toLocaleString('en-US')} of{' '}
-          {search.limit.toLocaleString('en-US')} search nodes examined.{' '}
+          <strong>Deterministic branch-and-bound.</strong> {numberFormat.format(search.nodes)} of{' '}
+          {numberFormat.format(search.limit)} search nodes examined.{' '}
           {solution.complete && search.provenOptimal
             ? 'The search proved this solution optimal for the selected objective and allowed stock.'
             : solution.complete
@@ -469,29 +579,78 @@ export default function CuttingPlan({
       </div>
     </div>
   );
-}
+});
 
-export function PlanComparison({
+export default CuttingPlan;
+
+export const PlanComparison = memo(function PlanComparison({
   plans,
   revision,
+  protectedStockIds,
   selectedId,
   approvedId,
   reviewId,
   onSelect,
 }: {
-  plans: PlanRecord[];
+  plans: readonly PlanRecord[];
   revision: number;
+  protectedStockIds: readonly string[];
   selectedId: string | null;
   approvedId: string | null;
   reviewId: string | null;
   onSelect: (id: string) => void;
 }) {
   if (plans.length < 2) return null;
+  const comparablePlans = plans.filter(
+    (plan) => plan.basedOnRevision === revision && plan.solution.complete,
+  );
+  const baseline = comparablePlans.length >= 2 ? comparablePlans[0] : null;
+  const protectedIds = baseline ? [...new Set(protectedStockIds)].sort() : [];
+  const effectiveRestrictions = new Map<string, readonly string[]>();
+  if (baseline) {
+    for (const plan of comparablePlans) {
+      effectiveRestrictions.set(
+        plan.id,
+        [...new Set([...protectedIds, ...plan.solution.excludedStockIds])].sort(),
+      );
+    }
+  }
+  const baselineIds = baseline ? effectiveRestrictions.get(baseline.id) : undefined;
+  const sameConstraintsAsBaseline = (ids: readonly string[]) =>
+    baselineIds !== undefined &&
+    ids.length === baselineIds.length &&
+    ids.every((id, index) => id === baselineIds[index]);
+  const sameConstraints = [...effectiveRestrictions.values()].every(sameConstraintsAsBaseline);
+
   return (
     <details className="plan-comparison" open>
       <summary>
         Compare alternatives <span className="reference">{plans.length} proposals</span>
       </summary>
+      {baseline && (
+        <div className="comparison-basis">
+          <p>
+            Comparing {comparablePlans.length} fresh complete plans at revision {revision}.
+            Baseline: <code className="reference">{baseline.id}</code>.
+          </p>
+          <p>
+            <strong>
+              {sameConstraints
+                ? 'Same effective constraints across these plans.'
+                : 'Different effective constraints — a what-if comparison.'}
+            </strong>
+          </p>
+          <p>
+            <strong>Protected stock for these fresh complete plans:</strong>{' '}
+            {protectedIds.length > 0 ? (
+              <code className="reference">{protectedIds.join('; ')}</code>
+            ) : (
+              'None'
+            )}
+            .
+          </p>
+        </div>
+      )}
       <ul className="comparison-list" aria-label="Cutting plan comparison">
         {plans.map((plan) => {
           const stale = plan.basedOnRevision !== revision;
@@ -505,9 +664,11 @@ export function PlanComparison({
                   ? 'In review'
                   : 'Complete draft';
           const { metrics } = plan.solution;
+          const effectiveIds = effectiveRestrictions.get(plan.id);
           return (
             <li
               key={plan.id}
+              data-plan-id={plan.id}
               className={`comparison-option${selectedId === plan.id ? ' comparison-row--selected' : ''}`}
             >
               <div className="comparison-heading">
@@ -529,7 +690,7 @@ export function PlanComparison({
                   </span>
                   <span className="reference">
                     {plan.solution.layouts.reduce((total, layout) => total + layout.cuts.length, 0)}{' '}
-                    parts · {plan.solution.excludedStockIds.length} excluded
+                    parts · {plan.solution.excludedStockIds.length} additional exclusions
                   </span>
                 </div>
               </div>
@@ -551,32 +712,93 @@ export function PlanComparison({
                   <dd>{mm(metrics.reusableMm)}</dd>
                 </div>
               </dl>
+              {effectiveIds && (
+                <p className="comparison-constraints">
+                  {plan.id === baseline?.id
+                    ? 'Constraint comparison baseline'
+                    : sameConstraintsAsBaseline(effectiveIds)
+                      ? 'Same effective constraints as baseline'
+                      : 'Different effective constraints from baseline'}
+                </p>
+              )}
+              {plan.reusedFromPlanId !== null && (
+                <p className="comparison-constraints">
+                  Checked solution reused from plan <PlanReference id={plan.reusedFromPlanId} />.
+                  Search statistics describe the original computation, not a new search.
+                </p>
+              )}
             </li>
           );
         })}
       </ul>
+      <details className="full-references">
+        <summary>Full comparison references & restrictions</summary>
+        {plans.map((plan) => {
+          const stale = plan.basedOnRevision !== revision;
+          const effectiveIds = effectiveRestrictions.get(plan.id);
+          return (
+            <section
+              className="comparison-reference-group"
+              key={plan.id}
+              data-plan-id={plan.id}
+              aria-label={`References and restrictions for plan ${plan.id}`}
+            >
+              <PlanIdentityTable plan={plan} />
+              <p className="comparison-constraints">
+                <strong>
+                  {stale ? 'Recorded additional exclusions' : 'Additional exclusions'}:
+                </strong>{' '}
+                {plan.solution.excludedStockIds.length > 0 ? (
+                  <code className="reference">{plan.solution.excludedStockIds.join('; ')}</code>
+                ) : (
+                  'None'
+                )}
+                .
+              </p>
+              {effectiveIds && (
+                <p className="comparison-constraints">
+                  <strong>Effective restricted stock IDs at revision {revision}:</strong>{' '}
+                  {effectiveIds.length > 0 ? (
+                    <code className="reference">{effectiveIds.join('; ')}</code>
+                  ) : (
+                    'None'
+                  )}
+                  .
+                </p>
+              )}
+              {stale && (
+                <p className="comparison-constraints">
+                  Historical protections are not stored with this retained plan. Current protected
+                  stock is not applied to its old basis at revision {plan.basedOnRevision}.
+                </p>
+              )}
+            </section>
+          );
+        })}
+      </details>
       <p className="field-hint">
-        Waste = sawdust + short scrap, not all leftover material. Compare complete plans at the same
-        revision with the same exclusions; older or incomplete proposals do not fulfill the same
-        job.
+        Waste = sawdust + short scrap, not all leftover material. Effective restrictions combine
+        protected stock and additional exclusions once. Equal effective restrictions isolate the
+        objective trade-off; different sets remain useful what-if comparisons. Older or incomplete
+        proposals do not fulfill the same current job.
       </p>
     </details>
   );
-}
+});
 
-export function PrintableCutSheet({
+export const PrintableCutSheet = memo(function PrintableCutSheet({
   plan,
   workspace,
   palette,
-  unfinishedMeasurements,
+  pendingMeasurements,
 }: {
   plan: PlanRecord | null;
   workspace: Workspace;
   palette: Palette;
-  unfinishedMeasurements: boolean;
+  pendingMeasurements: boolean;
 }) {
   const usable =
-    !unfinishedMeasurements &&
+    !pendingMeasurements &&
     plan &&
     plan.solution.complete &&
     plan.basedOnRevision === workspace.revision;
@@ -595,7 +817,8 @@ export function PrintableCutSheet({
             <p>{workspace.material}</p>
             <p className="reference">
               {plan.id} · workspace revision {workspace.revision} · plan created{' '}
-              {new Date(plan.createdAt).toLocaleString('en-US')}
+              <time dateTime={plan.createdAt}>{formatPlanDateTime(plan.createdAt)}</time> (local
+              browser time)
             </p>
           </header>
           <div className="print-constraints">
@@ -620,12 +843,10 @@ export function PrintableCutSheet({
         <>
           <p className="eyebrow">Offcut</p>
           <h1>
-            {unfinishedMeasurements
-              ? 'Finish your measurement edits first'
-              : 'No approved cut sheet'}
+            {pendingMeasurements ? 'Finish your measurement edits first' : 'No approved cut sheet'}
           </h1>
           <p>
-            {unfinishedMeasurements
+            {pendingMeasurements
               ? 'Return to the workbench and save or cancel unfinished field edits and new rows. If the saved measurements change, find and approve a fresh complete plan before printing.'
               : 'Return to the workbench, find a complete plan for the current measurements, and review and approve it yourself. Draft, incomplete and stale plans cannot be printed as cut sheets.'}
           </p>
@@ -633,4 +854,4 @@ export function PrintableCutSheet({
       )}
     </article>
   );
-}
+});

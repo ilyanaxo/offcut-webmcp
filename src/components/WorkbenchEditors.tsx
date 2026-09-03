@@ -1,7 +1,8 @@
-import { useCallback, useEffect, useRef, useState, type FormEvent } from 'react';
+import { memo, useCallback, useEffect, useRef, useState, type FormEvent } from 'react';
 import { errorMessage } from '../errors';
 import { LIMITS, type Workspace, type WorkshopStore } from '../types';
 import Icon from './Icon';
+import { formatNumber } from './CuttingPlan';
 
 function integer(value: string, label: string, minimum: number, maximum: number, unit = 'mm') {
   const text = value.trim();
@@ -11,7 +12,7 @@ function integer(value: string, label: string, minimum: number, maximum: number,
   }
   if (number < minimum || number > maximum) {
     throw new Error(
-      `${label} must be between ${minimum.toLocaleString('en-US')} and ${maximum.toLocaleString('en-US')}${unit === 'mm' ? ' mm' : ''}.`,
+      `${label} must be between ${formatNumber(minimum)} and ${formatNumber(maximum)}${unit === 'mm' ? ' mm' : ''}.`,
     );
   }
   return number;
@@ -111,7 +112,7 @@ function CommitField({
   );
 }
 
-export default function WorkbenchEditors({
+function WorkbenchEditors({
   workspace,
   store,
   disabled,
@@ -250,7 +251,7 @@ export default function WorkbenchEditors({
             </h3>
             <p className="small-text">
               {workspace.stock.length} lengths · max {LIMITS.stockBoards} ·{' '}
-              {availableMm.toLocaleString('en-US')} mm available
+              {formatNumber(availableMm)} mm available
             </p>
           </div>
           <button
@@ -335,7 +336,7 @@ export default function WorkbenchEditors({
                   type="button"
                   className={`stock-lock${board.locked ? ' stock-lock--protected' : ''}`}
                   aria-pressed={board.locked}
-                  aria-label={`${board.locked ? 'Unprotect' : 'Protect'} stock ${board.label} (${board.id})`}
+                  aria-label={`${board.locked ? 'Protected — unprotect' : 'Available — protect'} stock ${board.label} (${board.id})`}
                   onClick={() =>
                     attempt(() => store.updateStock(board.id, { locked: !board.locked }))
                   }
@@ -393,7 +394,7 @@ export default function WorkbenchEditors({
             </label>
             <p className="field-hint">
               Stock labels: up to 80 characters. Lengths: 1–
-              {LIMITS.lengthMm.toLocaleString('en-US')} mm.
+              {formatNumber(LIMITS.lengthMm)} mm.
             </p>
             {stockError && (
               <p className="field-error" role="alert">
@@ -636,3 +637,5 @@ export default function WorkbenchEditors({
     </fieldset>
   );
 }
+
+export default memo(WorkbenchEditors);

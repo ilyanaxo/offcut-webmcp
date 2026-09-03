@@ -18,9 +18,53 @@ const STORAGE_KEY = 'offcut.measurements.v1';
 const STORAGE_VERSION = 1;
 const SESSION_NOTICE = 'Plans and approvals last only for this page session.';
 const SAMPLE_NOTICE = `Illustrative sample measurements are loaded. Replace them with your actual usable stock and cut list. ${SESSION_NOTICE}`;
+const SAVED_MEASUREMENT_FIELDS = ['version', 'workspace'] as const;
+const MEASUREMENT_FIELDS = ['title', 'material', 'stock', 'requirements', 'settings'] as const;
+const PROJECT_FIELDS = ['title', 'material'] as const;
 const STOCK_FIELDS = ['id', 'label', 'lengthMm', 'kind', 'locked'] as const;
+const STOCK_INPUT_FIELDS = ['label', 'lengthMm', 'kind', 'locked'] as const;
 const REQUIREMENT_FIELDS = ['id', 'label', 'lengthMm', 'quantity'] as const;
+const REQUIREMENT_INPUT_FIELDS = ['label', 'lengthMm', 'quantity'] as const;
 const SETTINGS_FIELDS = ['kerfMm', 'minReusableMm'] as const;
+const PLAN_REQUEST_FIELDS = ['expectedRevision', 'objective', 'excludedStockIds'] as const;
+const SOLUTION_FIELDS = [
+  'objective',
+  'layouts',
+  'metrics',
+  'complete',
+  'unfulfilled',
+  'excludedStockIds',
+  'search',
+] as const;
+const SEARCH_FIELDS = ['method', 'provenOptimal', 'nodes', 'limit'] as const;
+const LAYOUT_FIELDS = [
+  'stockId',
+  'stockLabel',
+  'stockKind',
+  'stockLengthMm',
+  'cuts',
+  'kerfMm',
+  'remnantMm',
+  'remnantKind',
+] as const;
+const CUT_FIELDS = ['requirementId', 'label', 'instance', 'lengthMm', 'offsetMm'] as const;
+const UNFULFILLED_FIELDS = ['requirementId', 'label', 'quantity', 'reason'] as const;
+const METRIC_FIELDS = [
+  'stockUsedMm',
+  'partsMm',
+  'kerfMm',
+  'reusableMm',
+  'scrapMm',
+  'boardCount',
+  'utilization',
+] as const;
+const BRIDGE_FIELDS = ['state', 'provider', 'registeredTools', 'message'] as const;
+const BRIDGE_STATES: readonly BridgeState['state'][] = [
+  'checking',
+  'ready',
+  'unsupported',
+  'error',
+];
 const deeplyFrozen = new WeakSet<object>();
 
 function freezeTree<T>(value: T): T {
@@ -104,7 +148,7 @@ function restoreMeasurements(serialized: string): Workspace {
   const envelope: unknown = JSON.parse(serialized);
   assertFields(
     envelope,
-    ['version', 'workspace'],
+    SAVED_MEASUREMENT_FIELDS,
     'Saved measurements',
     true,
     'INVALID_SAVED_DATA',
@@ -116,17 +160,23 @@ function restoreMeasurements(serialized: string): Workspace {
     );
   }
   const measurements = envelope.workspace;
-  assertFields(
-    measurements,
-    ['title', 'material', 'stock', 'requirements', 'settings'],
-    'Saved workspace',
-    true,
-    'INVALID_SAVED_DATA',
-  );
+  assertFields(measurements, MEASUREMENT_FIELDS, 'Saved workspace', true, 'INVALID_SAVED_DATA');
   if (!Array.isArray(measurements.stock) || !Array.isArray(measurements.requirements)) {
     throw new WorkshopError(
       'INVALID_SAVED_DATA',
       'Saved stock and cut requirements must be arrays.',
+    );
+  }
+  if (measurements.stock.length > LIMITS.stockBoards) {
+    throw new WorkshopError(
+      'INVALID_SAVED_DATA',
+      `Saved stock must contain at most ${LIMITS.stockBoards} boards.`,
+    );
+  }
+  if (measurements.requirements.length > LIMITS.requirements) {
+    throw new WorkshopError(
+      'INVALID_SAVED_DATA',
+      `Saved requirements must contain at most ${LIMITS.requirements} distinct entries.`,
     );
   }
   for (const board of measurements.stock) {
@@ -154,13 +204,7 @@ function validateSolution(
   expectedObjective?: Objective,
   expectedExclusions?: readonly string[],
 ): void {
-  assertFields(
-    solution,
-    ['objective', 'layouts', 'metrics', 'complete', 'unfulfilled', 'excludedStockIds', 'search'],
-    'Plan solution',
-    true,
-    'INVALID_PLAN',
-  );
+  assertFields(solution, SOLUTION_FIELDS, 'Plan solution', true, 'INVALID_PLAN');
   if (
     !Object.prototype.hasOwnProperty.call(OBJECTIVES, solution.objective) ||
     (expectedObjective !== undefined && solution.objective !== expectedObjective)
@@ -187,13 +231,7 @@ function validateSolution(
       'The plan does not match the current stock and cut requirements.',
     );
   }
-  assertFields(
-    solution.search,
-    ['method', 'provenOptimal', 'nodes', 'limit'],
-    'Plan search',
-    true,
-    'INVALID_PLAN',
-  );
+  assertFields(solution.search, SEARCH_FIELDS, 'Plan search', true, 'INVALID_PLAN');
   if (
     solution.search.method !== 'branch-and-bound' ||
     typeof solution.search.provenOptimal !== 'boolean' ||
@@ -241,22 +279,7 @@ function validateSolution(
   let reusableMm = 0;
   let scrapMm = 0;
   for (const layout of solution.layouts) {
-    assertFields(
-      layout,
-      [
-        'stockId',
-        'stockLabel',
-        'stockKind',
-        'stockLengthMm',
-        'cuts',
-        'kerfMm',
-        'remnantMm',
-        'remnantKind',
-      ],
-      'Board layout',
-      true,
-      'INVALID_PLAN',
-    );
+    assertFields(layout, LAYOUT_FIELDS, 'Board layout', true, 'INVALID_PLAN');
     const board = stock.get(layout.stockId);
     if (!board || usedStock.has(layout.stockId)) {
       throw new WorkshopError(
@@ -294,13 +317,7 @@ function validateSolution(
     let offsetMm = 0;
     let boardPartsMm = 0;
     for (const cut of layout.cuts) {
-      assertFields(
-        cut,
-        ['requirementId', 'label', 'instance', 'lengthMm', 'offsetMm'],
-        'Planned cut',
-        true,
-        'INVALID_PLAN',
-      );
+      assertFields(cut, CUT_FIELDS, 'Planned cut', true, 'INVALID_PLAN');
       const requirement = requirements.get(cut.requirementId);
       if (
         !requirement ||
@@ -388,13 +405,7 @@ function validateSolution(
   }
   const accounted = new Set<string>();
   for (const unfulfilled of solution.unfulfilled) {
-    assertFields(
-      unfulfilled,
-      ['requirementId', 'label', 'quantity', 'reason'],
-      'Unfulfilled requirement',
-      true,
-      'INVALID_PLAN',
-    );
+    assertFields(unfulfilled, UNFULFILLED_FIELDS, 'Unfulfilled requirement', true, 'INVALID_PLAN');
     const requirement = requirements.get(unfulfilled.requirementId);
     if (
       !requirement ||
@@ -413,13 +424,7 @@ function validateSolution(
     accounted.add(requirement.id);
   }
 
-  assertFields(
-    solution.metrics,
-    ['stockUsedMm', 'partsMm', 'kerfMm', 'reusableMm', 'scrapMm', 'boardCount', 'utilization'],
-    'Plan metrics',
-    true,
-    'INVALID_PLAN',
-  );
+  assertFields(solution.metrics, METRIC_FIELDS, 'Plan metrics', true, 'INVALID_PLAN');
   const metrics = solution.metrics;
   if (
     metrics.stockUsedMm !== stockUsedMm ||
@@ -531,6 +536,7 @@ export function createWorkshopStore(
 
   let snapshot: WorkshopSnapshot = freezeTree({
     workspace,
+    pendingMeasurements: false,
     plans: [],
     selectedPlanId: null,
     reviewPlanId: null,
@@ -649,6 +655,7 @@ export function createWorkshopStore(
     publish({
       ...snapshot,
       workspace: revised,
+      pendingMeasurements: reset ? false : snapshot.pendingMeasurements,
       plans: reset ? [] : snapshot.plans,
       selectedPlanId: reset ? null : snapshot.selectedPlanId,
       reviewPlanId: null,
@@ -706,6 +713,15 @@ export function createWorkshopStore(
     return plan;
   }
 
+  function assertNoPendingMeasurements(): void {
+    if (snapshot.pendingMeasurements) {
+      throw new WorkshopError(
+        'PENDING_MEASUREMENTS',
+        'Finish or cancel measurement edits before requesting review or approving a cut sheet.',
+      );
+    }
+  }
+
   const store: WorkshopStore = {
     getSnapshot: () => snapshot,
 
@@ -722,8 +738,16 @@ export function createWorkshopStore(
       };
     },
 
+    setPendingMeasurements(pending) {
+      if (typeof pending !== 'boolean') {
+        throw new WorkshopError('INVALID_INPUT', 'Pending measurements must be true or false.');
+      }
+      if (snapshot.pendingMeasurements === pending) return;
+      publish({ ...snapshot, pendingMeasurements: pending });
+    },
+
     updateProject(patch) {
-      assertFields(patch, ['title', 'material'], 'Project update');
+      assertFields(patch, PROJECT_FIELDS, 'Project update');
       changeWorkspace(
         { ...snapshot.workspace, ...patch },
         'Project updated',
@@ -732,7 +756,7 @@ export function createWorkshopStore(
     },
 
     addStock(input) {
-      assertFields(input, ['label', 'lengthMm', 'kind', 'locked'], 'New stock board', true);
+      assertFields(input, STOCK_INPUT_FIELDS, 'New stock board', true);
       const board = { ...input, id: newMeasurementId('stock') };
       changeWorkspace(
         { ...snapshot.workspace, stock: [...snapshot.workspace.stock, board] },
@@ -742,7 +766,7 @@ export function createWorkshopStore(
     },
 
     updateStock(id, patch) {
-      assertFields(patch, ['label', 'lengthMm', 'kind', 'locked'], 'Stock update');
+      assertFields(patch, STOCK_INPUT_FIELDS, 'Stock update');
       const current = snapshot.workspace;
       const index = current.stock.findIndex((board) => board.id === id);
       if (index < 0)
@@ -774,7 +798,7 @@ export function createWorkshopStore(
     },
 
     addRequirement(input) {
-      assertFields(input, ['label', 'lengthMm', 'quantity'], 'New cut requirement', true);
+      assertFields(input, REQUIREMENT_INPUT_FIELDS, 'New cut requirement', true);
       const part = { ...input, id: newMeasurementId('part') };
       changeWorkspace(
         { ...snapshot.workspace, requirements: [...snapshot.workspace.requirements, part] },
@@ -784,7 +808,7 @@ export function createWorkshopStore(
     },
 
     updateRequirement(id, patch) {
-      assertFields(patch, ['label', 'lengthMm', 'quantity'], 'Cut requirement update');
+      assertFields(patch, REQUIREMENT_INPUT_FIELDS, 'Requirement update');
       const current = snapshot.workspace;
       const index = current.requirements.findIndex((part) => part.id === id);
       if (index < 0)
@@ -849,7 +873,7 @@ export function createWorkshopStore(
     },
 
     proposePlan(input, actor = 'human') {
-      assertFields(input, ['expectedRevision', 'objective', 'excludedStockIds'], 'Plan request');
+      assertFields(input, PLAN_REQUEST_FIELDS, 'Plan request');
       assertActor(actor);
       assertRevision(input.expectedRevision);
       if (input.excludedStockIds !== undefined && !Array.isArray(input.excludedStockIds)) {
@@ -859,8 +883,66 @@ export function createWorkshopStore(
         );
       }
       const current = snapshot.workspace;
-      const exclusions = input.excludedStockIds === undefined ? [] : [...input.excludedStockIds];
-      const solution = solveCutPlan(current, input.objective, exclusions);
+      validateWorkspace(current);
+      if (
+        typeof input.objective !== 'string' ||
+        !Object.prototype.hasOwnProperty.call(OBJECTIVES, input.objective)
+      ) {
+        throw new WorkshopError(
+          'INVALID_OBJECTIVE',
+          'Choose least_stock, fewest_boards or least_waste.',
+        );
+      }
+      const additionalExclusions = new Set<string>();
+      if (input.excludedStockIds !== undefined) {
+        if (input.excludedStockIds.length > LIMITS.stockBoards) {
+          throw new WorkshopError(
+            'INVALID_EXCLUSIONS',
+            `Exclude at most ${LIMITS.stockBoards} stock boards.`,
+          );
+        }
+        for (const id of input.excludedStockIds) {
+          if (typeof id !== 'string') {
+            throw new WorkshopError(
+              'INVALID_EXCLUSIONS',
+              'Every excluded stock ID must be a string.',
+            );
+          }
+          if (!current.stock.some((board) => board.id === id)) {
+            throw new WorkshopError(
+              'UNKNOWN_STOCK',
+              `Excluded stock ID "${id}" is not in this workspace.`,
+              { stockId: id },
+            );
+          }
+          if (additionalExclusions.has(id)) {
+            throw new WorkshopError(
+              'INVALID_EXCLUSIONS',
+              'Additional stock exclusions must name distinct existing stock boards.',
+            );
+          }
+          additionalExclusions.add(id);
+        }
+      }
+      if (current.requirements.length === 0) {
+        throw new WorkshopError(
+          'NO_REQUIREMENTS',
+          'Add at least one required part before finding a cutting plan.',
+        );
+      }
+      // Use the solver's workspace-order canonical ADDITIONAL set, including protected IDs.
+      const exclusions: string[] = [];
+      for (const board of current.stock) {
+        if (additionalExclusions.has(board.id)) exclusions.push(board.id);
+      }
+      const reused = snapshot.plans.find(
+        (candidate) =>
+          candidate.basedOnRevision === current.revision &&
+          candidate.solution.objective === input.objective &&
+          candidate.solution.excludedStockIds.length === exclusions.length &&
+          candidate.solution.excludedStockIds.every((id, index) => id === exclusions[index]),
+      );
+      const solution = reused?.solution ?? solveCutPlan(current, input.objective, exclusions);
       assertRevision(current.revision);
       validateSolution(current, solution, input.objective, exclusions);
       const plan: PlanRecord = {
@@ -868,6 +950,7 @@ export function createWorkshopStore(
         basedOnRevision: current.revision,
         createdAt: new Date().toISOString(),
         actor,
+        reusedFromPlanId: reused?.id ?? null,
         solution,
       };
       const plans = [...snapshot.plans, plan];
@@ -889,7 +972,7 @@ export function createWorkshopStore(
           event(
             actor,
             'Plan proposed',
-            `${OBJECTIVES[solution.objective].label}: ${solution.complete ? 'all requested parts fit' : 'some requested parts remain unfulfilled'}. Plan ${plan.id}, revision ${current.revision}.`,
+            `${OBJECTIVES[solution.objective].label}: ${solution.complete ? 'all requested parts fit' : 'some requested parts remain unfulfilled'}. Plan ${plan.id}, revision ${current.revision}.${reused ? ` Reused the checked solution from plan ${reused.id}; search statistics describe its original computation, with no new solver search.` : ''}`,
           ),
         ),
       });
@@ -917,6 +1000,7 @@ export function createWorkshopStore(
       assertActor(actor);
       assertRevision(expectedRevision);
       const plan = freshCompletePlan(id);
+      assertNoPendingMeasurements();
       if (snapshot.reviewPlanId === id && snapshot.selectedPlanId === id) return plan;
       publish({
         ...snapshot,
@@ -943,6 +1027,7 @@ export function createWorkshopStore(
           { planId: id, reviewPlanId: snapshot.reviewPlanId },
         );
       }
+      assertNoPendingMeasurements();
       publish({
         ...snapshot,
         approvedPlanId: id,
@@ -996,14 +1081,9 @@ export function createWorkshopStore(
     },
 
     setBridge(state: BridgeState) {
-      assertFields(
-        state,
-        ['state', 'provider', 'registeredTools', 'message'],
-        'Browser bridge',
-        true,
-      );
+      assertFields(state, BRIDGE_FIELDS, 'Browser bridge', true);
       if (
-        !['checking', 'ready', 'unsupported', 'error'].includes(state.state) ||
+        !BRIDGE_STATES.includes(state.state) ||
         (state.provider !== null &&
           state.provider !== 'document' &&
           state.provider !== 'navigator') ||

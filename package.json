@@ -1,6 +1,6 @@
 {
   "name": "offcut-webmcp",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "private": true,
   "description": "A shared human-agent cutting-stock workbench. Make useful things from the material you already have.",
   "license": "MIT",

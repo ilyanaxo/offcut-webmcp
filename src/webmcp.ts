@@ -12,20 +12,25 @@ export interface OffcutTool {
   title: string;
   description: string;
   inputSchema: Record<string, unknown>;
-  annotations: { readOnlyHint: boolean };
+  // Advisory only: read tools still audit; returned workshop text/IDs are untrusted data.
+  annotations: { readOnlyHint: boolean; untrustedContentHint: boolean };
   execute(input: unknown, options?: NativeExecutionOptions): unknown;
 }
 
+// Producer schemas are objects. Tested 149/152 clients discover a real RegisteredTool
+// and call executeTool(record, JSON.stringify(input)); discovered schemas and these
+// structured callback results are JSON strings on that client surface.
 interface NativeModelContext {
-  registerTool(tool: OffcutTool, options?: { signal?: AbortSignal }): Promise<void>;
+  // Pinned 149 registration can return synchronously; 152 returns a promise.
+  registerTool(tool: OffcutTool, options?: { signal?: AbortSignal }): void | Promise<void>;
 }
 
 const PHYSICAL_MODEL = [
-  'Integer millimetres; all stock has the same material and cross-section.',
-  'Entered stock lengths are usable lengths, after the human has deducted end trim and defects.',
-  'Each produced part consumes one kerf. No free final factory-end cut is assumed.',
-  'Sawdust and short scrap are waste; reusable remnants and unopened stock are not.',
-  'A plan is a planning estimate, not a machine instruction or a safe-cutting guarantee.',
+  'Integer mm; one material/cross-section. Stock is usable, after human-deducted end trim/defects.',
+  'Per board: sum(parts)+n*kerf+remnant=usable stock; one kerf/part, INCLUDING final (no free factory-end cut).',
+  'Positive remnant >= minReusableMm: reusable; shorter: scrap; zero: neither.',
+  'Waste=kerf+short scrap, not reusable remnants or unopened stock.',
+  'Estimate only; not machine instructions or a safe-cutting guarantee.',
 ];
 
 function objectInput(input: unknown, allowedKeys: readonly string[]): Record<string, unknown> {
@@ -67,10 +72,11 @@ function describePlan(snapshot: WorkshopSnapshot, plan: PlanRecord) {
   return {
     ...plan,
     currentRevision: snapshot.workspace.revision,
+    pendingMeasurements: snapshot.pendingMeasurements,
     fresh,
     approved: fresh && snapshot.approvedPlanId === plan.id,
     awaitingHumanApproval: fresh && snapshot.reviewPlanId === plan.id,
-    canRequestReview: fresh && plan.solution.complete,
+    canRequestReview: fresh && plan.solution.complete && !snapshot.pendingMeasurements,
     wasteMm: plan.solution.metrics.kerfMm + plan.solution.metrics.scrapMm,
   };
 }
@@ -97,9 +103,9 @@ export function createToolDefinitions(
       name: 'get_workshop',
       title: 'Inspect the shared workshop',
       description:
-        'Read the human-recorded stock, protected boards, complete cut requirements, physical settings, revision and existing proposals. Read this before planning. All lengths are integer mm. The human owns measurements and approval; this tool cannot change them.',
+        'Read committed human stock/protection, ALL part requirements, settings, revision, pending drafts and proposals BEFORE planning. Integer mm. Measurements and approval are human-owned; this tool changes neither.',
       inputSchema: { type: 'object', properties: {}, additionalProperties: false },
-      annotations: { readOnlyHint: true },
+      annotations: { readOnlyHint: true, untrustedContentHint: true },
       run(input) {
         objectInput(input, []);
         const snapshot = store.getSnapshot();
@@ -112,6 +118,7 @@ export function createToolDefinitions(
         return {
           ok: true,
           workspace,
+          pendingMeasurements: snapshot.pendingMeasurements,
           units: 'mm',
           totalRequiredParts: workspace.requirements.reduce(
             (total, item) => total + item.quantity,
@@ -132,6 +139,7 @@ export function createToolDefinitions(
             id: plan.id,
             objective: plan.solution.objective,
             basedOnRevision: plan.basedOnRevision,
+            reusedFromPlanId: plan.reusedFromPlanId,
             fresh: plan.basedOnRevision === workspace.revision,
             complete: plan.solution.complete,
             approved:
@@ -141,7 +149,7 @@ export function createToolDefinitions(
           })),
           physicalModel: PHYSICAL_MODEL,
           workflow:
-            'plan_cuts -> inspect_plan/compare_plans -> stage_plan_for_review -> HUMAN approval in the site -> export_cut_list. No tool can approve, unlock stock or consume physical material.',
+            'plan_cuts -> inspect_plan/compare_plans -> stage_plan_for_review -> HUMAN site approval -> export_cut_list. Finish/cancel pending drafts before staging/approval (PENDING_MEASUREMENTS); tools plan/export committed values. No tool approves, unlocks stock or consumes material. reusedFromPlanId: earlier search nodes/proof, never inherited approval.',
           limits: {
             stockBoards: LIMITS.stockBoards,
             requirements: LIMITS.requirements,
@@ -154,7 +162,7 @@ export function createToolDefinitions(
       name: 'plan_cuts',
       title: 'Propose a checked cutting plan',
       description:
-        'Compute and display a proposal for ALL current human-recorded parts. Always respects protected stock, kerf and reusable-remnant settings. Choose least_stock (least stock length opened), fewest_boards (least boards handled), or least_waste (least sawdust plus short scrap). Additional excludedStockIds can only protect MORE boards, never unlock them. Check complete and search.provenOptimal: a bounded search is not a global-optimum guarantee. Creates a proposal, never human approval or stock consumption.',
+        'Propose ALL committed parts; honor protection, kerf and remnant rules. Lexicographic goals: least_stock(opened mm,waste,boards), fewest_boards(boards,opened mm,waste), least_waste(waste,opened mm,boards); waste=kerf+short scrap. excludedStockIds only protects MORE stock. Check complete/search.provenOptimal: a budget stop proves neither optimum nor infeasibility. reusedFromPlanId marks reused search nodes/proof, not new search. New IDs are unapproved; no stock is consumed.',
       inputSchema: {
         type: 'object',
         properties: {
@@ -172,7 +180,7 @@ export function createToolDefinitions(
         required: ['expectedRevision', 'objective'],
         additionalProperties: false,
       },
-      annotations: { readOnlyHint: false },
+      annotations: { readOnlyHint: false, untrustedContentHint: true },
       run(input) {
         const args = objectInput(input, ['expectedRevision', 'objective', 'excludedStockIds']);
         const expectedRevision = revisionInput(args.expectedRevision);
@@ -208,12 +216,15 @@ export function createToolDefinitions(
           { expectedRevision, objective: args.objective as Objective, excludedStockIds },
           'webmcp',
         );
+        const snapshot = store.getSnapshot();
         return {
           ok: true,
-          plan: describePlan(store.getSnapshot(), plan),
-          nextStep: plan.solution.complete
-            ? 'Compare or stage this proposal for human review. It is not approved.'
-            : 'No complete plan was found. Read the unfulfilled quantities; the human may need to correct or add stock.',
+          plan: describePlan(snapshot, plan),
+          nextStep: !plan.solution.complete
+            ? 'No complete plan was found. Inspect unfulfilled quantities; a budget stop is not proof of infeasibility. The human may need to correct or add stock.'
+            : snapshot.pendingMeasurements
+              ? 'Inspect/compare this committed proposal. Finish or cancel measurement drafts before requesting review (PENDING_MEASUREMENTS). This new plan ID is unapproved.'
+              : 'Compare or stage this unapproved proposal for human review.',
         };
       },
     },
@@ -221,14 +232,14 @@ export function createToolDefinitions(
       name: 'inspect_plan',
       title: 'Inspect a proposal and its material balance',
       description:
-        'Read the exact cutting layout, required-part instances, offsets, per-board kerf, reusable remnants, scrap, search proof and freshness of a specific plan. A stale or incomplete plan must not be staged or exported. Does not approve or change a plan.',
+        'Read exact layouts/instances/offsets, board kerf/reusable remnants/scrap, proof/freshness. reusedFromPlanId marks reused nodes/proof, not rerun search. Stale/partial plans cannot stage/export; pending drafts block review. No changes/approval.',
       inputSchema: {
         type: 'object',
         properties: { planId: planIdSchema },
         required: ['planId'],
         additionalProperties: false,
       },
-      annotations: { readOnlyHint: true },
+      annotations: { readOnlyHint: true, untrustedContentHint: true },
       run(input) {
         const args = objectInput(input, ['planId']);
         const planId = planIdInput(args.planId);
@@ -251,7 +262,7 @@ export function createToolDefinitions(
       name: 'compare_plans',
       title: 'Compare real planning tradeoffs',
       description:
-        'Compare two or three complete, fresh plans for the SAME current job. Returns actual material balance and deltas from the first plan, not invented savings or carbon estimates. Negative stock/waste/board deltas mean less used than the first plan. Protected boards and human physical constraints remain unchanged.',
+        'Compare 2-3 distinct COMPLETE FRESH plans for the SAME current job: real balances/deltas from first; negative stock/waste/board deltas mean less, not invented savings/carbon. protectedStockIds + each row’s additional excludedStockIds define constraints; sameConstraints/sameConstraintsAsFirst compare EFFECTIVE unions. Different-constraint what-ifs are allowed; human physics/protection stays fixed.',
       inputSchema: {
         type: 'object',
         properties: {
@@ -266,7 +277,7 @@ export function createToolDefinitions(
         required: ['planIds'],
         additionalProperties: false,
       },
-      annotations: { readOnlyHint: true },
+      annotations: { readOnlyHint: true, untrustedContentHint: true },
       run(input) {
         const args = objectInput(input, ['planIds']);
         if (!Array.isArray(args.planIds) || args.planIds.length < 2 || args.planIds.length > 3) {
@@ -294,33 +305,57 @@ export function createToolDefinitions(
             );
           return plan;
         });
+        const protectedStockIds = snapshot.workspace.stock
+          .filter((board) => board.locked)
+          .map((board) => board.id);
+        const protectedIds = new Set(protectedStockIds);
+        // Human protection is fixed for these fresh plans. Only additional IDs
+        // outside that set can change the effective protected+additional union.
+        const firstAdditionalIds = new Set<string>();
+        for (const id of plans[0].solution.excludedStockIds) {
+          if (!protectedIds.has(id)) firstAdditionalIds.add(id);
+        }
         const first = plans[0].solution.metrics;
         store.recordActivity(
           'webmcp',
           'compare_plans',
           `Compared ${plans.length} complete alternatives for revision ${snapshot.workspace.revision}.`,
         );
+        const rows = plans.map((plan) => {
+          const metrics = plan.solution.metrics;
+          let additionalCount = 0;
+          let sameConstraintsAsFirst = true;
+          for (const id of plan.solution.excludedStockIds) {
+            if (protectedIds.has(id)) continue;
+            additionalCount++;
+            if (!firstAdditionalIds.has(id)) sameConstraintsAsFirst = false;
+          }
+          sameConstraintsAsFirst &&= additionalCount === firstAdditionalIds.size;
+          return {
+            id: plan.id,
+            objective: plan.solution.objective,
+            reusedFromPlanId: plan.reusedFromPlanId,
+            excludedStockIds: plan.solution.excludedStockIds,
+            sameConstraintsAsFirst,
+            metrics,
+            wasteMm: metrics.kerfMm + metrics.scrapMm,
+            provenOptimal: plan.solution.search.provenOptimal,
+            deltaFromFirst: {
+              stockUsedMm: metrics.stockUsedMm - first.stockUsedMm,
+              boardCount: metrics.boardCount - first.boardCount,
+              wasteMm: metrics.kerfMm + metrics.scrapMm - first.kerfMm - first.scrapMm,
+              reusableMm: metrics.reusableMm - first.reusableMm,
+              utilizationPercentagePoints: (metrics.utilization - first.utilization) * 100,
+            },
+          };
+        });
         return {
           ok: true,
           revision: snapshot.workspace.revision,
           baselinePlanId: plans[0].id,
-          plans: plans.map((plan) => {
-            const metrics = plan.solution.metrics;
-            return {
-              id: plan.id,
-              objective: plan.solution.objective,
-              metrics,
-              wasteMm: metrics.kerfMm + metrics.scrapMm,
-              provenOptimal: plan.solution.search.provenOptimal,
-              deltaFromFirst: {
-                stockUsedMm: metrics.stockUsedMm - first.stockUsedMm,
-                boardCount: metrics.boardCount - first.boardCount,
-                wasteMm: metrics.kerfMm + metrics.scrapMm - first.kerfMm - first.scrapMm,
-                reusableMm: metrics.reusableMm - first.reusableMm,
-                utilizationPercentagePoints: (metrics.utilization - first.utilization) * 100,
-              },
-            };
-          }),
+          protectedStockIds,
+          sameConstraints: rows.every((row) => row.sameConstraintsAsFirst),
+          plans: rows,
         };
       },
     },
@@ -328,14 +363,14 @@ export function createToolDefinitions(
       name: 'stage_plan_for_review',
       title: 'Ask the human to review this exact plan',
       description:
-        'Display a COMPLETE FRESH proposal in the human review dialog, bound to expectedRevision. Returns awaiting_human_approval immediately. This does NOT approve a cut sheet. The human must use the site approval button; no tool can bypass that decision. A human measurement change invalidates the review.',
+        'Stage the exact COMPLETE FRESH plan at expectedRevision. Drafts reject with PENDING_MEASUREMENTS: finish/cancel them first. Returns awaiting_human_approval immediately, NOT approval. Human approval requires the site button; no tool can approve. Committed measurement changes invalidate review.',
       inputSchema: {
         type: 'object',
         properties: { planId: planIdSchema, expectedRevision: revisionSchema },
         required: ['planId', 'expectedRevision'],
         additionalProperties: false,
       },
-      annotations: { readOnlyHint: false },
+      annotations: { readOnlyHint: false, untrustedContentHint: true },
       run(input) {
         const args = objectInput(input, ['planId', 'expectedRevision']);
         const plan = store.stagePlan(
@@ -348,7 +383,7 @@ export function createToolDefinitions(
           status: 'awaiting_human_approval',
           plan: describePlan(store.getSnapshot(), plan),
           nextStep:
-            'Wait for the human to review and approve in the site. No tool can approve. After approval, inspect_plan or export_cut_list can confirm the released cut sheet.',
+            'Wait for HUMAN site review/approval; no tool can approve. Finish/cancel any new measurement drafts before approval. After approval, inspect_plan/export_cut_list confirms this exact released plan ID.',
         };
       },
     },
@@ -356,14 +391,14 @@ export function createToolDefinitions(
       name: 'export_cut_list',
       title: 'Export the human-approved cut sheet',
       description:
-        'Return CSV text for an exact complete FRESH plan that the human has approved in the site. Rejects unapproved/stale/partial plans. CSV has real per-part lengths, offsets, kerf and final remnants; human-entered text is formula-safe. Produces a planning document, never performs cuts or changes physical inventory.',
+        'Return CSV for the exact human-approved COMPLETE FRESH committed ID; reject unapproved/stale/partial plans. Include ALL part IDs/lengths/offsets, kerf and final remnants; quote/formula-escape human text. Pending drafts still allow this committed export. Planning document only: no cuts/inventory changes.',
       inputSchema: {
         type: 'object',
         properties: { planId: planIdSchema },
         required: ['planId'],
         additionalProperties: false,
       },
-      annotations: { readOnlyHint: true },
+      annotations: { readOnlyHint: true, untrustedContentHint: true },
       run(input) {
         const args = objectInput(input, ['planId']);
         const planId = planIdInput(args.planId);
@@ -416,8 +451,8 @@ export function createToolDefinitions(
 
 export function initializeWebMCP(store: WorkshopStore): { ready: Promise<void>; dispose(): void } {
   const controller = new AbortController();
-  // These are two real native surfaces, not a polyfill: Chrome 149 uses navigator,
-  // 150–151 expose both, and 152+ / ChatGPT expose document.modelContext.
+  // Real native surfaces, not a polyfill: Chrome 149 uses navigator,
+  // 150–151 expose both, and tested 152 uses document.modelContext.
   const documentAPI = (document as Document & { modelContext?: NativeModelContext }).modelContext;
   const navigatorAPI = (navigator as Navigator & { modelContext?: NativeModelContext })
     .modelContext;
@@ -443,7 +478,7 @@ export function initializeWebMCP(store: WorkshopStore): { ready: Promise<void>; 
         provider: null,
         registeredTools: 0,
         message:
-          'Manual planning works here. For your browser agent, use ChatGPT’s in-app browser or enable WebMCP in Chrome 149+ and restart.',
+          'Manual planning works here. Native tools need a supported WebMCP browser-agent host; see the setup guide for supported hosts/models, permissions and WebMCP-enabled Chrome.',
       });
       return;
     }

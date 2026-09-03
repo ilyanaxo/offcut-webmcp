@@ -13,6 +13,8 @@ import CuttingPlan, {
   PlanComparison,
   PlanReference,
   PrintableCutSheet,
+  formatPlanDateTime,
+  formatNumber,
 } from './components/CuttingPlan';
 import Dialog from './components/Dialog';
 import Icon from './components/Icon';
@@ -35,6 +37,12 @@ const TOOL_NAMES = [
   'stage_plan_for_review',
   'export_cut_list',
 ] as const;
+
+const activityTimeFormatter = new Intl.DateTimeFormat('en-US', {
+  hour: '2-digit',
+  minute: '2-digit',
+  second: '2-digit',
+});
 
 function BenchIllustration() {
   return (
@@ -72,7 +80,7 @@ function BenchIllustration() {
 
 export default function App({ store }: { store: WorkshopStore }) {
   const snapshot = useSyncExternalStore(store.subscribe, store.getSnapshot);
-  const { workspace } = snapshot;
+  const { workspace, pendingMeasurements } = snapshot;
   const [objective, setObjective] = useState<Objective>('least_stock');
   const [solving, setSolving] = useState(false);
   const solvingTimer = useRef<number | null>(null);
@@ -81,11 +89,10 @@ export default function App({ store }: { store: WorkshopStore }) {
   const [error, setError] = useState<string | null>(null);
   const [feedback, setFeedback] = useState<string | null>(null);
   const [confirmation, setConfirmation] = useState<'sample' | 'clear' | null>(null);
+  const confirmationInvoker = useRef<HTMLElement | null>(null);
   const [confirmationError, setConfirmationError] = useState<string | null>(null);
   const [reviewError, setReviewError] = useState<string | null>(null);
   const [acknowledgedReview, setAcknowledgedReview] = useState<string | null>(null);
-  const [measurementEditing, setMeasurementEditing] = useState(false);
-  const measurementEditingRef = useRef(false);
   const [editorEpoch, setEditorEpoch] = useState(0);
   const promptRef = useRef<HTMLTextAreaElement>(null);
   const [copyFeedback, setCopyFeedback] = useState<string | null>(null);
@@ -102,15 +109,23 @@ export default function App({ store }: { store: WorkshopStore }) {
       ? approvedRecord
       : null;
   const reviewKey = stagedPlan ? `${stagedPlan.id}@${stagedPlan.basedOnRevision}` : null;
+  const reviewRevokesApproval = Boolean(stagedPlan && approvedPlan?.id === stagedPlan.id);
   const reviewEligible = Boolean(
     stagedPlan?.solution.complete &&
     stagedPlan.basedOnRevision === workspace.revision &&
     snapshot.reviewPlanId === stagedPlan.id &&
-    !measurementEditing &&
+    !pendingMeasurements &&
     !solving,
   );
   const requestedParts = workspace.requirements.reduce((total, part) => total + part.quantity, 0);
-  const protectedStock = workspace.stock.filter((board) => board.locked);
+  const protectedStock = useMemo(
+    () => workspace.stock.filter((board) => board.locked),
+    [workspace.stock],
+  );
+  const protectedStockIds = useMemo(
+    () => protectedStock.map((board) => board.id),
+    [protectedStock],
+  );
   const availableStockCount = workspace.stock.length - protectedStock.length;
   const palette = useMemo(() => {
     const colors = new Map<string, number>();
@@ -123,15 +138,8 @@ export default function App({ store }: { store: WorkshopStore }) {
     }
     return colors;
   }, [workspace.requirements, snapshot.plans]);
-  const activity = useMemo(
-    () => [...snapshot.events].sort((left, right) => right.at.localeCompare(left.at)),
-    [snapshot.events],
-  );
+  const activity = useMemo(() => snapshot.events.toReversed(), [snapshot.events]);
 
-  const onDirtyChange = useCallback((dirty: boolean) => {
-    measurementEditingRef.current = dirty;
-    setMeasurementEditing(dirty);
-  }, []);
   const showError = useCallback((cause: unknown) => {
     setError(errorMessage(cause));
     setFeedback(null);
@@ -170,7 +178,7 @@ export default function App({ store }: { store: WorkshopStore }) {
       current.selectedPlanId !== planId ||
       current.reviewPlanId ||
       confirmation !== null ||
-      measurementEditingRef.current
+      current.pendingMeasurements
     )
       return;
     const plan = current.plans.find((candidate) => candidate.id === planId);
@@ -189,17 +197,21 @@ export default function App({ store }: { store: WorkshopStore }) {
     confirmation,
   ]);
 
-  function run(operation: () => void) {
-    setError(null);
-    try {
-      operation();
-    } catch (cause) {
-      showError(cause);
-    }
-  }
+  const run = useCallback(
+    (operation: () => void) => {
+      setError(null);
+      try {
+        operation();
+      } catch (cause) {
+        showError(cause);
+      }
+    },
+    [showError],
+  );
+  const selectPlan = useCallback((id: string) => run(() => store.selectPlan(id)), [run, store]);
 
   function requireSavedMeasurements() {
-    if (measurementEditingRef.current)
+    if (store.getSnapshot().pendingMeasurements)
       throw new Error(
         'Finish or cancel your measurement edits before planning, reviewing or releasing a cut sheet.',
       );
@@ -271,10 +283,15 @@ export default function App({ store }: { store: WorkshopStore }) {
   function rejectReview() {
     setReviewError(null);
     try {
+      const current = store.getSnapshot();
+      const revoking =
+        current.reviewPlanId !== null && current.reviewPlanId === current.approvedPlanId;
       store.rejectReview();
       setAcknowledgedReview(null);
       setFeedback(
-        'Proposal rejected without approval. Adjust measurements or choose another objective, then find a new plan.',
+        revoking
+          ? `Review closed and the existing approval for ${current.reviewPlanId} revoked. Review and approve a fresh complete plan before release.`
+          : 'Proposal rejected without approval. Adjust measurements or choose another objective, then find a new plan.',
       );
     } catch (cause) {
       setReviewError(errorMessage(cause));
@@ -287,7 +304,6 @@ export default function App({ store }: { store: WorkshopStore }) {
       if (confirmation === 'sample') store.resetSample();
       else if (confirmation === 'clear') store.clearWorkspace();
       else return;
-      onDirtyChange(false);
       setEditorEpoch((epoch) => epoch + 1);
       setFeedback(
         confirmation === 'sample'
@@ -484,7 +500,7 @@ export default function App({ store }: { store: WorkshopStore }) {
                   store={store}
                   disabled={solving}
                   onError={showError}
-                  onDirtyChange={onDirtyChange}
+                  onDirtyChange={store.setPendingMeasurements}
                 />
                 <div className="workspace-management">
                   <div>
@@ -492,7 +508,8 @@ export default function App({ store }: { store: WorkshopStore }) {
                       type="button"
                       className="text-button"
                       disabled={solving}
-                      onClick={() => {
+                      onClick={(event) => {
+                        confirmationInvoker.current = event.currentTarget;
                         setConfirmationError(null);
                         setConfirmation('sample');
                       }}
@@ -503,7 +520,8 @@ export default function App({ store }: { store: WorkshopStore }) {
                       type="button"
                       className="text-button text-button--danger"
                       disabled={solving}
-                      onClick={() => {
+                      onClick={(event) => {
+                        confirmationInvoker.current = event.currentTarget;
                         setConfirmationError(null);
                         setConfirmation('clear');
                       }}
@@ -555,9 +573,7 @@ export default function App({ store }: { store: WorkshopStore }) {
                   </p>
                   <div className="current-constraints">
                     <span>{workspace.settings.kerfMm} mm kerf / part</span>
-                    <span>
-                      Keep remnants ≥ {workspace.settings.minReusableMm.toLocaleString('en-US')} mm
-                    </span>
+                    <span>Keep remnants ≥ {formatNumber(workspace.settings.minReusableMm)} mm</span>
                   </div>
                   {protectedStock.length > 0 && (
                     <p className="planner-protection">
@@ -571,7 +587,7 @@ export default function App({ store }: { store: WorkshopStore }) {
                     type="button"
                     id="find-cutting-plan"
                     className="button button--primary button--full"
-                    disabled={solving || measurementEditing || workspace.requirements.length === 0}
+                    disabled={solving || pendingMeasurements || workspace.requirements.length === 0}
                     onClick={findPlan}
                   >
                     <span>{solving ? 'Finding a cutting plan…' : 'Find a cutting plan'}</span>
@@ -581,7 +597,7 @@ export default function App({ store }: { store: WorkshopStore }) {
                       <Icon name="arrow" />
                     )}
                   </button>
-                  {measurementEditing && (
+                  {pendingMeasurements && (
                     <p className="pending-note" role="status">
                       Save or cancel your field edits, and add or cancel any new row, before solving
                       or releasing a cut sheet.
@@ -608,10 +624,11 @@ export default function App({ store }: { store: WorkshopStore }) {
                 <PlanComparison
                   plans={snapshot.plans}
                   revision={workspace.revision}
+                  protectedStockIds={protectedStockIds}
                   selectedId={snapshot.selectedPlanId}
                   approvedId={snapshot.approvedPlanId}
                   reviewId={snapshot.reviewPlanId}
-                  onSelect={(id) => run(() => store.selectPlan(id))}
+                  onSelect={selectPlan}
                 />
 
                 {selectedPlan ? (
@@ -632,8 +649,15 @@ export default function App({ store }: { store: WorkshopStore }) {
                           {selectedPlan.basedOnRevision}
                         </span>
                         <time dateTime={selectedPlan.createdAt}>
-                          {new Date(selectedPlan.createdAt).toLocaleString('en-US')}
+                          {formatPlanDateTime(selectedPlan.createdAt)}
                         </time>
+                      </p>
+                      <p className="field-hint" role="status">
+                        {approvedPlan?.id === selectedPlan.id
+                          ? pendingMeasurements
+                            ? 'Approved saved plan; finish or cancel your edits before release.'
+                            : 'This exact saved plan is approved for this page session.'
+                          : 'This selected proposal is not approved.'}
                       </p>
                     </div>
                     <CuttingPlan plan={selectedPlan} workspace={workspace} palette={palette} />
@@ -643,7 +667,7 @@ export default function App({ store }: { store: WorkshopStore }) {
                         className="button button--full"
                         disabled={
                           solving ||
-                          measurementEditing ||
+                          pendingMeasurements ||
                           !selectedPlan.solution.complete ||
                           selectedPlan.basedOnRevision !== workspace.revision
                         }
@@ -657,7 +681,9 @@ export default function App({ store }: { store: WorkshopStore }) {
                           ? 'Find a fresh plan for the current revision before review.'
                           : !selectedPlan.solution.complete
                             ? 'A complete plan is required. Resolve the missing parts, then solve again.'
-                            : 'Review and approve here. Registered WebMCP tools cannot approve a proposal.'}
+                            : pendingMeasurements
+                              ? 'Finish or cancel your measurement edits before requesting review of the saved plan.'
+                              : 'Review and approve here. Registered WebMCP tools cannot approve a proposal.'}
                       </p>
                     </div>
                   </div>
@@ -714,18 +740,25 @@ export default function App({ store }: { store: WorkshopStore }) {
                           approved plan, not the selected draft.
                         </p>
                       )}
+                      {pendingMeasurements && (
+                        <p className="notice notice--warning" role="status">
+                          <strong>Release paused; the saved plan is still approved.</strong> Finish
+                          or cancel your edits before downloading or printing. Saving changed
+                          measurements requires a fresh plan and approval.
+                        </p>
+                      )}
                     </>
                   ) : (
                     <p>
                       Review a fresh, complete proposal and approve it yourself to unlock CSV and
-                      print. Editing any measurement invalidates its release.
+                      print. Saving changed measurements invalidates its release.
                     </p>
                   )}
                   <div className="release-buttons">
                     <button
                       type="button"
                       className="button button--small"
-                      disabled={!approvedPlan || measurementEditing || solving}
+                      disabled={!approvedPlan || pendingMeasurements || solving}
                       onClick={downloadApprovedCsv}
                     >
                       <Icon name="download" />
@@ -734,7 +767,7 @@ export default function App({ store }: { store: WorkshopStore }) {
                     <button
                       type="button"
                       className="button button--small button--secondary"
-                      disabled={!approvedPlan || measurementEditing || solving}
+                      disabled={!approvedPlan || pendingMeasurements || solving}
                       onClick={printApprovedPlan}
                     >
                       <Icon name="print" />
@@ -885,11 +918,7 @@ export default function App({ store }: { store: WorkshopStore }) {
                               {event.action.replaceAll('_', ' ')}
                             </span>
                             <time dateTime={event.at}>
-                              {new Date(event.at).toLocaleTimeString('en-US', {
-                                hour: '2-digit',
-                                minute: '2-digit',
-                                second: '2-digit',
-                              })}
+                              {activityTimeFormatter.format(new Date(event.at))}
                             </time>
                           </div>
                           <p>{event.detail}</p>
@@ -943,7 +972,7 @@ export default function App({ store }: { store: WorkshopStore }) {
         plan={approvedPlan}
         workspace={workspace}
         palette={palette}
-        unfinishedMeasurements={measurementEditing}
+        pendingMeasurements={pendingMeasurements}
       />
 
       <Dialog
@@ -952,6 +981,7 @@ export default function App({ store }: { store: WorkshopStore }) {
         onDismiss={() => setConfirmation(null)}
         labelledBy="confirmation-heading"
         describedBy="confirmation-description"
+        returnFocusTo={confirmationInvoker.current}
       >
         <div className="dialog-header">
           <p className="eyebrow">Replace measurements</p>
@@ -988,11 +1018,7 @@ export default function App({ store }: { store: WorkshopStore }) {
             type="button"
             className={`button${confirmation === 'clear' ? ' button--danger' : ''}`}
             data-testid="confirm-replace-measurements"
-            aria-label={
-              confirmation === 'sample'
-                ? 'Confirm load illustrative sample'
-                : 'Confirm clear measurements'
-            }
+            aria-label={confirmation === 'clear' ? 'Confirm clear measurements' : undefined}
             onClick={replaceWorkspace}
           >
             {confirmation === 'sample' ? 'Replace with sample' : 'Clear measurements'}
@@ -1002,6 +1028,7 @@ export default function App({ store }: { store: WorkshopStore }) {
 
       <Dialog
         open={stagedPlan !== null}
+        focusKey={stagedPlan?.id}
         onDismiss={rejectReview}
         labelledBy="review-heading"
         describedBy="review-description"
@@ -1016,7 +1043,11 @@ export default function App({ store }: { store: WorkshopStore }) {
           <button
             type="button"
             className="icon-button"
-            aria-label="Close review without approval"
+            aria-label={
+              reviewRevokesApproval
+                ? 'Close review and revoke existing approval'
+                : 'Close review without approval'
+            }
             onClick={rejectReview}
           >
             <Icon name="close" />
@@ -1032,7 +1063,12 @@ export default function App({ store }: { store: WorkshopStore }) {
               <div className="review-project">
                 <h3>{workspace.title}</h3>
                 <p>{workspace.material}</p>
-                <p className="proposal-attribution">
+                <p
+                  className="proposal-attribution"
+                  role="status"
+                  aria-live="polite"
+                  aria-atomic="true"
+                >
                   <PlanReference id={stagedPlan.id} />
                   <span>
                     {OBJECTIVES[stagedPlan.solution.objective].label} · proposed by{' '}
@@ -1041,7 +1077,7 @@ export default function App({ store }: { store: WorkshopStore }) {
                 </p>
                 <p className="review-constraints">
                   {workspace.settings.kerfMm} mm kerf per part · reusable positive remnants ≥{' '}
-                  {workspace.settings.minReusableMm.toLocaleString('en-US')} mm
+                  {formatNumber(workspace.settings.minReusableMm)} mm
                 </p>
                 <dl className="review-stock" aria-label="Stock identities for this review">
                   <div>
@@ -1051,7 +1087,7 @@ export default function App({ store }: { store: WorkshopStore }) {
                         <span
                           key={layout.stockId}
                           className="reference"
-                          title={`${layout.stockLabel} · ${layout.stockLengthMm.toLocaleString('en-US')} mm usable`}
+                          title={`${layout.stockLabel} · ${formatNumber(layout.stockLengthMm)} mm usable`}
                         >
                           {layout.stockId}
                         </span>
@@ -1071,7 +1107,7 @@ export default function App({ store }: { store: WorkshopStore }) {
                             <span
                               key={board.id}
                               className="reference"
-                              title={`${board.label} · ${board.lengthMm.toLocaleString('en-US')} mm usable`}
+                              title={`${board.label} · ${formatNumber(board.lengthMm)} mm usable`}
                             >
                               {board.id}
                             </span>
@@ -1081,7 +1117,7 @@ export default function App({ store }: { store: WorkshopStore }) {
                   </div>
                 </dl>
               </div>
-              {measurementEditing && (
+              {pendingMeasurements && (
                 <div className="notice notice--warning">
                   <strong>Unfinished measurement edits are not in this proposal.</strong>
                   <p>
@@ -1097,6 +1133,13 @@ export default function App({ store }: { store: WorkshopStore }) {
                     Approving this proposal will replace the current approval for{' '}
                     <PlanReference id={approvedPlan.id} />.
                   </span>
+                </p>
+              )}
+              {reviewRevokesApproval && (
+                <p className="notice notice--warning">
+                  This exact saved plan is already approved. Closing, rejecting or pressing Escape
+                  in this re-review revokes its existing approval. Approve the checked sheet again
+                  to keep it released.
                 </p>
               )}
             </div>
@@ -1122,7 +1165,7 @@ export default function App({ store }: { store: WorkshopStore }) {
               )}
               <div className="dialog-actions">
                 <button type="button" className="button button--secondary" onClick={rejectReview}>
-                  Reject proposal
+                  {reviewRevokesApproval ? 'Reject and revoke approval' : 'Reject proposal'}
                 </button>
                 <button
                   type="button"
@@ -1136,7 +1179,7 @@ export default function App({ store }: { store: WorkshopStore }) {
                 </button>
               </div>
               <p className="field-hint">
-                This review action approves only the staged proposal. Editing measurements or
+                This review action approves only the staged proposal. Saving changed measurements or
                 reloading the page invalidates approval.
               </p>
             </div>

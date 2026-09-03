@@ -105,6 +105,8 @@ export interface PlanRecord {
   basedOnRevision: number;
   createdAt: string;
   actor: Actor;
+  /** Source of the reused immutable solution and its original search statistics, if any. */
+  reusedFromPlanId: string | null;
   solution: PlanSolution;
 }
 
@@ -131,6 +133,8 @@ export interface BridgeState {
 
 export interface WorkshopSnapshot {
   workspace: Workspace;
+  /** Unfinished UI drafts; committed measurements and exact approvals are unchanged. */
+  pendingMeasurements: boolean;
   plans: PlanRecord[];
   selectedPlanId: string | null;
   reviewPlanId: string | null;
@@ -144,6 +148,7 @@ export interface WorkshopSnapshot {
 export interface WorkshopStore {
   getSnapshot(): WorkshopSnapshot;
   subscribe(listener: () => void): () => void;
+  setPendingMeasurements(pending: boolean): void;
   updateProject(patch: Partial<Pick<Workspace, 'title' | 'material'>>): void;
   addStock(input: Omit<StockBoard, 'id'>): void;
   updateStock(id: string, patch: Partial<Omit<StockBoard, 'id'>>): void;

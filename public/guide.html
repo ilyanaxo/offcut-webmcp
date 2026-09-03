@@ -12,6 +12,7 @@
       content="default-src 'self'; script-src 'none'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'none'"
     />
     <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+    <link rel="canonical" href="https://ilyanaxo.github.io/offcut-webmcp/guide.html" />
     <title>Offcut — Use, run & test the workbench</title>
     <style>
       :root {
@@ -129,7 +130,9 @@
   <body>
     <main>
       <nav aria-label="Guide navigation">
-        <strong>offcut. / workbench guide</strong><a href="./">Open the workbench</a>
+        <strong>offcut. / workbench guide</strong>
+        <a href="https://ilyanaxo.github.io/offcut-webmcp/">Open the workbench</a>
+        <a href="https://github.com/ilyanaxo/offcut-webmcp">Public MIT source</a>
       </nav>
       <h1>Measure your stock.<br />Let an agent arrange.<br />Keep the final call.</h1>
       <p>
@@ -158,12 +161,16 @@
         </li>
         <li>
           <strong>Commit edits.</strong> Press Enter or leave a field to save it. Escape cancels an
-          unfinished field edit. Invalid or unfinished fields/new rows block human solving and
-          release. Native tools read committed measurements, not uncommitted text in an editor.
+          unfinished field edit; complete or cancel new rows too. Pending fields or rows block human
+          solving, review, approval and release. Native planning still reads committed measurements,
+          not uncommitted editor text. See the pending-measurements policy below.
         </li>
         <li>
-          <strong>Protect stock.</strong> The protection button keeps that physical length untouched
-          under every objective. The agent cannot unlock it through a registered tool.
+          <strong>Protect stock.</strong> The button reads Available or Protected and keeps that
+          physical length untouched under every objective when protected. Its accessible name also
+          states the action, label and ID, for example “Available — protect stock Long board
+          (A-01)”. A pressed Protected button means protection is on. No registered tool can unlock
+          it.
         </li>
         <li>
           <strong>Find and compare proposals.</strong> Choose Use less stock, Handle fewer boards,
@@ -171,15 +178,17 @@
           yield is not always less discarded material.
         </li>
         <li>
-          <strong>Review an exact fresh complete proposal.</strong> Check its stock IDs, quantities,
-          offsets, kerf and restrictions. The acknowledgement and approval are a separate UI step.
-          No WebMCP tool is exposed for approval.
+          <strong>Review an exact fresh complete proposal.</strong> Check full plan, stock and part
+          IDs, quantities, offsets, kerf and restrictions. Expand the full-reference disclosure with
+          a keyboard or touch; the numerical cut tables, not tiny strip labels, are the cutting
+          reference. Acknowledgement and approval are separate UI actions. No WebMCP tool approves.
         </li>
         <li>
-          <strong>Release the approved cut sheet.</strong> Download CSV or print. Both use the
-          actual approved plan, even if a different draft is selected. Changes to committed
-          measurements invalidate approval; reloading the page restores measurements only, not plans
-          or approval.
+          <strong>Release the approved cut sheet.</strong> Download CSV or print only after edits
+          are finished or cancelled. The release panel identifies the saved approved plan separately
+          from the selected draft. Selecting or generating another proposal, including a reused
+          solution with a new ID, does not transfer approval. A real committed measurement change
+          invalidates approval; reloading restores measurements, not plans or approval.
         </li>
       </ol>
       <p>
@@ -188,18 +197,162 @@
         your actual remaining usable stock yourself for the next job.
       </p>
 
-      <h2>Use your real browser agent</h2>
+      <h3>Committed measurements are not unfinished editor text</h3>
       <p>
-        Open the workbench in ChatGPT's in-app browser, or a WebMCP-capable Chrome browser with a
-        real browser-agent host. Chrome's testing flag exposes the browser API; it does not itself
-        create or connect an agent.
+        <code>pendingMeasurements</code> is one shared UI/store/native flag: it is true while at
+        least one field or new row has an unfinished edit. It is ephemeral, is not saved with your
+        measurements and does not itself change the workspace revision, activity or saved approval.
+        Merely focusing an unchanged field is not an edit. Typing does not revoke approval on every
+        keystroke. Editors report their combined unfinished-field/row state through the store's
+        <code>setPendingMeasurements(boolean)</code>; no native measurement-mutating tool is added.
       </p>
       <p>
-        For Chrome 149 or later, enable <code>chrome://flags/#enable-webmcp-testing</code> and
-        restart, or launch an isolated test browser with <code>--enable-features=WebMCP</code>. The
-        app uses the real <code>document.modelContext</code> where available, with only the actual
-        native <code>navigator.modelContext</code> surface as the Chrome-149 compatibility path. It
-        installs no polyfill.
+        While the flag is true, an otherwise valid <code>stage_plan_for_review</code> request
+        returns <code>ok: false</code> with <code>error.code: "PENDING_MEASUREMENTS"</code> before
+        publishing review. It does not open a dialog, blur a field, save text or approve anything.
+        Approval is also held. Workshop and plan descriptions report the flag;
+        <code>canRequestReview</code> requires a fresh complete plan and no pending measurements.
+        Existing plan-ID and revision guards still apply.
+      </p>
+      <p>
+        Finish or cancel <em>all</em> edits, then read <code>get_workshop</code> again. If a saved
+        value actually changed, use the new revision to replan before requesting review; old plans
+        are stale. If the value did not change, the revision stays the same and a still-fresh plan
+        can be staged. For example, textual <code>03</code> remains a draft until saved or
+        cancelled, even when the committed kerf is already 3 mm. Cancelling one of two unfinished
+        fields does not clear the other field's hold.
+      </p>
+      <p class="note">
+        <strong>Intentional committed-export policy:</strong> human CSV/print controls pause during
+        pending edits. Native <code>export_cut_list</code> may still return the exact
+        already-approved, fresh, complete <em>committed</em> plan while editor drafts exist. It
+        reads the approved saved decision, not those drafts, and neither saves measurements nor
+        grants approval. An actual committed change invalidates that release for both paths.
+      </p>
+
+      <h3>Compare explicit constraints, not just objective names</h3>
+      <p>
+        Protected stock applies to every proposal. A plan's <code>excludedStockIds</code> are
+        <strong>additional exclusions</strong> for that proposal, not the total protected stock. “0
+        additional exclusions” can therefore coexist with a protected A-01. The effective
+        unavailable set is the union of protected and additional IDs, counted once per physical
+        stock ID.
+      </p>
+      <p>
+        Native comparison accepts two or three distinct fresh complete plans for the current job. It
+        returns <code>protectedStockIds</code> and <code>sameConstraints</code>, plus each row's
+        canonical additional <code>excludedStockIds</code> and <code>sameConstraintsAsFirst</code>.
+        These indicators compare effective sets: adding an already-protected ID does not change the
+        allowed stock. Different constraints remain useful for what-if comparisons, but then a
+        metric difference cannot be attributed to the objective alone. Open
+        <strong>Full comparison references &amp; restrictions</strong> for the raw IDs and canonical
+        sets. Indicators qualify fresh complete comparable plans; do not combine today's protection
+        with a stale historical proposal's basis.
+      </p>
+
+      <h3>Review identity and dialog decisions</h3>
+      <p>
+        Open <strong>Full plan, board &amp; part IDs</strong> for actual plan, used-board and
+        requirement IDs (and the reuse source where present), without hover-only tooltips or
+        renumbering aliases. Use Tab to reach the disclosure, Enter or Space to open it, or tap it.
+        Duplicate human labels do not make two physical boards or requirements interchangeable.
+        Timestamps follow the browser's local time zone; IDs and workspace revisions, not displayed
+        time labels, identify a decision.
+      </p>
+      <p>
+        A different plan staged into an open review resets acknowledgement and returns focus to the
+        review heading. Re-staging the same ID is not a new decision. Reject proposal, closing
+        review without approval or Escape rejects the staged plan. If you re-review the currently
+        approved ID and reject it, that approval is revoked; rejecting a different draft preserves
+        the other exact approved plan. If review interrupts a sample/clear confirmation, that
+        confirmation resumes after review closes. Dismissing it returns to the original sample/clear
+        control. These are native browser dialogs, not a custom strict Tab-wrap trap.
+      </p>
+
+      <h3>Released CSV identity and columns</h3>
+      <p>
+        The filename is <code>offcut-${slug}-r${revision}-${plan.id}.csv</code>: the project slug,
+        committed revision and <em>full actual internally generated plan ID</em>. Different approved
+        plans at the same revision therefore have distinct filenames. It is not a shortened
+        reference or a new approval alias. The CSV has one row per produced part, with all rows
+        retained up to the 40-part batch limit.
+      </p>
+      <p>
+        There are 17 columns in this order (line breaks below are only for readability). The new
+        ninth column, <strong>Part ID</strong> at zero-based index 8, contains the requirement ID
+        <code>cut.requirementId</code>, before the human-readable Part label. This distinguishes
+        duplicate part labels; Part instance distinguishes repeated pieces of that requirement.
+      </p>
+      <pre><code>Project | Material (same cross-section) | Plan ID | Workspace revision
+Board ID | Board label | Usable stock length (mm) | Cut order
+Part ID | Part | Part instance | Part length (mm)
+Start from usable edge (mm) | End before kerf (mm) | Kerf after this part (mm)
+Final remnant (mm) | Remnant class</code></pre>
+      <p>
+        Cells remain quoted, with formula-like text escaped. This is not a universal guarantee for
+        every spreadsheet import/save mode. Offsets and remnants describe the same approved geometry
+        as the print sheet. Print invokes the browser's print flow; Save as PDF is a browser option,
+        not an additional Offcut tool or a physical cutting transaction.
+      </p>
+
+      <h2>Use your real browser agent</h2>
+      <p>
+        The challenge permits ChatGPT's built-in browser or Google Chrome with WebMCP enabled.
+        Offcut itself does not supply an agent; host accounts, model availability and permissions
+        are separate from this website's no-login, no-key access.
+      </p>
+      <h3>ChatGPT Site tools — official setup as of September 3, 2026</h3>
+      <p>
+        These are dated host prerequisites from
+        <a href="https://learn.chatgpt.com/docs/webmcp">OpenAI's authoritative Site tools guide</a>,
+        not a claim that a ChatGPT desktop session was recorded or verified for this candidate.
+      </p>
+      <ol>
+        <li>
+          Update to the <strong>latest ChatGPT desktop app</strong> and use its built-in browser
+          with ChatGPT Work or Codex. Select <strong>GPT-5.6 Sol or GPT-5.6 Terra</strong>;
+          <strong>GPT-5.6 Luna currently has WebMCP disabled</strong>.
+        </li>
+        <li>
+          Use a workspace other than Enterprise or Edu: Site tools are not available in those
+          workspaces. Availability also depends on rollout and the current page. Updating the app
+          alone does not guarantee access.
+        </li>
+        <li>
+          In <strong>Settings &gt; Browser &gt; Permissions</strong>, ensure
+          <strong>Enable site tools</strong> is on. Normal website-access and confirmation policies
+          still apply; review consequential actions and keep final approval outside agent UI control
+          if that decision is to remain yours.
+        </li>
+        <li>
+          Open <a href="https://ilyanaxo.github.io/offcut-webmcp/">the live workbench</a> directly
+          in the top-level browser page. Select <strong>Site tools</strong> in the address bar, then
+          <strong>Available site tools</strong> to inspect Offcut's six tools. Where available,
+          <strong>Recently used</strong> opens <strong>Sources</strong> for recent calls. Ordinary
+          browser/UI fallback actions are not native WebMCP calls.
+        </li>
+      </ol>
+      <p>
+        ChatGPT currently supports top-level JavaScript-registered tools, not declarative form tools
+        or tools in any iframe, including same-origin frames. Offcut uses that top-level imperative
+        path. The built-in browser has a separate profile from your normal browser: establish the
+        sample or your measurements inside this host and keep the same document open through review
+        and export. Closing or navigating away removes that page session's tools, plans and
+        approval. If tools are absent, check model, workspace, rollout, permission and page context
+        against the official guide before interpreting the absence as an Offcut registration
+        failure.
+      </p>
+      <h3>Supported Chrome alternative</h3>
+      <p>
+        In Chrome 149 or later, enable <code>chrome://flags/#enable-webmcp-testing</code> and
+        restart, as described by
+        <a href="https://developer.chrome.com/docs/ai/webmcp">Chrome's developer guide</a> and the
+        <a href="https://webmcp.devpost.com/rules">challenge rules</a>. An isolated test-browser
+        launch can use <code>--enable-features=WebMCP</code>. The flag exposes the native API; a
+        configured real browser-agent host must still discover and invoke the tools. Offcut prefers
+        real <code>document.modelContext</code>, with only the actual native
+        <code>navigator.modelContext</code> Chrome-149 compatibility path. It installs no polyfill.
+        Without native support, the complete manual workflow remains available.
       </p>
       <p>
         Wait for the site's real registration status. “Native WebMCP ready” means registration
@@ -223,38 +376,44 @@ plan for my review. Do not approve it.</code></pre>
             <tr>
               <td><code>get_workshop</code></td>
               <td>
-                Read current committed measurements, revision, protection, requirements and proposal
-                summaries.
+                Read committed measurements, revision, protection, requirements, proposal summaries
+                and the shared <code>pendingMeasurements</code> flag.
               </td>
             </tr>
             <tr>
               <td><code>plan_cuts</code></td>
               <td>
-                Generate a checked objective/exclusion proposal for the entire recorded job, bound
-                to the current revision.
+                Make a new checked objective/additional-exclusion proposal ID for the entire
+                committed job at the expected revision; disclose any retained-solution reuse.
               </td>
             </tr>
             <tr>
               <td><code>inspect_plan</code></td>
               <td>
-                Read exact layouts, quantities, material balance, freshness and approval status.
+                Read exact layouts, quantities, balance, freshness, exact approval, pending edits,
+                review eligibility and original-search/reuse provenance.
               </td>
             </tr>
             <tr>
               <td><code>compare_plans</code></td>
-              <td>Compare two or three complete fresh plans and actual metric deltas.</td>
+              <td>
+                Compare two or three fresh complete plans, actual metric deltas and effective
+                same/different constraints, with protection and additional sets disclosed.
+              </td>
             </tr>
             <tr>
               <td><code>stage_plan_for_review</code></td>
               <td>
-                Open review for a complete fresh exact plan; return awaiting-human-approval, not
-                approval.
+                Open exact fresh complete review only after edits are finished/cancelled; return
+                <code>awaiting_human_approval</code>, not approval. Pending drafts reject with
+                <code>PENDING_MEASUREMENTS</code> before review publication.
               </td>
             </tr>
             <tr>
               <td><code>export_cut_list</code></td>
               <td>
-                Return CSV text only for a complete fresh plan released through the approval UI.
+                Return CSV text only for the exact already-approved fresh complete committed plan,
+                under the committed-export policy above; do not approve or save editor text.
               </td>
             </tr>
           </tbody>
@@ -265,6 +424,12 @@ plan for my review. Do not approve it.</code></pre>
         This is not authentication of a physical human. Trusted same-origin scripts, developer
         tools, or an agent granted browser/UI-control permissions can still operate the page. Retain
         the final approval decision in your agent's permissions and workflow.
+      </p>
+      <p>
+        Website tool definitions and results are untrusted content. <code>readOnlyHint</code> and
+        <code>untrustedContentHint</code> are advisory annotations, not authorization or a security
+        guarantee; even read/export tools can append session activity. ChatGPT's documented safety
+        review and page-bound request checks reduce risk, not make a site or its output trustworthy.
       </p>
 
       <h2>Physical model and honest result confidence</h2>
@@ -290,6 +455,26 @@ plan for my review. Do not approve it.</code></pre>
         Failure to find a complete plan under a search bound is not a proof of infeasibility.
         Partial proposals identify missing quantities and cannot be approved/exported.
       </p>
+      <h3>A reused solution is still a new unapproved proposal</h3>
+      <p>
+        Repeating a valid request may reuse a retained checked solution only at the same current
+        revision, objective and canonical additional-exclusion set. Different input order for the
+        same set is equivalent; a different additional set is a different reuse key, even if its
+        overlap with protected stock makes the effective constraints equal. There is no
+        cross-revision reuse.
+      </p>
+      <p>
+        The new record still receives its own full ID, creation time, actor and activity event, and
+        its solution is independently physically validated. <code>reusedFromPlanId</code> names the
+        actual retained source record; it is <code>null</code> for a new computation. Reuse copies
+        neither the old record nor its approval. UI and native metadata disclose the reuse.
+      </p>
+      <p>
+        On reuse, <code>search.nodes</code> and optimality/proof status describe the original
+        search, not newly executed nodes or a new proof. A reused bounded solution remains unproved
+        if the original search was unproved. No browser/model latency, workshop time or physical
+        savings claim follows from avoiding a repeated search.
+      </p>
       <p class="note">
         This is a planning estimate, not machine-control, a certified design, or a safe-cutting
         guarantee. It does not model angled cuts, grain matching, clamping, rough-board defect
@@ -299,8 +484,8 @@ plan for my review. Do not approve it.</code></pre>
 
       <h2>A demonstrated trade-off, not an invented savings claim</h2>
       <p>
-        For the illustrative 14-part job, with A-01 protected, 3 mm kerf and a 400 mm
-        reusable-remnant threshold, the executed planner found:
+        The retained 1.0.0 planner evidence for the illustrative 14-part job, with A-01 protected, 3
+        mm kerf and a 400 mm reusable-remnant threshold, reports:
       </p>
       <div class="table-wrap">
         <table>
@@ -345,16 +530,16 @@ plan for my review. Do not approve it.</code></pre>
       <p>
         All produce the same 7,000 mm of finished parts and keep A-01 untouched. The last plan
         discards 158 mm less short scrap, but opens 2,880 mm more stock and handles three more
-        lengths. Those are scenario-specific computed results, not measured workshop-wide, money or
-        carbon savings.
+        lengths. Those are scenario-specific computed results, not measured real-workshop impact,
+        time, money or carbon savings. Later reuse of the remnants is not demonstrated.
       </p>
 
       <h2>Run the source</h2>
       <p>
         Source:
         <a href="https://github.com/ilyanaxo/offcut-webmcp">github.com/ilyanaxo/offcut-webmcp</a>.
-        The project is a static React/TypeScript application built with Vite. Use Bun 1.4 or later;
-        the tested Node runtime meets the package's Node 22.12-or-later requirement.
+        The project is a static React/TypeScript application built with Vite. Use Bun 1.4 or later
+        and a Node runtime meeting the package's Node 22.12-or-later requirement.
       </p>
       <pre><code>git clone https://github.com/ilyanaxo/offcut-webmcp.git
 cd offcut-webmcp
@@ -386,25 +571,104 @@ bun run format:check</code></pre>
         headroom, not just globally reported free space.
       </p>
       <p>
-        The tests defend physical feasibility/quantities/accounting and all three objectives against
-        independent exhaustive small-instance assignments, actual bounded-search behavior,
-        revision/approval transitions, persistence, CSV content and the real browser surface. Native
-        registration/discovery/execution were exercised in Chrome 149.0.7827.155 and 152.0.7977.64.
-        This is not a claim that a ChatGPT in-app-browser window was visually exercised.
+        The checks defend physical feasibility, quantities, accounting, all three objectives,
+        revision/approval transitions, pending-edit holds, CSV identity/content and the real browser
+        surface. The exhaustive small-instance oracle is independent of the planner; its seeded
+        cases and the earlier smoke use the same corpus, not two independent datasets. Instructions
+        here are not a new pass report. See the source-bound verification records for actual
+        results.
+      </p>
+      <h3>Native API profiles are version-specific</h3>
+      <p>
+        The retained 1.0.0 browser evidence used Chrome 149.0.7827.155 and 152.0.7977.64. Their
+        native client profile uses a fresh real <code>RegisteredTool</code> from
+        <code>getTools()</code>, including its window/origin, and
+        <code>executeTool(tool, JSON.stringify(input))</code>. Discovered
+        <code>inputSchema</code> values and client inputs are JSON strings; producer registration
+        schemas are objects. Offcut's plain-object callback results return through this client as
+        JSON strings. Do not replace the discovered record with a serialized imitation or silently
+        adopt a different draft's object-input client profile.
+      </p>
+      <p>
+        Pinned Chromium source declares synchronous <code>undefined</code> registration in
+        <a
+          href="https://raw.githubusercontent.com/chromium/chromium/149.0.7827.155/third_party/blink/renderer/core/script_tools/model_context.idl"
+          >149</a
+        >
+        and a <code>Promise&lt;undefined&gt;</code> in
+        <a
+          href="https://raw.githubusercontent.com/chromium/chromium/152.0.7977.64/third_party/blink/renderer/core/script_tools/model_context.idl"
+          >152</a
+        >. Offcut's local type permits <code>void | Promise&lt;void&gt;</code>; awaiting
+        registration handles both. The retained callbacks received input only, so execution options
+        remain optional. Current documentation describes broader/newer APIs; that is not proof of
+        another runtime or a ChatGPT desktop recording.
+      </p>
+
+      <h2>Verification scope and submission gates</h2>
+      <p>
+        This documentation prepares the intended package <code>1.1.0</code> and tag
+        <code>v1.1.0-webmcp-challenge</code>. Existing test counts, trace IDs, source/deployment
+        hashes and the 165-second video's digest remain explicitly scoped to the prior
+        <a href="https://github.com/ilyanaxo/offcut-webmcp/tree/v1.0.0-webmcp-challenge"
+          >1.0.0 candidate</a
+        >
+        until the publisher replaces them with observed source-bound evidence. See
+        <a href="https://github.com/ilyanaxo/offcut-webmcp/blob/main/submission/entry.json"
+          >the entry's evidence and publication checklist</a
+        >. This documentation update does not establish a new test pass, deployment, model run,
+        video verification or publication.
+      </p>
+      <p>
+        The retained demonstration used actual stateless model completions and Chrome-native tools
+        through an external recording/verification harness. Protection, checkbox/button approval,
+        measurement edits and camera/navigation were separate browser UI automation. The edited
+        English-audio/subtitled video is not a ChatGPT interface recording, authenticated physical
+        human-presence proof or an end-to-end latency benchmark. No real cutting or workshop savings
+        were measured.
+      </p>
+      <p class="note">
+        <strong>Entrant-owned gates remain unresolved.</strong> The
+        <a href="https://webmcp.devpost.com/rules">official rules</a> require English submission
+        materials, a working judge-accessible live URL, public licensed source with functional
+        instructions, and an actual
+        <strong>Public YouTube video shorter than three minutes</strong> with audio showing the
+        working project and WebMCP. A local MP4, release asset, prepared entry or saved Devpost
+        draft is not public YouTube playback or a verified <strong>Submitted</strong>
+        entry. Eligibility, representation, original/submission-period contribution and applicable
+        third-party/media rights require the actual entrant's confirmation, not an inferred account
+        identity or an automated answer. No winner status or winning probability is established.
+      </p>
+      <p>
+        Submit before <strong>September 3, 2026, 20:00 UTC (1:00 pm PDT)</strong> and preserve the
+        judged app/source/video unchanged after that deadline unless the sponsor/administrator
+        permits a rules-compliant exception. Keep judge access free and unrestricted throughout
+        judging, at least through September 22, 2026, 00:00 UTC; preferably retain all links
+        unchanged through the actual winners announcement, whose scheduled time is not proof it
+        occurred. Final source/deployment/video references, public playback and Submitted state must
+        be observed and recorded, not inferred from this guide.
       </p>
 
       <h2>Data, rights and implementation references</h2>
       <p>
         Validated measurements are saved in localStorage on this site's origin when available.
-        Plans, approvals, activity and native registration last for the current page session. The
-        website has no application backend or model calls. A browser agent receives tool results and
-        may process them under its provider's policies; hosting/browser policies also apply.
+        Plans, approvals, activity, pending editor state and native registration last for the
+        current page session; pending state resets on reload. The website has no application backend
+        or model calls. A browser agent receives tool results and may process them under its
+        provider's policies; hosting/browser policies also apply.
       </p>
       <p>
         The application source and original visual/example assets use the repository's MIT license.
         Runtime dependency copyrights and licenses are preserved in
         <a href="./THIRD_PARTY_LICENSES.txt">THIRD_PARTY_LICENSES.txt</a>. No customer data or
         copied workshop photographs are used in the illustrative example.
+      </p>
+      <p>
+        Cutting-stock optimization is established work, not an invention claimed here. OpenCutList,
+        for example, already supports standard/offcut boards, blade thickness, trimming and cutting
+        diagrams. Offcut's contribution is the shared committed workshop, explicit agent comparison,
+        exact review/release and revision invalidation in one browser page—not a claim to be the
+        first cutting optimizer or the first such product worldwide.
       </p>
       <ul>
         <li>
@@ -413,7 +677,9 @@ bun run format:check</code></pre>
         <li>
           <a href="https://developer.chrome.com/docs/ai/webmcp">Chrome's WebMCP documentation</a>
         </li>
-        <li><a href="https://learn.chatgpt.com/docs/webmcp">OpenAI's WebMCP guide</a></li>
+        <li>
+          <a href="https://learn.chatgpt.com/docs/webmcp">OpenAI's official Site tools guide</a>
+        </li>
         <li>
           <a
             href="https://docs.opencutlist.org/features/parts/parts-list/cutting-diagrams/dimensional.md"
@@ -421,6 +687,10 @@ bun run format:check</code></pre>
           >
           — a workflow reference, not code or artwork copied into Offcut.
         </li>
+        <li>
+          <a href="https://webmcp.devpost.com/">Challenge requirements and judging questions</a>
+        </li>
+        <li><a href="https://webmcp.devpost.com/rules">Official challenge rules</a></li>
       </ul>
       <footer>
         <p>

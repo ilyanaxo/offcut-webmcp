@@ -1,11 +1,24 @@
 import { useEffect, useRef, type ReactNode } from 'react';
 
+function restoreFocus(target: HTMLElement | null) {
+  if (
+    !target?.isConnected ||
+    target.matches(':disabled') ||
+    target.closest('dialog:not([open]), [inert]') ||
+    target.getClientRects().length === 0
+  )
+    return;
+  target.focus();
+}
+
 export default function Dialog({
   open,
   onDismiss,
   labelledBy,
   describedBy,
   compact = false,
+  returnFocusTo,
+  focusKey,
   children,
 }: {
   open: boolean;
@@ -13,29 +26,41 @@ export default function Dialog({
   labelledBy: string;
   describedBy?: string;
   compact?: boolean;
+  returnFocusTo?: HTMLElement | null;
+  focusKey?: string;
   children: ReactNode;
 }) {
   const dialogRef = useRef<HTMLDialogElement>(null);
   const returnFocusRef = useRef<HTMLElement | null>(null);
+  const previousFocusKey = useRef<string | undefined>(undefined);
 
   useEffect(() => {
     const dialog = dialogRef.current;
     if (!dialog) return;
-    if (open && !dialog.open) {
-      returnFocusRef.current =
-        document.activeElement instanceof HTMLElement ? document.activeElement : null;
-      dialog.showModal();
-      dialog.querySelector<HTMLElement>('[data-dialog-focus]')?.focus();
-    } else if (!open && dialog.open) {
+    if (open) {
+      const opening = !dialog.open;
+      if (opening) {
+        returnFocusRef.current =
+          returnFocusTo ??
+          (document.activeElement instanceof HTMLElement ? document.activeElement : null);
+        dialog.showModal();
+      }
+      if (opening || previousFocusKey.current !== focusKey) {
+        const body = dialog.querySelector<HTMLElement>('.dialog-body');
+        if (body) body.scrollTop = 0;
+        dialog.querySelector<HTMLElement>('[data-dialog-focus]')?.focus();
+      }
+    } else if (dialog.open) {
       dialog.close();
-      if (returnFocusRef.current?.isConnected) returnFocusRef.current.focus();
+      restoreFocus(returnFocusRef.current);
     }
-  }, [open]);
+    previousFocusKey.current = focusKey;
+  }, [open, focusKey, returnFocusTo]);
 
   useEffect(
     () => () => {
       if (dialogRef.current?.open) dialogRef.current.close();
-      if (returnFocusRef.current?.isConnected) returnFocusRef.current.focus();
+      restoreFocus(returnFocusRef.current);
     },
     [],
   );

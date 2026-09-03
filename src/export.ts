@@ -40,6 +40,7 @@ export function exportApprovedPlan(
       'Board label',
       'Usable stock length (mm)',
       'Cut order',
+      'Part ID',
       'Part',
       'Part instance',
       'Part length (mm)',
@@ -63,6 +64,7 @@ export function exportApprovedPlan(
         layout.stockLabel,
         layout.stockLengthMm,
         index + 1,
+        cut.requirementId,
         cut.label,
         cut.instance,
         cut.lengthMm,
@@ -80,7 +82,7 @@ export function exportApprovedPlan(
       .replace(/[^a-z0-9]+/gu, '-')
       .replace(/^-|-$/gu, '') || 'cut-sheet';
   return {
-    filename: `offcut-${slug}-r${workspace.revision}.csv`,
+    filename: `offcut-${slug}-r${workspace.revision}-${plan.id}.csv`,
     csv: `${rows.map((row) => row.map(csvCell).join(',')).join('\r\n')}\r\n`,
   };
 }

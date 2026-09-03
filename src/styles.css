@@ -544,6 +544,11 @@
     font-family: var(--font-mono);
     white-space: nowrap;
   }
+  .table-reference {
+    display: block;
+    margin-top: var(--space-1);
+    color: var(--ink-soft);
+  }
   .data-table caption {
     caption-side: bottom;
     padding-top: var(--space-2);
@@ -1373,6 +1378,27 @@
     color: var(--forest);
     font-size: var(--type-xs);
   }
+  .full-references {
+    margin-block: var(--space-3);
+  }
+  .full-references > summary {
+    min-height: var(--control-height);
+    padding-block: var(--space-2);
+    color: var(--forest);
+  }
+  .full-reference-table {
+    table-layout: fixed;
+    margin-top: var(--space-2);
+  }
+  .full-reference-table td {
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+  .full-reference-table .reference-label {
+    display: block;
+    color: var(--ink-soft);
+    font-weight: normal;
+  }
   .cut-order-table {
     min-width: var(--cut-table-width);
     margin-top: var(--space-2);
@@ -1388,6 +1414,12 @@
     border-top: var(--stroke) solid var(--line);
     color: var(--forest);
     font-size: var(--type-xs);
+  }
+  .excluded-stock > div {
+    min-width: 0;
+  }
+  .excluded-stock p {
+    overflow-wrap: anywhere;
   }
   .excluded-stock h4 {
     margin-bottom: var(--space-2);
@@ -1425,6 +1457,25 @@
     margin-left: var(--space-2);
     color: var(--ink-soft);
     font-weight: 400;
+  }
+  .comparison-basis {
+    margin-top: var(--space-3);
+    font-size: var(--type-xs);
+    overflow-wrap: anywhere;
+  }
+  .comparison-basis p + p {
+    margin-top: var(--space-2);
+  }
+  .comparison-constraints {
+    margin-top: var(--space-2);
+    color: var(--forest);
+    font-size: var(--type-xs);
+    overflow-wrap: anywhere;
+  }
+  .comparison-reference-group + .comparison-reference-group {
+    margin-top: var(--space-5);
+    padding-top: var(--space-4);
+    border-top: var(--stroke) solid var(--line);
   }
   .comparison-list {
     list-style: none;
@@ -2192,6 +2243,14 @@
       display: block;
       color: var(--ink);
     }
+    .print-sheet .plan-reference {
+      display: inline;
+      max-width: none;
+      direction: ltr;
+      white-space: normal;
+      overflow: visible;
+      text-overflow: clip;
+    }
     .print-header {
       margin-bottom: var(--space-5);
       overflow-wrap: anywhere;
@@ -2224,8 +2283,16 @@
       margin-block: var(--space-4);
     }
     .print-sheet .board-layout {
-      break-inside: avoid;
+      break-inside: auto;
       margin-bottom: var(--space-5);
+    }
+    .print-sheet .board-scale {
+      break-inside: avoid;
+      break-after: avoid;
+    }
+    .print-sheet .board-accounting {
+      break-inside: avoid;
+      break-after: avoid;
     }
     .print-sheet .board-scale,
     .print-sheet .part-legend,
@@ -2239,12 +2306,14 @@
     }
     .print-sheet .data-table {
       min-width: 0;
+      table-layout: fixed;
       font-size: var(--type-xs);
     }
     .print-sheet .data-table td,
     .print-sheet .data-table th {
       padding-block: var(--space-2);
       white-space: normal;
+      overflow-wrap: anywhere;
     }
     .print-sheet .data-table tr {
       break-inside: avoid;

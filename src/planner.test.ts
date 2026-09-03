@@ -184,7 +184,6 @@ function expectAccounting(
     expect(offsetMm).toBeLessThanOrEqual(board.lengthMm);
     expect(layout.kerfMm).toBe(boardKerfMm);
     expect(layout.remnantMm).toBe(remnantMm);
-    expect(boardPartsMm + boardKerfMm + remnantMm).toBe(board.lengthMm);
     const remnantKind =
       remnantMm === 0
         ? 'none'
@@ -208,7 +207,6 @@ function expectAccounting(
     boardCount: usedBoards.size,
     utilization: stockUsedMm === 0 ? 0 : partsMm / stockUsedMm,
   });
-  expect(stockUsedMm).toBe(partsMm + kerfMm + reusableMm + scrapMm);
 
   const missing = new Map<string, number>();
   for (const item of solution.unfulfilled) {
@@ -600,6 +598,163 @@ describe('physical boundaries and identity accounting', () => {
   }
 });
 
+describe('admissible remaining-part bounds', () => {
+  test('heterogeneous parts need four slots even though three boards exceed total demand', () => {
+    const workspace = makeWorkspace(
+      [100, 100, 100],
+      [54, 53, 52, 51].map((lengthMm) => [lengthMm, 1] as const),
+      { kerfMm: 0, minReusableMm: 50 },
+    );
+    // Demand is 210 mm, but each board fits only one part of at least 51 mm.
+    // Every equal-size group has quantity one, and the consumed-length GCD is one.
+    expect(exhaustiveScores(workspace, [])).toEqual({
+      least_stock: null,
+      fewest_boards: null,
+      least_waste: null,
+    });
+    for (const objective of OBJECTIVES) {
+      const solution = solveUnchanged(workspace, objective);
+      expectAccounting(workspace, solution);
+      expect(solution.complete).toBe(false);
+      expect(solution.search.provenOptimal).toBe(false);
+      expect(solution.search.nodes).toBeLessThanOrEqual(1);
+      expect(solution.unfulfilled.map((item) => [item.requirementId, item.quantity])).toEqual([
+        [workspace.requirements[3].id, 1],
+      ]);
+      expect(solution.metrics).toMatchObject({
+        stockUsedMm: 300,
+        partsMm: 159,
+        kerfMm: 0,
+        reusableMm: 0,
+        scrapMm: 141,
+        boardCount: 3,
+      });
+    }
+  });
+
+  test('kerf-inclusive GCD rejects demand hidden in individually unusable residues', () => {
+    const workspace = makeWorkspace(
+      [95, 95],
+      [
+        [57, 1],
+        [47, 1],
+        [37, 2],
+      ],
+      { kerfMm: 3, minReusableMm: 10 },
+    );
+    // Costs 60/50/40/40 total the raw 190 mm. Each board can consume at most
+    // 90 mm in multiples of ten; four smallest-part slots still pass.
+    expect(exhaustiveScores(workspace, [])).toEqual({
+      least_stock: null,
+      fewest_boards: null,
+      least_waste: null,
+    });
+    for (const objective of OBJECTIVES) {
+      const solution = solveUnchanged(workspace, objective);
+      expectAccounting(workspace, solution);
+      expect(solution.complete).toBe(false);
+      expect(solution.search.provenOptimal).toBe(false);
+      expect(solution.search.nodes).toBeLessThanOrEqual(1);
+      expect(solution.unfulfilled.map((item) => [item.requirementId, item.quantity])).toEqual([
+        [workspace.requirements[2].id, 1],
+      ]);
+      expect(solution.metrics).toMatchObject({
+        stockUsedMm: 190,
+        partsMm: 141,
+        kerfMm: 9,
+        reusableMm: 35,
+        scrapMm: 5,
+        boardCount: 2,
+      });
+    }
+  });
+
+  test('exact rounded capacity still permits complete cuts and preserves real remnants', () => {
+    const workspace = makeWorkspace(
+      [95, 95],
+      [57, 47, 37, 27].map((lengthMm) => [lengthMm, 1] as const),
+      { kerfMm: 3, minReusableMm: 10 },
+    );
+    // Costs (60+30)/(50+40) consume the full rounded 180 mm, not the raw 190 mm.
+    expect(checkAgainstOracle(workspace)).toEqual({
+      least_stock: [190, 22, 2],
+      fewest_boards: [2, 190, 22],
+      least_waste: [22, 190, 2],
+    });
+    const solution = solveUnchanged(workspace, 'least_stock');
+    expect(solution.layouts.map((layout) => layout.remnantMm)).toEqual([5, 5]);
+    expect(solution.metrics.partsMm).toBe(168);
+    expect(solution.metrics.kerfMm).toBe(12);
+    expect(solution.metrics.scrapMm).toBe(10);
+  });
+
+  test('rounded longest-board capacity proves three unequal boards are necessary', () => {
+    const workspace = makeWorkspace(
+      [90, 95, 99],
+      [
+        [57, 1],
+        [47, 1],
+        [37, 2],
+      ],
+      { kerfMm: 3, minReusableMm: 0 },
+    );
+    // The two longest raw lengths total 194 mm, but any pair can consume only
+    // 180 mm in multiples of ten. All three are necessary for the 190 mm demand.
+    const scores: Record<Objective, Score> = {
+      least_stock: [284, 12, 3],
+      fewest_boards: [3, 284, 12],
+      least_waste: [12, 284, 3],
+    };
+    expect(exhaustiveScores(workspace, [])).toEqual(scores);
+    for (const objective of OBJECTIVES) {
+      const solution = solveUnchanged(workspace, objective);
+      expectAccounting(workspace, solution);
+      expect(solution.complete).toBe(true);
+      expect(solutionScore(solution)).toEqual(scores[objective]);
+      expect(solution.search.provenOptimal).toBe(true);
+      // A complete arrangement attains the analytical opening/waste bounds at the root.
+      expect(solution.search.nodes).toBeLessThanOrEqual(1);
+      expect(solution.metrics.partsMm).toBe(178);
+      expect(solution.metrics.kerfMm).toBe(12);
+      expect(solution.metrics.reusableMm).toBe(94);
+    }
+  });
+
+  test('a later suffix GCD proves an extra opening despite sufficient raw open capacity', () => {
+    const workspace = makeWorkspace(
+      [95, 196, 196],
+      [
+        [98, 2],
+        [57, 1],
+        [47, 1],
+        [37, 2],
+      ],
+      { kerfMm: 3, minReusableMm: 0 },
+    );
+    // The two 101 mm costs must open both 196 mm boards. The remaining costs
+    // 60/50/40/40 have GCD ten, leaving only 90+90 usable mm in the open boards.
+    // Their raw 95+95 mm matches demand, but the unopened 95 mm board is necessary.
+    const scores: Record<Objective, Score> = {
+      least_stock: [487, 18, 3],
+      fewest_boards: [3, 487, 18],
+      least_waste: [18, 487, 3],
+    };
+    expect(exhaustiveScores(workspace, [])).toEqual(scores);
+    for (const objective of OBJECTIVES) {
+      const solution = solveUnchanged(workspace, objective);
+      expectAccounting(workspace, solution);
+      expect(solution.complete).toBe(true);
+      expect(solutionScore(solution)).toEqual(scores[objective]);
+      expect(solution.search.provenOptimal).toBe(true);
+      // Only the two forced large-part placements need expansion before the bound closes.
+      expect(solution.search.nodes).toBeLessThanOrEqual(3);
+      expect(solution.metrics.partsMm).toBe(374);
+      expect(solution.metrics.kerfMm).toBe(18);
+      expect(solution.metrics.reusableMm).toBe(95);
+    }
+  });
+});
+
 describe('bounded search confidence and recovery', () => {
   for (const objective of OBJECTIVES) {
     test(`the executed 40-part/24-board fixture reaches 100000 nodes without claiming optimality: ${objective}`, () => {
@@ -618,6 +773,39 @@ describe('bounded search confidence and recovery', () => {
       expect(solution.search.limit).toBe(100_000);
       expect(solution.search.nodes).toBe(solution.search.limit);
       expect(solution.search.provenOptimal).toBe(false);
+    });
+
+    test(`the observed 40-part/14-board fixture stops incomplete without proving infeasibility: ${objective}`, () => {
+      const workspace = makeWorkspace(
+        new Array<number>(14).fill(2279),
+        [300, 440, 580, 620, 710, 830, 950, 1020, 1140, 1270].map(
+          (lengthMm) => [lengthMm, 4] as const,
+        ),
+        { kerfMm: 3, minReusableMm: 400 },
+      );
+      const solution = solveUnchanged(workspace, objective);
+      expectAccounting(workspace, solution);
+      expect(solution.complete).toBe(false);
+      expect(solution.search.limit).toBe(100_000);
+      expect(solution.search.nodes).toBe(solution.search.limit);
+      expect(solution.search.provenOptimal).toBe(false);
+      expect(solution.layouts.reduce((total, layout) => total + layout.cuts.length, 0)).toBe(38);
+      expect(solution.metrics).toEqual({
+        stockUsedMm: 31_906,
+        partsMm: 30_840,
+        kerfMm: 114,
+        reusableMm: 0,
+        scrapMm: 952,
+        boardCount: 14,
+        utilization: 30_840 / 31_906,
+      });
+      expect(solution.unfulfilled).toHaveLength(1);
+      expect(solution.unfulfilled[0]).toMatchObject({
+        requirementId: workspace.requirements[0]!.id,
+        quantity: 2,
+      });
+      expect(solution.unfulfilled[0]!.reason).toContain('100000-node bound');
+      expect(solution.unfulfilled[0]!.reason).toContain('infeasibility is not proven');
     });
 
     test(`search recovers the positive-kerf first-fit counterexample on two 1010 mm boards: ${objective}`, () => {

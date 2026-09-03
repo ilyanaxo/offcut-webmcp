@@ -2,6 +2,7 @@ node_modules/
 dist/
 bun.lock
 artifacts/
+.cache/
 playwright-report/
 test-results/
 submission/*.mp4
