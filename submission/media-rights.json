@@ -30,7 +30,7 @@
     "name": "Liberation Sans",
     "source": "https://github.com/liberationfonts",
     "license": "SIL Open Font License 1.1",
-    "verified_license_record": "/usr/share/doc/fonts-liberation/copyright",
+    "verified_license_record": "submission/evidence/liberation-fonts-copyright.txt",
     "output_boundary": "The license expressly permits use/embedding and states its font-license requirement does not apply to documents created using the fonts. Font files are not redistributed with the app/demo package."
   },
   "entrant_media_rights_confirmation": null,

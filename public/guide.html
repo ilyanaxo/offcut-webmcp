@@ -484,8 +484,8 @@ plan for my review. Do not approve it.</code></pre>
 
       <h2>A demonstrated trade-off, not an invented savings claim</h2>
       <p>
-        The retained 1.0.0 planner evidence for the illustrative 14-part job, with A-01 protected, 3
-        mm kerf and a 400 mm reusable-remnant threshold, reports:
+        The verified 1.1.0 illustrative 14-part job, with A-01 protected, 3 mm kerf and a 400 mm
+        reusable-remnant threshold, reports:
       </p>
       <div class="table-wrap">
         <table>
@@ -580,14 +580,13 @@ bun run format:check</code></pre>
       </p>
       <h3>Native API profiles are version-specific</h3>
       <p>
-        The retained 1.0.0 browser evidence used Chrome 149.0.7827.155 and 152.0.7977.64. Their
-        native client profile uses a fresh real <code>RegisteredTool</code> from
-        <code>getTools()</code>, including its window/origin, and
-        <code>executeTool(tool, JSON.stringify(input))</code>. Discovered
-        <code>inputSchema</code> values and client inputs are JSON strings; producer registration
-        schemas are objects. Offcut's plain-object callback results return through this client as
-        JSON strings. Do not replace the discovered record with a serialized imitation or silently
-        adopt a different draft's object-input client profile.
+        The current 1.1.0 browser checks used Chrome 149.0.7827.155 and 152.0.7977.64. Their native
+        client profile uses a fresh real <code>RegisteredTool</code> from <code>getTools()</code>,
+        including its window/origin, and <code>executeTool(tool, JSON.stringify(input))</code>.
+        Discovered <code>inputSchema</code> values and client inputs are JSON strings; producer
+        registration schemas are objects. Offcut's plain-object callback results return through this
+        client as JSON strings. Do not replace the discovered record with a serialized imitation or
+        silently adopt a different draft's object-input client profile.
       </p>
       <p>
         Pinned Chromium source declares synchronous <code>undefined</code> registration in
@@ -600,27 +599,28 @@ bun run format:check</code></pre>
           href="https://raw.githubusercontent.com/chromium/chromium/152.0.7977.64/third_party/blink/renderer/core/script_tools/model_context.idl"
           >152</a
         >. Offcut's local type permits <code>void | Promise&lt;void&gt;</code>; awaiting
-        registration handles both. The retained callbacks received input only, so execution options
+        registration handles both. The observed callbacks received input only, so execution options
         remain optional. Current documentation describes broader/newer APIs; that is not proof of
         another runtime or a ChatGPT desktop recording.
       </p>
 
       <h2>Verification scope and submission gates</h2>
       <p>
-        This documentation prepares the intended package <code>1.1.0</code> and tag
-        <code>v1.1.0-webmcp-challenge</code>. Existing test counts, trace IDs, source/deployment
-        hashes and the 165-second video's digest remain explicitly scoped to the prior
-        <a href="https://github.com/ilyanaxo/offcut-webmcp/tree/v1.0.0-webmcp-challenge"
-          >1.0.0 candidate</a
-        >
-        until the publisher replaces them with observed source-bound evidence. See
-        <a href="https://github.com/ilyanaxo/offcut-webmcp/blob/main/submission/entry.json"
-          >the entry's evidence and publication checklist</a
-        >. This documentation update does not establish a new test pass, deployment, model run,
-        video verification or publication.
+        Offcut <code>1.1.0</code> passed 884 source-contract tests and 72 executed browser cases: 18
+        contracts on each local/hosted and Chrome-149/152 combination. The actual public-app
+        demonstration contains 19 model-selected native calls, with separate automated UI actions.
+        Source identity, measured optimization workloads, native profiles and all 12 actually
+        rendered maximum-cut PDF pages are recorded in
+        <a href="https://github.com/ilyanaxo/offcut-webmcp/blob/main/submission/verification.json"
+          >the portable verification report</a
+        >. Final encoded-video duration, audio, captions and visual checks have their own
+        <a
+          href="https://github.com/ilyanaxo/offcut-webmcp/blob/main/submission/demo-verification.json"
+          >media verification record</a
+        >; neither report is an account-publication or winning claim.
       </p>
       <p>
-        The retained demonstration used actual stateless model completions and Chrome-native tools
+        The current demonstration used actual stateless model completions and Chrome-native tools
         through an external recording/verification harness. Protection, checkbox/button approval,
         measurement edits and camera/navigation were separate browser UI automation. The edited
         English-audio/subtitled video is not a ChatGPT interface recording, authenticated physical

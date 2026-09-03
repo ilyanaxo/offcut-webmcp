@@ -1,0 +1,2636 @@
+{
+  "schemaVersion": 1,
+  "kind": "portable-current-candidate-evidence-and-source-provenance-manifest",
+  "sourceCandidate": {
+    "version": "1.1.0",
+    "sourceCommit": "f8091483ef2003b1bff361ab8f1b49a5715cd19d",
+    "staticCommit": "c88b3050ee128d19b5f79a9380822771a0167160",
+    "liveURL": "https://ilyanaxo.github.io/offcut-webmcp/",
+    "sourceURL": "https://github.com/ilyanaxo/offcut-webmcp/tree/f8091483ef2003b1bff361ab8f1b49a5715cd19d",
+    "currentDocOnlyStaticCommit": "ffc85c8300d8ec8a17bafa2751fb4b02f2093409"
+  },
+  "referencePolicy": {
+    "pathBase": "Repository root; keep the submission directory layout when extracting a package",
+    "evidencePaths": "Paths identify produced files beneath submission/evidence or existing submission artifacts. A path plus jsonPointer identifies a record within a produced JSON file, not a JPEG image.",
+    "originalNames": "originalSourceArtifactName/originalSourceFrameName/originalRunnerArtifactName are provenance labels, not downloadable artifact references.",
+    "observedRuntimeAddresses": "Loopback URLs retained inside observations identify the actually exercised local surface; they are not portable download links or hosted-test claims.",
+    "sourceFootage": "Original encoded footage is a separate versioned release asset; source identity is recorded in its provenance descriptor, and actual public access/download evidence is separately recorded in https://github.com/ilyanaxo/offcut-webmcp/blob/main/submission/publication-verification.json. No original JPEG set is copied.",
+    "hashes": "originalSourceSha256 hashes the untouched source artifact snapshot. portableFileSha256 in the evidence manifest hashes the exact delivered portable file. Source JPEG/video hashes remain hashes of those original media bytes, never of transformed summaries.",
+    "finalMedia": "Actual current1.1.0 final encoded-media decode/ASR/108PNG/native-player evidence is recorded separately in submission/demo-verification.json and submission/evidence/media; source capture records do not themselves verify edited media.",
+    "ordinalDomains": "The70 UI event ordinals,300 original observation ordinals,323 DOM event ordinals,19 native receipt ordinals and25 model decision ordinals are separate domains. UI before/afterObservationOrdinal refer to original observations; trustedDomEventOrdinal refers to original DOM events. Preserve these values, do not renumber them. Post-state observation time, action time, native receipt time and CDP paint time remain separate."
+  },
+  "observedProofSummary": {
+    "unitTests": 884,
+    "expectCalls": 118823,
+    "browserContractDefinitions": 18,
+    "actualRepeatedBrowserCases": 72,
+    "browserProfiles": {
+      "149": "149.0.7827.155/navigator/undefined-registration-return",
+      "152": "152.0.7977.64/document/promise-registration-return"
+    },
+    "modelDecisions": 25,
+    "nativeModelCalls": 19,
+    "finishDecisionsNotNativeCalls": 6,
+    "automatedUIEvents": 70,
+    "actualDOMEvents": 323,
+    "trustedDOMEvents": 322,
+    "originalObservations": 300,
+    "captureMarks": 50,
+    "acceptedSourceFrames": 851,
+    "actualPDFDocuments": 2,
+    "actualPagesPerPDF": 6,
+    "retainedSettledPDFPagePNGs": 12,
+    "finalEditedVideoSeconds": 165,
+    "finalEditedVideoFrames": 4125,
+    "finalCaptionCues": 40,
+    "actualFinalPNGImageInspections": 108,
+    "actualNativeVideoPaintCallbacks": 10
+  },
+  "scopeBoundaries": [
+    "The unit/build artifact is a prepublication converged1.1.0 working-tree observation and emitted index-CKOQ29Ge.js; the current published candidate delivers index-BXFW-YOC.js. Build artifacts and hashes are not conflated.",
+    "Baseline Bun workload predates optimization and is not commit-pinned by its own record. The retained-public1.0.0 renderer wave is an explicitly historical before-control, never current1.1.0 behavior/media proof.",
+    "Performance is measured aggregate workload and same-problem checked-solution reuse, not every-model/judge latency, cold-load performance, isolated compiler/memo attribution, user-study or physical workshop savings.",
+    "Actual model selections use an external real completion/default role and genuine native Chrome capabilities; UI review/approval is browser automation. No ChatGPT desktop/in-app-agent, physical-human-presence or field-study proof is implied.",
+    "UI event, original observation, DOM event, native receipt and model decision ordinals remain different domains. Source action time, after-observation time, native receipt time and CDP paint time remain distinct.",
+    "Original sourceSAR0/1 is unspecified. Main declares setsar1 for the square CDP capture grid without SAR image rescaling; this does not assert original square metadata or final encoded-video verification.",
+    "No old1.0.0 video/release hash or14-call trace is substituted for the current candidate. The new165-second MP4 is actually verified in its separate current1.1.0 media record.",
+    "No YouTube public upload, Devpost Submitted, eligibility/rights attestation or outcome is verified."
+  ],
+  "hashPolicy": {
+    "originalSourceSha256": "Hash of exact untouched original artifact snapshot bytes read for export; original hashes identify source provenance even where source containers/paths are transformed",
+    "portableFileSha256": "Hash of the exact generated UTF-8 JSON text; byte-for-byte selected binary/CSV copies retain the original byte hash as the expected copy hash. Neither is asserted to equal an original transformed artifact hash.",
+    "originalEncodingInputManifestHash": "19c13986fef6a2162a4fe5016dcf6b0d961ab91c491fb269d24013f78b362c10",
+    "laterOriginalFrameManifestSnapshotHash": "8d81265de3a562a3797d8c806d3ed7d7f6de27086ece10fb137aea52ad6edf24",
+    "inputVersusPortableBoundary": "Encoding-input snapshot, later original manifest snapshot and portable exported manifest are distinct hash objects",
+    "verificationScope": "Portability export writes/copies selected evidence only. No formatter/linter/build/test suite or validation command is run by this agent; final destination/archive/publication validation belongs to Main. Refresh affected portableFileSha256/portableFileBytes entries after any Main final-media/publication report changes."
+  },
+  "artifacts": [
+    {
+      "path": "submission/evidence/offcut-overhaul-unit-build-proof.portable.json",
+      "representation": "transformed-full-observation-record",
+      "observationScope": "Prepublication converged1.1.0 working-tree build/unit observation at2026-09-03T10:25:47.728Z; not the later delivered JS blob or a browser result",
+      "originalSourceArtifactName": "offcut-overhaul-unit-build-proof.json",
+      "originalSourceSha256": "10caf49d6dbef1f4043c6b4ae0ef469dbe9d89e9b428ee31f7144b987b78f225",
+      "originalSourceBytes": 1268,
+      "portableFileSha256": "73af25e94998ffd3a0ee7d36aeffcf95971529eaa1b160b710be92812afa043d",
+      "portableFileBytes": 2948,
+      "sourceBytesIdenticalToPortableFile": false,
+      "transformations": [
+        "Evidence references are repository-relative; source video is represented by its provenance record; original JPEG paths become explicit frame-manifest record locators. Original tool/model/UI/clock values and original media hashes are retained.",
+        "Removed a private runtime-folder label from formatter scope text; kept the original build filename, original sourcePhase and original at-that-time pending browserEvidence, with later proof links."
+      ]
+    },
+    {
+      "path": "submission/evidence/offcut-overhaul-complete-browser-matrix.portable.json",
+      "representation": "transformed-full-observation-record",
+      "observationScope": "Current pinned candidate; four actual local/hosted x Chrome149/152 runs;18 contracts repeated,72 cases executed",
+      "originalSourceArtifactName": "offcut-overhaul-complete-browser-matrix.json",
+      "originalSourceSha256": "0889b75a18b06a2bf6b3df05e00987c27ebf062c0d57ef637ac8fe1826fe98c5",
+      "originalSourceBytes": 23013,
+      "portableFileSha256": "dad69b45651fb5a456c7bbd6bb787515ad14be989bfacc4456607453384644a7",
+      "portableFileBytes": 25354,
+      "sourceBytesIdenticalToPortableFile": false,
+      "transformations": [
+        "Evidence references are repository-relative; source video is represented by its provenance record; original JPEG paths become explicit frame-manifest record locators. Original tool/model/UI/clock values and original media hashes are retained.",
+        "Bare runner-report names now identify produced portable summaries, not byte-identical raw runner reports."
+      ]
+    },
+    {
+      "path": "submission/evidence/offcut-overhaul-lifecycle149.original.json",
+      "representation": "byte-for-byte-original-json-copy",
+      "observationScope": "Actual Chrome149 native Navigator lifecycle on converged candidate source; registerTool returned undefined, not a promise",
+      "originalSourceArtifactName": "offcut-overhaul-lifecycle149.json",
+      "originalSourceSha256": "18e5b7d8a2280ce6d55b3f1c43924337b335a8926d9b6c092e0540368da7905d",
+      "originalSourceBytes": 6036,
+      "portableFileSha256": "18e5b7d8a2280ce6d55b3f1c43924337b335a8926d9b6c092e0540368da7905d",
+      "portableFileBytes": 6036,
+      "sourceBytesIdenticalToPortableFile": true,
+      "transformations": []
+    },
+    {
+      "path": "submission/evidence/offcut-overhaul-lifecycle152.original.json",
+      "representation": "byte-for-byte-original-json-copy",
+      "observationScope": "Actual Chrome152 native Document lifecycle on converged candidate source; registerTool returned a promise",
+      "originalSourceArtifactName": "offcut-overhaul-lifecycle152.json",
+      "originalSourceSha256": "31bc30f9428c8c567c71ac24fb1ffd41a403e7e463fb0d03f4db1ca4126057c3",
+      "originalSourceBytes": 5977,
+      "portableFileSha256": "31bc30f9428c8c567c71ac24fb1ffd41a403e7e463fb0d03f4db1ca4126057c3",
+      "portableFileBytes": 5977,
+      "sourceBytesIdenticalToPortableFile": true,
+      "transformations": []
+    },
+    {
+      "path": "submission/evidence/offcut-overhaul-touch-reference.original.json",
+      "representation": "byte-for-byte-original-json-copy",
+      "observationScope": "Chrome152 touch-event emulation at390x844 on local candidate; not physical touchscreen hardware",
+      "originalSourceArtifactName": "offcut-overhaul-touch-reference.json",
+      "originalSourceSha256": "7fdea35873c58d3bcc5878aa637d69e44550617cc062fb5c2134029f7603eb16",
+      "originalSourceBytes": 685,
+      "portableFileSha256": "7fdea35873c58d3bcc5878aa637d69e44550617cc062fb5c2134029f7603eb16",
+      "portableFileBytes": 685,
+      "sourceBytesIdenticalToPortableFile": true,
+      "transformations": []
+    },
+    {
+      "path": "submission/evidence/offcut-overhaul-all-printed-pages-proof.portable.json",
+      "representation": "transformed-full-observation-record",
+      "observationScope": "Actual current-candidate Chrome152 local native/manual forty-cut PDFs; six pages per document,12 settled page screenshots and retained pixel findings",
+      "originalSourceArtifactName": "offcut-overhaul-all-printed-pages-proof.json",
+      "originalSourceSha256": "0bcd075ae4fe005ca30163f24e53841887ac38287fce2a163a2463afd84ed9c4",
+      "originalSourceBytes": 32273,
+      "portableFileSha256": "6610a7a3e71e387773874f43ca365a0c414128b9f60915190f07b67a414544bc",
+      "portableFileBytes": 32295,
+      "sourceBytesIdenticalToPortableFile": false,
+      "transformations": [
+        "Evidence references are repository-relative; source video is represented by its provenance record; original JPEG paths become explicit frame-manifest record locators. Original tool/model/UI/clock values and original media hashes are retained."
+      ]
+    },
+    {
+      "path": "submission/evidence/offcut-overhaul-render-performance.portable.json",
+      "representation": "transformed-full-observation-record",
+      "observationScope": "Historical retained-public1.0.0 control versus actual public1.1.0f809148; aggregate native-read/UI/IPC workload, not model/judge latency",
+      "originalSourceArtifactName": "offcut-overhaul-render-performance.json",
+      "originalSourceSha256": "7a1db0b82eda6b28247aa52cae1822002694ac7eb42e011a76ecfef411003ec9",
+      "originalSourceBytes": 5408,
+      "portableFileSha256": "a964719440b756435409a90473c77fa4c9fa742065c0397cec80da1aad71a413",
+      "portableFileBytes": 7361,
+      "sourceBytesIdenticalToPortableFile": false,
+      "transformations": [
+        "Evidence references are repository-relative; source video is represented by its provenance record; original JPEG paths become explicit frame-manifest record locators. Original tool/model/UI/clock values and original media hashes are retained.",
+        "Historical1.0.0 script URL is preserved as reconstructable scheme/host/project-path/resource identity rather than an unverified current asset link; all timing/counter values and interleaved wave labels remain unchanged."
+      ]
+    },
+    {
+      "path": "submission/evidence/offcut-overhaul-public-build-proof.portable.json",
+      "representation": "transformed-deployment-observation-summary",
+      "observationScope": "Current pinned source/static commit and observed GitHub Pages built state/publicHTML delivery; browser matrix is separate",
+      "originalSourceArtifactName": "offcut-overhaul-public-build-proof.json",
+      "originalSourceSha256": "1b9da945d3cd6767bfe8b255d930b3edb89397f2beed7d7d44012e08aa3b04d2",
+      "originalSourceBytes": 2012,
+      "portableFileSha256": "002a9e1c36550d43849a729560cc3167da17d67d166a26a494dcca074050e4dc",
+      "portableFileBytes": 2185,
+      "sourceBytesIdenticalToPortableFile": false,
+      "transformations": [
+        "Evidence references are repository-relative; source video is represented by its provenance record; original JPEG paths become explicit frame-manifest record locators. Original tool/model/UI/clock values and original media hashes are retained.",
+        "Omitted expanded public pusher-profile metadata and its templated unrelated API URLs; retained the observed login, Pages build URL/status/error/commit/times and all deployment observations."
+      ]
+    },
+    {
+      "path": "submission/evidence/offcut-overhaul-real-model-proof.portable.json",
+      "representation": "transformed-full-observation-record",
+      "observationScope": "Current public candidate;25 actual external-model decisions,19 actual native selections,6 finish decisions and automated UI controls; not ChatGPT or physical-human proof",
+      "originalSourceArtifactName": "offcut-overhaul-real-model-proof.json",
+      "originalSourceSha256": "785dc374efcc032efab52d2e847b263a959401813527eaa7c1e3292ef09ed8ca",
+      "originalSourceBytes": 552723,
+      "portableFileSha256": "a4814e938126c42aefc03b02838b26d796888f93b89e8fe4c71452c0a671c9e8",
+      "portableFileBytes": 631466,
+      "sourceBytesIdenticalToPortableFile": false,
+      "transformations": [
+        "Evidence references are repository-relative; source video is represented by its provenance record; original JPEG paths become explicit frame-manifest record locators. Original tool/model/UI/clock values and original media hashes are retained."
+      ]
+    },
+    {
+      "path": "submission/evidence/offcut-overhaul-submission-image-proof.original.json",
+      "representation": "byte-for-byte-original-json-copy",
+      "observationScope": "Retained independent pixel findings for four existing current-candidate submission PNGs; not final MP4 inspection",
+      "originalSourceArtifactName": "offcut-overhaul-submission-image-proof.json",
+      "originalSourceSha256": "810f1a390ed7b41e79c0623dccabc6539f413efc08ef75e46c74f0f7a2a9fe5a",
+      "originalSourceBytes": 5370,
+      "portableFileSha256": "810f1a390ed7b41e79c0623dccabc6539f413efc08ef75e46c74f0f7a2a9fe5a",
+      "portableFileBytes": 5370,
+      "sourceBytesIdenticalToPortableFile": true,
+      "transformations": []
+    },
+    {
+      "path": "submission/evidence/offcut-overhaul-baseline.original.json",
+      "representation": "byte-for-byte-original-json-copy",
+      "observationScope": "Before-optimization control captured2026-09-03T09:15:36.358Z; source revision not pinned by this source record; never current1.1.0 behavior proof",
+      "originalSourceArtifactName": "offcut-overhaul-baseline.json",
+      "originalSourceSha256": "3bdcc543949ffc48a7576ea10f024ab29006f25b3099e00734c76028aca3de18",
+      "originalSourceBytes": 23851,
+      "portableFileSha256": "3bdcc543949ffc48a7576ea10f024ab29006f25b3099e00734c76028aca3de18",
+      "portableFileBytes": 23851,
+      "sourceBytesIdenticalToPortableFile": true,
+      "transformations": []
+    },
+    {
+      "path": "submission/evidence/offcut-overhaul-after.original.json",
+      "representation": "byte-for-byte-original-json-copy",
+      "observationScope": "After-convergence same-problem solution-reuse workload captured2026-09-03T10:05:49.791Z; source revision not pinned by this source record; not model/judge latency",
+      "originalSourceArtifactName": "offcut-overhaul-after.json",
+      "originalSourceSha256": "c6474e34e358cb2d92bf05918d92bc023567975a821f5617a387f30a790ebe38",
+      "originalSourceBytes": 23948,
+      "portableFileSha256": "c6474e34e358cb2d92bf05918d92bc023567975a821f5617a387f30a790ebe38",
+      "portableFileBytes": 23948,
+      "sourceBytesIdenticalToPortableFile": true,
+      "transformations": []
+    },
+    {
+      "path": "submission/evidence/offcut-overhaul-bounded-partial.original.json",
+      "representation": "byte-for-byte-original-json-copy",
+      "observationScope": "Actual converged solver three-objective100000-node partial fixture; not a timing assertion or infeasibility/optimality proof",
+      "originalSourceArtifactName": "offcut-overhaul-bounded-partial.json",
+      "originalSourceSha256": "faaa043054f55f40ac4db519f50ea2628ed383430f6ef8f0fe29f83c59269f07",
+      "originalSourceBytes": 15134,
+      "portableFileSha256": "faaa043054f55f40ac4db519f50ea2628ed383430f6ef8f0fe29f83c59269f07",
+      "portableFileBytes": 15134,
+      "sourceBytesIdenticalToPortableFile": true,
+      "transformations": []
+    },
+    {
+      "path": "submission/evidence/capture-take-02/actual-completion-map.portable.json",
+      "representation": "transformed-full-capture-record",
+      "observationScope": "Actual current-candidate capture take-02; original source observations/ordinals/times, not final edited MP4 verification",
+      "originalSourceArtifactName": "actual-completion-map.json",
+      "originalSourceSha256": "29d9fc6acec12ce4523af57c8fdb78001eb840ba6073fbb436119b33883cee35",
+      "originalSourceBytes": 345748,
+      "portableFileSha256": "3f58b3fb4ff8f56104b47d1cbe6c173d39730d518272005ed29e4aacfede5a9e",
+      "portableFileBytes": 365606,
+      "sourceBytesIdenticalToPortableFile": false,
+      "transformations": [
+        "Only artifact references/locator field names are transformed. Original native/model/UI/state/clock observations, recorded counts, capture errors and original JPEG/video hashes are retained; raw JPEG images are not copied."
+      ]
+    },
+    {
+      "path": "submission/evidence/capture-take-02/source-frame-bindings.portable.json",
+      "representation": "transformed-full-capture-record",
+      "observationScope": "Actual current-candidate capture take-02; original source observations/ordinals/times, not final edited MP4 verification",
+      "originalSourceArtifactName": "source-frame-bindings.json",
+      "originalSourceSha256": "57b0ff5feb77af623209fab09766a2cd0df5505f7b886d31bf76353b0378f08c",
+      "originalSourceBytes": 660818,
+      "portableFileSha256": "200596b255899d0ee2496407169d70c1d3bed0275e1b7e46ef99d1319a52bd15",
+      "portableFileBytes": 714463,
+      "sourceBytesIdenticalToPortableFile": false,
+      "transformations": [
+        "Only artifact references/locator field names are transformed. Original native/model/UI/state/clock observations, recorded counts, capture errors and original JPEG/video hashes are retained; raw JPEG images are not copied."
+      ]
+    },
+    {
+      "path": "submission/evidence/capture-take-02/frame-manifest.portable.json",
+      "representation": "transformed-full-capture-record",
+      "observationScope": "Actual current-candidate capture take-02; original source observations/ordinals/times, not final edited MP4 verification",
+      "originalSourceArtifactName": "frame-manifest.json",
+      "originalSourceSha256": "8d81265de3a562a3797d8c806d3ed7d7f6de27086ece10fb137aea52ad6edf24",
+      "originalSourceBytes": 717571,
+      "portableFileSha256": "8c490227947614bf70a63ab1ea5662a4eedd64e8cb22de5c095ffc371794e356",
+      "portableFileBytes": 666905,
+      "sourceBytesIdenticalToPortableFile": false,
+      "transformations": [
+        "Only artifact references/locator field names are transformed. Original native/model/UI/state/clock observations, recorded counts, capture errors and original JPEG/video hashes are retained; raw JPEG images are not copied."
+      ]
+    },
+    {
+      "path": "submission/evidence/capture-take-02/source-encoding.portable.json",
+      "representation": "transformed-full-capture-record",
+      "observationScope": "Actual current-candidate capture take-02; original source observations/ordinals/times, not final edited MP4 verification",
+      "originalSourceArtifactName": "source-encoding.json",
+      "originalSourceSha256": "5ace2864ceb0cf3ebd4182ff58a34b231938744011d9a3a6825077035ac6ed05",
+      "originalSourceBytes": 488703,
+      "portableFileSha256": "79afd2545d129fd2d272c534379a82a655faaf1366a08496b00ddc714a75aa04",
+      "portableFileBytes": 564397,
+      "sourceBytesIdenticalToPortableFile": false,
+      "transformations": [
+        "Only artifact references/locator field names are transformed. Original native/model/UI/state/clock observations, recorded counts, capture errors and original JPEG/video hashes are retained; raw JPEG images are not copied.",
+        "Clarified the encoding-input manifest hash versus the later completed original manifest snapshot; portable file hashes are recorded separately in the evidence manifest."
+      ]
+    },
+    {
+      "path": "submission/evidence/capture-take-02/handoff-continuity.portable.json",
+      "representation": "transformed-full-capture-record",
+      "observationScope": "Actual current-candidate capture take-02; original source observations/ordinals/times, not final edited MP4 verification",
+      "originalSourceArtifactName": "handoff-continuity.json",
+      "originalSourceSha256": "00d851edd4b38e1fe092012685884f27d485593b6eb162b2af4c23022ca64a4b",
+      "originalSourceBytes": 6043,
+      "portableFileSha256": "f745ab8c37d71c0864e220d9005f1aca03251aa6be4b64338ded83d5a1910246",
+      "portableFileBytes": 7116,
+      "sourceBytesIdenticalToPortableFile": false,
+      "transformations": [
+        "Only artifact references/locator field names are transformed. Original native/model/UI/state/clock observations, recorded counts, capture errors and original JPEG/video hashes are retained; raw JPEG images are not copied."
+      ]
+    },
+    {
+      "path": "submission/evidence/capture-take-02/final-ui-state.portable.json",
+      "representation": "transformed-full-capture-record",
+      "observationScope": "Actual current-candidate capture take-02; original source observations/ordinals/times, not final edited MP4 verification",
+      "originalSourceArtifactName": "final-ui-state.json",
+      "originalSourceSha256": "1d184da4a1718965d5d51b35a295370a519c15001e44fc9e95658913d58d28df",
+      "originalSourceBytes": 7555,
+      "portableFileSha256": "149a92650e65a39aa6e6f8e349a9d1d0d4b60b70de47a7ac31bfabac045aa291",
+      "portableFileBytes": 8559,
+      "sourceBytesIdenticalToPortableFile": false,
+      "transformations": [
+        "Only artifact references/locator field names are transformed. Original native/model/UI/state/clock observations, recorded counts, capture errors and original JPEG/video hashes are retained; raw JPEG images are not copied."
+      ]
+    },
+    {
+      "path": "submission/evidence/capture-take-02/capture-stop-clock.portable.json",
+      "representation": "transformed-full-capture-record",
+      "observationScope": "Actual current-candidate capture take-02; original source observations/ordinals/times, not final edited MP4 verification",
+      "originalSourceArtifactName": "capture-stop-clock.json",
+      "originalSourceSha256": "6f8497c5410b161400dac37d5fdaf0cc5470366b6d407312cbb93f3c9b2a6306",
+      "originalSourceBytes": 930,
+      "portableFileSha256": "7230f31962fe58cfaf74b7a61a1a169f154acb0bb675ee979d858d23f61bf27a",
+      "portableFileBytes": 1937,
+      "sourceBytesIdenticalToPortableFile": false,
+      "transformations": [
+        "Only artifact references/locator field names are transformed. Original native/model/UI/state/clock observations, recorded counts, capture errors and original JPEG/video hashes are retained; raw JPEG images are not copied."
+      ]
+    },
+    {
+      "path": "submission/evidence/capture-take-02/capture-start-clock.original.json",
+      "representation": "byte-for-byte-original-json-copy",
+      "observationScope": "Actual current-candidate capture take-02; original source observations/ordinals/times, not final edited MP4 verification",
+      "originalSourceArtifactName": "capture-start-clock.json",
+      "originalSourceSha256": "14a8432270ea878c318481e3600c5c038ddd86bd8563a6db5a4080f353d90b6f",
+      "originalSourceBytes": 7302,
+      "portableFileSha256": "14a8432270ea878c318481e3600c5c038ddd86bd8563a6db5a4080f353d90b6f",
+      "portableFileBytes": 7302,
+      "sourceBytesIdenticalToPortableFile": true,
+      "transformations": []
+    },
+    {
+      "path": "submission/evidence/capture-take-02/native-catalogue.original.json",
+      "representation": "byte-for-byte-original-json-copy",
+      "observationScope": "Actual current-candidate capture take-02; original source observations/ordinals/times, not final edited MP4 verification",
+      "originalSourceArtifactName": "native-catalogue.json",
+      "originalSourceSha256": "d17cc271c5104f4475556d800f58d4fdd8d6d25f5a84a6400847530dd13c178a",
+      "originalSourceBytes": 6303,
+      "portableFileSha256": "d17cc271c5104f4475556d800f58d4fdd8d6d25f5a84a6400847530dd13c178a",
+      "portableFileBytes": 6303,
+      "sourceBytesIdenticalToPortableFile": true,
+      "transformations": []
+    },
+    {
+      "path": "submission/evidence/capture-take-02/delivered-resources.original.json",
+      "representation": "byte-for-byte-original-json-copy",
+      "observationScope": "Actual current-candidate capture take-02; original source observations/ordinals/times, not final edited MP4 verification",
+      "originalSourceArtifactName": "delivered-resources.json",
+      "originalSourceSha256": "381083cd8fe6ab7e2f2ba8ea0dad6213722ec3fd8551cbccfbade59948b3e375",
+      "originalSourceBytes": 515,
+      "portableFileSha256": "381083cd8fe6ab7e2f2ba8ea0dad6213722ec3fd8551cbccfbade59948b3e375",
+      "portableFileBytes": 515,
+      "sourceBytesIdenticalToPortableFile": true,
+      "transformations": []
+    },
+    {
+      "path": "submission/evidence/capture-take-02/csv-acquisition.portable.json",
+      "representation": "transformed-full-capture-record",
+      "observationScope": "Actual current-candidate capture take-02; original source observations/ordinals/times, not final edited MP4 verification",
+      "originalSourceArtifactName": "csv-acquisition.json",
+      "originalSourceSha256": "92f8cac644f07bdb99178b5f3b35cb2b19888eb403bc6e9fa2514a554c04d469",
+      "originalSourceBytes": 1532,
+      "portableFileSha256": "6c6e196cc56ddd90baae306552a0197f4904b105831e7ce7ed7e16ee90af08b7",
+      "portableFileBytes": 2511,
+      "sourceBytesIdenticalToPortableFile": false,
+      "transformations": [
+        "Only artifact references/locator field names are transformed. Original native/model/UI/state/clock observations, recorded counts, capture errors and original JPEG/video hashes are retained; raw JPEG images are not copied."
+      ]
+    },
+    {
+      "path": "submission/evidence/capture-take-02/observations.portable.json",
+      "representation": "transformed-full-jsonl-record-array",
+      "observationScope": "All300 original live DOM/state observations in original order",
+      "originalSourceArtifactName": "observations.jsonl",
+      "originalSourceSha256": "5fd2d77e2d787923898f24d7cb1b347dcb0c59d0d97a15c4f11309b589d370e0",
+      "originalSourceBytes": 13629913,
+      "portableFileSha256": "b29ca3165402c370279087dcb4d48417ceaf7fee2acc8240e830303a0297c0a5",
+      "portableFileBytes": 13630738,
+      "sourceBytesIdenticalToPortableFile": false,
+      "transformations": [
+        "Original JSONL record values/order are retained in a JSON records array. JSONL container/newlines are transformed; the delivered JSON file has a distinct hash. No observation/event is omitted or synthesized."
+      ]
+    },
+    {
+      "path": "submission/evidence/capture-take-02/dom-events.portable.json",
+      "representation": "transformed-full-jsonl-record-array",
+      "observationScope": "All323 actual observed DOM events in original order,322 trusted; automated UI attribution, not physical-human proof",
+      "originalSourceArtifactName": "dom-events.jsonl",
+      "originalSourceSha256": "d161baebbfbaabdfffa57829efe60788cd8f4daadc3015a01fcdb95e3ef5bb1f",
+      "originalSourceBytes": 179240,
+      "portableFileSha256": "05c2945f065760d3100a36c43c314d315267d298a21c1b20123799d12e7601d0",
+      "portableFileBytes": 180115,
+      "sourceBytesIdenticalToPortableFile": false,
+      "transformations": [
+        "Original JSONL record values/order are retained in a JSON records array. JSONL container/newlines are transformed; the delivered JSON file has a distinct hash. No observation/event is omitted or synthesized."
+      ]
+    },
+    {
+      "path": "submission/evidence/browser/149-local-report.portable-summary.json",
+      "representation": "transformed-complete-result-summary",
+      "observationScope": "Actual local candidate run, Chrome149;18 expected tests, no skipped/unexpected/flaky cases",
+      "originalSourceArtifactName": "149-local-report.json",
+      "originalSourceSha256": "bd69273b339dd1cf3457d6d5086e423428356d837af494c8c063fb06c8c21208",
+      "originalSourceBytes": 270809,
+      "portableFileSha256": "9bc2e1800d28995e58a81e30e635bf63dffbdab5cec0798ca4f4396452c88baa",
+      "portableFileBytes": 339839,
+      "sourceBytesIdenticalToPortableFile": false,
+      "transformations": [
+        "All original suite/spec/test/result values, outcomes, timestamps, durations, errors, stdout/stderr and original JSON attachment values are retained. Base64 JSON attachment bodies are decoded and retain their original decoded-byte hashes.",
+        "Omitted host-specific command/config/output directory paths and unrelated runner configuration. Binary runner attachments are represented only by original filenames and explicit not-packaged status, not unresolved file links. This is not a byte-identical raw Playwright report."
+      ]
+    },
+    {
+      "path": "submission/evidence/browser/152-local-final-report.portable-summary.json",
+      "representation": "transformed-complete-result-summary",
+      "observationScope": "Actual local candidate run, Chrome152;18 expected tests, no skipped/unexpected/flaky cases",
+      "originalSourceArtifactName": "152-local-final-report.json",
+      "originalSourceSha256": "ee924ed10c1db3bcbc55835d094033f7d48758476f56229563ab16744977ced1",
+      "originalSourceBytes": 270922,
+      "portableFileSha256": "3ade7a4a60b084c6c0fdff4e7f864c38985c0d70401a701e89a024a76935b9ae",
+      "portableFileBytes": 339844,
+      "sourceBytesIdenticalToPortableFile": false,
+      "transformations": [
+        "All original suite/spec/test/result values, outcomes, timestamps, durations, errors, stdout/stderr and original JSON attachment values are retained. Base64 JSON attachment bodies are decoded and retain their original decoded-byte hashes.",
+        "Omitted host-specific command/config/output directory paths and unrelated runner configuration. Binary runner attachments are represented only by original filenames and explicit not-packaged status, not unresolved file links. This is not a byte-identical raw Playwright report."
+      ]
+    },
+    {
+      "path": "submission/evidence/browser/149-hosted-report.portable-summary.json",
+      "representation": "transformed-complete-result-summary",
+      "observationScope": "Actual hosted candidate run, Chrome149;18 expected tests, no skipped/unexpected/flaky cases",
+      "originalSourceArtifactName": "149-hosted-report.json",
+      "originalSourceSha256": "17ad5e995712e6fd599096d23060f1277842c66f4437ae96b5bc6387fe0438a1",
+      "originalSourceBytes": 270837,
+      "portableFileSha256": "709c6868aa28b07e7fa5879d5495643c39e50e37a60705740b05b830efa12ff9",
+      "portableFileBytes": 339836,
+      "sourceBytesIdenticalToPortableFile": false,
+      "transformations": [
+        "All original suite/spec/test/result values, outcomes, timestamps, durations, errors, stdout/stderr and original JSON attachment values are retained. Base64 JSON attachment bodies are decoded and retain their original decoded-byte hashes.",
+        "Omitted host-specific command/config/output directory paths and unrelated runner configuration. Binary runner attachments are represented only by original filenames and explicit not-packaged status, not unresolved file links. This is not a byte-identical raw Playwright report."
+      ]
+    },
+    {
+      "path": "submission/evidence/browser/152-hosted-report.portable-summary.json",
+      "representation": "transformed-complete-result-summary",
+      "observationScope": "Actual hosted candidate run, Chrome152;18 expected tests, no skipped/unexpected/flaky cases",
+      "originalSourceArtifactName": "152-hosted-report.json",
+      "originalSourceSha256": "a130bf52cd3f62f1f8dad7c6400c7be9d9dce4eeda4e93deb82a0bf0f4e1ff03",
+      "originalSourceBytes": 270838,
+      "portableFileSha256": "526f9438c140e727dc3538d52bc31291d314c5e54825bd086908b6b60b8d5297",
+      "portableFileBytes": 339837,
+      "sourceBytesIdenticalToPortableFile": false,
+      "transformations": [
+        "All original suite/spec/test/result values, outcomes, timestamps, durations, errors, stdout/stderr and original JSON attachment values are retained. Base64 JSON attachment bodies are decoded and retain their original decoded-byte hashes.",
+        "Omitted host-specific command/config/output directory paths and unrelated runner configuration. Binary runner attachments are represented only by original filenames and explicit not-packaged status, not unresolved file links. This is not a byte-identical raw Playwright report."
+      ]
+    },
+    {
+      "path": "submission/evidence/capture-take-02/source-recording.provenance.json",
+      "representation": "derived-source-media-provenance-record",
+      "observationScope": "Actual current-candidate source capture/encoding; publication and final edited media pending",
+      "originalSourceArtifactName": "source-encoding.json",
+      "originalSourceSha256": "5ace2864ceb0cf3ebd4182ff58a34b231938744011d9a3a6825077035ac6ed05",
+      "originalSourceBytes": 488703,
+      "portableFileSha256": "bb7e3f03b8717b5a31d2db75865056fde24ce737b99b246329264a90f660c66a",
+      "portableFileBytes": 7101,
+      "sourceBytesIdenticalToPortableFile": false,
+      "transformations": [
+        "Derived portable metadata from the observed original source-encoding/capture/model proof records. Source video bytes are not copied into the evidence directory. The exact separate release URL is explicitly publication-pending.",
+        "Preserved original video/JPEG hashes and metadata; clarified Main's observed unspecifiedSAR0/1 and declared square-CDP-grid setsar1 convention without claiming original squareSAR or final media verification.",
+        "Main finalized currentmedia/reference/deployment data and refreshed actual destination bytes after project formatting; original source snapshot hash remains separate."
+      ]
+    },
+    {
+      "path": "submission/verification.json",
+      "representation": "transformed-current-candidate-verification-report",
+      "observationScope": "Current1.1.0 candidate proof summary; original observation scopes preserved; new edited MP4 pending Main",
+      "originalSourceArtifactName": "verification.json",
+      "originalSourceSha256": "6c344b11eaff5a8cf2a1d8254c162b7d72104f2a0533b29afbc38dbb4512ff30",
+      "originalSourceBytes": 84260,
+      "portableFileSha256": "d2a413956a0d6f76a43b98e928901ceb5acf6857012b6dbab57c2e112467831d",
+      "portableFileBytes": 95346,
+      "sourceBytesIdenticalToPortableFile": false,
+      "transformations": [
+        "Full original current-candidate observations are retained; private evidence references are mapped to produced files or explicit source-frame JSON record locators. Original tool/UI/model results and original media hashes are not rewritten.",
+        "Added explicit prepublication-build versus published-delivery, historical-workload-control, aggregate-performance, source-footage-publication-pending and final-new-MP4-awaiting-Main boundaries.",
+        "Clarified existing license/final-browser observation scope; removed the premature final-archive mapping claim. This is a transformed report, not an identical-hash raw source artifact.",
+        "Main finalized currentmedia/reference/deployment data and refreshed actual destination bytes after project formatting; original source snapshot hash remains separate."
+      ]
+    },
+    {
+      "path": "submission/agent-trace.json",
+      "representation": "transformed-full-current-candidate-agent-trace",
+      "observationScope": "Current public1.1.0 actual external-model/native/UI/source trace; never final-edited-MP4 or physical-human proof",
+      "originalSourceArtifactName": "agent-trace.json",
+      "originalSourceSha256": "957b8ca58475b1a8c94e3f418b17b555155ef509d70da3ec2312e372ced4d656",
+      "originalSourceBytes": 3173808,
+      "portableFileSha256": "6d8322bf86b30d3f7475e811cdb8cce7ad6b02cf5e4f1b0d2bdcd78cd2bb7a23",
+      "portableFileBytes": 3275235,
+      "sourceBytesIdenticalToPortableFile": false,
+      "transformations": [
+        "All19 native receipts including raw return strings,25 actual model decision prompts/outputs,6 finish decisions,70 UI events,50 marks, original acquisition errors and retained state/clock observations remain. No observed name/input/result/plan ID/revision/ordinal/timestamp is invented or altered.",
+        "Nested absolute artifact paths become produced repository-relative evidence paths. Source JPEG paths become explicit frame-manifest file plus JSON-pointer locators; original JPEG hashes stay original-media hashes. Individual851 JPEG bytes are intentionally not copied.",
+        "All300 observations and323 DOM events are retained separately as full JSONL-to-JSON record arrays with distinct original-versus-portable hashes; actual model/native/UI transcripts are not simulated ChatGPT or physical-human proof.",
+        "The source video is represented by a local portable provenance record with its exact separately planned release URL marked publication-pending. The trace remains source/runtime proof, not final-edited-MP4 verification.",
+        "Main finalized currentmedia/reference/deployment data and refreshed actual destination bytes after project formatting; original source snapshot hash remains separate."
+      ]
+    },
+    {
+      "path": "submission/evidence/capture-take-02/ui-observation-bindings.portable-summary.json",
+      "representation": "derived-ui-post-observation-locator-summary",
+      "observationScope": "All70 UI event-to-original-post-observation locators, exact source clocks retained; Main's observed join explicitly attributed",
+      "originalSourceArtifactName": "ui-events.jsonl",
+      "originalSourceSha256": "3e3ad6638505d8ed36e39f4b37a521e8486cb07ae9548869ee45be1adf4fd904",
+      "originalSourceBytes": 162968,
+      "portableFileSha256": "f29606ab80dd2b843947558c1a3d4127435bf939aceb71880fdea4932843bca2",
+      "portableFileBytes": 45587,
+      "sourceBytesIdenticalToPortableFile": false,
+      "transformations": [
+        "Derived locator summary of all70 original UI events and their original afterObservationOrdinal references into the untouched300-record observation stream. Ordinals, action clocks and post-observation clocks are retained, not renumbered or rewritten.",
+        "Full original observations remain in observations.portable.json; full UI event state remains in submission/agent-trace.json. Main's observed equality/delay result is attributed to his real renderer join, not a new portable-conversion validation or final-MP4 claim."
+      ]
+    },
+    {
+      "path": "submission/evidence/printed-pages/max-native-approved-cut-sheet.pdf",
+      "representation": "byte-for-byte-selected-original-binary-copy",
+      "observationScope": "Actual native maximum-forty-cut PDF, six pages; Chrome152 local final run",
+      "originalSourceArtifactName": "approved-cut-sheet.pdf",
+      "originalSourceSha256": "ae3e240246631f51f176fc005a7308e89f1213c925bcc091e34494ed3753452c",
+      "portableFileSha256": "ae3e240246631f51f176fc005a7308e89f1213c925bcc091e34494ed3753452c",
+      "sourceBytesIdenticalToPortableFile": true,
+      "sourceObservationEvidencePath": "submission/evidence/offcut-overhaul-all-printed-pages-proof.portable.json",
+      "transformations": [
+        "Only the artifact location/name changes; source bytes are directly copied. Original source hash is retained as the byte-for-byte copy's expected portable hash; Main performs final destination/archive verification."
+      ],
+      "portableFileBytes": 70725
+    },
+    {
+      "path": "submission/evidence/printed-pages/max-native-page-1.png",
+      "representation": "byte-for-byte-selected-original-binary-copy",
+      "observationScope": "Actual settled Chrome native PDF-viewer capture: native page 1 of six",
+      "originalSourceArtifactName": "max-native-page-1.png",
+      "originalSourceSha256": "032d2b8bfc833f2fcee8e651d5fdc287e0bcde54e664c38be751e23b4fa65189",
+      "portableFileSha256": "032d2b8bfc833f2fcee8e651d5fdc287e0bcde54e664c38be751e23b4fa65189",
+      "sourceBytesIdenticalToPortableFile": true,
+      "sourceObservationEvidencePath": "submission/evidence/offcut-overhaul-all-printed-pages-proof.portable.json",
+      "transformations": [
+        "Only the artifact location/name changes; source bytes are directly copied. Original source hash is retained as the byte-for-byte copy's expected portable hash; Main performs final destination/archive verification."
+      ],
+      "portableFileBytes": 184188
+    },
+    {
+      "path": "submission/evidence/printed-pages/max-native-page-2.png",
+      "representation": "byte-for-byte-selected-original-binary-copy",
+      "observationScope": "Actual settled Chrome native PDF-viewer capture: native page 2 of six",
+      "originalSourceArtifactName": "max-native-page-2.png",
+      "originalSourceSha256": "0f47f557246db302f8eba8cfe4682a67ce133038c3b08996c0733f9a44edd16b",
+      "portableFileSha256": "0f47f557246db302f8eba8cfe4682a67ce133038c3b08996c0733f9a44edd16b",
+      "sourceBytesIdenticalToPortableFile": true,
+      "sourceObservationEvidencePath": "submission/evidence/offcut-overhaul-all-printed-pages-proof.portable.json",
+      "transformations": [
+        "Only the artifact location/name changes; source bytes are directly copied. Original source hash is retained as the byte-for-byte copy's expected portable hash; Main performs final destination/archive verification."
+      ],
+      "portableFileBytes": 167329
+    },
+    {
+      "path": "submission/evidence/printed-pages/max-native-page-3.png",
+      "representation": "byte-for-byte-selected-original-binary-copy",
+      "observationScope": "Actual settled Chrome native PDF-viewer capture: native page 3 of six",
+      "originalSourceArtifactName": "max-native-page-3.png",
+      "originalSourceSha256": "c405b530ce6acf513be960cf0bc57cb777abdf139a9b6d9d19a300374bc1413f",
+      "portableFileSha256": "c405b530ce6acf513be960cf0bc57cb777abdf139a9b6d9d19a300374bc1413f",
+      "sourceBytesIdenticalToPortableFile": true,
+      "sourceObservationEvidencePath": "submission/evidence/offcut-overhaul-all-printed-pages-proof.portable.json",
+      "transformations": [
+        "Only the artifact location/name changes; source bytes are directly copied. Original source hash is retained as the byte-for-byte copy's expected portable hash; Main performs final destination/archive verification."
+      ],
+      "portableFileBytes": 169102
+    },
+    {
+      "path": "submission/evidence/printed-pages/max-native-page-4.png",
+      "representation": "byte-for-byte-selected-original-binary-copy",
+      "observationScope": "Actual settled Chrome native PDF-viewer capture: native page 4 of six",
+      "originalSourceArtifactName": "max-native-page-4.png",
+      "originalSourceSha256": "d0ffeb83eed6f4b8d0d3c616b4779bb89a2d8ccda4e225850d38e3251e78aa72",
+      "portableFileSha256": "d0ffeb83eed6f4b8d0d3c616b4779bb89a2d8ccda4e225850d38e3251e78aa72",
+      "sourceBytesIdenticalToPortableFile": true,
+      "sourceObservationEvidencePath": "submission/evidence/offcut-overhaul-all-printed-pages-proof.portable.json",
+      "transformations": [
+        "Only the artifact location/name changes; source bytes are directly copied. Original source hash is retained as the byte-for-byte copy's expected portable hash; Main performs final destination/archive verification."
+      ],
+      "portableFileBytes": 170646
+    },
+    {
+      "path": "submission/evidence/printed-pages/max-native-page-5.png",
+      "representation": "byte-for-byte-selected-original-binary-copy",
+      "observationScope": "Actual settled Chrome native PDF-viewer capture: native page 5 of six",
+      "originalSourceArtifactName": "max-native-page-5.png",
+      "originalSourceSha256": "400f46f80b4530364d02e9ac8d103449d432a05cf418f6571ecb3425bcd3b961",
+      "portableFileSha256": "400f46f80b4530364d02e9ac8d103449d432a05cf418f6571ecb3425bcd3b961",
+      "sourceBytesIdenticalToPortableFile": true,
+      "sourceObservationEvidencePath": "submission/evidence/offcut-overhaul-all-printed-pages-proof.portable.json",
+      "transformations": [
+        "Only the artifact location/name changes; source bytes are directly copied. Original source hash is retained as the byte-for-byte copy's expected portable hash; Main performs final destination/archive verification."
+      ],
+      "portableFileBytes": 186432
+    },
+    {
+      "path": "submission/evidence/printed-pages/max-native-page-6.png",
+      "representation": "byte-for-byte-selected-original-binary-copy",
+      "observationScope": "Actual settled Chrome native PDF-viewer capture: native page 6 of six",
+      "originalSourceArtifactName": "max-native-page-6.png",
+      "originalSourceSha256": "048c60d80e81768ddcae2079f3d6f4ba5d77bed942488d52afed1d77da258e99",
+      "portableFileSha256": "048c60d80e81768ddcae2079f3d6f4ba5d77bed942488d52afed1d77da258e99",
+      "sourceBytesIdenticalToPortableFile": true,
+      "sourceObservationEvidencePath": "submission/evidence/offcut-overhaul-all-printed-pages-proof.portable.json",
+      "transformations": [
+        "Only the artifact location/name changes; source bytes are directly copied. Original source hash is retained as the byte-for-byte copy's expected portable hash; Main performs final destination/archive verification."
+      ],
+      "portableFileBytes": 112410
+    },
+    {
+      "path": "submission/evidence/printed-pages/max-manual-approved-cut-sheet.pdf",
+      "representation": "byte-for-byte-selected-original-binary-copy",
+      "observationScope": "Actual manual maximum-forty-cut PDF, six pages; Chrome152 local final run",
+      "originalSourceArtifactName": "approved-cut-sheet.pdf",
+      "originalSourceSha256": "5c17e0c17fe6496616d0ff492087baadeee5447576b6d3e32b12aeec3dab4590",
+      "portableFileSha256": "5c17e0c17fe6496616d0ff492087baadeee5447576b6d3e32b12aeec3dab4590",
+      "sourceBytesIdenticalToPortableFile": true,
+      "sourceObservationEvidencePath": "submission/evidence/offcut-overhaul-all-printed-pages-proof.portable.json",
+      "transformations": [
+        "Only the artifact location/name changes; source bytes are directly copied. Original source hash is retained as the byte-for-byte copy's expected portable hash; Main performs final destination/archive verification."
+      ],
+      "portableFileBytes": 70707
+    },
+    {
+      "path": "submission/evidence/printed-pages/max-manual-page-1.png",
+      "representation": "byte-for-byte-selected-original-binary-copy",
+      "observationScope": "Actual settled Chrome native PDF-viewer capture: manual page 1 of six",
+      "originalSourceArtifactName": "max-manual-page-1.png",
+      "originalSourceSha256": "80f5dd8f28af5986f884aefeda5c38c2c05941feaad4876180606cda6b80b933",
+      "portableFileSha256": "80f5dd8f28af5986f884aefeda5c38c2c05941feaad4876180606cda6b80b933",
+      "sourceBytesIdenticalToPortableFile": true,
+      "sourceObservationEvidencePath": "submission/evidence/offcut-overhaul-all-printed-pages-proof.portable.json",
+      "transformations": [
+        "Only the artifact location/name changes; source bytes are directly copied. Original source hash is retained as the byte-for-byte copy's expected portable hash; Main performs final destination/archive verification."
+      ],
+      "portableFileBytes": 182247
+    },
+    {
+      "path": "submission/evidence/printed-pages/max-manual-page-2.png",
+      "representation": "byte-for-byte-selected-original-binary-copy",
+      "observationScope": "Actual settled Chrome native PDF-viewer capture: manual page 2 of six",
+      "originalSourceArtifactName": "max-manual-page-2.png",
+      "originalSourceSha256": "ad7f4aa8d1ffd0f9ccb591a6a0851e9088ca6e814fdc394f384f655e4daaf628",
+      "portableFileSha256": "ad7f4aa8d1ffd0f9ccb591a6a0851e9088ca6e814fdc394f384f655e4daaf628",
+      "sourceBytesIdenticalToPortableFile": true,
+      "sourceObservationEvidencePath": "submission/evidence/offcut-overhaul-all-printed-pages-proof.portable.json",
+      "transformations": [
+        "Only the artifact location/name changes; source bytes are directly copied. Original source hash is retained as the byte-for-byte copy's expected portable hash; Main performs final destination/archive verification."
+      ],
+      "portableFileBytes": 163622
+    },
+    {
+      "path": "submission/evidence/printed-pages/max-manual-page-3.png",
+      "representation": "byte-for-byte-selected-original-binary-copy",
+      "observationScope": "Actual settled Chrome native PDF-viewer capture: manual page 3 of six",
+      "originalSourceArtifactName": "max-manual-page-3.png",
+      "originalSourceSha256": "d48f3b03895540bfe8cf14d37e4db872e97f02c1279f6c90254ee65853d0618a",
+      "portableFileSha256": "d48f3b03895540bfe8cf14d37e4db872e97f02c1279f6c90254ee65853d0618a",
+      "sourceBytesIdenticalToPortableFile": true,
+      "sourceObservationEvidencePath": "submission/evidence/offcut-overhaul-all-printed-pages-proof.portable.json",
+      "transformations": [
+        "Only the artifact location/name changes; source bytes are directly copied. Original source hash is retained as the byte-for-byte copy's expected portable hash; Main performs final destination/archive verification."
+      ],
+      "portableFileBytes": 165358
+    },
+    {
+      "path": "submission/evidence/printed-pages/max-manual-page-4.png",
+      "representation": "byte-for-byte-selected-original-binary-copy",
+      "observationScope": "Actual settled Chrome native PDF-viewer capture: manual page 4 of six",
+      "originalSourceArtifactName": "max-manual-page-4.png",
+      "originalSourceSha256": "2464b24e60e8edee97443564c7f3b6bc8c5745bb7c5c7b0d14eceb18f22c7b78",
+      "portableFileSha256": "2464b24e60e8edee97443564c7f3b6bc8c5745bb7c5c7b0d14eceb18f22c7b78",
+      "sourceBytesIdenticalToPortableFile": true,
+      "sourceObservationEvidencePath": "submission/evidence/offcut-overhaul-all-printed-pages-proof.portable.json",
+      "transformations": [
+        "Only the artifact location/name changes; source bytes are directly copied. Original source hash is retained as the byte-for-byte copy's expected portable hash; Main performs final destination/archive verification."
+      ],
+      "portableFileBytes": 166936
+    },
+    {
+      "path": "submission/evidence/printed-pages/max-manual-page-5.png",
+      "representation": "byte-for-byte-selected-original-binary-copy",
+      "observationScope": "Actual settled Chrome native PDF-viewer capture: manual page 5 of six",
+      "originalSourceArtifactName": "max-manual-page-5.png",
+      "originalSourceSha256": "b28a7aa35fc9f3e0fe01946a9df7fd4038cad46b7be573b063bd82fe831c7d54",
+      "portableFileSha256": "b28a7aa35fc9f3e0fe01946a9df7fd4038cad46b7be573b063bd82fe831c7d54",
+      "sourceBytesIdenticalToPortableFile": true,
+      "sourceObservationEvidencePath": "submission/evidence/offcut-overhaul-all-printed-pages-proof.portable.json",
+      "transformations": [
+        "Only the artifact location/name changes; source bytes are directly copied. Original source hash is retained as the byte-for-byte copy's expected portable hash; Main performs final destination/archive verification."
+      ],
+      "portableFileBytes": 183757
+    },
+    {
+      "path": "submission/evidence/printed-pages/max-manual-page-6.png",
+      "representation": "byte-for-byte-selected-original-binary-copy",
+      "observationScope": "Actual settled Chrome native PDF-viewer capture: manual page 6 of six",
+      "originalSourceArtifactName": "max-manual-page-6.png",
+      "originalSourceSha256": "002dfde6e9b1b6e22fd0d13410e48ec4fc84a5720c5a4a5de0797c30d444ef89",
+      "portableFileSha256": "002dfde6e9b1b6e22fd0d13410e48ec4fc84a5720c5a4a5de0797c30d444ef89",
+      "sourceBytesIdenticalToPortableFile": true,
+      "sourceObservationEvidencePath": "submission/evidence/offcut-overhaul-all-printed-pages-proof.portable.json",
+      "transformations": [
+        "Only the artifact location/name changes; source bytes are directly copied. Original source hash is retained as the byte-for-byte copy's expected portable hash; Main performs final destination/archive verification."
+      ],
+      "portableFileBytes": 111964
+    },
+    {
+      "path": "submission/evidence/capture-take-02/offcut-the-little-library-r1-plan-683635c8-5b2c-40d1-82e8-31916f4a622b-6.csv",
+      "representation": "byte-for-byte-original-downloaded-csv-copy",
+      "observationScope": "Actual browser-downloaded revision-one approved CSV; native model-selected export receipt9/UI event47",
+      "originalSourceArtifactName": "offcut-the-little-library-r1-plan-683635c8-5b2c-40d1-82e8-31916f4a622b-6.csv",
+      "originalSourceSha256": "9391830cdd096fab3cc3f825c7b2a35e0cda41b9efd0b7f0b88ba2d1fd35cbc2",
+      "portableFileSha256": "9391830cdd096fab3cc3f825c7b2a35e0cda41b9efd0b7f0b88ba2d1fd35cbc2",
+      "sourceBytesIdenticalToPortableFile": true,
+      "sourceObservationEvidencePath": "submission/evidence/offcut-overhaul-real-model-proof.portable.json",
+      "transformations": [
+        "Only the artifact location/name changes; source bytes are directly copied. Original source hash is retained as the byte-for-byte copy's expected portable hash; Main performs final destination/archive verification."
+      ],
+      "portableFileBytes": 3109
+    },
+    {
+      "path": "submission/evidence/media/frame-0000.png",
+      "representation": "byte-for-byte-selected-original-binary-copy",
+      "observationScope": "Actual final MP4 decoded frame 0 at 0seconds; only sampled-frame visual scope",
+      "originalSourceArtifactName": "frame-0000.png",
+      "originalSourceSha256": "b66ac4291cf35c2d6dcae2e96262c7c38c3850c34eaf985c96795eee7303f256",
+      "portableFileSha256": "b66ac4291cf35c2d6dcae2e96262c7c38c3850c34eaf985c96795eee7303f256",
+      "portableFileBytes": 568433,
+      "sourceBytesIdenticalToPortableFile": true,
+      "transformations": [
+        "Only the artifact location changes; final destination/archive hashes are checked separately by Main."
+      ]
+    },
+    {
+      "path": "submission/evidence/media/frame-0057.png",
+      "representation": "byte-for-byte-selected-original-binary-copy",
+      "observationScope": "Actual final MP4 decoded frame 57 at 2.28seconds; only sampled-frame visual scope",
+      "originalSourceArtifactName": "frame-0057.png",
+      "originalSourceSha256": "1b6fdc7333b921b709f05ad3556d029ccf7ee96af52ae85f4c7b4aee24232c7a",
+      "portableFileSha256": "1b6fdc7333b921b709f05ad3556d029ccf7ee96af52ae85f4c7b4aee24232c7a",
+      "portableFileBytes": 599562,
+      "sourceBytesIdenticalToPortableFile": true,
+      "transformations": [
+        "Only the artifact location changes; final destination/archive hashes are checked separately by Main."
+      ]
+    },
+    {
+      "path": "submission/evidence/media/frame-0124.png",
+      "representation": "byte-for-byte-selected-original-binary-copy",
+      "observationScope": "Actual final MP4 decoded frame 124 at 4.96seconds; only sampled-frame visual scope",
+      "originalSourceArtifactName": "frame-0124.png",
+      "originalSourceSha256": "46fc48c248abcb78e2be8808bbaf1dbbb6c2d6fda160f2b7635f9e69d8601e45",
+      "portableFileSha256": "46fc48c248abcb78e2be8808bbaf1dbbb6c2d6fda160f2b7635f9e69d8601e45",
+      "portableFileBytes": 597070,
+      "sourceBytesIdenticalToPortableFile": true,
+      "transformations": [
+        "Only the artifact location changes; final destination/archive hashes are checked separately by Main."
+      ]
+    },
+    {
+      "path": "submission/evidence/media/frame-0165.png",
+      "representation": "byte-for-byte-selected-original-binary-copy",
+      "observationScope": "Actual final MP4 decoded frame 165 at 6.6seconds; only sampled-frame visual scope",
+      "originalSourceArtifactName": "frame-0165.png",
+      "originalSourceSha256": "eb70e74d1d75f1dc3bd618f4f7a24bca96c84d0c5ed445ea989c4cef76771cab",
+      "portableFileSha256": "eb70e74d1d75f1dc3bd618f4f7a24bca96c84d0c5ed445ea989c4cef76771cab",
+      "portableFileBytes": 597237,
+      "sourceBytesIdenticalToPortableFile": true,
+      "transformations": [
+        "Only the artifact location changes; final destination/archive hashes are checked separately by Main."
+      ]
+    },
+    {
+      "path": "submission/evidence/media/frame-0287.png",
+      "representation": "byte-for-byte-selected-original-binary-copy",
+      "observationScope": "Actual final MP4 decoded frame 287 at 11.48seconds; only sampled-frame visual scope",
+      "originalSourceArtifactName": "frame-0287.png",
+      "originalSourceSha256": "f4407abc061b925e758ebb6fe36e96d1d8e7d55218b52b94874c99c10a6ad083",
+      "portableFileSha256": "f4407abc061b925e758ebb6fe36e96d1d8e7d55218b52b94874c99c10a6ad083",
+      "portableFileBytes": 502179,
+      "sourceBytesIdenticalToPortableFile": true,
+      "transformations": [
+        "Only the artifact location changes; final destination/archive hashes are checked separately by Main."
+      ]
+    },
+    {
+      "path": "submission/evidence/media/frame-0329.png",
+      "representation": "byte-for-byte-selected-original-binary-copy",
+      "observationScope": "Actual final MP4 decoded frame 329 at 13.16seconds; only sampled-frame visual scope",
+      "originalSourceArtifactName": "frame-0329.png",
+      "originalSourceSha256": "23fb28224c00dd3dc30615141979fc538e2b7e785767cfba5b33413f6e4d0438",
+      "portableFileSha256": "23fb28224c00dd3dc30615141979fc538e2b7e785767cfba5b33413f6e4d0438",
+      "portableFileBytes": 448234,
+      "sourceBytesIdenticalToPortableFile": true,
+      "transformations": [
+        "Only the artifact location changes; final destination/archive hashes are checked separately by Main."
+      ]
+    },
+    {
+      "path": "submission/evidence/media/frame-0371.png",
+      "representation": "byte-for-byte-selected-original-binary-copy",
+      "observationScope": "Actual final MP4 decoded frame 371 at 14.84seconds; only sampled-frame visual scope",
+      "originalSourceArtifactName": "frame-0371.png",
+      "originalSourceSha256": "e921e1e5a006a815efc7045abb1f3843c42b67eb2685a92c2db0a51bd9ba2830",
+      "portableFileSha256": "e921e1e5a006a815efc7045abb1f3843c42b67eb2685a92c2db0a51bd9ba2830",
+      "portableFileBytes": 448164,
+      "sourceBytesIdenticalToPortableFile": true,
+      "transformations": [
+        "Only the artifact location changes; final destination/archive hashes are checked separately by Main."
+      ]
+    },
+    {
+      "path": "submission/evidence/media/frame-0393.png",
+      "representation": "byte-for-byte-selected-original-binary-copy",
+      "observationScope": "Actual final MP4 decoded frame 393 at 15.72seconds; only sampled-frame visual scope",
+      "originalSourceArtifactName": "frame-0393.png",
+      "originalSourceSha256": "07ba8d995b5fc90d74e1a3659eb519207c2487aeac39c1cd74b1619c08c295af",
+      "portableFileSha256": "07ba8d995b5fc90d74e1a3659eb519207c2487aeac39c1cd74b1619c08c295af",
+      "portableFileBytes": 448103,
+      "sourceBytesIdenticalToPortableFile": true,
+      "transformations": [
+        "Only the artifact location changes; final destination/archive hashes are checked separately by Main."
+      ]
+    },
+    {
+      "path": "submission/evidence/media/frame-0469.png",
+      "representation": "byte-for-byte-selected-original-binary-copy",
+      "observationScope": "Actual final MP4 decoded frame 469 at 18.76seconds; only sampled-frame visual scope",
+      "originalSourceArtifactName": "frame-0469.png",
+      "originalSourceSha256": "dc28076636e6b231d2de01722ccd912dbf0e469112f047a8513557fcdb831aa7",
+      "portableFileSha256": "dc28076636e6b231d2de01722ccd912dbf0e469112f047a8513557fcdb831aa7",
+      "portableFileBytes": 498894,
+      "sourceBytesIdenticalToPortableFile": true,
+      "transformations": [
+        "Only the artifact location changes; final destination/archive hashes are checked separately by Main."
+      ]
+    },
+    {
+      "path": "submission/evidence/media/frame-0478.png",
+      "representation": "byte-for-byte-selected-original-binary-copy",
+      "observationScope": "Actual final MP4 decoded frame 478 at 19.12seconds; only sampled-frame visual scope",
+      "originalSourceArtifactName": "frame-0478.png",
+      "originalSourceSha256": "dc28076636e6b231d2de01722ccd912dbf0e469112f047a8513557fcdb831aa7",
+      "portableFileSha256": "dc28076636e6b231d2de01722ccd912dbf0e469112f047a8513557fcdb831aa7",
+      "portableFileBytes": 498894,
+      "sourceBytesIdenticalToPortableFile": true,
+      "transformations": [
+        "Only the artifact location changes; final destination/archive hashes are checked separately by Main."
+      ]
+    },
+    {
+      "path": "submission/evidence/media/frame-0585.png",
+      "representation": "byte-for-byte-selected-original-binary-copy",
+      "observationScope": "Actual final MP4 decoded frame 585 at 23.4seconds; only sampled-frame visual scope",
+      "originalSourceArtifactName": "frame-0585.png",
+      "originalSourceSha256": "d0a1630034e7c40573e354f8812abbe0b84b6aa04b3ecbff6e59b28b7f05cf13",
+      "portableFileSha256": "d0a1630034e7c40573e354f8812abbe0b84b6aa04b3ecbff6e59b28b7f05cf13",
+      "portableFileBytes": 678730,
+      "sourceBytesIdenticalToPortableFile": true,
+      "transformations": [
+        "Only the artifact location changes; final destination/archive hashes are checked separately by Main."
+      ]
+    },
+    {
+      "path": "submission/evidence/media/frame-0622.png",
+      "representation": "byte-for-byte-selected-original-binary-copy",
+      "observationScope": "Actual final MP4 decoded frame 622 at 24.88seconds; only sampled-frame visual scope",
+      "originalSourceArtifactName": "frame-0622.png",
+      "originalSourceSha256": "08dcf76660c68e4a8c41d1a0c18aee386a24fde412cfee9f896ac07e5b781a1e",
+      "portableFileSha256": "08dcf76660c68e4a8c41d1a0c18aee386a24fde412cfee9f896ac07e5b781a1e",
+      "portableFileBytes": 678586,
+      "sourceBytesIdenticalToPortableFile": true,
+      "transformations": [
+        "Only the artifact location changes; final destination/archive hashes are checked separately by Main."
+      ]
+    },
+    {
+      "path": "submission/evidence/media/frame-0666.png",
+      "representation": "byte-for-byte-selected-original-binary-copy",
+      "observationScope": "Actual final MP4 decoded frame 666 at 26.64seconds; only sampled-frame visual scope",
+      "originalSourceArtifactName": "frame-0666.png",
+      "originalSourceSha256": "8507720553d170aca9a3abea8bbfd20fe56e5b6d66a8813049731c5910207e3a",
+      "portableFileSha256": "8507720553d170aca9a3abea8bbfd20fe56e5b6d66a8813049731c5910207e3a",
+      "portableFileBytes": 667723,
+      "sourceBytesIdenticalToPortableFile": true,
+      "transformations": [
+        "Only the artifact location changes; final destination/archive hashes are checked separately by Main."
+      ]
+    },
+    {
+      "path": "submission/evidence/media/frame-0737.png",
+      "representation": "byte-for-byte-selected-original-binary-copy",
+      "observationScope": "Actual final MP4 decoded frame 737 at 29.48seconds; only sampled-frame visual scope",
+      "originalSourceArtifactName": "frame-0737.png",
+      "originalSourceSha256": "11de8122ba0d2c71c339d3bbbff56107750d87513086da6bb8fd1584e2142ad3",
+      "portableFileSha256": "11de8122ba0d2c71c339d3bbbff56107750d87513086da6bb8fd1584e2142ad3",
+      "portableFileBytes": 533741,
+      "sourceBytesIdenticalToPortableFile": true,
+      "transformations": [
+        "Only the artifact location changes; final destination/archive hashes are checked separately by Main."
+      ]
+    },
+    {
+      "path": "submission/evidence/media/frame-0749.png",
+      "representation": "byte-for-byte-selected-original-binary-copy",
+      "observationScope": "Actual final MP4 decoded frame 749 at 29.96seconds; only sampled-frame visual scope",
+      "originalSourceArtifactName": "frame-0749.png",
+      "originalSourceSha256": "b3969c26c6a85b4dd5bbad58bdd430784d570f06e63a6f54ebe07a110fee3113",
+      "portableFileSha256": "b3969c26c6a85b4dd5bbad58bdd430784d570f06e63a6f54ebe07a110fee3113",
+      "portableFileBytes": 533750,
+      "sourceBytesIdenticalToPortableFile": true,
+      "transformations": [
+        "Only the artifact location changes; final destination/archive hashes are checked separately by Main."
+      ]
+    },
+    {
+      "path": "submission/evidence/media/frame-0822.png",
+      "representation": "byte-for-byte-selected-original-binary-copy",
+      "observationScope": "Actual final MP4 decoded frame 822 at 32.88seconds; only sampled-frame visual scope",
+      "originalSourceArtifactName": "frame-0822.png",
+      "originalSourceSha256": "b1067a29d8e2d6561a414eaa3b6fb6da39308e25976615fb818c473c5b0c2d8b",
+      "portableFileSha256": "b1067a29d8e2d6561a414eaa3b6fb6da39308e25976615fb818c473c5b0c2d8b",
+      "portableFileBytes": 515367,
+      "sourceBytesIdenticalToPortableFile": true,
+      "transformations": [
+        "Only the artifact location changes; final destination/archive hashes are checked separately by Main."
+      ]
+    },
+    {
+      "path": "submission/evidence/media/frame-0843.png",
+      "representation": "byte-for-byte-selected-original-binary-copy",
+      "observationScope": "Actual final MP4 decoded frame 843 at 33.72seconds; only sampled-frame visual scope",
+      "originalSourceArtifactName": "frame-0843.png",
+      "originalSourceSha256": "78c5ab258986c5423eb97974426ef7193c30e19d009407c4fadabdea5c89439f",
+      "portableFileSha256": "78c5ab258986c5423eb97974426ef7193c30e19d009407c4fadabdea5c89439f",
+      "portableFileBytes": 515756,
+      "sourceBytesIdenticalToPortableFile": true,
+      "transformations": [
+        "Only the artifact location changes; final destination/archive hashes are checked separately by Main."
+      ]
+    },
+    {
+      "path": "submission/evidence/media/frame-0974.png",
+      "representation": "byte-for-byte-selected-original-binary-copy",
+      "observationScope": "Actual final MP4 decoded frame 974 at 38.96seconds; only sampled-frame visual scope",
+      "originalSourceArtifactName": "frame-0974.png",
+      "originalSourceSha256": "b6605aa7a9df2ac2e8964255db4e0c9fe40c34e8bc80681c0f74bb4a5311fb76",
+      "portableFileSha256": "b6605aa7a9df2ac2e8964255db4e0c9fe40c34e8bc80681c0f74bb4a5311fb76",
+      "portableFileBytes": 588549,
+      "sourceBytesIdenticalToPortableFile": true,
+      "transformations": [
+        "Only the artifact location changes; final destination/archive hashes are checked separately by Main."
+      ]
+    },
+    {
+      "path": "submission/evidence/media/frame-1031.png",
+      "representation": "byte-for-byte-selected-original-binary-copy",
+      "observationScope": "Actual final MP4 decoded frame 1031 at 41.24seconds; only sampled-frame visual scope",
+      "originalSourceArtifactName": "frame-1031.png",
+      "originalSourceSha256": "4d0c46b03e6d483a3f5d2a59fef83c5303e5fd74c3890c02fb97377c2f95a963",
+      "portableFileSha256": "4d0c46b03e6d483a3f5d2a59fef83c5303e5fd74c3890c02fb97377c2f95a963",
+      "portableFileBytes": 586415,
+      "sourceBytesIdenticalToPortableFile": true,
+      "transformations": [
+        "Only the artifact location changes; final destination/archive hashes are checked separately by Main."
+      ]
+    },
+    {
+      "path": "submission/evidence/media/frame-1066.png",
+      "representation": "byte-for-byte-selected-original-binary-copy",
+      "observationScope": "Actual final MP4 decoded frame 1066 at 42.64seconds; only sampled-frame visual scope",
+      "originalSourceArtifactName": "frame-1066.png",
+      "originalSourceSha256": "464ac207e993fbe4463bf7ab06305cf1d8c6273af9f7384cd8f0932ecf0e3819",
+      "portableFileSha256": "464ac207e993fbe4463bf7ab06305cf1d8c6273af9f7384cd8f0932ecf0e3819",
+      "portableFileBytes": 584729,
+      "sourceBytesIdenticalToPortableFile": true,
+      "transformations": [
+        "Only the artifact location changes; final destination/archive hashes are checked separately by Main."
+      ]
+    },
+    {
+      "path": "submission/evidence/media/frame-1143.png",
+      "representation": "byte-for-byte-selected-original-binary-copy",
+      "observationScope": "Actual final MP4 decoded frame 1143 at 45.72seconds; only sampled-frame visual scope",
+      "originalSourceArtifactName": "frame-1143.png",
+      "originalSourceSha256": "63fdf945a3af32a16b0b4b74a58872560a9339b34c870a63e22755d0f048c637",
+      "portableFileSha256": "63fdf945a3af32a16b0b4b74a58872560a9339b34c870a63e22755d0f048c637",
+      "portableFileBytes": 564747,
+      "sourceBytesIdenticalToPortableFile": true,
+      "transformations": [
+        "Only the artifact location changes; final destination/archive hashes are checked separately by Main."
+      ]
+    },
+    {
+      "path": "submission/evidence/media/frame-1187.png",
+      "representation": "byte-for-byte-selected-original-binary-copy",
+      "observationScope": "Actual final MP4 decoded frame 1187 at 47.48seconds; only sampled-frame visual scope",
+      "originalSourceArtifactName": "frame-1187.png",
+      "originalSourceSha256": "29cd658691c09b8fc90d7290dde2ba50ece7c5abc767f9401669ff2050eb5778",
+      "portableFileSha256": "29cd658691c09b8fc90d7290dde2ba50ece7c5abc767f9401669ff2050eb5778",
+      "portableFileBytes": 564726,
+      "sourceBytesIdenticalToPortableFile": true,
+      "transformations": [
+        "Only the artifact location changes; final destination/archive hashes are checked separately by Main."
+      ]
+    },
+    {
+      "path": "submission/evidence/media/frame-1296.png",
+      "representation": "byte-for-byte-selected-original-binary-copy",
+      "observationScope": "Actual final MP4 decoded frame 1296 at 51.84seconds; only sampled-frame visual scope",
+      "originalSourceArtifactName": "frame-1296.png",
+      "originalSourceSha256": "aa4b3389702eee4a13bb9a9b1be92b07535b26ac6079c422825866af1ce0e116",
+      "portableFileSha256": "aa4b3389702eee4a13bb9a9b1be92b07535b26ac6079c422825866af1ce0e116",
+      "portableFileBytes": 445704,
+      "sourceBytesIdenticalToPortableFile": true,
+      "transformations": [
+        "Only the artifact location changes; final destination/archive hashes are checked separately by Main."
+      ]
+    },
+    {
+      "path": "submission/evidence/media/frame-1300.png",
+      "representation": "byte-for-byte-selected-original-binary-copy",
+      "observationScope": "Actual final MP4 decoded frame 1300 at 52seconds; only sampled-frame visual scope",
+      "originalSourceArtifactName": "frame-1300.png",
+      "originalSourceSha256": "4a3dff4b7759782fa0b838865cf284904208fec1ac6a18a1d84a45139b003f89",
+      "portableFileSha256": "4a3dff4b7759782fa0b838865cf284904208fec1ac6a18a1d84a45139b003f89",
+      "portableFileBytes": 445667,
+      "sourceBytesIdenticalToPortableFile": true,
+      "transformations": [
+        "Only the artifact location changes; final destination/archive hashes are checked separately by Main."
+      ]
+    },
+    {
+      "path": "submission/evidence/media/frame-1383.png",
+      "representation": "byte-for-byte-selected-original-binary-copy",
+      "observationScope": "Actual final MP4 decoded frame 1383 at 55.32seconds; only sampled-frame visual scope",
+      "originalSourceArtifactName": "frame-1383.png",
+      "originalSourceSha256": "266206d5836aea2ceeba466615535a641814bda9bf0ab5dd04a836655d65e377",
+      "portableFileSha256": "266206d5836aea2ceeba466615535a641814bda9bf0ab5dd04a836655d65e377",
+      "portableFileBytes": 588702,
+      "sourceBytesIdenticalToPortableFile": true,
+      "transformations": [
+        "Only the artifact location changes; final destination/archive hashes are checked separately by Main."
+      ]
+    },
+    {
+      "path": "submission/evidence/media/frame-1385.png",
+      "representation": "byte-for-byte-selected-original-binary-copy",
+      "observationScope": "Actual final MP4 decoded frame 1385 at 55.4seconds; only sampled-frame visual scope",
+      "originalSourceArtifactName": "frame-1385.png",
+      "originalSourceSha256": "266206d5836aea2ceeba466615535a641814bda9bf0ab5dd04a836655d65e377",
+      "portableFileSha256": "266206d5836aea2ceeba466615535a641814bda9bf0ab5dd04a836655d65e377",
+      "portableFileBytes": 588702,
+      "sourceBytesIdenticalToPortableFile": true,
+      "transformations": [
+        "Only the artifact location changes; final destination/archive hashes are checked separately by Main."
+      ]
+    },
+    {
+      "path": "submission/evidence/media/frame-1453.png",
+      "representation": "byte-for-byte-selected-original-binary-copy",
+      "observationScope": "Actual final MP4 decoded frame 1453 at 58.12seconds; only sampled-frame visual scope",
+      "originalSourceArtifactName": "frame-1453.png",
+      "originalSourceSha256": "1a1517e0b998823c20f8884aa6f7a580763663b12f476117e9ee5648e0c764d6",
+      "portableFileSha256": "1a1517e0b998823c20f8884aa6f7a580763663b12f476117e9ee5648e0c764d6",
+      "portableFileBytes": 591102,
+      "sourceBytesIdenticalToPortableFile": true,
+      "transformations": [
+        "Only the artifact location changes; final destination/archive hashes are checked separately by Main."
+      ]
+    },
+    {
+      "path": "submission/evidence/media/frame-1458.png",
+      "representation": "byte-for-byte-selected-original-binary-copy",
+      "observationScope": "Actual final MP4 decoded frame 1458 at 58.32seconds; only sampled-frame visual scope",
+      "originalSourceArtifactName": "frame-1458.png",
+      "originalSourceSha256": "5fdd1b543ece76df93f22a61985a105ee5f1824e0eeafcae7d9b5599298c000d",
+      "portableFileSha256": "5fdd1b543ece76df93f22a61985a105ee5f1824e0eeafcae7d9b5599298c000d",
+      "portableFileBytes": 590926,
+      "sourceBytesIdenticalToPortableFile": true,
+      "transformations": [
+        "Only the artifact location changes; final destination/archive hashes are checked separately by Main."
+      ]
+    },
+    {
+      "path": "submission/evidence/media/frame-1570.png",
+      "representation": "byte-for-byte-selected-original-binary-copy",
+      "observationScope": "Actual final MP4 decoded frame 1570 at 62.8seconds; only sampled-frame visual scope",
+      "originalSourceArtifactName": "frame-1570.png",
+      "originalSourceSha256": "bb0db6ee558ae9a0e07c885c84f532f8a155c060678d49de574058fe53a9b26c",
+      "portableFileSha256": "bb0db6ee558ae9a0e07c885c84f532f8a155c060678d49de574058fe53a9b26c",
+      "portableFileBytes": 585353,
+      "sourceBytesIdenticalToPortableFile": true,
+      "transformations": [
+        "Only the artifact location changes; final destination/archive hashes are checked separately by Main."
+      ]
+    },
+    {
+      "path": "submission/evidence/media/frame-1575.png",
+      "representation": "byte-for-byte-selected-original-binary-copy",
+      "observationScope": "Actual final MP4 decoded frame 1575 at 63seconds; only sampled-frame visual scope",
+      "originalSourceArtifactName": "frame-1575.png",
+      "originalSourceSha256": "b69bcff951f9015490d97ee4502ed0571af090b2ab78c834ee42641035f7a489",
+      "portableFileSha256": "b69bcff951f9015490d97ee4502ed0571af090b2ab78c834ee42641035f7a489",
+      "portableFileBytes": 585375,
+      "sourceBytesIdenticalToPortableFile": true,
+      "transformations": [
+        "Only the artifact location changes; final destination/archive hashes are checked separately by Main."
+      ]
+    },
+    {
+      "path": "submission/evidence/media/frame-1681.png",
+      "representation": "byte-for-byte-selected-original-binary-copy",
+      "observationScope": "Actual final MP4 decoded frame 1681 at 67.24seconds; only sampled-frame visual scope",
+      "originalSourceArtifactName": "frame-1681.png",
+      "originalSourceSha256": "9924fa077e5bdac068172bb4bef123032f447bc286846db5662278b40174d3b4",
+      "portableFileSha256": "9924fa077e5bdac068172bb4bef123032f447bc286846db5662278b40174d3b4",
+      "portableFileBytes": 592421,
+      "sourceBytesIdenticalToPortableFile": true,
+      "transformations": [
+        "Only the artifact location changes; final destination/archive hashes are checked separately by Main."
+      ]
+    },
+    {
+      "path": "submission/evidence/media/frame-1707.png",
+      "representation": "byte-for-byte-selected-original-binary-copy",
+      "observationScope": "Actual final MP4 decoded frame 1707 at 68.28seconds; only sampled-frame visual scope",
+      "originalSourceArtifactName": "frame-1707.png",
+      "originalSourceSha256": "c55565026670aa236c6d17a2e043a9dbf9b9a05383e92318c1725fbc6b36db3f",
+      "portableFileSha256": "c55565026670aa236c6d17a2e043a9dbf9b9a05383e92318c1725fbc6b36db3f",
+      "portableFileBytes": 592268,
+      "sourceBytesIdenticalToPortableFile": true,
+      "transformations": [
+        "Only the artifact location changes; final destination/archive hashes are checked separately by Main."
+      ]
+    },
+    {
+      "path": "submission/evidence/media/frame-1712.png",
+      "representation": "byte-for-byte-selected-original-binary-copy",
+      "observationScope": "Actual final MP4 decoded frame 1712 at 68.48seconds; only sampled-frame visual scope",
+      "originalSourceArtifactName": "frame-1712.png",
+      "originalSourceSha256": "c55565026670aa236c6d17a2e043a9dbf9b9a05383e92318c1725fbc6b36db3f",
+      "portableFileSha256": "c55565026670aa236c6d17a2e043a9dbf9b9a05383e92318c1725fbc6b36db3f",
+      "portableFileBytes": 592268,
+      "sourceBytesIdenticalToPortableFile": true,
+      "transformations": [
+        "Only the artifact location changes; final destination/archive hashes are checked separately by Main."
+      ]
+    },
+    {
+      "path": "submission/evidence/media/frame-1749.png",
+      "representation": "byte-for-byte-selected-original-binary-copy",
+      "observationScope": "Actual final MP4 decoded frame 1749 at 69.96seconds; only sampled-frame visual scope",
+      "originalSourceArtifactName": "frame-1749.png",
+      "originalSourceSha256": "4314b6cda437923ab602105a742cd33d572388d3fb3b20367136551817dd7292",
+      "portableFileSha256": "4314b6cda437923ab602105a742cd33d572388d3fb3b20367136551817dd7292",
+      "portableFileBytes": 516174,
+      "sourceBytesIdenticalToPortableFile": true,
+      "transformations": [
+        "Only the artifact location changes; final destination/archive hashes are checked separately by Main."
+      ]
+    },
+    {
+      "path": "submission/evidence/media/frame-1825.png",
+      "representation": "byte-for-byte-selected-original-binary-copy",
+      "observationScope": "Actual final MP4 decoded frame 1825 at 73seconds; only sampled-frame visual scope",
+      "originalSourceArtifactName": "frame-1825.png",
+      "originalSourceSha256": "d075154ed5786ae4e1cc2ca7d4b5ed9f06347ad3046634e34c60456f46c5319d",
+      "portableFileSha256": "d075154ed5786ae4e1cc2ca7d4b5ed9f06347ad3046634e34c60456f46c5319d",
+      "portableFileBytes": 577690,
+      "sourceBytesIdenticalToPortableFile": true,
+      "transformations": [
+        "Only the artifact location changes; final destination/archive hashes are checked separately by Main."
+      ]
+    },
+    {
+      "path": "submission/evidence/media/frame-1866.png",
+      "representation": "byte-for-byte-selected-original-binary-copy",
+      "observationScope": "Actual final MP4 decoded frame 1866 at 74.64seconds; only sampled-frame visual scope",
+      "originalSourceArtifactName": "frame-1866.png",
+      "originalSourceSha256": "33bf946c27e8858afbdcde30a7bc69a164738b792589bba7c32a6996a92fa35a",
+      "portableFileSha256": "33bf946c27e8858afbdcde30a7bc69a164738b792589bba7c32a6996a92fa35a",
+      "portableFileBytes": 559628,
+      "sourceBytesIdenticalToPortableFile": true,
+      "transformations": [
+        "Only the artifact location changes; final destination/archive hashes are checked separately by Main."
+      ]
+    },
+    {
+      "path": "submission/evidence/media/frame-1909.png",
+      "representation": "byte-for-byte-selected-original-binary-copy",
+      "observationScope": "Actual final MP4 decoded frame 1909 at 76.36seconds; only sampled-frame visual scope",
+      "originalSourceArtifactName": "frame-1909.png",
+      "originalSourceSha256": "f413af74e5ca85659b090f13d5c845e6edac84abb8a3e24ae5ab07b40e27c0b6",
+      "portableFileSha256": "f413af74e5ca85659b090f13d5c845e6edac84abb8a3e24ae5ab07b40e27c0b6",
+      "portableFileBytes": 582707,
+      "sourceBytesIdenticalToPortableFile": true,
+      "transformations": [
+        "Only the artifact location changes; final destination/archive hashes are checked separately by Main."
+      ]
+    },
+    {
+      "path": "submission/evidence/media/frame-1991.png",
+      "representation": "byte-for-byte-selected-original-binary-copy",
+      "observationScope": "Actual final MP4 decoded frame 1991 at 79.64seconds; only sampled-frame visual scope",
+      "originalSourceArtifactName": "frame-1991.png",
+      "originalSourceSha256": "19fd554c5843287eae37a861951baa802e26219ba61dd10f87ec662c5ee3ea80",
+      "portableFileSha256": "19fd554c5843287eae37a861951baa802e26219ba61dd10f87ec662c5ee3ea80",
+      "portableFileBytes": 460240,
+      "sourceBytesIdenticalToPortableFile": true,
+      "transformations": [
+        "Only the artifact location changes; final destination/archive hashes are checked separately by Main."
+      ]
+    },
+    {
+      "path": "submission/evidence/media/frame-2005.png",
+      "representation": "byte-for-byte-selected-original-binary-copy",
+      "observationScope": "Actual final MP4 decoded frame 2005 at 80.2seconds; only sampled-frame visual scope",
+      "originalSourceArtifactName": "frame-2005.png",
+      "originalSourceSha256": "19fd554c5843287eae37a861951baa802e26219ba61dd10f87ec662c5ee3ea80",
+      "portableFileSha256": "19fd554c5843287eae37a861951baa802e26219ba61dd10f87ec662c5ee3ea80",
+      "portableFileBytes": 460240,
+      "sourceBytesIdenticalToPortableFile": true,
+      "transformations": [
+        "Only the artifact location changes; final destination/archive hashes are checked separately by Main."
+      ]
+    },
+    {
+      "path": "submission/evidence/media/frame-2094.png",
+      "representation": "byte-for-byte-selected-original-binary-copy",
+      "observationScope": "Actual final MP4 decoded frame 2094 at 83.76seconds; only sampled-frame visual scope",
+      "originalSourceArtifactName": "frame-2094.png",
+      "originalSourceSha256": "0911170905cf6467119b9fa5fbd2bdbea81e6e8a6234dc46cc6f31de6ea2ae34",
+      "portableFileSha256": "0911170905cf6467119b9fa5fbd2bdbea81e6e8a6234dc46cc6f31de6ea2ae34",
+      "portableFileBytes": 508002,
+      "sourceBytesIdenticalToPortableFile": true,
+      "transformations": [
+        "Only the artifact location changes; final destination/archive hashes are checked separately by Main."
+      ]
+    },
+    {
+      "path": "submission/evidence/media/frame-2156.png",
+      "representation": "byte-for-byte-selected-original-binary-copy",
+      "observationScope": "Actual final MP4 decoded frame 2156 at 86.24seconds; only sampled-frame visual scope",
+      "originalSourceArtifactName": "frame-2156.png",
+      "originalSourceSha256": "11385fd7d6ec2f1d43d64c1bc9a818ffd08b5614ad89d58e5ca643ebb8519393",
+      "portableFileSha256": "11385fd7d6ec2f1d43d64c1bc9a818ffd08b5614ad89d58e5ca643ebb8519393",
+      "portableFileBytes": 525428,
+      "sourceBytesIdenticalToPortableFile": true,
+      "transformations": [
+        "Only the artifact location changes; final destination/archive hashes are checked separately by Main."
+      ]
+    },
+    {
+      "path": "submission/evidence/media/frame-2169.png",
+      "representation": "byte-for-byte-selected-original-binary-copy",
+      "observationScope": "Actual final MP4 decoded frame 2169 at 86.76seconds; only sampled-frame visual scope",
+      "originalSourceArtifactName": "frame-2169.png",
+      "originalSourceSha256": "4dd53fc6db8bd38476d6563608b2eb74535333f00e9b54b432b24da2dd37f5d3",
+      "portableFileSha256": "4dd53fc6db8bd38476d6563608b2eb74535333f00e9b54b432b24da2dd37f5d3",
+      "portableFileBytes": 525464,
+      "sourceBytesIdenticalToPortableFile": true,
+      "transformations": [
+        "Only the artifact location changes; final destination/archive hashes are checked separately by Main."
+      ]
+    },
+    {
+      "path": "submission/evidence/media/frame-2227.png",
+      "representation": "byte-for-byte-selected-original-binary-copy",
+      "observationScope": "Actual final MP4 decoded frame 2227 at 89.08seconds; only sampled-frame visual scope",
+      "originalSourceArtifactName": "frame-2227.png",
+      "originalSourceSha256": "96ba0f08b47d4cc8e1c99f7031b3ad86b09b83dd1fce87f83d697a96314259a6",
+      "portableFileSha256": "96ba0f08b47d4cc8e1c99f7031b3ad86b09b83dd1fce87f83d697a96314259a6",
+      "portableFileBytes": 568000,
+      "sourceBytesIdenticalToPortableFile": true,
+      "transformations": [
+        "Only the artifact location changes; final destination/archive hashes are checked separately by Main."
+      ]
+    },
+    {
+      "path": "submission/evidence/media/frame-2290.png",
+      "representation": "byte-for-byte-selected-original-binary-copy",
+      "observationScope": "Actual final MP4 decoded frame 2290 at 91.6seconds; only sampled-frame visual scope",
+      "originalSourceArtifactName": "frame-2290.png",
+      "originalSourceSha256": "f62c14d32056656d6a785c683bbcd77b10256a7cde1c3d0b09f9767b3ababf71",
+      "portableFileSha256": "f62c14d32056656d6a785c683bbcd77b10256a7cde1c3d0b09f9767b3ababf71",
+      "portableFileBytes": 570064,
+      "sourceBytesIdenticalToPortableFile": true,
+      "transformations": [
+        "Only the artifact location changes; final destination/archive hashes are checked separately by Main."
+      ]
+    },
+    {
+      "path": "submission/evidence/media/frame-2300.png",
+      "representation": "byte-for-byte-selected-original-binary-copy",
+      "observationScope": "Actual final MP4 decoded frame 2300 at 92seconds; only sampled-frame visual scope",
+      "originalSourceArtifactName": "frame-2300.png",
+      "originalSourceSha256": "0bd55cd9c5c600664398749f3023c5148548e02bca94e8f901084d0417034f2a",
+      "portableFileSha256": "0bd55cd9c5c600664398749f3023c5148548e02bca94e8f901084d0417034f2a",
+      "portableFileBytes": 570071,
+      "sourceBytesIdenticalToPortableFile": true,
+      "transformations": [
+        "Only the artifact location changes; final destination/archive hashes are checked separately by Main."
+      ]
+    },
+    {
+      "path": "submission/evidence/media/frame-2364.png",
+      "representation": "byte-for-byte-selected-original-binary-copy",
+      "observationScope": "Actual final MP4 decoded frame 2364 at 94.56seconds; only sampled-frame visual scope",
+      "originalSourceArtifactName": "frame-2364.png",
+      "originalSourceSha256": "15f096bef5327775669be11270f38bdf230c436b8cac4ee6aef7bfe11a4171ef",
+      "portableFileSha256": "15f096bef5327775669be11270f38bdf230c436b8cac4ee6aef7bfe11a4171ef",
+      "portableFileBytes": 564642,
+      "sourceBytesIdenticalToPortableFile": true,
+      "transformations": [
+        "Only the artifact location changes; final destination/archive hashes are checked separately by Main."
+      ]
+    },
+    {
+      "path": "submission/evidence/media/frame-2366.png",
+      "representation": "byte-for-byte-selected-original-binary-copy",
+      "observationScope": "Actual final MP4 decoded frame 2366 at 94.64seconds; only sampled-frame visual scope",
+      "originalSourceArtifactName": "frame-2366.png",
+      "originalSourceSha256": "53f12aac250c22088a8bf311b16daa2f26e01c9bd5ab192d4f50774cb6b00b7e",
+      "portableFileSha256": "53f12aac250c22088a8bf311b16daa2f26e01c9bd5ab192d4f50774cb6b00b7e",
+      "portableFileBytes": 545864,
+      "sourceBytesIdenticalToPortableFile": true,
+      "transformations": [
+        "Only the artifact location changes; final destination/archive hashes are checked separately by Main."
+      ]
+    },
+    {
+      "path": "submission/evidence/media/frame-2400.png",
+      "representation": "byte-for-byte-selected-original-binary-copy",
+      "observationScope": "Actual final MP4 decoded frame 2400 at 96seconds; only sampled-frame visual scope",
+      "originalSourceArtifactName": "frame-2400.png",
+      "originalSourceSha256": "e2d2b2c311a42d5634d73189fcd8f1d00e845da25c60426571f0f7c7ff99aee9",
+      "portableFileSha256": "e2d2b2c311a42d5634d73189fcd8f1d00e845da25c60426571f0f7c7ff99aee9",
+      "portableFileBytes": 533330,
+      "sourceBytesIdenticalToPortableFile": true,
+      "transformations": [
+        "Only the artifact location changes; final destination/archive hashes are checked separately by Main."
+      ]
+    },
+    {
+      "path": "submission/evidence/media/frame-2446.png",
+      "representation": "byte-for-byte-selected-original-binary-copy",
+      "observationScope": "Actual final MP4 decoded frame 2446 at 97.84seconds; only sampled-frame visual scope",
+      "originalSourceArtifactName": "frame-2446.png",
+      "originalSourceSha256": "9dd5f94f2f476e8c6e6b6d8e8d7b3f7f7ca69c5c6c638bd4c65b943f705c88dc",
+      "portableFileSha256": "9dd5f94f2f476e8c6e6b6d8e8d7b3f7f7ca69c5c6c638bd4c65b943f705c88dc",
+      "portableFileBytes": 594608,
+      "sourceBytesIdenticalToPortableFile": true,
+      "transformations": [
+        "Only the artifact location changes; final destination/archive hashes are checked separately by Main."
+      ]
+    },
+    {
+      "path": "submission/evidence/media/frame-2505.png",
+      "representation": "byte-for-byte-selected-original-binary-copy",
+      "observationScope": "Actual final MP4 decoded frame 2505 at 100.2seconds; only sampled-frame visual scope",
+      "originalSourceArtifactName": "frame-2505.png",
+      "originalSourceSha256": "9b80a5b33d17614e91bd17029975a7299df25e7af796ff178f11ca5c18782fd1",
+      "portableFileSha256": "9b80a5b33d17614e91bd17029975a7299df25e7af796ff178f11ca5c18782fd1",
+      "portableFileBytes": 570806,
+      "sourceBytesIdenticalToPortableFile": true,
+      "transformations": [
+        "Only the artifact location changes; final destination/archive hashes are checked separately by Main."
+      ]
+    },
+    {
+      "path": "submission/evidence/media/frame-2529.png",
+      "representation": "byte-for-byte-selected-original-binary-copy",
+      "observationScope": "Actual final MP4 decoded frame 2529 at 101.16seconds; only sampled-frame visual scope",
+      "originalSourceArtifactName": "frame-2529.png",
+      "originalSourceSha256": "a0202b047ff657fc9a5b6897606452d7e98946d8fd9ffdfb11d70a05a0b4e3e3",
+      "portableFileSha256": "a0202b047ff657fc9a5b6897606452d7e98946d8fd9ffdfb11d70a05a0b4e3e3",
+      "portableFileBytes": 589437,
+      "sourceBytesIdenticalToPortableFile": true,
+      "transformations": [
+        "Only the artifact location changes; final destination/archive hashes are checked separately by Main."
+      ]
+    },
+    {
+      "path": "submission/evidence/media/frame-2530.png",
+      "representation": "byte-for-byte-selected-original-binary-copy",
+      "observationScope": "Actual final MP4 decoded frame 2530 at 101.2seconds; only sampled-frame visual scope",
+      "originalSourceArtifactName": "frame-2530.png",
+      "originalSourceSha256": "c03c2f3f7dede0133d1228891531f87ec15bb6cd52b2da02794b41cf2e64c69e",
+      "portableFileSha256": "c03c2f3f7dede0133d1228891531f87ec15bb6cd52b2da02794b41cf2e64c69e",
+      "portableFileBytes": 568892,
+      "sourceBytesIdenticalToPortableFile": true,
+      "transformations": [
+        "Only the artifact location changes; final destination/archive hashes are checked separately by Main."
+      ]
+    },
+    {
+      "path": "submission/evidence/media/frame-2531.png",
+      "representation": "byte-for-byte-selected-original-binary-copy",
+      "observationScope": "Actual final MP4 decoded frame 2531 at 101.24seconds; only sampled-frame visual scope",
+      "originalSourceArtifactName": "frame-2531.png",
+      "originalSourceSha256": "4958881d19080a42b6fcefbcca5722e4f656f1254daa53bd208ec0e37164b4d7",
+      "portableFileSha256": "4958881d19080a42b6fcefbcca5722e4f656f1254daa53bd208ec0e37164b4d7",
+      "portableFileBytes": 568808,
+      "sourceBytesIdenticalToPortableFile": true,
+      "transformations": [
+        "Only the artifact location changes; final destination/archive hashes are checked separately by Main."
+      ]
+    },
+    {
+      "path": "submission/evidence/media/frame-2532.png",
+      "representation": "byte-for-byte-selected-original-binary-copy",
+      "observationScope": "Actual final MP4 decoded frame 2532 at 101.28seconds; only sampled-frame visual scope",
+      "originalSourceArtifactName": "frame-2532.png",
+      "originalSourceSha256": "0d78b7e349a98a5915a5e3815b52e7e426bad60fabd2b6f7896370bb34cc9ee5",
+      "portableFileSha256": "0d78b7e349a98a5915a5e3815b52e7e426bad60fabd2b6f7896370bb34cc9ee5",
+      "portableFileBytes": 568974,
+      "sourceBytesIdenticalToPortableFile": true,
+      "transformations": [
+        "Only the artifact location changes; final destination/archive hashes are checked separately by Main."
+      ]
+    },
+    {
+      "path": "submission/evidence/media/frame-2534.png",
+      "representation": "byte-for-byte-selected-original-binary-copy",
+      "observationScope": "Actual final MP4 decoded frame 2534 at 101.36seconds; only sampled-frame visual scope",
+      "originalSourceArtifactName": "frame-2534.png",
+      "originalSourceSha256": "750af9dd9443f35adc62640be9f3b0a098631faf4972d087b4e8f239a4ae913f",
+      "portableFileSha256": "750af9dd9443f35adc62640be9f3b0a098631faf4972d087b4e8f239a4ae913f",
+      "portableFileBytes": 569012,
+      "sourceBytesIdenticalToPortableFile": true,
+      "transformations": [
+        "Only the artifact location changes; final destination/archive hashes are checked separately by Main."
+      ]
+    },
+    {
+      "path": "submission/evidence/media/frame-2535.png",
+      "representation": "byte-for-byte-selected-original-binary-copy",
+      "observationScope": "Actual final MP4 decoded frame 2535 at 101.4seconds; only sampled-frame visual scope",
+      "originalSourceArtifactName": "frame-2535.png",
+      "originalSourceSha256": "404d087c98fe5aaba9fc6f09474de6b99cbaa4cea93deb425645c57d87106957",
+      "portableFileSha256": "404d087c98fe5aaba9fc6f09474de6b99cbaa4cea93deb425645c57d87106957",
+      "portableFileBytes": 569022,
+      "sourceBytesIdenticalToPortableFile": true,
+      "transformations": [
+        "Only the artifact location changes; final destination/archive hashes are checked separately by Main."
+      ]
+    },
+    {
+      "path": "submission/evidence/media/frame-2598.png",
+      "representation": "byte-for-byte-selected-original-binary-copy",
+      "observationScope": "Actual final MP4 decoded frame 2598 at 103.92seconds; only sampled-frame visual scope",
+      "originalSourceArtifactName": "frame-2598.png",
+      "originalSourceSha256": "1f70619967edc1ae96fe2dcc102f20879f944f263488c250c910cadd56070b14",
+      "portableFileSha256": "1f70619967edc1ae96fe2dcc102f20879f944f263488c250c910cadd56070b14",
+      "portableFileBytes": 518145,
+      "sourceBytesIdenticalToPortableFile": true,
+      "transformations": [
+        "Only the artifact location changes; final destination/archive hashes are checked separately by Main."
+      ]
+    },
+    {
+      "path": "submission/evidence/media/frame-2599.png",
+      "representation": "byte-for-byte-selected-original-binary-copy",
+      "observationScope": "Actual final MP4 decoded frame 2599 at 103.96seconds; only sampled-frame visual scope",
+      "originalSourceArtifactName": "frame-2599.png",
+      "originalSourceSha256": "6b5a47911d5976a06dbf6c81a94b179dc5625f0ef1414e70f5142fc39cf51ec3",
+      "portableFileSha256": "6b5a47911d5976a06dbf6c81a94b179dc5625f0ef1414e70f5142fc39cf51ec3",
+      "portableFileBytes": 493382,
+      "sourceBytesIdenticalToPortableFile": true,
+      "transformations": [
+        "Only the artifact location changes; final destination/archive hashes are checked separately by Main."
+      ]
+    },
+    {
+      "path": "submission/evidence/media/frame-2600.png",
+      "representation": "byte-for-byte-selected-original-binary-copy",
+      "observationScope": "Actual final MP4 decoded frame 2600 at 104seconds; only sampled-frame visual scope",
+      "originalSourceArtifactName": "frame-2600.png",
+      "originalSourceSha256": "07c940c4b9a6b0a6d24a45a7fe2cb570877355398f87fa70352adbaa95bedf18",
+      "portableFileSha256": "07c940c4b9a6b0a6d24a45a7fe2cb570877355398f87fa70352adbaa95bedf18",
+      "portableFileBytes": 502913,
+      "sourceBytesIdenticalToPortableFile": true,
+      "transformations": [
+        "Only the artifact location changes; final destination/archive hashes are checked separately by Main."
+      ]
+    },
+    {
+      "path": "submission/evidence/media/frame-2601.png",
+      "representation": "byte-for-byte-selected-original-binary-copy",
+      "observationScope": "Actual final MP4 decoded frame 2601 at 104.04seconds; only sampled-frame visual scope",
+      "originalSourceArtifactName": "frame-2601.png",
+      "originalSourceSha256": "d6067ef22c3c7b58f88ba3014acf08679db9f41f4736be1f93ccc7380dfc70e4",
+      "portableFileSha256": "d6067ef22c3c7b58f88ba3014acf08679db9f41f4736be1f93ccc7380dfc70e4",
+      "portableFileBytes": 502950,
+      "sourceBytesIdenticalToPortableFile": true,
+      "transformations": [
+        "Only the artifact location changes; final destination/archive hashes are checked separately by Main."
+      ]
+    },
+    {
+      "path": "submission/evidence/media/frame-2604.png",
+      "representation": "byte-for-byte-selected-original-binary-copy",
+      "observationScope": "Actual final MP4 decoded frame 2604 at 104.16seconds; only sampled-frame visual scope",
+      "originalSourceArtifactName": "frame-2604.png",
+      "originalSourceSha256": "c10ecedcd448ee0407969a499d26c45b73c6f79fb41c241f3314097b82c199a4",
+      "portableFileSha256": "c10ecedcd448ee0407969a499d26c45b73c6f79fb41c241f3314097b82c199a4",
+      "portableFileBytes": 502911,
+      "sourceBytesIdenticalToPortableFile": true,
+      "transformations": [
+        "Only the artifact location changes; final destination/archive hashes are checked separately by Main."
+      ]
+    },
+    {
+      "path": "submission/evidence/media/frame-2619.png",
+      "representation": "byte-for-byte-selected-original-binary-copy",
+      "observationScope": "Actual final MP4 decoded frame 2619 at 104.76seconds; only sampled-frame visual scope",
+      "originalSourceArtifactName": "frame-2619.png",
+      "originalSourceSha256": "077d2c700c88852a00d4555ef7a5063622d4cedc30a35460aeb1f99aa75cbad6",
+      "portableFileSha256": "077d2c700c88852a00d4555ef7a5063622d4cedc30a35460aeb1f99aa75cbad6",
+      "portableFileBytes": 529864,
+      "sourceBytesIdenticalToPortableFile": true,
+      "transformations": [
+        "Only the artifact location changes; final destination/archive hashes are checked separately by Main."
+      ]
+    },
+    {
+      "path": "submission/evidence/media/frame-2682.png",
+      "representation": "byte-for-byte-selected-original-binary-copy",
+      "observationScope": "Actual final MP4 decoded frame 2682 at 107.28seconds; only sampled-frame visual scope",
+      "originalSourceArtifactName": "frame-2682.png",
+      "originalSourceSha256": "641849369c3fb62e260f795715e2bf6f2ed43733c8f962712da43f4ab6ebf142",
+      "portableFileSha256": "641849369c3fb62e260f795715e2bf6f2ed43733c8f962712da43f4ab6ebf142",
+      "portableFileBytes": 582601,
+      "sourceBytesIdenticalToPortableFile": true,
+      "transformations": [
+        "Only the artifact location changes; final destination/archive hashes are checked separately by Main."
+      ]
+    },
+    {
+      "path": "submission/evidence/media/frame-2715.png",
+      "representation": "byte-for-byte-selected-original-binary-copy",
+      "observationScope": "Actual final MP4 decoded frame 2715 at 108.6seconds; only sampled-frame visual scope",
+      "originalSourceArtifactName": "frame-2715.png",
+      "originalSourceSha256": "c80c261f85b83621654f47ea9758033cdf9da05dfc1574c48ab9561d0ace87e7",
+      "portableFileSha256": "c80c261f85b83621654f47ea9758033cdf9da05dfc1574c48ab9561d0ace87e7",
+      "portableFileBytes": 601071,
+      "sourceBytesIdenticalToPortableFile": true,
+      "transformations": [
+        "Only the artifact location changes; final destination/archive hashes are checked separately by Main."
+      ]
+    },
+    {
+      "path": "submission/evidence/media/frame-2736.png",
+      "representation": "byte-for-byte-selected-original-binary-copy",
+      "observationScope": "Actual final MP4 decoded frame 2736 at 109.44seconds; only sampled-frame visual scope",
+      "originalSourceArtifactName": "frame-2736.png",
+      "originalSourceSha256": "7d7370149909c33c335d9aabfc3e3ab4d7673a9de40f4fcd35e0559a6abac108",
+      "portableFileSha256": "7d7370149909c33c335d9aabfc3e3ab4d7673a9de40f4fcd35e0559a6abac108",
+      "portableFileBytes": 601295,
+      "sourceBytesIdenticalToPortableFile": true,
+      "transformations": [
+        "Only the artifact location changes; final destination/archive hashes are checked separately by Main."
+      ]
+    },
+    {
+      "path": "submission/evidence/media/frame-2807.png",
+      "representation": "byte-for-byte-selected-original-binary-copy",
+      "observationScope": "Actual final MP4 decoded frame 2807 at 112.28seconds; only sampled-frame visual scope",
+      "originalSourceArtifactName": "frame-2807.png",
+      "originalSourceSha256": "05fabb3fe06e5272fcef30c31876fb7fc93db42264f548eb91686b98cd8a18e0",
+      "portableFileSha256": "05fabb3fe06e5272fcef30c31876fb7fc93db42264f548eb91686b98cd8a18e0",
+      "portableFileBytes": 554880,
+      "sourceBytesIdenticalToPortableFile": true,
+      "transformations": [
+        "Only the artifact location changes; final destination/archive hashes are checked separately by Main."
+      ]
+    },
+    {
+      "path": "submission/evidence/media/frame-2839.png",
+      "representation": "byte-for-byte-selected-original-binary-copy",
+      "observationScope": "Actual final MP4 decoded frame 2839 at 113.56seconds; only sampled-frame visual scope",
+      "originalSourceArtifactName": "frame-2839.png",
+      "originalSourceSha256": "631d633eaec50b6f4000279ccc48af4ac46cd44b2dae1cc012dfca0c9a75e1eb",
+      "portableFileSha256": "631d633eaec50b6f4000279ccc48af4ac46cd44b2dae1cc012dfca0c9a75e1eb",
+      "portableFileBytes": 554957,
+      "sourceBytesIdenticalToPortableFile": true,
+      "transformations": [
+        "Only the artifact location changes; final destination/archive hashes are checked separately by Main."
+      ]
+    },
+    {
+      "path": "submission/evidence/media/frame-2841.png",
+      "representation": "byte-for-byte-selected-original-binary-copy",
+      "observationScope": "Actual final MP4 decoded frame 2841 at 113.64seconds; only sampled-frame visual scope",
+      "originalSourceArtifactName": "frame-2841.png",
+      "originalSourceSha256": "f504feebdd5aa2e2cc2a87721548f583736cc5b4e2dc3fb51b15803e0e7aaef7",
+      "portableFileSha256": "f504feebdd5aa2e2cc2a87721548f583736cc5b4e2dc3fb51b15803e0e7aaef7",
+      "portableFileBytes": 554865,
+      "sourceBytesIdenticalToPortableFile": true,
+      "transformations": [
+        "Only the artifact location changes; final destination/archive hashes are checked separately by Main."
+      ]
+    },
+    {
+      "path": "submission/evidence/media/frame-2885.png",
+      "representation": "byte-for-byte-selected-original-binary-copy",
+      "observationScope": "Actual final MP4 decoded frame 2885 at 115.4seconds; only sampled-frame visual scope",
+      "originalSourceArtifactName": "frame-2885.png",
+      "originalSourceSha256": "bb574c64da2775ce966857c2066bf72a1844d9a918741b110c5333672dc09560",
+      "portableFileSha256": "bb574c64da2775ce966857c2066bf72a1844d9a918741b110c5333672dc09560",
+      "portableFileBytes": 598241,
+      "sourceBytesIdenticalToPortableFile": true,
+      "transformations": [
+        "Only the artifact location changes; final destination/archive hashes are checked separately by Main."
+      ]
+    },
+    {
+      "path": "submission/evidence/media/frame-2949.png",
+      "representation": "byte-for-byte-selected-original-binary-copy",
+      "observationScope": "Actual final MP4 decoded frame 2949 at 117.96seconds; only sampled-frame visual scope",
+      "originalSourceArtifactName": "frame-2949.png",
+      "originalSourceSha256": "35258f9b53a9ad1a9ec5afcc946c9b16caf531686f47da096ab48b9f7c5de6c6",
+      "portableFileSha256": "35258f9b53a9ad1a9ec5afcc946c9b16caf531686f47da096ab48b9f7c5de6c6",
+      "portableFileBytes": 626463,
+      "sourceBytesIdenticalToPortableFile": true,
+      "transformations": [
+        "Only the artifact location changes; final destination/archive hashes are checked separately by Main."
+      ]
+    },
+    {
+      "path": "submission/evidence/media/frame-2954.png",
+      "representation": "byte-for-byte-selected-original-binary-copy",
+      "observationScope": "Actual final MP4 decoded frame 2954 at 118.16seconds; only sampled-frame visual scope",
+      "originalSourceArtifactName": "frame-2954.png",
+      "originalSourceSha256": "f4d33bd8da94fa9f0151fe6e1de58a0d00b8486add3a2e9b3f357a5e6b01db9d",
+      "portableFileSha256": "f4d33bd8da94fa9f0151fe6e1de58a0d00b8486add3a2e9b3f357a5e6b01db9d",
+      "portableFileBytes": 626699,
+      "sourceBytesIdenticalToPortableFile": true,
+      "transformations": [
+        "Only the artifact location changes; final destination/archive hashes are checked separately by Main."
+      ]
+    },
+    {
+      "path": "submission/evidence/media/frame-2992.png",
+      "representation": "byte-for-byte-selected-original-binary-copy",
+      "observationScope": "Actual final MP4 decoded frame 2992 at 119.68seconds; only sampled-frame visual scope",
+      "originalSourceArtifactName": "frame-2992.png",
+      "originalSourceSha256": "d9f39329404ab845a294d01973576a2a654624f77abcc9cdb7168884be95a1fb",
+      "portableFileSha256": "d9f39329404ab845a294d01973576a2a654624f77abcc9cdb7168884be95a1fb",
+      "portableFileBytes": 448555,
+      "sourceBytesIdenticalToPortableFile": true,
+      "transformations": [
+        "Only the artifact location changes; final destination/archive hashes are checked separately by Main."
+      ]
+    },
+    {
+      "path": "submission/evidence/media/frame-3029.png",
+      "representation": "byte-for-byte-selected-original-binary-copy",
+      "observationScope": "Actual final MP4 decoded frame 3029 at 121.16seconds; only sampled-frame visual scope",
+      "originalSourceArtifactName": "frame-3029.png",
+      "originalSourceSha256": "cb8e36fceb0bd551711c724a46fc69a7d6f21ec7ff4946377720abc7aef553fe",
+      "portableFileSha256": "cb8e36fceb0bd551711c724a46fc69a7d6f21ec7ff4946377720abc7aef553fe",
+      "portableFileBytes": 555414,
+      "sourceBytesIdenticalToPortableFile": true,
+      "transformations": [
+        "Only the artifact location changes; final destination/archive hashes are checked separately by Main."
+      ]
+    },
+    {
+      "path": "submission/evidence/media/frame-3056.png",
+      "representation": "byte-for-byte-selected-original-binary-copy",
+      "observationScope": "Actual final MP4 decoded frame 3056 at 122.24seconds; only sampled-frame visual scope",
+      "originalSourceArtifactName": "frame-3056.png",
+      "originalSourceSha256": "a663d3e7862dca77fadc63c95f5294b246f9db14008e2796f7469a091df997f2",
+      "portableFileSha256": "a663d3e7862dca77fadc63c95f5294b246f9db14008e2796f7469a091df997f2",
+      "portableFileBytes": 662105,
+      "sourceBytesIdenticalToPortableFile": true,
+      "transformations": [
+        "Only the artifact location changes; final destination/archive hashes are checked separately by Main."
+      ]
+    },
+    {
+      "path": "submission/evidence/media/frame-3059.png",
+      "representation": "byte-for-byte-selected-original-binary-copy",
+      "observationScope": "Actual final MP4 decoded frame 3059 at 122.36seconds; only sampled-frame visual scope",
+      "originalSourceArtifactName": "frame-3059.png",
+      "originalSourceSha256": "ad0ff7384bc246a51a0431d530c0e95b530f0f69f8a18872f25b4f30c5c5822d",
+      "portableFileSha256": "ad0ff7384bc246a51a0431d530c0e95b530f0f69f8a18872f25b4f30c5c5822d",
+      "portableFileBytes": 662094,
+      "sourceBytesIdenticalToPortableFile": true,
+      "transformations": [
+        "Only the artifact location changes; final destination/archive hashes are checked separately by Main."
+      ]
+    },
+    {
+      "path": "submission/evidence/media/frame-3087.png",
+      "representation": "byte-for-byte-selected-original-binary-copy",
+      "observationScope": "Actual final MP4 decoded frame 3087 at 123.48seconds; only sampled-frame visual scope",
+      "originalSourceArtifactName": "frame-3087.png",
+      "originalSourceSha256": "96b855fc39f0be5adf0c9642f0f27e3aa4d6c2f1a5c3ad03ae4cb899d31027ea",
+      "portableFileSha256": "96b855fc39f0be5adf0c9642f0f27e3aa4d6c2f1a5c3ad03ae4cb899d31027ea",
+      "portableFileBytes": 668715,
+      "sourceBytesIdenticalToPortableFile": true,
+      "transformations": [
+        "Only the artifact location changes; final destination/archive hashes are checked separately by Main."
+      ]
+    },
+    {
+      "path": "submission/evidence/media/frame-3137.png",
+      "representation": "byte-for-byte-selected-original-binary-copy",
+      "observationScope": "Actual final MP4 decoded frame 3137 at 125.48seconds; only sampled-frame visual scope",
+      "originalSourceArtifactName": "frame-3137.png",
+      "originalSourceSha256": "8c4d48eda5dc533344197cdd21abe6772a6d8cd4c8eb8b9714b2a3314ec5f556",
+      "portableFileSha256": "8c4d48eda5dc533344197cdd21abe6772a6d8cd4c8eb8b9714b2a3314ec5f556",
+      "portableFileBytes": 682381,
+      "sourceBytesIdenticalToPortableFile": true,
+      "transformations": [
+        "Only the artifact location changes; final destination/archive hashes are checked separately by Main."
+      ]
+    },
+    {
+      "path": "submission/evidence/media/frame-3140.png",
+      "representation": "byte-for-byte-selected-original-binary-copy",
+      "observationScope": "Actual final MP4 decoded frame 3140 at 125.6seconds; only sampled-frame visual scope",
+      "originalSourceArtifactName": "frame-3140.png",
+      "originalSourceSha256": "771083f749a3bbe59fa092dbaa43ab8296dca7e3821ebad59f419fba28d13e5b",
+      "portableFileSha256": "771083f749a3bbe59fa092dbaa43ab8296dca7e3821ebad59f419fba28d13e5b",
+      "portableFileBytes": 682574,
+      "sourceBytesIdenticalToPortableFile": true,
+      "transformations": [
+        "Only the artifact location changes; final destination/archive hashes are checked separately by Main."
+      ]
+    },
+    {
+      "path": "submission/evidence/media/frame-3185.png",
+      "representation": "byte-for-byte-selected-original-binary-copy",
+      "observationScope": "Actual final MP4 decoded frame 3185 at 127.4seconds; only sampled-frame visual scope",
+      "originalSourceArtifactName": "frame-3185.png",
+      "originalSourceSha256": "8f066269f2409ad6da5e2b4031c1fdb260a9bec0b5818f0fee1de545a1d7222c",
+      "portableFileSha256": "8f066269f2409ad6da5e2b4031c1fdb260a9bec0b5818f0fee1de545a1d7222c",
+      "portableFileBytes": 653287,
+      "sourceBytesIdenticalToPortableFile": true,
+      "transformations": [
+        "Only the artifact location changes; final destination/archive hashes are checked separately by Main."
+      ]
+    },
+    {
+      "path": "submission/evidence/media/frame-3197.png",
+      "representation": "byte-for-byte-selected-original-binary-copy",
+      "observationScope": "Actual final MP4 decoded frame 3197 at 127.88seconds; only sampled-frame visual scope",
+      "originalSourceArtifactName": "frame-3197.png",
+      "originalSourceSha256": "736d3ff599f5b9a4227a0d78b4fa726de7764c7b5fa5ed6580af67d1b8cd2cea",
+      "portableFileSha256": "736d3ff599f5b9a4227a0d78b4fa726de7764c7b5fa5ed6580af67d1b8cd2cea",
+      "portableFileBytes": 653428,
+      "sourceBytesIdenticalToPortableFile": true,
+      "transformations": [
+        "Only the artifact location changes; final destination/archive hashes are checked separately by Main."
+      ]
+    },
+    {
+      "path": "submission/evidence/media/frame-3198.png",
+      "representation": "byte-for-byte-selected-original-binary-copy",
+      "observationScope": "Actual final MP4 decoded frame 3198 at 127.92seconds; only sampled-frame visual scope",
+      "originalSourceArtifactName": "frame-3198.png",
+      "originalSourceSha256": "5879238f576c1db7979e05c10ed27b209d523ac81cd45fed1cebce5d16f58eaa",
+      "portableFileSha256": "5879238f576c1db7979e05c10ed27b209d523ac81cd45fed1cebce5d16f58eaa",
+      "portableFileBytes": 533409,
+      "sourceBytesIdenticalToPortableFile": true,
+      "transformations": [
+        "Only the artifact location changes; final destination/archive hashes are checked separately by Main."
+      ]
+    },
+    {
+      "path": "submission/evidence/media/frame-3199.png",
+      "representation": "byte-for-byte-selected-original-binary-copy",
+      "observationScope": "Actual final MP4 decoded frame 3199 at 127.96seconds; only sampled-frame visual scope",
+      "originalSourceArtifactName": "frame-3199.png",
+      "originalSourceSha256": "f63f553ab727650b322b109ef2c41b038f335ebef4a5713af486852f426786aa",
+      "portableFileSha256": "f63f553ab727650b322b109ef2c41b038f335ebef4a5713af486852f426786aa",
+      "portableFileBytes": 531337,
+      "sourceBytesIdenticalToPortableFile": true,
+      "transformations": [
+        "Only the artifact location changes; final destination/archive hashes are checked separately by Main."
+      ]
+    },
+    {
+      "path": "submission/evidence/media/frame-3200.png",
+      "representation": "byte-for-byte-selected-original-binary-copy",
+      "observationScope": "Actual final MP4 decoded frame 3200 at 128seconds; only sampled-frame visual scope",
+      "originalSourceArtifactName": "frame-3200.png",
+      "originalSourceSha256": "12bc1be6ec11a394dd71ee3c0b7f3fbaa4b663ed412f6f611d2bcd9ca5404549",
+      "portableFileSha256": "12bc1be6ec11a394dd71ee3c0b7f3fbaa4b663ed412f6f611d2bcd9ca5404549",
+      "portableFileBytes": 531339,
+      "sourceBytesIdenticalToPortableFile": true,
+      "transformations": [
+        "Only the artifact location changes; final destination/archive hashes are checked separately by Main."
+      ]
+    },
+    {
+      "path": "submission/evidence/media/frame-3203.png",
+      "representation": "byte-for-byte-selected-original-binary-copy",
+      "observationScope": "Actual final MP4 decoded frame 3203 at 128.12seconds; only sampled-frame visual scope",
+      "originalSourceArtifactName": "frame-3203.png",
+      "originalSourceSha256": "a70b6f220290d4a85a4592858724c667253fd389dbda5632090dbd68937ee171",
+      "portableFileSha256": "a70b6f220290d4a85a4592858724c667253fd389dbda5632090dbd68937ee171",
+      "portableFileBytes": 531655,
+      "sourceBytesIdenticalToPortableFile": true,
+      "transformations": [
+        "Only the artifact location changes; final destination/archive hashes are checked separately by Main."
+      ]
+    },
+    {
+      "path": "submission/evidence/media/frame-3216.png",
+      "representation": "byte-for-byte-selected-original-binary-copy",
+      "observationScope": "Actual final MP4 decoded frame 3216 at 128.64seconds; only sampled-frame visual scope",
+      "originalSourceArtifactName": "frame-3216.png",
+      "originalSourceSha256": "854659ccc78a1a1a54e6a81c2cd3c1bc71ee5155a29346c40084dfc484c75ee5",
+      "portableFileSha256": "854659ccc78a1a1a54e6a81c2cd3c1bc71ee5155a29346c40084dfc484c75ee5",
+      "portableFileBytes": 531736,
+      "sourceBytesIdenticalToPortableFile": true,
+      "transformations": [
+        "Only the artifact location changes; final destination/archive hashes are checked separately by Main."
+      ]
+    },
+    {
+      "path": "submission/evidence/media/frame-3233.png",
+      "representation": "byte-for-byte-selected-original-binary-copy",
+      "observationScope": "Actual final MP4 decoded frame 3233 at 129.32seconds; only sampled-frame visual scope",
+      "originalSourceArtifactName": "frame-3233.png",
+      "originalSourceSha256": "80a6e04feba05f6ef77860661de1fec889b6ea6fcebcbb99214360b88788ca74",
+      "portableFileSha256": "80a6e04feba05f6ef77860661de1fec889b6ea6fcebcbb99214360b88788ca74",
+      "portableFileBytes": 565023,
+      "sourceBytesIdenticalToPortableFile": true,
+      "transformations": [
+        "Only the artifact location changes; final destination/archive hashes are checked separately by Main."
+      ]
+    },
+    {
+      "path": "submission/evidence/media/frame-3252.png",
+      "representation": "byte-for-byte-selected-original-binary-copy",
+      "observationScope": "Actual final MP4 decoded frame 3252 at 130.08seconds; only sampled-frame visual scope",
+      "originalSourceArtifactName": "frame-3252.png",
+      "originalSourceSha256": "e67c213979c53c0104a7d0be23d859fe66a93472108bc8caa163c51dc4cc4ed4",
+      "portableFileSha256": "e67c213979c53c0104a7d0be23d859fe66a93472108bc8caa163c51dc4cc4ed4",
+      "portableFileBytes": 622718,
+      "sourceBytesIdenticalToPortableFile": true,
+      "transformations": [
+        "Only the artifact location changes; final destination/archive hashes are checked separately by Main."
+      ]
+    },
+    {
+      "path": "submission/evidence/media/frame-3279.png",
+      "representation": "byte-for-byte-selected-original-binary-copy",
+      "observationScope": "Actual final MP4 decoded frame 3279 at 131.16seconds; only sampled-frame visual scope",
+      "originalSourceArtifactName": "frame-3279.png",
+      "originalSourceSha256": "fdcfb5537cbc93bfb2d24d37456cca195cf1017e4d736a63ac7a4f0f64a2cb30",
+      "portableFileSha256": "fdcfb5537cbc93bfb2d24d37456cca195cf1017e4d736a63ac7a4f0f64a2cb30",
+      "portableFileBytes": 603893,
+      "sourceBytesIdenticalToPortableFile": true,
+      "transformations": [
+        "Only the artifact location changes; final destination/archive hashes are checked separately by Main."
+      ]
+    },
+    {
+      "path": "submission/evidence/media/frame-3300.png",
+      "representation": "byte-for-byte-selected-original-binary-copy",
+      "observationScope": "Actual final MP4 decoded frame 3300 at 132seconds; only sampled-frame visual scope",
+      "originalSourceArtifactName": "frame-3300.png",
+      "originalSourceSha256": "43d6e8d1c0c1c2c13023829c86ac27b25d2cc114d337a546d9c10760db4405bb",
+      "portableFileSha256": "43d6e8d1c0c1c2c13023829c86ac27b25d2cc114d337a546d9c10760db4405bb",
+      "portableFileBytes": 597154,
+      "sourceBytesIdenticalToPortableFile": true,
+      "transformations": [
+        "Only the artifact location changes; final destination/archive hashes are checked separately by Main."
+      ]
+    },
+    {
+      "path": "submission/evidence/media/frame-3301.png",
+      "representation": "byte-for-byte-selected-original-binary-copy",
+      "observationScope": "Actual final MP4 decoded frame 3301 at 132.04seconds; only sampled-frame visual scope",
+      "originalSourceArtifactName": "frame-3301.png",
+      "originalSourceSha256": "75b62e5d354353cbb963580888ea18f4765dcdf0f75503e93461f187579cdff6",
+      "portableFileSha256": "75b62e5d354353cbb963580888ea18f4765dcdf0f75503e93461f187579cdff6",
+      "portableFileBytes": 597200,
+      "sourceBytesIdenticalToPortableFile": true,
+      "transformations": [
+        "Only the artifact location changes; final destination/archive hashes are checked separately by Main."
+      ]
+    },
+    {
+      "path": "submission/evidence/media/frame-3346.png",
+      "representation": "byte-for-byte-selected-original-binary-copy",
+      "observationScope": "Actual final MP4 decoded frame 3346 at 133.84seconds; only sampled-frame visual scope",
+      "originalSourceArtifactName": "frame-3346.png",
+      "originalSourceSha256": "6cabcfea63355aba5a61aa3404a1412bf949a7633200a39b6c25c6e7e4cee0af",
+      "portableFileSha256": "6cabcfea63355aba5a61aa3404a1412bf949a7633200a39b6c25c6e7e4cee0af",
+      "portableFileBytes": 569045,
+      "sourceBytesIdenticalToPortableFile": true,
+      "transformations": [
+        "Only the artifact location changes; final destination/archive hashes are checked separately by Main."
+      ]
+    },
+    {
+      "path": "submission/evidence/media/frame-3364.png",
+      "representation": "byte-for-byte-selected-original-binary-copy",
+      "observationScope": "Actual final MP4 decoded frame 3364 at 134.56seconds; only sampled-frame visual scope",
+      "originalSourceArtifactName": "frame-3364.png",
+      "originalSourceSha256": "a071c1c3991f60aa577a54523fda0a28b91df46dbb5d818a4126d7a110cad89d",
+      "portableFileSha256": "a071c1c3991f60aa577a54523fda0a28b91df46dbb5d818a4126d7a110cad89d",
+      "portableFileBytes": 568952,
+      "sourceBytesIdenticalToPortableFile": true,
+      "transformations": [
+        "Only the artifact location changes; final destination/archive hashes are checked separately by Main."
+      ]
+    },
+    {
+      "path": "submission/evidence/media/frame-3374.png",
+      "representation": "byte-for-byte-selected-original-binary-copy",
+      "observationScope": "Actual final MP4 decoded frame 3374 at 134.96seconds; only sampled-frame visual scope",
+      "originalSourceArtifactName": "frame-3374.png",
+      "originalSourceSha256": "324f5b3a11938f9253ebe5284029346c7a7e997f42c7fe85b04febd9d0132a96",
+      "portableFileSha256": "324f5b3a11938f9253ebe5284029346c7a7e997f42c7fe85b04febd9d0132a96",
+      "portableFileBytes": 568978,
+      "sourceBytesIdenticalToPortableFile": true,
+      "transformations": [
+        "Only the artifact location changes; final destination/archive hashes are checked separately by Main."
+      ]
+    },
+    {
+      "path": "submission/evidence/media/frame-3412.png",
+      "representation": "byte-for-byte-selected-original-binary-copy",
+      "observationScope": "Actual final MP4 decoded frame 3412 at 136.48seconds; only sampled-frame visual scope",
+      "originalSourceArtifactName": "frame-3412.png",
+      "originalSourceSha256": "c15d96d9373cd2ff1c79100cff34f394944b02fd3a68ef555d8220649e7a5afc",
+      "portableFileSha256": "c15d96d9373cd2ff1c79100cff34f394944b02fd3a68ef555d8220649e7a5afc",
+      "portableFileBytes": 573083,
+      "sourceBytesIdenticalToPortableFile": true,
+      "transformations": [
+        "Only the artifact location changes; final destination/archive hashes are checked separately by Main."
+      ]
+    },
+    {
+      "path": "submission/evidence/media/frame-3445.png",
+      "representation": "byte-for-byte-selected-original-binary-copy",
+      "observationScope": "Actual final MP4 decoded frame 3445 at 137.8seconds; only sampled-frame visual scope",
+      "originalSourceArtifactName": "frame-3445.png",
+      "originalSourceSha256": "688467700e82a8b2bedf5b300dfc246079ca5bff3f6f3a8805a818243dbe6de1",
+      "portableFileSha256": "688467700e82a8b2bedf5b300dfc246079ca5bff3f6f3a8805a818243dbe6de1",
+      "portableFileBytes": 547844,
+      "sourceBytesIdenticalToPortableFile": true,
+      "transformations": [
+        "Only the artifact location changes; final destination/archive hashes are checked separately by Main."
+      ]
+    },
+    {
+      "path": "submission/evidence/media/frame-3446.png",
+      "representation": "byte-for-byte-selected-original-binary-copy",
+      "observationScope": "Actual final MP4 decoded frame 3446 at 137.84seconds; only sampled-frame visual scope",
+      "originalSourceArtifactName": "frame-3446.png",
+      "originalSourceSha256": "26c5c2be520dc4d1e553477ff13273408340b795cc4811d204cc82a25ff37871",
+      "portableFileSha256": "26c5c2be520dc4d1e553477ff13273408340b795cc4811d204cc82a25ff37871",
+      "portableFileBytes": 558704,
+      "sourceBytesIdenticalToPortableFile": true,
+      "transformations": [
+        "Only the artifact location changes; final destination/archive hashes are checked separately by Main."
+      ]
+    },
+    {
+      "path": "submission/evidence/media/frame-3447.png",
+      "representation": "byte-for-byte-selected-original-binary-copy",
+      "observationScope": "Actual final MP4 decoded frame 3447 at 137.88seconds; only sampled-frame visual scope",
+      "originalSourceArtifactName": "frame-3447.png",
+      "originalSourceSha256": "78647a4f539cd63b9826939544ded87a2f1f420678659950ab82845095293ada",
+      "portableFileSha256": "78647a4f539cd63b9826939544ded87a2f1f420678659950ab82845095293ada",
+      "portableFileBytes": 559379,
+      "sourceBytesIdenticalToPortableFile": true,
+      "transformations": [
+        "Only the artifact location changes; final destination/archive hashes are checked separately by Main."
+      ]
+    },
+    {
+      "path": "submission/evidence/media/frame-3448.png",
+      "representation": "byte-for-byte-selected-original-binary-copy",
+      "observationScope": "Actual final MP4 decoded frame 3448 at 137.92seconds; only sampled-frame visual scope",
+      "originalSourceArtifactName": "frame-3448.png",
+      "originalSourceSha256": "230fd003916f0b889ff38a3ac70b3d310c2c399936d49394b46d9d4d284c92cf",
+      "portableFileSha256": "230fd003916f0b889ff38a3ac70b3d310c2c399936d49394b46d9d4d284c92cf",
+      "portableFileBytes": 559399,
+      "sourceBytesIdenticalToPortableFile": true,
+      "transformations": [
+        "Only the artifact location changes; final destination/archive hashes are checked separately by Main."
+      ]
+    },
+    {
+      "path": "submission/evidence/media/frame-3451.png",
+      "representation": "byte-for-byte-selected-original-binary-copy",
+      "observationScope": "Actual final MP4 decoded frame 3451 at 138.04seconds; only sampled-frame visual scope",
+      "originalSourceArtifactName": "frame-3451.png",
+      "originalSourceSha256": "fcb8e262a3ef3ae7b1a6341fe8a2528228ceb221f22175a645a32cab5527069b",
+      "portableFileSha256": "fcb8e262a3ef3ae7b1a6341fe8a2528228ceb221f22175a645a32cab5527069b",
+      "portableFileBytes": 559180,
+      "sourceBytesIdenticalToPortableFile": true,
+      "transformations": [
+        "Only the artifact location changes; final destination/archive hashes are checked separately by Main."
+      ]
+    },
+    {
+      "path": "submission/evidence/media/frame-3472.png",
+      "representation": "byte-for-byte-selected-original-binary-copy",
+      "observationScope": "Actual final MP4 decoded frame 3472 at 138.88seconds; only sampled-frame visual scope",
+      "originalSourceArtifactName": "frame-3472.png",
+      "originalSourceSha256": "b25d4aa4ae64a91f9f9c8956899d9c10c87ed065f32bd372aaef54b16f695c46",
+      "portableFileSha256": "b25d4aa4ae64a91f9f9c8956899d9c10c87ed065f32bd372aaef54b16f695c46",
+      "portableFileBytes": 558964,
+      "sourceBytesIdenticalToPortableFile": true,
+      "transformations": [
+        "Only the artifact location changes; final destination/archive hashes are checked separately by Main."
+      ]
+    },
+    {
+      "path": "submission/evidence/media/frame-3534.png",
+      "representation": "byte-for-byte-selected-original-binary-copy",
+      "observationScope": "Actual final MP4 decoded frame 3534 at 141.36seconds; only sampled-frame visual scope",
+      "originalSourceArtifactName": "frame-3534.png",
+      "originalSourceSha256": "eb944d6ee732e3d8cbea6b0761429078f6be68f04713d2f0bd03469eef031ada",
+      "portableFileSha256": "eb944d6ee732e3d8cbea6b0761429078f6be68f04713d2f0bd03469eef031ada",
+      "portableFileBytes": 561968,
+      "sourceBytesIdenticalToPortableFile": true,
+      "transformations": [
+        "Only the artifact location changes; final destination/archive hashes are checked separately by Main."
+      ]
+    },
+    {
+      "path": "submission/evidence/media/frame-3580.png",
+      "representation": "byte-for-byte-selected-original-binary-copy",
+      "observationScope": "Actual final MP4 decoded frame 3580 at 143.2seconds; only sampled-frame visual scope",
+      "originalSourceArtifactName": "frame-3580.png",
+      "originalSourceSha256": "e38a018ee89bfbd569f71abedec703722fb4dc7a0021c62d7ee1a7e92f85130f",
+      "portableFileSha256": "e38a018ee89bfbd569f71abedec703722fb4dc7a0021c62d7ee1a7e92f85130f",
+      "portableFileBytes": 545032,
+      "sourceBytesIdenticalToPortableFile": true,
+      "transformations": [
+        "Only the artifact location changes; final destination/archive hashes are checked separately by Main."
+      ]
+    },
+    {
+      "path": "submission/evidence/media/frame-3766.png",
+      "representation": "byte-for-byte-selected-original-binary-copy",
+      "observationScope": "Actual final MP4 decoded frame 3766 at 150.64seconds; only sampled-frame visual scope",
+      "originalSourceArtifactName": "frame-3766.png",
+      "originalSourceSha256": "7c68bda92e8b4b3d1f31dc150038015a673ea8eb278ab2726562c26e1ae545ed",
+      "portableFileSha256": "7c68bda92e8b4b3d1f31dc150038015a673ea8eb278ab2726562c26e1ae545ed",
+      "portableFileBytes": 568158,
+      "sourceBytesIdenticalToPortableFile": true,
+      "transformations": [
+        "Only the artifact location changes; final destination/archive hashes are checked separately by Main."
+      ]
+    },
+    {
+      "path": "submission/evidence/media/frame-3860.png",
+      "representation": "byte-for-byte-selected-original-binary-copy",
+      "observationScope": "Actual final MP4 decoded frame 3860 at 154.4seconds; only sampled-frame visual scope",
+      "originalSourceArtifactName": "frame-3860.png",
+      "originalSourceSha256": "af63003cb26259aa634385e33187209ae20327fc2073a3c87bc19ea41ab55f3d",
+      "portableFileSha256": "af63003cb26259aa634385e33187209ae20327fc2073a3c87bc19ea41ab55f3d",
+      "portableFileBytes": 563551,
+      "sourceBytesIdenticalToPortableFile": true,
+      "transformations": [
+        "Only the artifact location changes; final destination/archive hashes are checked separately by Main."
+      ]
+    },
+    {
+      "path": "submission/evidence/media/frame-3919.png",
+      "representation": "byte-for-byte-selected-original-binary-copy",
+      "observationScope": "Actual final MP4 decoded frame 3919 at 156.76seconds; only sampled-frame visual scope",
+      "originalSourceArtifactName": "frame-3919.png",
+      "originalSourceSha256": "eaa6d9a25823c8842ac99488bebc87373215dde8c26000e974f38f40a14d5723",
+      "portableFileSha256": "eaa6d9a25823c8842ac99488bebc87373215dde8c26000e974f38f40a14d5723",
+      "portableFileBytes": 568049,
+      "sourceBytesIdenticalToPortableFile": true,
+      "transformations": [
+        "Only the artifact location changes; final destination/archive hashes are checked separately by Main."
+      ]
+    },
+    {
+      "path": "submission/evidence/media/frame-3946.png",
+      "representation": "byte-for-byte-selected-original-binary-copy",
+      "observationScope": "Actual final MP4 decoded frame 3946 at 157.84seconds; only sampled-frame visual scope",
+      "originalSourceArtifactName": "frame-3946.png",
+      "originalSourceSha256": "d6da4872d19f476eb3ec1099cce0b056e0b686221cb215d241916fce2a906cfc",
+      "portableFileSha256": "d6da4872d19f476eb3ec1099cce0b056e0b686221cb215d241916fce2a906cfc",
+      "portableFileBytes": 567946,
+      "sourceBytesIdenticalToPortableFile": true,
+      "transformations": [
+        "Only the artifact location changes; final destination/archive hashes are checked separately by Main."
+      ]
+    },
+    {
+      "path": "submission/evidence/media/frame-4045.png",
+      "representation": "byte-for-byte-selected-original-binary-copy",
+      "observationScope": "Actual final MP4 decoded frame 4045 at 161.8seconds; only sampled-frame visual scope",
+      "originalSourceArtifactName": "frame-4045.png",
+      "originalSourceSha256": "28bc438fccc885a27aaff8a7a8698539ba78fc5e589331dd4c6e61aac2b090f0",
+      "portableFileSha256": "28bc438fccc885a27aaff8a7a8698539ba78fc5e589331dd4c6e61aac2b090f0",
+      "portableFileBytes": 557140,
+      "sourceBytesIdenticalToPortableFile": true,
+      "transformations": [
+        "Only the artifact location changes; final destination/archive hashes are checked separately by Main."
+      ]
+    },
+    {
+      "path": "submission/evidence/media/frame-4124.png",
+      "representation": "byte-for-byte-selected-original-binary-copy",
+      "observationScope": "Actual final MP4 decoded frame 4124 at 164.96seconds; only sampled-frame visual scope",
+      "originalSourceArtifactName": "frame-4124.png",
+      "originalSourceSha256": "74a581aedd4960cbbbb43a70daa532aaa3bccc2773fda6c1f22a2ebe35348d53",
+      "portableFileSha256": "74a581aedd4960cbbbb43a70daa532aaa3bccc2773fda6c1f22a2ebe35348d53",
+      "portableFileBytes": 553772,
+      "sourceBytesIdenticalToPortableFile": true,
+      "transformations": [
+        "Only the artifact location changes; final destination/archive hashes are checked separately by Main."
+      ]
+    },
+    {
+      "path": "submission/evidence/media/chrome-frame-2529.png",
+      "representation": "byte-for-byte-selected-original-binary-copy",
+      "observationScope": "Actual headed Chrome native-video screenshot following matched requestVideoFrameCallback at 101.16seconds",
+      "originalSourceArtifactName": "chrome-frame-2529.png",
+      "originalSourceSha256": "3102e67d470745015d75210c189e071f3e0c9f0c27127655c80c31ed16e21d91",
+      "portableFileSha256": "3102e67d470745015d75210c189e071f3e0c9f0c27127655c80c31ed16e21d91",
+      "portableFileBytes": 597959,
+      "sourceBytesIdenticalToPortableFile": true,
+      "transformations": [
+        "Only the artifact location changes; final destination/archive hashes are checked separately by Main."
+      ]
+    },
+    {
+      "path": "submission/evidence/media/chrome-frame-2530.png",
+      "representation": "byte-for-byte-selected-original-binary-copy",
+      "observationScope": "Actual headed Chrome native-video screenshot following matched requestVideoFrameCallback at 101.2seconds",
+      "originalSourceArtifactName": "chrome-frame-2530.png",
+      "originalSourceSha256": "6e95986bf8d0d0ff6894af8321945822d0e3b99aad29f22164390d0985c74c19",
+      "portableFileSha256": "6e95986bf8d0d0ff6894af8321945822d0e3b99aad29f22164390d0985c74c19",
+      "portableFileBytes": 577058,
+      "sourceBytesIdenticalToPortableFile": true,
+      "transformations": [
+        "Only the artifact location changes; final destination/archive hashes are checked separately by Main."
+      ]
+    },
+    {
+      "path": "submission/evidence/media/chrome-frame-2599.png",
+      "representation": "byte-for-byte-selected-original-binary-copy",
+      "observationScope": "Actual headed Chrome native-video screenshot following matched requestVideoFrameCallback at 103.96seconds",
+      "originalSourceArtifactName": "chrome-frame-2599.png",
+      "originalSourceSha256": "792df8bc819d1db3483bceea4ebafb6fd1785545ffa5a0fc46f53578392efee6",
+      "portableFileSha256": "792df8bc819d1db3483bceea4ebafb6fd1785545ffa5a0fc46f53578392efee6",
+      "portableFileBytes": 504148,
+      "sourceBytesIdenticalToPortableFile": true,
+      "transformations": [
+        "Only the artifact location changes; final destination/archive hashes are checked separately by Main."
+      ]
+    },
+    {
+      "path": "submission/evidence/media/chrome-frame-2600.png",
+      "representation": "byte-for-byte-selected-original-binary-copy",
+      "observationScope": "Actual headed Chrome native-video screenshot following matched requestVideoFrameCallback at 104seconds",
+      "originalSourceArtifactName": "chrome-frame-2600.png",
+      "originalSourceSha256": "85c1d66c9aaafe5ade9a52830c2a44411b39c575e9b22bac0719d645c03c3728",
+      "portableFileSha256": "85c1d66c9aaafe5ade9a52830c2a44411b39c575e9b22bac0719d645c03c3728",
+      "portableFileBytes": 510885,
+      "sourceBytesIdenticalToPortableFile": true,
+      "transformations": [
+        "Only the artifact location changes; final destination/archive hashes are checked separately by Main."
+      ]
+    },
+    {
+      "path": "submission/evidence/media/chrome-frame-2615.png",
+      "representation": "byte-for-byte-selected-original-binary-copy",
+      "observationScope": "Actual headed Chrome native-video screenshot following matched requestVideoFrameCallback at 104.6seconds",
+      "originalSourceArtifactName": "chrome-frame-2615.png",
+      "originalSourceSha256": "58f9f96a3ddf5dcd3d3d2e3e53a0935ed39e90410783b4981d1dbaf2db389c48",
+      "portableFileSha256": "58f9f96a3ddf5dcd3d3d2e3e53a0935ed39e90410783b4981d1dbaf2db389c48",
+      "portableFileBytes": 535300,
+      "sourceBytesIdenticalToPortableFile": true,
+      "transformations": [
+        "Only the artifact location changes; final destination/archive hashes are checked separately by Main."
+      ]
+    },
+    {
+      "path": "submission/evidence/media/chrome-frame-3198.png",
+      "representation": "byte-for-byte-selected-original-binary-copy",
+      "observationScope": "Actual headed Chrome native-video screenshot following matched requestVideoFrameCallback at 127.92seconds",
+      "originalSourceArtifactName": "chrome-frame-3198.png",
+      "originalSourceSha256": "28b2515cd825494f98dc5777f0049b173ac2730edcaf324b9e7e38549182fa3c",
+      "portableFileSha256": "28b2515cd825494f98dc5777f0049b173ac2730edcaf324b9e7e38549182fa3c",
+      "portableFileBytes": 531553,
+      "sourceBytesIdenticalToPortableFile": true,
+      "transformations": [
+        "Only the artifact location changes; final destination/archive hashes are checked separately by Main."
+      ]
+    },
+    {
+      "path": "submission/evidence/media/chrome-frame-3220.png",
+      "representation": "byte-for-byte-selected-original-binary-copy",
+      "observationScope": "Actual headed Chrome native-video screenshot following matched requestVideoFrameCallback at 128.8seconds",
+      "originalSourceArtifactName": "chrome-frame-3220.png",
+      "originalSourceSha256": "edb2fc806ce74e826c22c47d0aa3802da18f052f1c7c95cb81927947808263e9",
+      "portableFileSha256": "edb2fc806ce74e826c22c47d0aa3802da18f052f1c7c95cb81927947808263e9",
+      "portableFileBytes": 561245,
+      "sourceBytesIdenticalToPortableFile": true,
+      "transformations": [
+        "Only the artifact location changes; final destination/archive hashes are checked separately by Main."
+      ]
+    },
+    {
+      "path": "submission/evidence/media/chrome-frame-3375.png",
+      "representation": "byte-for-byte-selected-original-binary-copy",
+      "observationScope": "Actual headed Chrome native-video screenshot following matched requestVideoFrameCallback at 135seconds",
+      "originalSourceArtifactName": "chrome-frame-3375.png",
+      "originalSourceSha256": "8dce25b57db96a66bbcf2fd36c1454aa026c5ae98c93f902a59060d4eef3df22",
+      "portableFileSha256": "8dce25b57db96a66bbcf2fd36c1454aa026c5ae98c93f902a59060d4eef3df22",
+      "portableFileBytes": 574198,
+      "sourceBytesIdenticalToPortableFile": true,
+      "transformations": [
+        "Only the artifact location changes; final destination/archive hashes are checked separately by Main."
+      ]
+    },
+    {
+      "path": "submission/evidence/media/chrome-frame-3446.png",
+      "representation": "byte-for-byte-selected-original-binary-copy",
+      "observationScope": "Actual headed Chrome native-video screenshot following matched requestVideoFrameCallback at 137.84seconds",
+      "originalSourceArtifactName": "chrome-frame-3446.png",
+      "originalSourceSha256": "5248fb91fe092de9a9f9096e5ae22e32410af8fd278c472275b0448c8204d737",
+      "portableFileSha256": "5248fb91fe092de9a9f9096e5ae22e32410af8fd278c472275b0448c8204d737",
+      "portableFileBytes": 571906,
+      "sourceBytesIdenticalToPortableFile": true,
+      "transformations": [
+        "Only the artifact location changes; final destination/archive hashes are checked separately by Main."
+      ]
+    },
+    {
+      "path": "submission/evidence/media/chrome-frame-4124.png",
+      "representation": "byte-for-byte-selected-original-binary-copy",
+      "observationScope": "Actual headed Chrome native-video screenshot following matched requestVideoFrameCallback at 164.96seconds",
+      "originalSourceArtifactName": "chrome-frame-4124.png",
+      "originalSourceSha256": "edcab0826e6717e9cff1c5c4f77a6e1442002df8a68a20b1691de904462bc8ef",
+      "portableFileSha256": "edcab0826e6717e9cff1c5c4f77a6e1442002df8a68a20b1691de904462bc8ef",
+      "portableFileBytes": 574400,
+      "sourceBytesIdenticalToPortableFile": true,
+      "transformations": [
+        "Only the artifact location changes; final destination/archive hashes are checked separately by Main."
+      ]
+    },
+    {
+      "path": "submission/evidence/media/chrome-native-playing.png",
+      "representation": "byte-for-byte-selected-original-binary-copy",
+      "observationScope": "Actual headed Chrome native playback after keyboard play/pause interaction",
+      "originalSourceArtifactName": "chrome-native-playing.png",
+      "originalSourceSha256": "94121af8147e1c38965575ede639ea4bf6db1f68d95c9076b93f422b2ce6241d",
+      "portableFileSha256": "94121af8147e1c38965575ede639ea4bf6db1f68d95c9076b93f422b2ce6241d",
+      "portableFileBytes": 603477,
+      "sourceBytesIdenticalToPortableFile": true,
+      "transformations": [
+        "Only the artifact location changes; final destination/archive hashes are checked separately by Main."
+      ]
+    },
+    {
+      "path": "submission/evidence/media/final-media.portable.json",
+      "representation": "transformed-full-final-media-observation",
+      "observationScope": "Actual complete MP4 decode, every video PTS, actual stream durations and108 decoded PNG samples",
+      "originalSourceArtifactName": "actual-final-media.json",
+      "originalSourceSha256": "db1ab0fb1715f27e4f748f8bea89e0258a14a2cb85fc2be544f204e5414e9f3d",
+      "portableFileSha256": "1440e6d6c1d9a8d7e1a3beb2be179d80496f7413dd017023f9c0edc7d9f1af31",
+      "portableFileBytes": 73977,
+      "sourceBytesIdenticalToPortableFile": false,
+      "transformations": [
+        "Explicit portable summary; original source snapshot digest remains distinct from delivered JSON bytes."
+      ]
+    },
+    {
+      "path": "submission/evidence/media/final-audio-asr.portable.json",
+      "representation": "transformed-full-final-AAC-ASR-record",
+      "observationScope": "Actual unprompted offline English recognition from final encoded AAC; full transcript/word times retained",
+      "originalSourceArtifactName": "final-asr.json",
+      "originalSourceSha256": "a86010db0f010b0b246b63ec7c0e5e3d3160e7287f2fafbf1ab87cc2f312159e",
+      "portableFileSha256": "13c7fecc3e96235dd15f2719af3163ddd34d633ea762bf612bd4256d4db7fa3d",
+      "portableFileBytes": 59696,
+      "sourceBytesIdenticalToPortableFile": false,
+      "transformations": [
+        "Explicit portable summary; original source snapshot digest remains distinct from delivered JSON bytes."
+      ]
+    },
+    {
+      "path": "submission/evidence/media/audio-captions.portable-summary.json",
+      "representation": "explicit-source-audio-caption-summary",
+      "observationScope": "Actual source PCM/caption timing and full40 cue records; final glyph bounds measured separately",
+      "originalSourceArtifactName": "audio-caption-manifest.json",
+      "originalSourceSha256": "d870baeb49be5be74ff7de65d38a053960cdf9f08b92560e5c4f70364ea52313",
+      "portableFileSha256": "776be2dd3fc7492b19075dfd9ffb5ebbe669ca256f04c6716f4dbded9e68b9ce",
+      "portableFileBytes": 88635,
+      "sourceBytesIdenticalToPortableFile": false,
+      "transformations": [
+        "Explicit portable summary; original source snapshot digest remains distinct from delivered JSON bytes."
+      ]
+    },
+    {
+      "path": "submission/evidence/media/final-render.portable-summary.json",
+      "representation": "explicit-final-render-summary-with-full-frame-map",
+      "observationScope": "Actual48 production command results,41 source segments andcomplete4125-frame source/receipt/UI-observation map",
+      "originalSourceArtifactName": "render-manifest.json",
+      "originalSourceSha256": "a2e4255efac3ee13ae8f783db9401330e2b5eedc3985ec50a69f4da882987b7d",
+      "portableFileSha256": "b7a993157e383c4a44f3909528f4abf7d762a41f75e71b0c391f5dd6dbd9bf4f",
+      "portableFileBytes": 2719670,
+      "sourceBytesIdenticalToPortableFile": false,
+      "transformations": [
+        "Explicit portable summary; original source snapshot digest remains distinct from delivered JSON bytes."
+      ]
+    },
+    {
+      "path": "submission/evidence/media/native-player.portable.json",
+      "representation": "transformed-full-native-video-player-observation",
+      "observationScope": "Actual headed Chrome playback/keyboard controls and10 matched actual video-frame callbacks, plusinitial temporary-server range boundary",
+      "originalSourceArtifactName": "native-player-proof.json",
+      "originalSourceSha256": "1c9736e2cbb742d9b7cee594b7e46646718dfbe13c9cb73469c05b4f4e2f49ca",
+      "portableFileSha256": "37f7dcaae93f6ad4ed0b077a4c0751f5288c576a567bf7a988b607e12e30c9da",
+      "portableFileBytes": 5186,
+      "sourceBytesIdenticalToPortableFile": false,
+      "transformations": [
+        "Explicit portable summary; original source snapshot digest remains distinct from delivered JSON bytes."
+      ]
+    },
+    {
+      "path": "submission/evidence/media/native-player-image-summary.json",
+      "representation": "compact-confirmed-native-image-inspection-summary",
+      "observationScope": "Main summaries of four actual native Chrome image inspections; not raw model-output bytes",
+      "originalSourceArtifactName": "native-player-image-summary.json",
+      "originalSourceSha256": "0c4bf4b038fee5831cd5f9ee48c21e6fd60de03db836a28a1de8171993d57525",
+      "portableFileSha256": "d520bb342480b7589e8da47afcfd2e36fa9e29819639b68285a3a8c88b8ef6eb",
+      "portableFileBytes": 2550,
+      "sourceBytesIdenticalToPortableFile": false,
+      "transformations": [
+        "Explicit portable summary; original source snapshot digest remains distinct from delivered JSON bytes."
+      ]
+    },
+    {
+      "path": "submission/evidence/liberation-fonts-copyright.txt",
+      "representation": "byte-for-byte-original-license-notice-copy",
+      "observationScope": "Actual installed Liberation Font package SIL-OFL1.1 license notice; no font binaries redistributed",
+      "originalSourceArtifactName": "fonts-liberation-copyright",
+      "originalSourceSha256": "f32df582a2aab128c07b2f7e36e7b928dc5f6bd82657b905c04f91459f9e5cf9",
+      "portableFileSha256": "f32df582a2aab128c07b2f7e36e7b928dc5f6bd82657b905c04f91459f9e5cf9",
+      "portableFileBytes": 5756,
+      "sourceBytesIdenticalToPortableFile": true,
+      "transformations": []
+    },
+    {
+      "path": "submission/evidence/media/final-visual-inspections.portable.json",
+      "representation": "actual-image-response-projection-with-complete-sample-coverage",
+      "observationScope": "Actual108 final PNG image responses with40cue/41segment/9scene coverage and independent text comparison; source tool text digests preserved",
+      "originalSourceArtifactName": "all-actual-image-responses.json",
+      "originalSourceSha256": "a063fbd35d559a7ccec2078decc3b7cde0fd452629655cb63717689ab58855b8",
+      "portableFileSha256": "1dc628934da1f6f3e75ff4c73fe13b5b65dcfddc6d121e3ad33191347c1c69d2",
+      "portableFileBytes": 303080,
+      "sourceBytesIdenticalToPortableFile": false,
+      "transformations": [
+        "Explicit projection of actual retained image-tool text and sample bindings; private image-tool argument paths/usage metadata omitted, never represented as raw identical result containers.",
+        "Full original caption observation329 restored alongside its later disclosure-only followup. Original2535 OCR comma discrepancy retained and resolved using actual equal caption pixels."
+      ]
+    },
+    {
+      "path": "submission/evidence/media/caption-pixel-equality.json",
+      "representation": "actual-decoded-caption-region-equality-observation",
+      "observationScope": "Actual RGB equality of complete1920x85 caption regions in final2534/2535PNG files;0differingchannels",
+      "originalSourceArtifactName": "caption-pixel-equality.json",
+      "originalSourceSha256": "9eec0037f77e427b31d8136a3ba31c627c2873e1eff2a08383bcaabad6c09689",
+      "portableFileSha256": "9eec0037f77e427b31d8136a3ba31c627c2873e1eff2a08383bcaabad6c09689",
+      "portableFileBytes": 1143,
+      "sourceBytesIdenticalToPortableFile": false,
+      "transformations": [
+        "Explicit portable summary; original source snapshot digest remains distinct from delivered JSON bytes."
+      ]
+    },
+    {
+      "path": "submission/evidence/browser/guide-final-desktop.png",
+      "representation": "byte-for-byte-selected-original-binary-copy",
+      "observationScope": "Actual final guide headed Chrome desktop viewport screenshot; no horizontal overflow/clipping",
+      "originalSourceArtifactName": "guide-final-desktop.png",
+      "originalSourceSha256": "1f77ec7f690cb51007acf777d6c42321a91cfbefb264ed85ae508c97653c1b73",
+      "portableFileSha256": "1f77ec7f690cb51007acf777d6c42321a91cfbefb264ed85ae508c97653c1b73",
+      "portableFileBytes": 286652,
+      "sourceBytesIdenticalToPortableFile": true,
+      "transformations": [
+        "Only the artifact location changes; final destination/archive hashes are checked separately by Main."
+      ]
+    },
+    {
+      "path": "submission/evidence/browser/guide-final-mobile.png",
+      "representation": "byte-for-byte-selected-original-binary-copy",
+      "observationScope": "Actual final guide headed Chrome mobile viewport screenshot; no horizontal overflow/clipping",
+      "originalSourceArtifactName": "guide-final-mobile.png",
+      "originalSourceSha256": "72fd7177d35ebf7b3ab4603ab0ee8e117ea678558ad318551971a04e95ff0d5e",
+      "portableFileSha256": "72fd7177d35ebf7b3ab4603ab0ee8e117ea678558ad318551971a04e95ff0d5e",
+      "portableFileBytes": 90015,
+      "sourceBytesIdenticalToPortableFile": true,
+      "transformations": [
+        "Only the artifact location changes; final destination/archive hashes are checked separately by Main."
+      ]
+    },
+    {
+      "path": "submission/evidence/browser/final-guide-build.portable.json",
+      "representation": "actual-final-guide-and-identical-app-bundle-observation",
+      "observationScope": "Actual doc-only format/build, matching recorded appJS/CSS SHA256 andactual390/1920px Chrome guide surfaces",
+      "originalSourceArtifactName": "final-guide-build-observation.json",
+      "originalSourceSha256": "dc9a42fec64fe9ffa471d7659b622354603020ec5386594b62ba1489e0464cac",
+      "portableFileSha256": "d2c86e203fa3f53dad1988564a2254bc715c7df87f1a4c29f7671d8f88a2782b",
+      "portableFileBytes": 2278,
+      "sourceBytesIdenticalToPortableFile": false,
+      "transformations": [
+        "Explicit portable summary; original source snapshot digest remains distinct from delivered JSON bytes."
+      ]
+    },
+    {
+      "path": "submission/demo-verification.json",
+      "representation": "derived-actual-final-demo-acceptance-report",
+      "observationScope": "Actual current1.1.0 finalMP4/full decode/EnglishAAC-ASR/108PNG/nativeplayer acceptance, not source-only/prepared metadata",
+      "originalSourceArtifactName": "actual-final-media.json",
+      "originalSourceSha256": "db1ab0fb1715f27e4f748f8bea89e0258a14a2cb85fc2be544f204e5414e9f3d",
+      "sourceBytesIdenticalToPortableFile": false,
+      "transformations": [
+        "Derived final acceptance from actual independentmedia,ASR,image-tool,pixel-equivalence andnative-paint records; final formatteddestinationdigest measured byMain.",
+        "Main finalized currentmedia/reference/deployment data and refreshed actual destination bytes after project formatting; original source snapshot hash remains separate."
+      ],
+      "portableFileSha256": "c3615ad71192d6483d76a2fede4a2caf3633e5aaa1b83ae600320723d400acb2",
+      "portableFileBytes": 8218
+    },
+    {
+      "path": "submission/evidence/browser/final-public-guide.json",
+      "representation": "actual-public-GitHub-Pages-and-HTTPS-guide-observation",
+      "observationScope": "Actual remote buildbuilt andHTTPS200 guidebytes match finalgeneratedSHA;appcode unchanged",
+      "originalSourceArtifactName": "actual-GitHub-Pages-build-and-HTTPS-response",
+      "portableFileSha256": "01e4317a7543462b4f7f6bf48f51990217b0b941021c4f3ebdd681d1738d8b5d",
+      "portableFileBytes": 1146,
+      "sourceBytesIdenticalToPortableFile": false,
+      "transformations": [
+        "Explicit portable summary; original source snapshot digest remains distinct from delivered JSON bytes."
+      ]
+    }
+  ],
+  "embeddedOriginalSourcesNotDuplicated": [
+    {
+      "originalSourceArtifactName": "model-decisions.jsonl",
+      "originalSourceSha256": "cc05ddae3fe728534eb302ff933b7ef89850b9edf7bf03ba22710183137199f4",
+      "originalSourceBytes": 1332123,
+      "originalRecordCount": 25,
+      "portableEvidencePath": "submission/agent-trace.json",
+      "jsonPointer": "/modelDecisions",
+      "representation": "Original observed record facts embedded in the full trace, with retained verification annotations and transformed artifact references; not original JSONL bytes or a matching-file-hash claim"
+    },
+    {
+      "originalSourceArtifactName": "native-receipts.jsonl",
+      "originalSourceSha256": "41ca269c08b5c321daf4b9f158c1d9b0d6baaff2033ab13b15896380187cf9a0",
+      "originalSourceBytes": 117830,
+      "originalRecordCount": 19,
+      "portableEvidencePath": "submission/agent-trace.json",
+      "jsonPointer": "/receipts",
+      "representation": "Original observed record facts embedded in the full trace, with retained verification annotations and transformed artifact references; not original JSONL bytes or a matching-file-hash claim"
+    },
+    {
+      "originalSourceArtifactName": "ui-events.jsonl",
+      "originalSourceSha256": "3e3ad6638505d8ed36e39f4b37a521e8486cb07ae9548869ee45be1adf4fd904",
+      "originalSourceBytes": 162968,
+      "originalRecordCount": 70,
+      "portableEvidencePath": "submission/agent-trace.json",
+      "jsonPointer": "/uiEvents",
+      "representation": "Original observed record facts embedded in the full trace, with retained verification annotations and transformed artifact references; not original JSONL bytes or a matching-file-hash claim"
+    },
+    {
+      "originalSourceArtifactName": "runtime-errors.jsonl",
+      "originalSourceSha256": "6a7e32182b469a7cea2fd97ffbb3d78e2c21e343e62b8cce7a76e95fa883d4fe",
+      "originalSourceBytes": 535,
+      "originalRecordCount": 2,
+      "portableEvidencePath": "submission/agent-trace.json",
+      "jsonPointer": "/errors",
+      "representation": "Original observed record facts embedded in the full trace, with retained verification annotations and transformed artifact references; not original JSONL bytes or a matching-file-hash claim"
+    },
+    {
+      "originalSourceArtifactName": "actual-trace.json",
+      "originalSourceSha256": "661022c3b32a9ba843b7301c8f552cb9aea255e9a4dfb2662c3ef45a470ebf94",
+      "originalSourceBytes": 2286894,
+      "portableEvidencePath": "submission/agent-trace.json",
+      "jsonPointers": [
+        "/sourceCandidate",
+        "/receipts",
+        "/uiEvents",
+        "/modelDecisions",
+        "/localFinishDecisions",
+        "/captureMarks",
+        "/errors"
+      ],
+      "representation": "Observed facts retained in the full trace; original artifact container and private path references are transformed, not byte-identical copies"
+    },
+    {
+      "originalSourceArtifactName": "capture-marks.json",
+      "originalSourceSha256": "4c11732089ffa36ca0a35cb0a0f59b7b5d44fcac789e3a9bbdd8bfab3e465180",
+      "originalSourceBytes": 225262,
+      "portableEvidencePath": "submission/agent-trace.json",
+      "jsonPointers": [
+        "/captureMarks"
+      ],
+      "representation": "Observed facts retained in the full trace; original artifact container and private path references are transformed, not byte-identical copies"
+    }
+  ],
+  "existingSubmissionAssets": [
+    {
+      "path": "submission/screenshots/cutting-layout.png",
+      "recordedCurrentPNGHash": "d59e7e65e7612244ff84625398b127a06a9ff94bb4bc0da3588dba073acb692f",
+      "originalSourceJPEGHash": "734ed827588acf7adf2d199941281f4fee6bc204a622995d0c6705010a215ea9",
+      "actualCDPFrameIndex": 69,
+      "nativeReceiptOrdinal": 2,
+      "uiEventOrdinal": 7,
+      "action": "Existing current-candidate repository PNG retained; not copied or re-encoded during portability conversion",
+      "pixelFindingsEvidencePath": "submission/evidence/offcut-overhaul-submission-image-proof.original.json",
+      "scope": "PNG encoded from actual currentcandidate genuineCDPJPEG; no alteredreceipt/count/geometry/sourceUI"
+    },
+    {
+      "path": "submission/screenshots/planning-tradeoffs.png",
+      "recordedCurrentPNGHash": "fbbf56c704f63b15c92bfeb8e1df799f7ce00995deca11ad8a712cf183591f0f",
+      "originalSourceJPEGHash": "e90ca3fcee07ced434b4ac4931d5b4f31141ca673c13ad9d3c2b51cc580d5a3f",
+      "actualCDPFrameIndex": 73,
+      "nativeReceiptOrdinal": 5,
+      "uiEventOrdinal": 9,
+      "action": "Existing current-candidate repository PNG retained; not copied or re-encoded during portability conversion",
+      "pixelFindingsEvidencePath": "submission/evidence/offcut-overhaul-submission-image-proof.original.json",
+      "scope": "PNG encoded from actual currentcandidate genuineCDPJPEG; no alteredreceipt/count/geometry/sourceUI"
+    },
+    {
+      "path": "submission/screenshots/human-review.png",
+      "recordedCurrentPNGHash": "74e686b76184a1ab338603403ecdea303fe0f1bb7f7528c1b395cd0b205e1fc7",
+      "originalSourceJPEGHash": "75ae19f0f747dec522860bc2ccd011122b3e9ee00bbff130fe6fb5af6d2c52ef",
+      "actualCDPFrameIndex": 126,
+      "nativeReceiptOrdinal": 7,
+      "uiEventOrdinal": 44,
+      "action": "Existing current-candidate repository PNG retained; not copied or re-encoded during portability conversion",
+      "pixelFindingsEvidencePath": "submission/evidence/offcut-overhaul-submission-image-proof.original.json",
+      "scope": "PNG encoded from actual currentcandidate genuineCDPJPEG; no alteredreceipt/count/geometry/sourceUI"
+    },
+    {
+      "path": "submission/screenshots/fresh-human-review.png",
+      "recordedCurrentPNGHash": "9cd3a528fb679a72f2a27cd9ea78d92a944c5686310e54fec01abc9e6b8faeb2",
+      "originalSourceJPEGHash": "1d2c1a4add03fe7a8b572d09202905b7f183e76d684827a87e68fca5529f7297",
+      "actualCDPFrameIndex": 848,
+      "nativeReceiptOrdinal": 19,
+      "uiEventOrdinal": 69,
+      "action": "Existing current-candidate repository PNG retained; not copied or re-encoded during portability conversion",
+      "pixelFindingsEvidencePath": "submission/evidence/offcut-overhaul-submission-image-proof.original.json",
+      "scope": "PNG encoded from actual currentcandidate genuineCDPJPEG; no alteredreceipt/count/geometry/sourceUI"
+    }
+  ],
+  "intentionallyNotCopied": [
+    "851 individual original source JPEGs; their complete original hashes/timestamps/metadata are retained as portable frame records",
+    "Bulky original source.mp4 bytes; exact separate release source-recording.mp4 URL is publication-pending in its local provenance record",
+    "Unselected runner binary attachments, transient HTML reports/recovery runs and unrelated raw cache",
+    "Browser profiles, authentication/credentials, environment files and model API secrets"
+  ],
+  "missingRequiredLocalEvidenceAssets": [],
+  "destinationVerification": {
+    "actualChecksumExit": 0,
+    "actualEvidenceArtifactsChecked": 182,
+    "allOriginalByteCopiesMatch": true,
+    "allGeneratedRecordHashesAndSizesMeasured": true,
+    "unexpectedByteChanges": 0,
+    "actualFinalVideoSHA256": "c91ba242684a288452f12d9754caaff662347559714cf7f453c35695282aa79c",
+    "actualSubtitleFileSHA256": "985fab1fad837b922dd3c2f1470b4908dc7862b5a6ffc1b14d7e6272114e1fc0",
+    "actualInstalledFontNoticeBytesMatch": true,
+    "scope": "Actual final destination files/hashes only; package member and anonymous remote-download checks are separate."
+  },
+  "finalMediaVerification": {
+    "verificationRecord": "submission/demo-verification.json",
+    "actualEncodedSeconds": 165,
+    "actualDecodedFrames": 4125,
+    "actualFPS": 25,
+    "actualCaptionCues": 40,
+    "actualFinalPNGImagesInspected": 108,
+    "newFinalMP4VerifiedByMain": true,
+    "videoSha256": "c91ba242684a288452f12d9754caaff662347559714cf7f453c35695282aa79c",
+    "scope": "Full actual audiovisual decode/PTS/encodedEnglishASR/captionpixels/108image-toolinspections/10nativeChrome paints;not everyframevisual interpretation orYouTube/Submitted/entrant proof",
+    "visibilityLimits": [
+      "In-app notification banners obscure some upper source-app details; those remain unreadable and are not reconstructed.",
+      "App/modal scroll boundaries crop internal content intentionally; four visibleC34 kerf cells are readable, though the fourth row lower detail reaches the footer boundary.",
+      "Paused native-player controls may overlay captions; all108 baked-in PNG inspections are separate from native controls."
+    ]
+  },
+  "sourceFootageProvenanceEvidencePath": "submission/evidence/capture-take-02/source-recording.provenance.json",
+  "publicationObservationURL": "https://github.com/ilyanaxo/offcut-webmcp/blob/main/submission/publication-verification.json",
+  "referenceResolutionVerification": {
+    "kind": "Actual delivered repository-relative evidence/JSON locator resolution",
+    "jsonFilesChecked": 49,
+    "resolvedFileReferences": 4320,
+    "resolvedJSONPointers": 3669,
+    "errors": [],
+    "scope": "Actual file existence and RFC6901 pointers only. Original artifact names are provenance labels. HTTP/loopback observations and public release URLs are not counted as local file links; remote publication is separately verified."
+  }
+}

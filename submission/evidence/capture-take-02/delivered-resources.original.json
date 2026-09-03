@@ -1,0 +1,16 @@
+[
+  {
+    "url": "https://ilyanaxo.github.io/offcut-webmcp/assets/index-wHlxX3aJ.css",
+    "status": 200,
+    "sha256": "9b5aa8cdff45ec68a8732865240cfe66f0934313c0795a8afff6bf28ad64a7ee",
+    "bytes": 42055,
+    "observedAt": "2026-09-03T11:33:42.035Z"
+  },
+  {
+    "url": "https://ilyanaxo.github.io/offcut-webmcp/assets/index-BXFW-YOC.js",
+    "status": 200,
+    "sha256": "e4cff05b03454ac310258402c8533f7ed9a6f900c76a82ba5943e2785ddcf680",
+    "bytes": 301245,
+    "observedAt": "2026-09-03T11:33:42.302Z"
+  }
+]

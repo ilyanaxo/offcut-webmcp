@@ -1,0 +1,62 @@
+{
+  "kind": "actual_native_export_and_browser_download_acquisition",
+  "path": "submission/evidence/capture-take-02/offcut-the-little-library-r1-plan-683635c8-5b2c-40d1-82e8-31916f4a622b-6.csv",
+  "filename": "offcut-the-little-library-r1-plan-683635c8-5b2c-40d1-82e8-31916f4a622b-6.csv",
+  "downloadUIEventOrdinal": 47,
+  "nativeExportReceiptOrdinal": 9,
+  "planId": "plan-683635c8-5b2c-40d1-82e8-31916f4a622b-6",
+  "revision": 1,
+  "columns": 17,
+  "dataRows": 14,
+  "allRowColumnCounts": [
+    17
+  ],
+  "sha256": "9391830cdd096fab3cc3f825c7b2a35e0cda41b9efd0b7f0b88ba2d1fd35cbc2",
+  "nativeReturnedCsvUtf8Sha256": "9391830cdd096fab3cc3f825c7b2a35e0cda41b9efd0b7f0b88ba2d1fd35cbc2",
+  "nativeReturnMatchesActualDownloadBytes": true,
+  "header": [
+    "Project",
+    "Material (same cross-section)",
+    "Plan ID",
+    "Workspace revision",
+    "Board ID",
+    "Board label",
+    "Usable stock length (mm)",
+    "Cut order",
+    "Part ID",
+    "Part",
+    "Part instance",
+    "Part length (mm)",
+    "Start from usable edge (mm)",
+    "End before kerf (mm)",
+    "Kerf after this part (mm)",
+    "Final remnant (mm)",
+    "Remnant class"
+  ],
+  "actualPartIds": [
+    "brace",
+    "rail",
+    "shelf",
+    "upright"
+  ],
+  "totalPartLengthMm": 7000,
+  "totalKerfMm": 42,
+  "totalFinalRemnantMm": 158,
+  "evidenceBoundary": "Complete bytes genuinely returned by native model-selected export and saved by the actual site UI browser download. This is a planning document, not cutting execution, physical review or inventory consumption. No final video/submission/publication claim.",
+  "portableProvenance": {
+    "representation": "transformed-full-capture-record",
+    "originalSourceArtifactName": "csv-acquisition.json",
+    "originalSourceSha256": "92f8cac644f07bdb99178b5f3b35cb2b19888eb403bc6e9fa2514a554c04d469",
+    "originalSourceBytes": 1532,
+    "sourceBytesIdenticalToPortableFile": false,
+    "observationScope": "Actual current-candidate capture take-02; original source observations/ordinals/times, not final edited MP4 verification",
+    "pathBase": "repository-root",
+    "transformations": [
+      "Only artifact references/locator field names are transformed. Original native/model/UI/state/clock observations, recorded counts, capture errors and original JPEG/video hashes are retained; raw JPEG images are not copied."
+    ],
+    "referenceReplacementCounts": {
+      "evidencePathToProducedPortableFile": 1
+    },
+    "portableFileHashManifest": "submission/evidence/manifest.json"
+  }
+}

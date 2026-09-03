@@ -1,0 +1,622 @@
+{
+  "runtime": "1.4.0",
+  "scope": "Executed real converged solver; candidate budget/physical observations, not a timing assertion",
+  "observations": [
+    {
+      "boards": 14,
+      "lengthMm": 2279,
+      "objective": "least_stock",
+      "elapsedMs": 38.622668000000004,
+      "complete": false,
+      "producedParts": 38,
+      "missingParts": 2,
+      "metrics": {
+        "stockUsedMm": 31906,
+        "partsMm": 30840,
+        "kerfMm": 114,
+        "reusableMm": 0,
+        "scrapMm": 952,
+        "boardCount": 14,
+        "utilization": 0.9665893562339372
+      },
+      "search": {
+        "method": "branch-and-bound",
+        "provenOptimal": false,
+        "nodes": 100000,
+        "limit": 100000
+      },
+      "unfulfilled": [
+        {
+          "requirementId": "P-1",
+          "label": "Part 1",
+          "quantity": 2,
+          "reason": "No complete arrangement was found within the 100000-node bound. This quantity remains unplanned; infeasibility is not proven."
+        }
+      ],
+      "inputUnchanged": true,
+      "physicalBalanceVerified": true,
+      "workspace": {
+        "revision": 0,
+        "title": "Bounded-search observed fixture",
+        "material": "Uniform synthetic batch",
+        "stock": [
+          {
+            "id": "B-1",
+            "label": "Board 1",
+            "lengthMm": 2279,
+            "kind": "board",
+            "locked": false
+          },
+          {
+            "id": "B-2",
+            "label": "Board 2",
+            "lengthMm": 2279,
+            "kind": "board",
+            "locked": false
+          },
+          {
+            "id": "B-3",
+            "label": "Board 3",
+            "lengthMm": 2279,
+            "kind": "board",
+            "locked": false
+          },
+          {
+            "id": "B-4",
+            "label": "Board 4",
+            "lengthMm": 2279,
+            "kind": "board",
+            "locked": false
+          },
+          {
+            "id": "B-5",
+            "label": "Board 5",
+            "lengthMm": 2279,
+            "kind": "board",
+            "locked": false
+          },
+          {
+            "id": "B-6",
+            "label": "Board 6",
+            "lengthMm": 2279,
+            "kind": "board",
+            "locked": false
+          },
+          {
+            "id": "B-7",
+            "label": "Board 7",
+            "lengthMm": 2279,
+            "kind": "board",
+            "locked": false
+          },
+          {
+            "id": "B-8",
+            "label": "Board 8",
+            "lengthMm": 2279,
+            "kind": "board",
+            "locked": false
+          },
+          {
+            "id": "B-9",
+            "label": "Board 9",
+            "lengthMm": 2279,
+            "kind": "board",
+            "locked": false
+          },
+          {
+            "id": "B-10",
+            "label": "Board 10",
+            "lengthMm": 2279,
+            "kind": "board",
+            "locked": false
+          },
+          {
+            "id": "B-11",
+            "label": "Board 11",
+            "lengthMm": 2279,
+            "kind": "board",
+            "locked": false
+          },
+          {
+            "id": "B-12",
+            "label": "Board 12",
+            "lengthMm": 2279,
+            "kind": "board",
+            "locked": false
+          },
+          {
+            "id": "B-13",
+            "label": "Board 13",
+            "lengthMm": 2279,
+            "kind": "board",
+            "locked": false
+          },
+          {
+            "id": "B-14",
+            "label": "Board 14",
+            "lengthMm": 2279,
+            "kind": "board",
+            "locked": false
+          }
+        ],
+        "requirements": [
+          {
+            "id": "P-1",
+            "label": "Part 1",
+            "lengthMm": 300,
+            "quantity": 4
+          },
+          {
+            "id": "P-2",
+            "label": "Part 2",
+            "lengthMm": 440,
+            "quantity": 4
+          },
+          {
+            "id": "P-3",
+            "label": "Part 3",
+            "lengthMm": 580,
+            "quantity": 4
+          },
+          {
+            "id": "P-4",
+            "label": "Part 4",
+            "lengthMm": 620,
+            "quantity": 4
+          },
+          {
+            "id": "P-5",
+            "label": "Part 5",
+            "lengthMm": 710,
+            "quantity": 4
+          },
+          {
+            "id": "P-6",
+            "label": "Part 6",
+            "lengthMm": 830,
+            "quantity": 4
+          },
+          {
+            "id": "P-7",
+            "label": "Part 7",
+            "lengthMm": 950,
+            "quantity": 4
+          },
+          {
+            "id": "P-8",
+            "label": "Part 8",
+            "lengthMm": 1020,
+            "quantity": 4
+          },
+          {
+            "id": "P-9",
+            "label": "Part 9",
+            "lengthMm": 1140,
+            "quantity": 4
+          },
+          {
+            "id": "P-10",
+            "label": "Part 10",
+            "lengthMm": 1270,
+            "quantity": 4
+          }
+        ],
+        "settings": {
+          "kerfMm": 3,
+          "minReusableMm": 400
+        }
+      }
+    },
+    {
+      "boards": 14,
+      "lengthMm": 2279,
+      "objective": "fewest_boards",
+      "elapsedMs": 55.714690999999995,
+      "complete": false,
+      "producedParts": 38,
+      "missingParts": 2,
+      "metrics": {
+        "stockUsedMm": 31906,
+        "partsMm": 30840,
+        "kerfMm": 114,
+        "reusableMm": 0,
+        "scrapMm": 952,
+        "boardCount": 14,
+        "utilization": 0.9665893562339372
+      },
+      "search": {
+        "method": "branch-and-bound",
+        "provenOptimal": false,
+        "nodes": 100000,
+        "limit": 100000
+      },
+      "unfulfilled": [
+        {
+          "requirementId": "P-1",
+          "label": "Part 1",
+          "quantity": 2,
+          "reason": "No complete arrangement was found within the 100000-node bound. This quantity remains unplanned; infeasibility is not proven."
+        }
+      ],
+      "inputUnchanged": true,
+      "physicalBalanceVerified": true,
+      "workspace": {
+        "revision": 0,
+        "title": "Bounded-search observed fixture",
+        "material": "Uniform synthetic batch",
+        "stock": [
+          {
+            "id": "B-1",
+            "label": "Board 1",
+            "lengthMm": 2279,
+            "kind": "board",
+            "locked": false
+          },
+          {
+            "id": "B-2",
+            "label": "Board 2",
+            "lengthMm": 2279,
+            "kind": "board",
+            "locked": false
+          },
+          {
+            "id": "B-3",
+            "label": "Board 3",
+            "lengthMm": 2279,
+            "kind": "board",
+            "locked": false
+          },
+          {
+            "id": "B-4",
+            "label": "Board 4",
+            "lengthMm": 2279,
+            "kind": "board",
+            "locked": false
+          },
+          {
+            "id": "B-5",
+            "label": "Board 5",
+            "lengthMm": 2279,
+            "kind": "board",
+            "locked": false
+          },
+          {
+            "id": "B-6",
+            "label": "Board 6",
+            "lengthMm": 2279,
+            "kind": "board",
+            "locked": false
+          },
+          {
+            "id": "B-7",
+            "label": "Board 7",
+            "lengthMm": 2279,
+            "kind": "board",
+            "locked": false
+          },
+          {
+            "id": "B-8",
+            "label": "Board 8",
+            "lengthMm": 2279,
+            "kind": "board",
+            "locked": false
+          },
+          {
+            "id": "B-9",
+            "label": "Board 9",
+            "lengthMm": 2279,
+            "kind": "board",
+            "locked": false
+          },
+          {
+            "id": "B-10",
+            "label": "Board 10",
+            "lengthMm": 2279,
+            "kind": "board",
+            "locked": false
+          },
+          {
+            "id": "B-11",
+            "label": "Board 11",
+            "lengthMm": 2279,
+            "kind": "board",
+            "locked": false
+          },
+          {
+            "id": "B-12",
+            "label": "Board 12",
+            "lengthMm": 2279,
+            "kind": "board",
+            "locked": false
+          },
+          {
+            "id": "B-13",
+            "label": "Board 13",
+            "lengthMm": 2279,
+            "kind": "board",
+            "locked": false
+          },
+          {
+            "id": "B-14",
+            "label": "Board 14",
+            "lengthMm": 2279,
+            "kind": "board",
+            "locked": false
+          }
+        ],
+        "requirements": [
+          {
+            "id": "P-1",
+            "label": "Part 1",
+            "lengthMm": 300,
+            "quantity": 4
+          },
+          {
+            "id": "P-2",
+            "label": "Part 2",
+            "lengthMm": 440,
+            "quantity": 4
+          },
+          {
+            "id": "P-3",
+            "label": "Part 3",
+            "lengthMm": 580,
+            "quantity": 4
+          },
+          {
+            "id": "P-4",
+            "label": "Part 4",
+            "lengthMm": 620,
+            "quantity": 4
+          },
+          {
+            "id": "P-5",
+            "label": "Part 5",
+            "lengthMm": 710,
+            "quantity": 4
+          },
+          {
+            "id": "P-6",
+            "label": "Part 6",
+            "lengthMm": 830,
+            "quantity": 4
+          },
+          {
+            "id": "P-7",
+            "label": "Part 7",
+            "lengthMm": 950,
+            "quantity": 4
+          },
+          {
+            "id": "P-8",
+            "label": "Part 8",
+            "lengthMm": 1020,
+            "quantity": 4
+          },
+          {
+            "id": "P-9",
+            "label": "Part 9",
+            "lengthMm": 1140,
+            "quantity": 4
+          },
+          {
+            "id": "P-10",
+            "label": "Part 10",
+            "lengthMm": 1270,
+            "quantity": 4
+          }
+        ],
+        "settings": {
+          "kerfMm": 3,
+          "minReusableMm": 400
+        }
+      }
+    },
+    {
+      "boards": 14,
+      "lengthMm": 2279,
+      "objective": "least_waste",
+      "elapsedMs": 19.122816999999998,
+      "complete": false,
+      "producedParts": 38,
+      "missingParts": 2,
+      "metrics": {
+        "stockUsedMm": 31906,
+        "partsMm": 30840,
+        "kerfMm": 114,
+        "reusableMm": 0,
+        "scrapMm": 952,
+        "boardCount": 14,
+        "utilization": 0.9665893562339372
+      },
+      "search": {
+        "method": "branch-and-bound",
+        "provenOptimal": false,
+        "nodes": 100000,
+        "limit": 100000
+      },
+      "unfulfilled": [
+        {
+          "requirementId": "P-1",
+          "label": "Part 1",
+          "quantity": 2,
+          "reason": "No complete arrangement was found within the 100000-node bound. This quantity remains unplanned; infeasibility is not proven."
+        }
+      ],
+      "inputUnchanged": true,
+      "physicalBalanceVerified": true,
+      "workspace": {
+        "revision": 0,
+        "title": "Bounded-search observed fixture",
+        "material": "Uniform synthetic batch",
+        "stock": [
+          {
+            "id": "B-1",
+            "label": "Board 1",
+            "lengthMm": 2279,
+            "kind": "board",
+            "locked": false
+          },
+          {
+            "id": "B-2",
+            "label": "Board 2",
+            "lengthMm": 2279,
+            "kind": "board",
+            "locked": false
+          },
+          {
+            "id": "B-3",
+            "label": "Board 3",
+            "lengthMm": 2279,
+            "kind": "board",
+            "locked": false
+          },
+          {
+            "id": "B-4",
+            "label": "Board 4",
+            "lengthMm": 2279,
+            "kind": "board",
+            "locked": false
+          },
+          {
+            "id": "B-5",
+            "label": "Board 5",
+            "lengthMm": 2279,
+            "kind": "board",
+            "locked": false
+          },
+          {
+            "id": "B-6",
+            "label": "Board 6",
+            "lengthMm": 2279,
+            "kind": "board",
+            "locked": false
+          },
+          {
+            "id": "B-7",
+            "label": "Board 7",
+            "lengthMm": 2279,
+            "kind": "board",
+            "locked": false
+          },
+          {
+            "id": "B-8",
+            "label": "Board 8",
+            "lengthMm": 2279,
+            "kind": "board",
+            "locked": false
+          },
+          {
+            "id": "B-9",
+            "label": "Board 9",
+            "lengthMm": 2279,
+            "kind": "board",
+            "locked": false
+          },
+          {
+            "id": "B-10",
+            "label": "Board 10",
+            "lengthMm": 2279,
+            "kind": "board",
+            "locked": false
+          },
+          {
+            "id": "B-11",
+            "label": "Board 11",
+            "lengthMm": 2279,
+            "kind": "board",
+            "locked": false
+          },
+          {
+            "id": "B-12",
+            "label": "Board 12",
+            "lengthMm": 2279,
+            "kind": "board",
+            "locked": false
+          },
+          {
+            "id": "B-13",
+            "label": "Board 13",
+            "lengthMm": 2279,
+            "kind": "board",
+            "locked": false
+          },
+          {
+            "id": "B-14",
+            "label": "Board 14",
+            "lengthMm": 2279,
+            "kind": "board",
+            "locked": false
+          }
+        ],
+        "requirements": [
+          {
+            "id": "P-1",
+            "label": "Part 1",
+            "lengthMm": 300,
+            "quantity": 4
+          },
+          {
+            "id": "P-2",
+            "label": "Part 2",
+            "lengthMm": 440,
+            "quantity": 4
+          },
+          {
+            "id": "P-3",
+            "label": "Part 3",
+            "lengthMm": 580,
+            "quantity": 4
+          },
+          {
+            "id": "P-4",
+            "label": "Part 4",
+            "lengthMm": 620,
+            "quantity": 4
+          },
+          {
+            "id": "P-5",
+            "label": "Part 5",
+            "lengthMm": 710,
+            "quantity": 4
+          },
+          {
+            "id": "P-6",
+            "label": "Part 6",
+            "lengthMm": 830,
+            "quantity": 4
+          },
+          {
+            "id": "P-7",
+            "label": "Part 7",
+            "lengthMm": 950,
+            "quantity": 4
+          },
+          {
+            "id": "P-8",
+            "label": "Part 8",
+            "lengthMm": 1020,
+            "quantity": 4
+          },
+          {
+            "id": "P-9",
+            "label": "Part 9",
+            "lengthMm": 1140,
+            "quantity": 4
+          },
+          {
+            "id": "P-10",
+            "label": "Part 10",
+            "lengthMm": 1270,
+            "quantity": 4
+          }
+        ],
+        "settings": {
+          "kerfMm": 3,
+          "minReusableMm": 400
+        }
+      }
+    }
+  ],
+  "observedAt": "2026-09-03T10:08:13.946Z"
+}

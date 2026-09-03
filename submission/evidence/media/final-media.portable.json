@@ -1,0 +1,2121 @@
+{
+  "schemaVersion": 1,
+  "kind": "Transformed complete actual final encoded-media observation",
+  "verifiedAt": "2026-09-03T14:02:59.240898+00:00",
+  "videoFile": "submission/demo.mp4",
+  "videoSha256": "c91ba242684a288452f12d9754caaff662347559714cf7f453c35695282aa79c",
+  "videoBytes": 12497854,
+  "durationSeconds": 165,
+  "strictlyLessThan180Seconds": true,
+  "streams": [
+    {
+      "index": 0,
+      "type": "video",
+      "codec": "h264",
+      "declaredFrames": 4125,
+      "timeBase": "1/12800",
+      "durationSeconds": 165,
+      "metadata": {
+        "language": "und",
+        "handler_name": "VideoHandler",
+        "encoder": "Lavc61.3.100 libx264"
+      },
+      "width": 1920,
+      "height": 1080,
+      "pixelFormat": "yuv420p",
+      "averageRate": "25",
+      "baseRate": "25",
+      "sampleAspectRatio": "1"
+    },
+    {
+      "index": 1,
+      "type": "audio",
+      "codec": "aac",
+      "declaredFrames": 7736,
+      "timeBase": "1/48000",
+      "durationSeconds": 165,
+      "metadata": {
+        "language": "und",
+        "handler_name": "SoundHandler"
+      },
+      "sampleRate": 48000,
+      "channels": 2,
+      "layout": "stereo"
+    }
+  ],
+  "fullFFmpegDecode": {
+    "exitCode": 0,
+    "stderr": "",
+    "originalCommandArtifactName": "full-decode",
+    "portableEquivalentCommand": [
+      "ffmpeg",
+      "-hide_banner",
+      "-nostdin",
+      "-v",
+      "error",
+      "-i",
+      "submission/demo.mp4",
+      "-map",
+      "0",
+      "-f",
+      "null",
+      "-"
+    ]
+  },
+  "fullPyAVVideoDecode": {
+    "frames": 4125,
+    "firstFrameSeconds": 0,
+    "lastFrameSeconds": 164.96,
+    "everyPTSMatchesIndexOver25": true
+  },
+  "fullPyAVAudioDecode": {
+    "frames": 7735,
+    "samples": 7920640,
+    "firstSeconds": 0,
+    "lastDecodedEndSeconds": 165.01333333333332,
+    "scope": "AAC decoder tail padding is retained in this observation; stream presentation duration is exactly165seconds"
+  },
+  "loudnessObservation": {
+    "exitCode": 0,
+    "actualEncodedDiagnostic": {
+      "integratedLUFS": -17.4,
+      "loudnessRangeLU": 4.7,
+      "truePeakDBFS": -2.2
+    },
+    "originalSourceArtifactName": "encoded-audio-ebur128.stderr.txt",
+    "scope": "Actual encoded-AAC diagnostic, not subjective listening"
+  },
+  "sampleCount": 108,
+  "samples": [
+    {
+      "frame": 0,
+      "seconds": 0,
+      "file": "submission/evidence/media/frame-0000.png",
+      "sha256": "b66ac4291cf35c2d6dcae2e96262c7c38c3850c34eaf985c96795eee7303f256",
+      "labels": [
+        "first-frame"
+      ],
+      "activeCaptionId": null,
+      "expectedCaptionText": null,
+      "observedCaptionBrightPixelBounds": null,
+      "pixelScope": "Actual decoded final MP4 pixels; bright-pixel caption bounds do not certify textual correctness"
+    },
+    {
+      "frame": 57,
+      "seconds": 2.28,
+      "file": "submission/evidence/media/frame-0057.png",
+      "sha256": "1b6fdc7333b921b709f05ad3556d029ccf7ee96af52ae85f4c7b4aee24232c7a",
+      "labels": [
+        "caption:C01"
+      ],
+      "activeCaptionId": "C01",
+      "expectedCaptionText": "Offcut gives people and browser agents the same cutting-stock workbench.",
+      "observedCaptionBrightPixelBounds": {
+        "left": 725,
+        "right": 1194,
+        "top": 1011,
+        "bottom": 1065,
+        "brightPixelCount": 4688
+      },
+      "pixelScope": "Actual decoded final MP4 pixels; bright-pixel caption bounds do not certify textual correctness"
+    },
+    {
+      "frame": 124,
+      "seconds": 4.96,
+      "file": "submission/evidence/media/frame-0124.png",
+      "sha256": "46fc48c248abcb78e2be8808bbaf1dbbb6c2d6fda160f2b7635f9e69d8601e45",
+      "labels": [
+        "segment:s01-unapproved-preview",
+        "scene:1"
+      ],
+      "activeCaptionId": "C02",
+      "expectedCaptionText": "Fourteen parts fit; the long board stays protected.",
+      "observedCaptionBrightPixelBounds": {
+        "left": 776,
+        "right": 1141,
+        "top": 1011,
+        "bottom": 1065,
+        "brightPixelCount": 3004
+      },
+      "pixelScope": "Actual decoded final MP4 pixels; bright-pixel caption bounds do not certify textual correctness"
+    },
+    {
+      "frame": 165,
+      "seconds": 6.6,
+      "file": "submission/evidence/media/frame-0165.png",
+      "sha256": "eb70e74d1d75f1dc3bd618f4f7a24bca96c84d0c5ed445ea989c4cef76771cab",
+      "labels": [
+        "caption:C02"
+      ],
+      "activeCaptionId": "C02",
+      "expectedCaptionText": "Fourteen parts fit; the long board stays protected.",
+      "observedCaptionBrightPixelBounds": {
+        "left": 776,
+        "right": 1141,
+        "top": 1011,
+        "bottom": 1065,
+        "brightPixelCount": 3004
+      },
+      "pixelScope": "Actual decoded final MP4 pixels; bright-pixel caption bounds do not certify textual correctness"
+    },
+    {
+      "frame": 287,
+      "seconds": 11.48,
+      "file": "submission/evidence/media/frame-0287.png",
+      "sha256": "f4407abc061b925e758ebb6fe36e96d1d8e7d55218b52b94874c99c10a6ad083",
+      "labels": [
+        "segment:s02-protected-stock"
+      ],
+      "activeCaptionId": "C03",
+      "expectedCaptionText": "These illustrative measurements cover usable stock, parts, kerf and the reusable-remnant threshold.",
+      "observedCaptionBrightPixelBounds": {
+        "left": 649,
+        "right": 1268,
+        "top": 1011,
+        "bottom": 1065,
+        "brightPixelCount": 5960
+      },
+      "pixelScope": "Actual decoded final MP4 pixels; bright-pixel caption bounds do not certify textual correctness"
+    },
+    {
+      "frame": 329,
+      "seconds": 13.16,
+      "file": "submission/evidence/media/frame-0329.png",
+      "sha256": "23fb28224c00dd3dc30615141979fc538e2b7e785767cfba5b33413f6e4d0438",
+      "labels": [
+        "caption:C03"
+      ],
+      "activeCaptionId": "C03",
+      "expectedCaptionText": "These illustrative measurements cover usable stock, parts, kerf and the reusable-remnant threshold.",
+      "observedCaptionBrightPixelBounds": {
+        "left": 649,
+        "right": 1268,
+        "top": 1011,
+        "bottom": 1065,
+        "brightPixelCount": 5958
+      },
+      "pixelScope": "Actual decoded final MP4 pixels; bright-pixel caption bounds do not certify textual correctness"
+    },
+    {
+      "frame": 371,
+      "seconds": 14.84,
+      "file": "submission/evidence/media/frame-0371.png",
+      "sha256": "e921e1e5a006a815efc7045abb1f3843c42b67eb2685a92c2db0a51bd9ba2830",
+      "labels": [
+        "segment:s02-parts-kerf-threshold"
+      ],
+      "activeCaptionId": "C03",
+      "expectedCaptionText": "These illustrative measurements cover usable stock, parts, kerf and the reusable-remnant threshold.",
+      "observedCaptionBrightPixelBounds": {
+        "left": 649,
+        "right": 1268,
+        "top": 1011,
+        "bottom": 1065,
+        "brightPixelCount": 5956
+      },
+      "pixelScope": "Actual decoded final MP4 pixels; bright-pixel caption bounds do not certify textual correctness"
+    },
+    {
+      "frame": 393,
+      "seconds": 15.72,
+      "file": "submission/evidence/media/frame-0393.png",
+      "sha256": "07ba8d995b5fc90d74e1a3659eb519207c2487aeac39c1cd74b1619c08c295af",
+      "labels": [
+        "scene:2"
+      ],
+      "activeCaptionId": "C03",
+      "expectedCaptionText": "These illustrative measurements cover usable stock, parts, kerf and the reusable-remnant threshold.",
+      "observedCaptionBrightPixelBounds": {
+        "left": 649,
+        "right": 1268,
+        "top": 1011,
+        "bottom": 1065,
+        "brightPixelCount": 5956
+      },
+      "pixelScope": "Actual decoded final MP4 pixels; bright-pixel caption bounds do not certify textual correctness"
+    },
+    {
+      "frame": 469,
+      "seconds": 18.76,
+      "file": "submission/evidence/media/frame-0469.png",
+      "sha256": "dc28076636e6b231d2de01722ccd912dbf0e469112f047a8513557fcdb831aa7",
+      "labels": [
+        "caption:C04"
+      ],
+      "activeCaptionId": "C04",
+      "expectedCaptionText": "People own measurements and protection; registered tools cannot change them.",
+      "observedCaptionBrightPixelBounds": {
+        "left": 707,
+        "right": 1211,
+        "top": 1011,
+        "bottom": 1065,
+        "brightPixelCount": 4932
+      },
+      "pixelScope": "Actual decoded final MP4 pixels; bright-pixel caption bounds do not certify textual correctness"
+    },
+    {
+      "frame": 478,
+      "seconds": 19.12,
+      "file": "submission/evidence/media/frame-0478.png",
+      "sha256": "dc28076636e6b231d2de01722ccd912dbf0e469112f047a8513557fcdb831aa7",
+      "labels": [
+        "segment:s02-people-owned-controls-hold"
+      ],
+      "activeCaptionId": "C04",
+      "expectedCaptionText": "People own measurements and protection; registered tools cannot change them.",
+      "observedCaptionBrightPixelBounds": {
+        "left": 707,
+        "right": 1211,
+        "top": 1011,
+        "bottom": 1065,
+        "brightPixelCount": 4932
+      },
+      "pixelScope": "Actual decoded final MP4 pixels; bright-pixel caption bounds do not certify textual correctness"
+    },
+    {
+      "frame": 585,
+      "seconds": 23.4,
+      "file": "submission/evidence/media/frame-0585.png",
+      "sha256": "d0a1630034e7c40573e354f8812abbe0b84b6aa04b3ecbff6e59b28b7f05cf13",
+      "labels": [
+        "caption:C05"
+      ],
+      "activeCaptionId": "C05",
+      "expectedCaptionText": "The right-hand panel is an external model recording harness,",
+      "observedCaptionBrightPixelBounds": {
+        "left": 740,
+        "right": 1178,
+        "top": 1011,
+        "bottom": 1065,
+        "brightPixelCount": 3690
+      },
+      "pixelScope": "Actual decoded final MP4 pixels; bright-pixel caption bounds do not certify textual correctness"
+    },
+    {
+      "frame": 622,
+      "seconds": 24.88,
+      "file": "submission/evidence/media/frame-0622.png",
+      "sha256": "08dcf76660c68e4a8c41d1a0c18aee386a24fde412cfee9f896ac07e5b781a1e",
+      "labels": [
+        "segment:s03-native-catalogue-hold"
+      ],
+      "activeCaptionId": "C05",
+      "expectedCaptionText": "The right-hand panel is an external model recording harness,",
+      "observedCaptionBrightPixelBounds": {
+        "left": 740,
+        "right": 1178,
+        "top": 1011,
+        "bottom": 1065,
+        "brightPixelCount": 3688
+      },
+      "pixelScope": "Actual decoded final MP4 pixels; bright-pixel caption bounds do not certify textual correctness"
+    },
+    {
+      "frame": 666,
+      "seconds": 26.64,
+      "file": "submission/evidence/media/frame-0666.png",
+      "sha256": "8507720553d170aca9a3abea8bbfd20fe56e5b6d66a8813049731c5910207e3a",
+      "labels": [
+        "caption:C06"
+      ],
+      "activeCaptionId": "C06",
+      "expectedCaptionText": "not a chatbot inside the website.",
+      "observedCaptionBrightPixelBounds": {
+        "left": 770,
+        "right": 1148,
+        "top": 1041,
+        "bottom": 1060,
+        "brightPixelCount": 1930
+      },
+      "pixelScope": "Actual decoded final MP4 pixels; bright-pixel caption bounds do not certify textual correctness"
+    },
+    {
+      "frame": 737,
+      "seconds": 29.48,
+      "file": "submission/evidence/media/frame-0737.png",
+      "sha256": "11de8122ba0d2c71c339d3bbbff56107750d87513086da6bb8fd1584e2142ad3",
+      "labels": [
+        "scene:3"
+      ],
+      "activeCaptionId": "C07",
+      "expectedCaptionText": "A real model chooses native WebMCP calls",
+      "observedCaptionBrightPixelBounds": {
+        "left": 700,
+        "right": 1218,
+        "top": 1041,
+        "bottom": 1060,
+        "brightPixelCount": 2729
+      },
+      "pixelScope": "Actual decoded final MP4 pixels; bright-pixel caption bounds do not certify textual correctness"
+    },
+    {
+      "frame": 749,
+      "seconds": 29.96,
+      "file": "submission/evidence/media/frame-0749.png",
+      "sha256": "b3969c26c6a85b4dd5bbad58bdd430784d570f06e63a6f54ebe07a110fee3113",
+      "labels": [
+        "caption:C07"
+      ],
+      "activeCaptionId": "C07",
+      "expectedCaptionText": "A real model chooses native WebMCP calls",
+      "observedCaptionBrightPixelBounds": {
+        "left": 700,
+        "right": 1218,
+        "top": 1041,
+        "bottom": 1060,
+        "brightPixelCount": 2729
+      },
+      "pixelScope": "Actual decoded final MP4 pixels; bright-pixel caption bounds do not certify textual correctness"
+    },
+    {
+      "frame": 822,
+      "seconds": 32.88,
+      "file": "submission/evidence/media/frame-0822.png",
+      "sha256": "b1067a29d8e2d6561a414eaa3b6fb6da39308e25976615fb818c473c5b0c2d8b",
+      "labels": [
+        "segment:s03-shared-workshop-read-hold"
+      ],
+      "activeCaptionId": "C08",
+      "expectedCaptionText": "on the shared committed workbench. This is not a ChatGPT recording.",
+      "observedCaptionBrightPixelBounds": {
+        "left": 741,
+        "right": 1176,
+        "top": 1011,
+        "bottom": 1065,
+        "brightPixelCount": 4083
+      },
+      "pixelScope": "Actual decoded final MP4 pixels; bright-pixel caption bounds do not certify textual correctness"
+    },
+    {
+      "frame": 843,
+      "seconds": 33.72,
+      "file": "submission/evidence/media/frame-0843.png",
+      "sha256": "78c5ab258986c5423eb97974426ef7193c30e19d009407c4fadabdea5c89439f",
+      "labels": [
+        "caption:C08"
+      ],
+      "activeCaptionId": "C08",
+      "expectedCaptionText": "on the shared committed workbench. This is not a ChatGPT recording.",
+      "observedCaptionBrightPixelBounds": {
+        "left": 741,
+        "right": 1176,
+        "top": 1011,
+        "bottom": 1065,
+        "brightPixelCount": 4083
+      },
+      "pixelScope": "Actual decoded final MP4 pixels; bright-pixel caption bounds do not certify textual correctness"
+    },
+    {
+      "frame": 974,
+      "seconds": 38.96,
+      "file": "submission/evidence/media/frame-0974.png",
+      "sha256": "b6605aa7a9df2ac2e8964255db4e0c9fe40c34e8bc80681c0f74bb4a5311fb76",
+      "labels": [
+        "caption:C09"
+      ],
+      "activeCaptionId": "C09",
+      "expectedCaptionText": "The model compares three complete alternatives:",
+      "observedCaptionBrightPixelBounds": {
+        "left": 666,
+        "right": 1251,
+        "top": 1041,
+        "bottom": 1065,
+        "brightPixelCount": 3012
+      },
+      "pixelScope": "Actual decoded final MP4 pixels; bright-pixel caption bounds do not certify textual correctness"
+    },
+    {
+      "frame": 1031,
+      "seconds": 41.24,
+      "file": "submission/evidence/media/frame-1031.png",
+      "sha256": "4d0c46b03e6d483a3f5d2a59fef83c5303e5fd74c3890c02fb97377c2f95a963",
+      "labels": [
+        "segment:s04-three-way-comparison"
+      ],
+      "activeCaptionId": "C10",
+      "expectedCaptionText": "less stock, fewer boards, or useful offcuts.",
+      "observedCaptionBrightPixelBounds": {
+        "left": 712,
+        "right": 1206,
+        "top": 1041,
+        "bottom": 1063,
+        "brightPixelCount": 2447
+      },
+      "pixelScope": "Actual decoded final MP4 pixels; bright-pixel caption bounds do not certify textual correctness"
+    },
+    {
+      "frame": 1066,
+      "seconds": 42.64,
+      "file": "submission/evidence/media/frame-1066.png",
+      "sha256": "464ac207e993fbe4463bf7ab06305cf1d8c6273af9f7384cd8f0932ecf0e3819",
+      "labels": [
+        "caption:C10"
+      ],
+      "activeCaptionId": "C10",
+      "expectedCaptionText": "less stock, fewer boards, or useful offcuts.",
+      "observedCaptionBrightPixelBounds": {
+        "left": 712,
+        "right": 1206,
+        "top": 1041,
+        "bottom": 1063,
+        "brightPixelCount": 2445
+      },
+      "pixelScope": "Actual decoded final MP4 pixels; bright-pixel caption bounds do not certify textual correctness"
+    },
+    {
+      "frame": 1143,
+      "seconds": 45.72,
+      "file": "submission/evidence/media/frame-1143.png",
+      "sha256": "63fdf945a3af32a16b0b4b74a58872560a9339b34c870a63e22755d0f048c637",
+      "labels": [
+        "scene:4"
+      ],
+      "activeCaptionId": "C11",
+      "expectedCaptionText": "The deterministic branch-and-bound solver checks quantities, stock and one kerf per part.",
+      "observedCaptionBrightPixelBounds": {
+        "left": 595,
+        "right": 1322,
+        "top": 1011,
+        "bottom": 1065,
+        "brightPixelCount": 5420
+      },
+      "pixelScope": "Actual decoded final MP4 pixels; bright-pixel caption bounds do not certify textual correctness"
+    },
+    {
+      "frame": 1187,
+      "seconds": 47.48,
+      "file": "submission/evidence/media/frame-1187.png",
+      "sha256": "29cd658691c09b8fc90d7290dde2ba50ece7c5abc767f9401669ff2050eb5778",
+      "labels": [
+        "caption:C11",
+        "segment:s04-full-ids-effective-constraints"
+      ],
+      "activeCaptionId": "C11",
+      "expectedCaptionText": "The deterministic branch-and-bound solver checks quantities, stock and one kerf per part.",
+      "observedCaptionBrightPixelBounds": {
+        "left": 595,
+        "right": 1322,
+        "top": 1011,
+        "bottom": 1065,
+        "brightPixelCount": 5419
+      },
+      "pixelScope": "Actual decoded final MP4 pixels; bright-pixel caption bounds do not certify textual correctness"
+    },
+    {
+      "frame": 1296,
+      "seconds": 51.84,
+      "file": "submission/evidence/media/frame-1296.png",
+      "sha256": "aa4b3389702eee4a13bb9a9b1be92b07535b26ac6079c422825866af1ce0e116",
+      "labels": [
+        "caption:C12"
+      ],
+      "activeCaptionId": "C12",
+      "expectedCaptionText": "A search limit is not a proof of optimality.",
+      "observedCaptionBrightPixelBounds": {
+        "left": 720,
+        "right": 1197,
+        "top": 1041,
+        "bottom": 1065,
+        "brightPixelCount": 2324
+      },
+      "pixelScope": "Actual decoded final MP4 pixels; bright-pixel caption bounds do not certify textual correctness"
+    },
+    {
+      "frame": 1300,
+      "seconds": 52,
+      "file": "submission/evidence/media/frame-1300.png",
+      "sha256": "4a3dff4b7759782fa0b838865cf284904208fec1ac6a18a1d84a45139b003f89",
+      "labels": [
+        "segment:s04-search-status-limits"
+      ],
+      "activeCaptionId": "C12",
+      "expectedCaptionText": "A search limit is not a proof of optimality.",
+      "observedCaptionBrightPixelBounds": {
+        "left": 720,
+        "right": 1197,
+        "top": 1041,
+        "bottom": 1065,
+        "brightPixelCount": 2324
+      },
+      "pixelScope": "Actual decoded final MP4 pixels; bright-pixel caption bounds do not certify textual correctness"
+    },
+    {
+      "frame": 1383,
+      "seconds": 55.32,
+      "file": "submission/evidence/media/frame-1383.png",
+      "sha256": "266206d5836aea2ceeba466615535a641814bda9bf0ab5dd04a836655d65e377",
+      "labels": [
+        "segment:s05-least-stock-three-boards"
+      ],
+      "activeCaptionId": "C13",
+      "expectedCaptionText": "Less stock and fewer boards both open",
+      "observedCaptionBrightPixelBounds": {
+        "left": 728,
+        "right": 1191,
+        "top": 1041,
+        "bottom": 1065,
+        "brightPixelCount": 2403
+      },
+      "pixelScope": "Actual decoded final MP4 pixels; bright-pixel caption bounds do not certify textual correctness"
+    },
+    {
+      "frame": 1385,
+      "seconds": 55.4,
+      "file": "submission/evidence/media/frame-1385.png",
+      "sha256": "266206d5836aea2ceeba466615535a641814bda9bf0ab5dd04a836655d65e377",
+      "labels": [
+        "caption:C13"
+      ],
+      "activeCaptionId": "C13",
+      "expectedCaptionText": "Less stock and fewer boards both open",
+      "observedCaptionBrightPixelBounds": {
+        "left": 728,
+        "right": 1191,
+        "top": 1041,
+        "bottom": 1065,
+        "brightPixelCount": 2403
+      },
+      "pixelScope": "Actual decoded final MP4 pixels; bright-pixel caption bounds do not certify textual correctness"
+    },
+    {
+      "frame": 1453,
+      "seconds": 58.12,
+      "file": "submission/evidence/media/frame-1453.png",
+      "sha256": "1a1517e0b998823c20f8884aa6f7a580763663b12f476117e9ee5648e0c764d6",
+      "labels": [
+        "caption:C14"
+      ],
+      "activeCaptionId": "C14",
+      "expectedCaptionText": "seven point two metres across three boards:",
+      "observedCaptionBrightPixelBounds": {
+        "left": 697,
+        "right": 1220,
+        "top": 1041,
+        "bottom": 1065,
+        "brightPixelCount": 2630
+      },
+      "pixelScope": "Actual decoded final MP4 pixels; bright-pixel caption bounds do not certify textual correctness"
+    },
+    {
+      "frame": 1458,
+      "seconds": 58.32,
+      "file": "submission/evidence/media/frame-1458.png",
+      "sha256": "5fdd1b543ece76df93f22a61985a105ee5f1824e0eeafcae7d9b5599298c000d",
+      "labels": [
+        "segment:s05-fewest-boards-full-layout"
+      ],
+      "activeCaptionId": "C14",
+      "expectedCaptionText": "seven point two metres across three boards:",
+      "observedCaptionBrightPixelBounds": {
+        "left": 697,
+        "right": 1220,
+        "top": 1041,
+        "bottom": 1065,
+        "brightPixelCount": 2630
+      },
+      "pixelScope": "Actual decoded final MP4 pixels; bright-pixel caption bounds do not certify textual correctness"
+    },
+    {
+      "frame": 1570,
+      "seconds": 62.8,
+      "file": "submission/evidence/media/frame-1570.png",
+      "sha256": "bb0db6ee558ae9a0e07c885c84f532f8a155c060678d49de574058fe53a9b26c",
+      "labels": [
+        "caption:C15"
+      ],
+      "activeCaptionId": "C15",
+      "expectedCaptionText": "forty-two millimetres of sawdust, plus one hundred fifty-eight millimetres of short scrap.",
+      "observedCaptionBrightPixelBounds": {
+        "left": 643,
+        "right": 1275,
+        "top": 1011,
+        "bottom": 1065,
+        "brightPixelCount": 5273
+      },
+      "pixelScope": "Actual decoded final MP4 pixels; bright-pixel caption bounds do not certify textual correctness"
+    },
+    {
+      "frame": 1575,
+      "seconds": 63,
+      "file": "submission/evidence/media/frame-1575.png",
+      "sha256": "b69bcff951f9015490d97ee4502ed0571af090b2ab78c834ee42641035f7a489",
+      "labels": [
+        "segment:s05-exact-cuts-sawdust-scrap"
+      ],
+      "activeCaptionId": "C15",
+      "expectedCaptionText": "forty-two millimetres of sawdust, plus one hundred fifty-eight millimetres of short scrap.",
+      "observedCaptionBrightPixelBounds": {
+        "left": 643,
+        "right": 1275,
+        "top": 1011,
+        "bottom": 1065,
+        "brightPixelCount": 5273
+      },
+      "pixelScope": "Actual decoded final MP4 pixels; bright-pixel caption bounds do not certify textual correctness"
+    },
+    {
+      "frame": 1681,
+      "seconds": 67.24,
+      "file": "submission/evidence/media/frame-1681.png",
+      "sha256": "9924fa077e5bdac068172bb4bef123032f447bc286846db5662278b40174d3b4",
+      "labels": [
+        "segment:s05-useful-offcuts-upper-boards"
+      ],
+      "activeCaptionId": "C16",
+      "expectedCaptionText": "Keeping useful offcuts opens ten point zero eight metres across six boards:",
+      "observedCaptionBrightPixelBounds": {
+        "left": 690,
+        "right": 1227,
+        "top": 1011,
+        "bottom": 1065,
+        "brightPixelCount": 4493
+      },
+      "pixelScope": "Actual decoded final MP4 pixels; bright-pixel caption bounds do not certify textual correctness"
+    },
+    {
+      "frame": 1707,
+      "seconds": 68.28,
+      "file": "submission/evidence/media/frame-1707.png",
+      "sha256": "c55565026670aa236c6d17a2e043a9dbf9b9a05383e92318c1725fbc6b36db3f",
+      "labels": [
+        "scene:5"
+      ],
+      "activeCaptionId": "C16",
+      "expectedCaptionText": "Keeping useful offcuts opens ten point zero eight metres across six boards:",
+      "observedCaptionBrightPixelBounds": {
+        "left": 690,
+        "right": 1227,
+        "top": 1011,
+        "bottom": 1065,
+        "brightPixelCount": 4489
+      },
+      "pixelScope": "Actual decoded final MP4 pixels; bright-pixel caption bounds do not certify textual correctness"
+    },
+    {
+      "frame": 1712,
+      "seconds": 68.48,
+      "file": "submission/evidence/media/frame-1712.png",
+      "sha256": "c55565026670aa236c6d17a2e043a9dbf9b9a05383e92318c1725fbc6b36db3f",
+      "labels": [
+        "caption:C16"
+      ],
+      "activeCaptionId": "C16",
+      "expectedCaptionText": "Keeping useful offcuts opens ten point zero eight metres across six boards:",
+      "observedCaptionBrightPixelBounds": {
+        "left": 690,
+        "right": 1227,
+        "top": 1011,
+        "bottom": 1065,
+        "brightPixelCount": 4489
+      },
+      "pixelScope": "Actual decoded final MP4 pixels; bright-pixel caption bounds do not certify textual correctness"
+    },
+    {
+      "frame": 1749,
+      "seconds": 69.96,
+      "file": "submission/evidence/media/frame-1749.png",
+      "sha256": "4314b6cda437923ab602105a742cd33d572388d3fb3b20367136551817dd7292",
+      "labels": [
+        "segment:s05-useful-offcuts-lower-boards"
+      ],
+      "activeCaptionId": "C16",
+      "expectedCaptionText": "Keeping useful offcuts opens ten point zero eight metres across six boards:",
+      "observedCaptionBrightPixelBounds": {
+        "left": 690,
+        "right": 1227,
+        "top": 1011,
+        "bottom": 1065,
+        "brightPixelCount": 4496
+      },
+      "pixelScope": "Actual decoded final MP4 pixels; bright-pixel caption bounds do not certify textual correctness"
+    },
+    {
+      "frame": 1825,
+      "seconds": 73,
+      "file": "submission/evidence/media/frame-1825.png",
+      "sha256": "d075154ed5786ae4e1cc2ca7d4b5ed9f06347ad3046634e34c60456f46c5319d",
+      "labels": [
+        "caption:C17"
+      ],
+      "activeCaptionId": "C17",
+      "expectedCaptionText": "forty-two millimetres of sawdust, no short scrap,",
+      "observedCaptionBrightPixelBounds": {
+        "left": 677,
+        "right": 1240,
+        "top": 1041,
+        "bottom": 1065,
+        "brightPixelCount": 2769
+      },
+      "pixelScope": "Actual decoded final MP4 pixels; bright-pixel caption bounds do not certify textual correctness"
+    },
+    {
+      "frame": 1866,
+      "seconds": 74.64,
+      "file": "submission/evidence/media/frame-1866.png",
+      "sha256": "33bf946c27e8858afbdcde30a7bc69a164738b792589bba7c32a6996a92fa35a",
+      "labels": [
+        "segment:s05-reusable-remnant-exact-table"
+      ],
+      "activeCaptionId": null,
+      "expectedCaptionText": null,
+      "observedCaptionBrightPixelBounds": null,
+      "pixelScope": "Actual decoded final MP4 pixels; bright-pixel caption bounds do not certify textual correctness"
+    },
+    {
+      "frame": 1909,
+      "seconds": 76.36,
+      "file": "submission/evidence/media/frame-1909.png",
+      "sha256": "f413af74e5ca85659b090f13d5c845e6edac84abb8a3e24ae5ab07b40e27c0b6",
+      "labels": [
+        "caption:C18"
+      ],
+      "activeCaptionId": "C18",
+      "expectedCaptionText": "and three point zero three eight metres reusable.",
+      "observedCaptionBrightPixelBounds": {
+        "left": 671,
+        "right": 1246,
+        "top": 1041,
+        "bottom": 1065,
+        "brightPixelCount": 3008
+      },
+      "pixelScope": "Actual decoded final MP4 pixels; bright-pixel caption bounds do not certify textual correctness"
+    },
+    {
+      "frame": 1991,
+      "seconds": 79.64,
+      "file": "submission/evidence/media/frame-1991.png",
+      "sha256": "19fd554c5843287eae37a861951baa802e26219ba61dd10f87ec662c5ee3ea80",
+      "labels": [
+        "caption:C19"
+      ],
+      "activeCaptionId": "C19",
+      "expectedCaptionText": "Computed trade-offs, not measured time or carbon savings.",
+      "observedCaptionBrightPixelBounds": {
+        "left": 737,
+        "right": 1181,
+        "top": 1011,
+        "bottom": 1065,
+        "brightPixelCount": 3592
+      },
+      "pixelScope": "Actual decoded final MP4 pixels; bright-pixel caption bounds do not certify textual correctness"
+    },
+    {
+      "frame": 2005,
+      "seconds": 80.2,
+      "file": "submission/evidence/media/frame-2005.png",
+      "sha256": "19fd554c5843287eae37a861951baa802e26219ba61dd10f87ec662c5ee3ea80",
+      "labels": [
+        "segment:s05-material-balance"
+      ],
+      "activeCaptionId": "C19",
+      "expectedCaptionText": "Computed trade-offs, not measured time or carbon savings.",
+      "observedCaptionBrightPixelBounds": {
+        "left": 737,
+        "right": 1181,
+        "top": 1011,
+        "bottom": 1065,
+        "brightPixelCount": 3592
+      },
+      "pixelScope": "Actual decoded final MP4 pixels; bright-pixel caption bounds do not certify textual correctness"
+    },
+    {
+      "frame": 2094,
+      "seconds": 83.76,
+      "file": "submission/evidence/media/frame-2094.png",
+      "sha256": "0911170905cf6467119b9fa5fbd2bdbea81e6e8a6234dc46cc6f31de6ea2ae34",
+      "labels": [
+        "segment:s06-native-inspection-unchecked-ui"
+      ],
+      "activeCaptionId": null,
+      "expectedCaptionText": null,
+      "observedCaptionBrightPixelBounds": null,
+      "pixelScope": "Actual decoded final MP4 pixels; bright-pixel caption bounds do not certify textual correctness"
+    },
+    {
+      "frame": 2156,
+      "seconds": 86.24,
+      "file": "submission/evidence/media/frame-2156.png",
+      "sha256": "11385fd7d6ec2f1d43d64c1bc9a818ffd08b5614ad89d58e5ca643ebb8519393",
+      "labels": [
+        "caption:C20"
+      ],
+      "activeCaptionId": "C20",
+      "expectedCaptionText": "The agent inspects and stages the exact plan.",
+      "observedCaptionBrightPixelBounds": {
+        "left": 687,
+        "right": 1230,
+        "top": 1041,
+        "bottom": 1065,
+        "brightPixelCount": 2831
+      },
+      "pixelScope": "Actual decoded final MP4 pixels; bright-pixel caption bounds do not certify textual correctness"
+    },
+    {
+      "frame": 2169,
+      "seconds": 86.76,
+      "file": "submission/evidence/media/frame-2169.png",
+      "sha256": "4dd53fc6db8bd38476d6563608b2eb74535333f00e9b54b432b24da2dd37f5d3",
+      "labels": [
+        "segment:s06-native-stage-unchecked-ids"
+      ],
+      "activeCaptionId": "C20",
+      "expectedCaptionText": "The agent inspects and stages the exact plan.",
+      "observedCaptionBrightPixelBounds": {
+        "left": 687,
+        "right": 1230,
+        "top": 1041,
+        "bottom": 1065,
+        "brightPixelCount": 2831
+      },
+      "pixelScope": "Actual decoded final MP4 pixels; bright-pixel caption bounds do not certify textual correctness"
+    },
+    {
+      "frame": 2227,
+      "seconds": 89.08,
+      "file": "submission/evidence/media/frame-2227.png",
+      "sha256": "96ba0f08b47d4cc8e1c99f7031b3ad86b09b83dd1fce87f83d697a96314259a6",
+      "labels": [
+        "caption:C21"
+      ],
+      "activeCaptionId": "C21",
+      "expectedCaptionText": "Pause for review: this is not approval.",
+      "observedCaptionBrightPixelBounds": {
+        "left": 739,
+        "right": 1179,
+        "top": 1041,
+        "bottom": 1065,
+        "brightPixelCount": 2207
+      },
+      "pixelScope": "Actual decoded final MP4 pixels; bright-pixel caption bounds do not certify textual correctness"
+    },
+    {
+      "frame": 2290,
+      "seconds": 91.6,
+      "file": "submission/evidence/media/frame-2290.png",
+      "sha256": "f62c14d32056656d6a785c683bbcd77b10256a7cde1c3d0b09f9767b3ababf71",
+      "labels": [
+        "segment:s06-unchecked-exact-cut-order"
+      ],
+      "activeCaptionId": "C22",
+      "expectedCaptionText": "Check stock identities, quantities and kerf.",
+      "observedCaptionBrightPixelBounds": {
+        "left": 711,
+        "right": 1207,
+        "top": 1041,
+        "bottom": 1065,
+        "brightPixelCount": 2528
+      },
+      "pixelScope": "Actual decoded final MP4 pixels; bright-pixel caption bounds do not certify textual correctness"
+    },
+    {
+      "frame": 2300,
+      "seconds": 92,
+      "file": "submission/evidence/media/frame-2300.png",
+      "sha256": "0bd55cd9c5c600664398749f3023c5148548e02bca94e8f901084d0417034f2a",
+      "labels": [
+        "caption:C22"
+      ],
+      "activeCaptionId": "C22",
+      "expectedCaptionText": "Check stock identities, quantities and kerf.",
+      "observedCaptionBrightPixelBounds": {
+        "left": 711,
+        "right": 1207,
+        "top": 1041,
+        "bottom": 1065,
+        "brightPixelCount": 2528
+      },
+      "pixelScope": "Actual decoded final MP4 pixels; bright-pixel caption bounds do not certify textual correctness"
+    },
+    {
+      "frame": 2364,
+      "seconds": 94.56,
+      "file": "submission/evidence/media/frame-2364.png",
+      "sha256": "15f096bef5327775669be11270f38bdf230c436b8cac4ee6aef7bfe11a4171ef",
+      "labels": [
+        "scene:6"
+      ],
+      "activeCaptionId": "C23",
+      "expectedCaptionText": "No registered tool can approve.",
+      "observedCaptionBrightPixelBounds": {
+        "left": 775,
+        "right": 1143,
+        "top": 1041,
+        "bottom": 1065,
+        "brightPixelCount": 1985
+      },
+      "pixelScope": "Actual decoded final MP4 pixels; bright-pixel caption bounds do not certify textual correctness"
+    },
+    {
+      "frame": 2366,
+      "seconds": 94.64,
+      "file": "submission/evidence/media/frame-2366.png",
+      "sha256": "53f12aac250c22088a8bf311b16daa2f26e01c9bd5ab192d4f50774cb6b00b7e",
+      "labels": [
+        "caption:C23"
+      ],
+      "activeCaptionId": "C23",
+      "expectedCaptionText": "No registered tool can approve.",
+      "observedCaptionBrightPixelBounds": {
+        "left": 775,
+        "right": 1143,
+        "top": 1041,
+        "bottom": 1065,
+        "brightPixelCount": 1984
+      },
+      "pixelScope": "Actual decoded final MP4 pixels; bright-pixel caption bounds do not certify textual correctness"
+    },
+    {
+      "frame": 2400,
+      "seconds": 96,
+      "file": "submission/evidence/media/frame-2400.png",
+      "sha256": "e2d2b2c311a42d5634d73189fcd8f1d00e845da25c60426571f0f7c7ff99aee9",
+      "labels": [
+        "segment:s06-unchecked-quantity-protection"
+      ],
+      "activeCaptionId": null,
+      "expectedCaptionText": null,
+      "observedCaptionBrightPixelBounds": null,
+      "pixelScope": "Actual decoded final MP4 pixels; bright-pixel caption bounds do not certify textual correctness"
+    },
+    {
+      "frame": 2446,
+      "seconds": 97.84,
+      "file": "submission/evidence/media/frame-2446.png",
+      "sha256": "9dd5f94f2f476e8c6e6b6d8e8d7b3f7f7ca69c5c6c638bd4c65b943f705c88dc",
+      "labels": [
+        "caption:C24"
+      ],
+      "activeCaptionId": "C24",
+      "expectedCaptionText": "These UI controls are automated, not proof of human presence.",
+      "observedCaptionBrightPixelBounds": {
+        "left": 762,
+        "right": 1155,
+        "top": 1011,
+        "bottom": 1065,
+        "brightPixelCount": 3683
+      },
+      "pixelScope": "Actual decoded final MP4 pixels; bright-pixel caption bounds do not certify textual correctness"
+    },
+    {
+      "frame": 2505,
+      "seconds": 100.2,
+      "file": "submission/evidence/media/frame-2505.png",
+      "sha256": "9b80a5b33d17614e91bd17029975a7299df25e7af796ff178f11ca5c18782fd1",
+      "labels": [
+        "segment:s06-actual-acknowledgement-transition"
+      ],
+      "activeCaptionId": null,
+      "expectedCaptionText": null,
+      "observedCaptionBrightPixelBounds": null,
+      "pixelScope": "Actual decoded final MP4 pixels; bright-pixel caption bounds do not certify textual correctness"
+    },
+    {
+      "frame": 2529,
+      "seconds": 101.16,
+      "file": "submission/evidence/media/frame-2529.png",
+      "sha256": "a0202b047ff657fc9a5b6897606452d7e98946d8fd9ffdfb11d70a05a0b4e3e3",
+      "labels": [
+        "critical:acknowledgement:-1"
+      ],
+      "activeCaptionId": "C25",
+      "expectedCaptionText": "Now the controls check the acknowledgement.",
+      "observedCaptionBrightPixelBounds": {
+        "left": 686,
+        "right": 1233,
+        "top": 1041,
+        "bottom": 1065,
+        "brightPixelCount": 2834
+      },
+      "pixelScope": "Actual decoded final MP4 pixels; bright-pixel caption bounds do not certify textual correctness"
+    },
+    {
+      "frame": 2530,
+      "seconds": 101.2,
+      "file": "submission/evidence/media/frame-2530.png",
+      "sha256": "c03c2f3f7dede0133d1228891531f87ec15bb6cd52b2da02794b41cf2e64c69e",
+      "labels": [
+        "critical:acknowledgement:0"
+      ],
+      "activeCaptionId": "C25",
+      "expectedCaptionText": "Now the controls check the acknowledgement.",
+      "observedCaptionBrightPixelBounds": {
+        "left": 686,
+        "right": 1233,
+        "top": 1041,
+        "bottom": 1065,
+        "brightPixelCount": 2834
+      },
+      "pixelScope": "Actual decoded final MP4 pixels; bright-pixel caption bounds do not certify textual correctness"
+    },
+    {
+      "frame": 2531,
+      "seconds": 101.24,
+      "file": "submission/evidence/media/frame-2531.png",
+      "sha256": "4958881d19080a42b6fcefbcca5722e4f656f1254daa53bd208ec0e37164b4d7",
+      "labels": [
+        "critical:acknowledgement:1"
+      ],
+      "activeCaptionId": "C25",
+      "expectedCaptionText": "Now the controls check the acknowledgement.",
+      "observedCaptionBrightPixelBounds": {
+        "left": 686,
+        "right": 1233,
+        "top": 1041,
+        "bottom": 1065,
+        "brightPixelCount": 2834
+      },
+      "pixelScope": "Actual decoded final MP4 pixels; bright-pixel caption bounds do not certify textual correctness"
+    },
+    {
+      "frame": 2532,
+      "seconds": 101.28,
+      "file": "submission/evidence/media/frame-2532.png",
+      "sha256": "0d78b7e349a98a5915a5e3815b52e7e426bad60fabd2b6f7896370bb34cc9ee5",
+      "labels": [
+        "critical:acknowledgement:2"
+      ],
+      "activeCaptionId": "C25",
+      "expectedCaptionText": "Now the controls check the acknowledgement.",
+      "observedCaptionBrightPixelBounds": {
+        "left": 686,
+        "right": 1233,
+        "top": 1041,
+        "bottom": 1065,
+        "brightPixelCount": 2834
+      },
+      "pixelScope": "Actual decoded final MP4 pixels; bright-pixel caption bounds do not certify textual correctness"
+    },
+    {
+      "frame": 2534,
+      "seconds": 101.36,
+      "file": "submission/evidence/media/frame-2534.png",
+      "sha256": "750af9dd9443f35adc62640be9f3b0a098631faf4972d087b4e8f239a4ae913f",
+      "labels": [
+        "caption:C25"
+      ],
+      "activeCaptionId": "C25",
+      "expectedCaptionText": "Now the controls check the acknowledgement.",
+      "observedCaptionBrightPixelBounds": {
+        "left": 686,
+        "right": 1233,
+        "top": 1041,
+        "bottom": 1065,
+        "brightPixelCount": 2834
+      },
+      "pixelScope": "Actual decoded final MP4 pixels; bright-pixel caption bounds do not certify textual correctness"
+    },
+    {
+      "frame": 2535,
+      "seconds": 101.4,
+      "file": "submission/evidence/media/frame-2535.png",
+      "sha256": "404d087c98fe5aaba9fc6f09474de6b99cbaa4cea93deb425645c57d87106957",
+      "labels": [
+        "critical:acknowledgement:5"
+      ],
+      "activeCaptionId": "C25",
+      "expectedCaptionText": "Now the controls check the acknowledgement.",
+      "observedCaptionBrightPixelBounds": {
+        "left": 686,
+        "right": 1233,
+        "top": 1041,
+        "bottom": 1065,
+        "brightPixelCount": 2834
+      },
+      "pixelScope": "Actual decoded final MP4 pixels; bright-pixel caption bounds do not certify textual correctness"
+    },
+    {
+      "frame": 2598,
+      "seconds": 103.92,
+      "file": "submission/evidence/media/frame-2598.png",
+      "sha256": "1f70619967edc1ae96fe2dcc102f20879f944f263488c250c910cadd56070b14",
+      "labels": [
+        "critical:approval:-1"
+      ],
+      "activeCaptionId": "C26",
+      "expectedCaptionText": "Then they click Approve cut sheet.",
+      "observedCaptionBrightPixelBounds": {
+        "left": 755,
+        "right": 1162,
+        "top": 1041,
+        "bottom": 1065,
+        "brightPixelCount": 2032
+      },
+      "pixelScope": "Actual decoded final MP4 pixels; bright-pixel caption bounds do not certify textual correctness"
+    },
+    {
+      "frame": 2599,
+      "seconds": 103.96,
+      "file": "submission/evidence/media/frame-2599.png",
+      "sha256": "6b5a47911d5976a06dbf6c81a94b179dc5625f0ef1414e70f5142fc39cf51ec3",
+      "labels": [
+        "critical:approval:0"
+      ],
+      "activeCaptionId": "C26",
+      "expectedCaptionText": "Then they click Approve cut sheet.",
+      "observedCaptionBrightPixelBounds": {
+        "left": 755,
+        "right": 1162,
+        "top": 1041,
+        "bottom": 1065,
+        "brightPixelCount": 2032
+      },
+      "pixelScope": "Actual decoded final MP4 pixels; bright-pixel caption bounds do not certify textual correctness"
+    },
+    {
+      "frame": 2600,
+      "seconds": 104,
+      "file": "submission/evidence/media/frame-2600.png",
+      "sha256": "07c940c4b9a6b0a6d24a45a7fe2cb570877355398f87fa70352adbaa95bedf18",
+      "labels": [
+        "critical:approval:1"
+      ],
+      "activeCaptionId": "C26",
+      "expectedCaptionText": "Then they click Approve cut sheet.",
+      "observedCaptionBrightPixelBounds": {
+        "left": 755,
+        "right": 1162,
+        "top": 1041,
+        "bottom": 1065,
+        "brightPixelCount": 2032
+      },
+      "pixelScope": "Actual decoded final MP4 pixels; bright-pixel caption bounds do not certify textual correctness"
+    },
+    {
+      "frame": 2601,
+      "seconds": 104.04,
+      "file": "submission/evidence/media/frame-2601.png",
+      "sha256": "d6067ef22c3c7b58f88ba3014acf08679db9f41f4736be1f93ccc7380dfc70e4",
+      "labels": [
+        "critical:approval:2"
+      ],
+      "activeCaptionId": "C26",
+      "expectedCaptionText": "Then they click Approve cut sheet.",
+      "observedCaptionBrightPixelBounds": {
+        "left": 755,
+        "right": 1162,
+        "top": 1041,
+        "bottom": 1065,
+        "brightPixelCount": 2032
+      },
+      "pixelScope": "Actual decoded final MP4 pixels; bright-pixel caption bounds do not certify textual correctness"
+    },
+    {
+      "frame": 2604,
+      "seconds": 104.16,
+      "file": "submission/evidence/media/frame-2604.png",
+      "sha256": "c10ecedcd448ee0407969a499d26c45b73c6f79fb41c241f3314097b82c199a4",
+      "labels": [
+        "caption:C26",
+        "critical:approval:5"
+      ],
+      "activeCaptionId": "C26",
+      "expectedCaptionText": "Then they click Approve cut sheet.",
+      "observedCaptionBrightPixelBounds": {
+        "left": 755,
+        "right": 1162,
+        "top": 1041,
+        "bottom": 1065,
+        "brightPixelCount": 2032
+      },
+      "pixelScope": "Actual decoded final MP4 pixels; bright-pixel caption bounds do not certify textual correctness"
+    },
+    {
+      "frame": 2619,
+      "seconds": 104.76,
+      "file": "submission/evidence/media/frame-2619.png",
+      "sha256": "077d2c700c88852a00d4555ef7a5063622d4cedc30a35460aeb1f99aa75cbad6",
+      "labels": [
+        "segment:s06-actual-approval-transition"
+      ],
+      "activeCaptionId": "C26",
+      "expectedCaptionText": "Then they click Approve cut sheet.",
+      "observedCaptionBrightPixelBounds": {
+        "left": 755,
+        "right": 1162,
+        "top": 1041,
+        "bottom": 1065,
+        "brightPixelCount": 2032
+      },
+      "pixelScope": "Actual decoded final MP4 pixels; bright-pixel caption bounds do not certify textual correctness"
+    },
+    {
+      "frame": 2682,
+      "seconds": 107.28,
+      "file": "submission/evidence/media/frame-2682.png",
+      "sha256": "641849369c3fb62e260f795715e2bf6f2ed43733c8f962712da43f4ab6ebf142",
+      "labels": [
+        "segment:s07-approved-native-inspection"
+      ],
+      "activeCaptionId": "C27",
+      "expectedCaptionText": "The model inspects approval and exports the actual CSV:",
+      "observedCaptionBrightPixelBounds": {
+        "left": 789,
+        "right": 1128,
+        "top": 1011,
+        "bottom": 1065,
+        "brightPixelCount": 3475
+      },
+      "pixelScope": "Actual decoded final MP4 pixels; bright-pixel caption bounds do not certify textual correctness"
+    },
+    {
+      "frame": 2715,
+      "seconds": 108.6,
+      "file": "submission/evidence/media/frame-2715.png",
+      "sha256": "c80c261f85b83621654f47ea9758033cdf9da05dfc1574c48ab9561d0ace87e7",
+      "labels": [
+        "caption:C27"
+      ],
+      "activeCaptionId": "C27",
+      "expectedCaptionText": "The model inspects approval and exports the actual CSV:",
+      "observedCaptionBrightPixelBounds": {
+        "left": 789,
+        "right": 1128,
+        "top": 1011,
+        "bottom": 1065,
+        "brightPixelCount": 3473
+      },
+      "pixelScope": "Actual decoded final MP4 pixels; bright-pixel caption bounds do not certify textual correctness"
+    },
+    {
+      "frame": 2736,
+      "seconds": 109.44,
+      "file": "submission/evidence/media/frame-2736.png",
+      "sha256": "7d7370149909c33c335d9aabfc3e3ab4d7673a9de40f4fcd35e0559a6abac108",
+      "labels": [
+        "segment:s07-exact-native-csv-download"
+      ],
+      "activeCaptionId": "C27",
+      "expectedCaptionText": "The model inspects approval and exports the actual CSV:",
+      "observedCaptionBrightPixelBounds": {
+        "left": 789,
+        "right": 1128,
+        "top": 1011,
+        "bottom": 1065,
+        "brightPixelCount": 3473
+      },
+      "pixelScope": "Actual decoded final MP4 pixels; bright-pixel caption bounds do not certify textual correctness"
+    },
+    {
+      "frame": 2807,
+      "seconds": 112.28,
+      "file": "submission/evidence/media/frame-2807.png",
+      "sha256": "05fabb3fe06e5272fcef30c31876fb7fc93db42264f548eb91686b98cd8a18e0",
+      "labels": [
+        "segment:s07-export-full-plan-identities"
+      ],
+      "activeCaptionId": "C28",
+      "expectedCaptionText": "fourteen parts, part identifiers, offsets, kerf, and the exact approved plan identifier.",
+      "observedCaptionBrightPixelBounds": {
+        "left": 705,
+        "right": 1212,
+        "top": 1011,
+        "bottom": 1065,
+        "brightPixelCount": 4977
+      },
+      "pixelScope": "Actual decoded final MP4 pixels; bright-pixel caption bounds do not certify textual correctness"
+    },
+    {
+      "frame": 2839,
+      "seconds": 113.56,
+      "file": "submission/evidence/media/frame-2839.png",
+      "sha256": "631d633eaec50b6f4000279ccc48af4ac46cd44b2dae1cc012dfca0c9a75e1eb",
+      "labels": [
+        "scene:7"
+      ],
+      "activeCaptionId": "C28",
+      "expectedCaptionText": "fourteen parts, part identifiers, offsets, kerf, and the exact approved plan identifier.",
+      "observedCaptionBrightPixelBounds": {
+        "left": 705,
+        "right": 1212,
+        "top": 1011,
+        "bottom": 1065,
+        "brightPixelCount": 4977
+      },
+      "pixelScope": "Actual decoded final MP4 pixels; bright-pixel caption bounds do not certify textual correctness"
+    },
+    {
+      "frame": 2841,
+      "seconds": 113.64,
+      "file": "submission/evidence/media/frame-2841.png",
+      "sha256": "f504feebdd5aa2e2cc2a87721548f583736cc5b4e2dc3fb51b15803e0e7aaef7",
+      "labels": [
+        "caption:C28"
+      ],
+      "activeCaptionId": "C28",
+      "expectedCaptionText": "fourteen parts, part identifiers, offsets, kerf, and the exact approved plan identifier.",
+      "observedCaptionBrightPixelBounds": {
+        "left": 705,
+        "right": 1212,
+        "top": 1011,
+        "bottom": 1065,
+        "brightPixelCount": 4977
+      },
+      "pixelScope": "Actual decoded final MP4 pixels; bright-pixel caption bounds do not certify textual correctness"
+    },
+    {
+      "frame": 2885,
+      "seconds": 115.4,
+      "file": "submission/evidence/media/frame-2885.png",
+      "sha256": "bb574c64da2775ce966857c2066bf72a1844d9a918741b110c5333672dc09560",
+      "labels": [
+        "segment:s07-export-exact-cut-offsets"
+      ],
+      "activeCaptionId": "C28",
+      "expectedCaptionText": "fourteen parts, part identifiers, offsets, kerf, and the exact approved plan identifier.",
+      "observedCaptionBrightPixelBounds": {
+        "left": 705,
+        "right": 1212,
+        "top": 1011,
+        "bottom": 1065,
+        "brightPixelCount": 4968
+      },
+      "pixelScope": "Actual decoded final MP4 pixels; bright-pixel caption bounds do not certify textual correctness"
+    },
+    {
+      "frame": 2949,
+      "seconds": 117.96,
+      "file": "submission/evidence/media/frame-2949.png",
+      "sha256": "35258f9b53a9ad1a9ec5afcc946c9b16caf531686f47da096ab48b9f7c5de6c6",
+      "labels": [
+        "segment:s07-new-unapproved-draft-selected"
+      ],
+      "activeCaptionId": "C29",
+      "expectedCaptionText": "Another draft cannot inherit approval.",
+      "observedCaptionBrightPixelBounds": {
+        "left": 740,
+        "right": 1177,
+        "top": 1041,
+        "bottom": 1065,
+        "brightPixelCount": 2260
+      },
+      "pixelScope": "Actual decoded final MP4 pixels; bright-pixel caption bounds do not certify textual correctness"
+    },
+    {
+      "frame": 2954,
+      "seconds": 118.16,
+      "file": "submission/evidence/media/frame-2954.png",
+      "sha256": "f4d33bd8da94fa9f0151fe6e1de58a0d00b8486add3a2e9b3f357a5e6b01db9d",
+      "labels": [
+        "caption:C29"
+      ],
+      "activeCaptionId": "C29",
+      "expectedCaptionText": "Another draft cannot inherit approval.",
+      "observedCaptionBrightPixelBounds": {
+        "left": 740,
+        "right": 1177,
+        "top": 1041,
+        "bottom": 1065,
+        "brightPixelCount": 2260
+      },
+      "pixelScope": "Actual decoded final MP4 pixels; bright-pixel caption bounds do not certify textual correctness"
+    },
+    {
+      "frame": 2992,
+      "seconds": 119.68,
+      "file": "submission/evidence/media/frame-2992.png",
+      "sha256": "d9f39329404ab845a294d01973576a2a654624f77abcc9cdb7168884be95a1fb",
+      "labels": [
+        "segment:s07-real-checked-solution-reuse-notice"
+      ],
+      "activeCaptionId": null,
+      "expectedCaptionText": null,
+      "observedCaptionBrightPixelBounds": null,
+      "pixelScope": "Actual decoded final MP4 pixels; bright-pixel caption bounds do not certify textual correctness"
+    },
+    {
+      "frame": 3029,
+      "seconds": 121.16,
+      "file": "submission/evidence/media/frame-3029.png",
+      "sha256": "cb8e36fceb0bd551711c724a46fc69a7d6f21ec7ff4946377720abc7aef553fe",
+      "labels": [
+        "segment:s08-actual-focused-kerf-draft"
+      ],
+      "activeCaptionId": "C30",
+      "expectedCaptionText": "Typing four leaves committed kerf at three.",
+      "observedCaptionBrightPixelBounds": {
+        "left": 706,
+        "right": 1211,
+        "top": 1041,
+        "bottom": 1065,
+        "brightPixelCount": 2563
+      },
+      "pixelScope": "Actual decoded final MP4 pixels; bright-pixel caption bounds do not certify textual correctness"
+    },
+    {
+      "frame": 3056,
+      "seconds": 122.24,
+      "file": "submission/evidence/media/frame-3056.png",
+      "sha256": "a663d3e7862dca77fadc63c95f5294b246f9db14008e2796f7469a091df997f2",
+      "labels": [
+        "caption:C30"
+      ],
+      "activeCaptionId": "C30",
+      "expectedCaptionText": "Typing four leaves committed kerf at three.",
+      "observedCaptionBrightPixelBounds": {
+        "left": 706,
+        "right": 1211,
+        "top": 1041,
+        "bottom": 1065,
+        "brightPixelCount": 2560
+      },
+      "pixelScope": "Actual decoded final MP4 pixels; bright-pixel caption bounds do not certify textual correctness"
+    },
+    {
+      "frame": 3059,
+      "seconds": 122.36,
+      "file": "submission/evidence/media/frame-3059.png",
+      "sha256": "ad0ff7384bc246a51a0431d530c0e95b530f0f69f8a18872f25b4f30c5c5822d",
+      "labels": [
+        "segment:s08-pending-committed-workshop-read"
+      ],
+      "activeCaptionId": "C30",
+      "expectedCaptionText": "Typing four leaves committed kerf at three.",
+      "observedCaptionBrightPixelBounds": {
+        "left": 706,
+        "right": 1211,
+        "top": 1041,
+        "bottom": 1065,
+        "brightPixelCount": 2560
+      },
+      "pixelScope": "Actual decoded final MP4 pixels; bright-pixel caption bounds do not certify textual correctness"
+    },
+    {
+      "frame": 3087,
+      "seconds": 123.48,
+      "file": "submission/evidence/media/frame-3087.png",
+      "sha256": "96b855fc39f0be5adf0c9642f0f27e3aa4d6c2f1a5c3ad03ae4cb899d31027ea",
+      "labels": [
+        "segment:s08-pending-native-plan-inspection"
+      ],
+      "activeCaptionId": "C30",
+      "expectedCaptionText": "Typing four leaves committed kerf at three.",
+      "observedCaptionBrightPixelBounds": {
+        "left": 706,
+        "right": 1211,
+        "top": 1041,
+        "bottom": 1065,
+        "brightPixelCount": 2564
+      },
+      "pixelScope": "Actual decoded final MP4 pixels; bright-pixel caption bounds do not certify textual correctness"
+    },
+    {
+      "frame": 3137,
+      "seconds": 125.48,
+      "file": "submission/evidence/media/frame-3137.png",
+      "sha256": "8c4d48eda5dc533344197cdd21abe6772a6d8cd4c8eb8b9714b2a3314ec5f556",
+      "labels": [
+        "segment:s08-actual-pending-measurements-error"
+      ],
+      "activeCaptionId": "C31",
+      "expectedCaptionText": "Pending edits block staging without moving focus or saving.",
+      "observedCaptionBrightPixelBounds": {
+        "left": 773,
+        "right": 1144,
+        "top": 1011,
+        "bottom": 1065,
+        "brightPixelCount": 3652
+      },
+      "pixelScope": "Actual decoded final MP4 pixels; bright-pixel caption bounds do not certify textual correctness"
+    },
+    {
+      "frame": 3140,
+      "seconds": 125.6,
+      "file": "submission/evidence/media/frame-3140.png",
+      "sha256": "771083f749a3bbe59fa092dbaa43ab8296dca7e3821ebad59f419fba28d13e5b",
+      "labels": [
+        "caption:C31"
+      ],
+      "activeCaptionId": "C31",
+      "expectedCaptionText": "Pending edits block staging without moving focus or saving.",
+      "observedCaptionBrightPixelBounds": {
+        "left": 773,
+        "right": 1144,
+        "top": 1011,
+        "bottom": 1065,
+        "brightPixelCount": 3652
+      },
+      "pixelScope": "Actual decoded final MP4 pixels; bright-pixel caption bounds do not certify textual correctness"
+    },
+    {
+      "frame": 3185,
+      "seconds": 127.4,
+      "file": "submission/evidence/media/frame-3185.png",
+      "sha256": "8f066269f2409ad6da5e2b4031c1fdb260a9bec0b5818f0fee1de545a1d7222c",
+      "labels": [
+        "segment:s08-genuine-immediately-pre-commit"
+      ],
+      "activeCaptionId": null,
+      "expectedCaptionText": null,
+      "observedCaptionBrightPixelBounds": null,
+      "pixelScope": "Actual decoded final MP4 pixels; bright-pixel caption bounds do not certify textual correctness"
+    },
+    {
+      "frame": 3197,
+      "seconds": 127.88,
+      "file": "submission/evidence/media/frame-3197.png",
+      "sha256": "736d3ff599f5b9a4227a0d78b4fa726de7764c7b5fa5ed6580af67d1b8cd2cea",
+      "labels": [
+        "critical:commit:-1"
+      ],
+      "activeCaptionId": null,
+      "expectedCaptionText": null,
+      "observedCaptionBrightPixelBounds": null,
+      "pixelScope": "Actual decoded final MP4 pixels; bright-pixel caption bounds do not certify textual correctness"
+    },
+    {
+      "frame": 3198,
+      "seconds": 127.92,
+      "file": "submission/evidence/media/frame-3198.png",
+      "sha256": "5879238f576c1db7979e05c10ed27b209d523ac81cd45fed1cebce5d16f58eaa",
+      "labels": [
+        "critical:commit:0"
+      ],
+      "activeCaptionId": "C32",
+      "expectedCaptionText": "Now commit: revision two invalidates the old approval.",
+      "observedCaptionBrightPixelBounds": {
+        "left": 640,
+        "right": 1278,
+        "top": 1041,
+        "bottom": 1065,
+        "brightPixelCount": 3237
+      },
+      "pixelScope": "Actual decoded final MP4 pixels; bright-pixel caption bounds do not certify textual correctness"
+    },
+    {
+      "frame": 3199,
+      "seconds": 127.96,
+      "file": "submission/evidence/media/frame-3199.png",
+      "sha256": "f63f553ab727650b322b109ef2c41b038f335ebef4a5713af486852f426786aa",
+      "labels": [
+        "critical:commit:1"
+      ],
+      "activeCaptionId": "C32",
+      "expectedCaptionText": "Now commit: revision two invalidates the old approval.",
+      "observedCaptionBrightPixelBounds": {
+        "left": 640,
+        "right": 1278,
+        "top": 1041,
+        "bottom": 1065,
+        "brightPixelCount": 3237
+      },
+      "pixelScope": "Actual decoded final MP4 pixels; bright-pixel caption bounds do not certify textual correctness"
+    },
+    {
+      "frame": 3200,
+      "seconds": 128,
+      "file": "submission/evidence/media/frame-3200.png",
+      "sha256": "12bc1be6ec11a394dd71ee3c0b7f3fbaa4b663ed412f6f611d2bcd9ca5404549",
+      "labels": [
+        "critical:commit:2"
+      ],
+      "activeCaptionId": "C32",
+      "expectedCaptionText": "Now commit: revision two invalidates the old approval.",
+      "observedCaptionBrightPixelBounds": {
+        "left": 640,
+        "right": 1278,
+        "top": 1041,
+        "bottom": 1065,
+        "brightPixelCount": 3237
+      },
+      "pixelScope": "Actual decoded final MP4 pixels; bright-pixel caption bounds do not certify textual correctness"
+    },
+    {
+      "frame": 3203,
+      "seconds": 128.12,
+      "file": "submission/evidence/media/frame-3203.png",
+      "sha256": "a70b6f220290d4a85a4592858724c667253fd389dbda5632090dbd68937ee171",
+      "labels": [
+        "critical:commit:5"
+      ],
+      "activeCaptionId": "C32",
+      "expectedCaptionText": "Now commit: revision two invalidates the old approval.",
+      "observedCaptionBrightPixelBounds": {
+        "left": 640,
+        "right": 1278,
+        "top": 1041,
+        "bottom": 1065,
+        "brightPixelCount": 3236
+      },
+      "pixelScope": "Actual decoded final MP4 pixels; bright-pixel caption bounds do not certify textual correctness"
+    },
+    {
+      "frame": 3216,
+      "seconds": 128.64,
+      "file": "submission/evidence/media/frame-3216.png",
+      "sha256": "854659ccc78a1a1a54e6a81c2cd3c1bc71ee5155a29346c40084dfc484c75ee5",
+      "labels": [
+        "segment:s08-actual-sole-enter-commit"
+      ],
+      "activeCaptionId": "C32",
+      "expectedCaptionText": "Now commit: revision two invalidates the old approval.",
+      "observedCaptionBrightPixelBounds": {
+        "left": 640,
+        "right": 1278,
+        "top": 1041,
+        "bottom": 1065,
+        "brightPixelCount": 3235
+      },
+      "pixelScope": "Actual decoded final MP4 pixels; bright-pixel caption bounds do not certify textual correctness"
+    },
+    {
+      "frame": 3233,
+      "seconds": 129.32,
+      "file": "submission/evidence/media/frame-3233.png",
+      "sha256": "80a6e04feba05f6ef77860661de1fec889b6ea6fcebcbb99214360b88788ca74",
+      "labels": [
+        "caption:C32"
+      ],
+      "activeCaptionId": "C32",
+      "expectedCaptionText": "Now commit: revision two invalidates the old approval.",
+      "observedCaptionBrightPixelBounds": {
+        "left": 640,
+        "right": 1278,
+        "top": 1041,
+        "bottom": 1065,
+        "brightPixelCount": 3235
+      },
+      "pixelScope": "Actual decoded final MP4 pixels; bright-pixel caption bounds do not certify textual correctness"
+    },
+    {
+      "frame": 3252,
+      "seconds": 130.08,
+      "file": "submission/evidence/media/frame-3252.png",
+      "sha256": "e67c213979c53c0104a7d0be23d859fe66a93472108bc8caa163c51dc4cc4ed4",
+      "labels": [
+        "segment:s08-current-revision-native-workshop-read"
+      ],
+      "activeCaptionId": "C32",
+      "expectedCaptionText": "Now commit: revision two invalidates the old approval.",
+      "observedCaptionBrightPixelBounds": {
+        "left": 640,
+        "right": 1278,
+        "top": 1041,
+        "bottom": 1065,
+        "brightPixelCount": 3236
+      },
+      "pixelScope": "Actual decoded final MP4 pixels; bright-pixel caption bounds do not certify textual correctness"
+    },
+    {
+      "frame": 3279,
+      "seconds": 131.16,
+      "file": "submission/evidence/media/frame-3279.png",
+      "sha256": "fdcfb5537cbc93bfb2d24d37456cca195cf1017e4d736a63ac7a4f0f64a2cb30",
+      "labels": [
+        "segment:s08-old-exact-id-stale-native-inspection"
+      ],
+      "activeCaptionId": null,
+      "expectedCaptionText": null,
+      "observedCaptionBrightPixelBounds": null,
+      "pixelScope": "Actual decoded final MP4 pixels; bright-pixel caption bounds do not certify textual correctness"
+    },
+    {
+      "frame": 3300,
+      "seconds": 132,
+      "file": "submission/evidence/media/frame-3300.png",
+      "sha256": "43d6e8d1c0c1c2c13023829c86ac27b25d2cc114d337a546d9c10760db4405bb",
+      "labels": [
+        "caption:C33"
+      ],
+      "activeCaptionId": "C33",
+      "expectedCaptionText": "The old plan is stale.",
+      "observedCaptionBrightPixelBounds": {
+        "left": 838,
+        "right": 1079,
+        "top": 1041,
+        "bottom": 1065,
+        "brightPixelCount": 1227
+      },
+      "pixelScope": "Actual decoded final MP4 pixels; bright-pixel caption bounds do not certify textual correctness"
+    },
+    {
+      "frame": 3301,
+      "seconds": 132.04,
+      "file": "submission/evidence/media/frame-3301.png",
+      "sha256": "75b62e5d354353cbb963580888ea18f4765dcdf0f75503e93461f187579cdff6",
+      "labels": [
+        "segment:s08-real-stale-plan-export-error"
+      ],
+      "activeCaptionId": "C33",
+      "expectedCaptionText": "The old plan is stale.",
+      "observedCaptionBrightPixelBounds": {
+        "left": 838,
+        "right": 1079,
+        "top": 1041,
+        "bottom": 1065,
+        "brightPixelCount": 1227
+      },
+      "pixelScope": "Actual decoded final MP4 pixels; bright-pixel caption bounds do not certify textual correctness"
+    },
+    {
+      "frame": 3346,
+      "seconds": 133.84,
+      "file": "submission/evidence/media/frame-3346.png",
+      "sha256": "6cabcfea63355aba5a61aa3404a1412bf949a7633200a39b6c25c6e7e4cee0af",
+      "labels": [
+        "segment:s08-fresh-r2-native-fourteen-parts"
+      ],
+      "activeCaptionId": "C34",
+      "expectedCaptionText": "The model replans: fourteen parts, fifty-six millimetres of sawdust.",
+      "observedCaptionBrightPixelBounds": {
+        "left": 756,
+        "right": 1161,
+        "top": 1011,
+        "bottom": 1065,
+        "brightPixelCount": 3917
+      },
+      "pixelScope": "Actual decoded final MP4 pixels; bright-pixel caption bounds do not certify textual correctness"
+    },
+    {
+      "frame": 3364,
+      "seconds": 134.56,
+      "file": "submission/evidence/media/frame-3364.png",
+      "sha256": "a071c1c3991f60aa577a54523fda0a28b91df46dbb5d818a4126d7a110cad89d",
+      "labels": [
+        "scene:8"
+      ],
+      "activeCaptionId": "C34",
+      "expectedCaptionText": "The model replans: fourteen parts, fifty-six millimetres of sawdust.",
+      "observedCaptionBrightPixelBounds": {
+        "left": 756,
+        "right": 1161,
+        "top": 1011,
+        "bottom": 1065,
+        "brightPixelCount": 3912
+      },
+      "pixelScope": "Actual decoded final MP4 pixels; bright-pixel caption bounds do not certify textual correctness"
+    },
+    {
+      "frame": 3374,
+      "seconds": 134.96,
+      "file": "submission/evidence/media/frame-3374.png",
+      "sha256": "324f5b3a11938f9253ebe5284029346c7a7e997f42c7fe85b04febd9d0132a96",
+      "labels": [
+        "caption:C34"
+      ],
+      "activeCaptionId": "C34",
+      "expectedCaptionText": "The model replans: fourteen parts, fifty-six millimetres of sawdust.",
+      "observedCaptionBrightPixelBounds": {
+        "left": 756,
+        "right": 1161,
+        "top": 1011,
+        "bottom": 1065,
+        "brightPixelCount": 3912
+      },
+      "pixelScope": "Actual decoded final MP4 pixels; bright-pixel caption bounds do not certify textual correctness"
+    },
+    {
+      "frame": 3412,
+      "seconds": 136.48,
+      "file": "submission/evidence/media/frame-3412.png",
+      "sha256": "c15d96d9373cd2ff1c79100cff34f394944b02fd3a68ef555d8220649e7a5afc",
+      "labels": [
+        "segment:s08-fresh-r2-native-inspection"
+      ],
+      "activeCaptionId": "C34",
+      "expectedCaptionText": "The model replans: fourteen parts, fifty-six millimetres of sawdust.",
+      "observedCaptionBrightPixelBounds": {
+        "left": 756,
+        "right": 1161,
+        "top": 1011,
+        "bottom": 1065,
+        "brightPixelCount": 3916
+      },
+      "pixelScope": "Actual decoded final MP4 pixels; bright-pixel caption bounds do not certify textual correctness"
+    },
+    {
+      "frame": 3445,
+      "seconds": 137.8,
+      "file": "submission/evidence/media/frame-3445.png",
+      "sha256": "688467700e82a8b2bedf5b300dfc246079ca5bff3f6f3a8805a818243dbe6de1",
+      "labels": [
+        "critical:finalUnapproved:-1"
+      ],
+      "activeCaptionId": null,
+      "expectedCaptionText": null,
+      "observedCaptionBrightPixelBounds": null,
+      "pixelScope": "Actual decoded final MP4 pixels; bright-pixel caption bounds do not certify textual correctness"
+    },
+    {
+      "frame": 3446,
+      "seconds": 137.84,
+      "file": "submission/evidence/media/frame-3446.png",
+      "sha256": "26c5c2be520dc4d1e553477ff13273408340b795cc4811d204cc82a25ff37871",
+      "labels": [
+        "critical:finalUnapproved:0"
+      ],
+      "activeCaptionId": "C35",
+      "expectedCaptionText": "Revision two is staged, not approved.",
+      "observedCaptionBrightPixelBounds": {
+        "left": 739,
+        "right": 1179,
+        "top": 1041,
+        "bottom": 1065,
+        "brightPixelCount": 2282
+      },
+      "pixelScope": "Actual decoded final MP4 pixels; bright-pixel caption bounds do not certify textual correctness"
+    },
+    {
+      "frame": 3447,
+      "seconds": 137.88,
+      "file": "submission/evidence/media/frame-3447.png",
+      "sha256": "78647a4f539cd63b9826939544ded87a2f1f420678659950ab82845095293ada",
+      "labels": [
+        "critical:finalUnapproved:1"
+      ],
+      "activeCaptionId": "C35",
+      "expectedCaptionText": "Revision two is staged, not approved.",
+      "observedCaptionBrightPixelBounds": {
+        "left": 739,
+        "right": 1179,
+        "top": 1041,
+        "bottom": 1065,
+        "brightPixelCount": 2282
+      },
+      "pixelScope": "Actual decoded final MP4 pixels; bright-pixel caption bounds do not certify textual correctness"
+    },
+    {
+      "frame": 3448,
+      "seconds": 137.92,
+      "file": "submission/evidence/media/frame-3448.png",
+      "sha256": "230fd003916f0b889ff38a3ac70b3d310c2c399936d49394b46d9d4d284c92cf",
+      "labels": [
+        "critical:finalUnapproved:2"
+      ],
+      "activeCaptionId": "C35",
+      "expectedCaptionText": "Revision two is staged, not approved.",
+      "observedCaptionBrightPixelBounds": {
+        "left": 739,
+        "right": 1179,
+        "top": 1041,
+        "bottom": 1065,
+        "brightPixelCount": 2282
+      },
+      "pixelScope": "Actual decoded final MP4 pixels; bright-pixel caption bounds do not certify textual correctness"
+    },
+    {
+      "frame": 3451,
+      "seconds": 138.04,
+      "file": "submission/evidence/media/frame-3451.png",
+      "sha256": "fcb8e262a3ef3ae7b1a6341fe8a2528228ceb221f22175a645a32cab5527069b",
+      "labels": [
+        "critical:finalUnapproved:5"
+      ],
+      "activeCaptionId": "C35",
+      "expectedCaptionText": "Revision two is staged, not approved.",
+      "observedCaptionBrightPixelBounds": {
+        "left": 739,
+        "right": 1179,
+        "top": 1041,
+        "bottom": 1065,
+        "brightPixelCount": 2282
+      },
+      "pixelScope": "Actual decoded final MP4 pixels; bright-pixel caption bounds do not certify textual correctness"
+    },
+    {
+      "frame": 3472,
+      "seconds": 138.88,
+      "file": "submission/evidence/media/frame-3472.png",
+      "sha256": "b25d4aa4ae64a91f9f9c8956899d9c10c87ed065f32bd372aaef54b16f695c46",
+      "labels": [
+        "caption:C35"
+      ],
+      "activeCaptionId": "C35",
+      "expectedCaptionText": "Revision two is staged, not approved.",
+      "observedCaptionBrightPixelBounds": {
+        "left": 739,
+        "right": 1179,
+        "top": 1041,
+        "bottom": 1065,
+        "brightPixelCount": 2282
+      },
+      "pixelScope": "Actual decoded final MP4 pixels; bright-pixel caption bounds do not certify textual correctness"
+    },
+    {
+      "frame": 3534,
+      "seconds": 141.36,
+      "file": "submission/evidence/media/frame-3534.png",
+      "sha256": "eb944d6ee732e3d8cbea6b0761429078f6be68f04713d2f0bd03469eef031ada",
+      "labels": [
+        "caption:C36"
+      ],
+      "activeCaptionId": "C36",
+      "expectedCaptionText": "The acknowledgement stays unchecked.",
+      "observedCaptionBrightPixelBounds": {
+        "left": 718,
+        "right": 1199,
+        "top": 1041,
+        "bottom": 1065,
+        "brightPixelCount": 2523
+      },
+      "pixelScope": "Actual decoded final MP4 pixels; bright-pixel caption bounds do not certify textual correctness"
+    },
+    {
+      "frame": 3580,
+      "seconds": 143.2,
+      "file": "submission/evidence/media/frame-3580.png",
+      "sha256": "e38a018ee89bfbd569f71abedec703722fb4dc7a0021c62d7ee1a7e92f85130f",
+      "labels": [
+        "segment:s08-final-native-stage-and-actual-unchecked-ui"
+      ],
+      "activeCaptionId": null,
+      "expectedCaptionText": null,
+      "observedCaptionBrightPixelBounds": null,
+      "pixelScope": "Actual decoded final MP4 pixels; bright-pixel caption bounds do not certify textual correctness"
+    },
+    {
+      "frame": 3766,
+      "seconds": 150.64,
+      "file": "submission/evidence/media/frame-3766.png",
+      "sha256": "7c68bda92e8b4b3d1f31dc150038015a673ea8eb278ab2726562c26e1ae545ed",
+      "labels": [
+        "caption:C37"
+      ],
+      "activeCaptionId": "C37",
+      "expectedCaptionText": "Offcut itself needs no account, model key or backend.",
+      "observedCaptionBrightPixelBounds": {
+        "left": 781,
+        "right": 1137,
+        "top": 1011,
+        "bottom": 1065,
+        "brightPixelCount": 3190
+      },
+      "pixelScope": "Actual decoded final MP4 pixels; bright-pixel caption bounds do not certify textual correctness"
+    },
+    {
+      "frame": 3860,
+      "seconds": 154.4,
+      "file": "submission/evidence/media/frame-3860.png",
+      "sha256": "af63003cb26259aa634385e33187209ae20327fc2073a3c87bc19ea41ab55f3d",
+      "labels": [
+        "caption:C38"
+      ],
+      "activeCaptionId": "C38",
+      "expectedCaptionText": "The workbench and MIT licensed source are public.",
+      "observedCaptionBrightPixelBounds": {
+        "left": 654,
+        "right": 1264,
+        "top": 1041,
+        "bottom": 1065,
+        "brightPixelCount": 3080
+      },
+      "pixelScope": "Actual decoded final MP4 pixels; bright-pixel caption bounds do not certify textual correctness"
+    },
+    {
+      "frame": 3919,
+      "seconds": 156.76,
+      "file": "submission/evidence/media/frame-3919.png",
+      "sha256": "eaa6d9a25823c8842ac99488bebc87373215dde8c26000e974f38f40a14d5723",
+      "labels": [
+        "segment:s09-final-unapproved-through-end",
+        "scene:9"
+      ],
+      "activeCaptionId": "C39",
+      "expectedCaptionText": "These are planning estimates, not machine instructions:",
+      "observedCaptionBrightPixelBounds": {
+        "left": 629,
+        "right": 1288,
+        "top": 1041,
+        "bottom": 1065,
+        "brightPixelCount": 3307
+      },
+      "pixelScope": "Actual decoded final MP4 pixels; bright-pixel caption bounds do not certify textual correctness"
+    },
+    {
+      "frame": 3946,
+      "seconds": 157.84,
+      "file": "submission/evidence/media/frame-3946.png",
+      "sha256": "d6da4872d19f476eb3ec1099cce0b056e0b686221cb215d241916fce2a906cfc",
+      "labels": [
+        "caption:C39"
+      ],
+      "activeCaptionId": "C39",
+      "expectedCaptionText": "These are planning estimates, not machine instructions:",
+      "observedCaptionBrightPixelBounds": {
+        "left": 629,
+        "right": 1288,
+        "top": 1041,
+        "bottom": 1065,
+        "brightPixelCount": 3308
+      },
+      "pixelScope": "Actual decoded final MP4 pixels; bright-pixel caption bounds do not certify textual correctness"
+    },
+    {
+      "frame": 4045,
+      "seconds": 161.8,
+      "file": "submission/evidence/media/frame-4045.png",
+      "sha256": "28bc438fccc885a27aaff8a7a8698539ba78fc5e589331dd4c6e61aac2b090f0",
+      "labels": [
+        "caption:C40"
+      ],
+      "activeCaptionId": "C40",
+      "expectedCaptionText": "verify usable stock and safe cutting conditions at the bench.",
+      "observedCaptionBrightPixelBounds": {
+        "left": 606,
+        "right": 1311,
+        "top": 1041,
+        "bottom": 1065,
+        "brightPixelCount": 3553
+      },
+      "pixelScope": "Actual decoded final MP4 pixels; bright-pixel caption bounds do not certify textual correctness"
+    },
+    {
+      "frame": 4124,
+      "seconds": 164.96,
+      "file": "submission/evidence/media/frame-4124.png",
+      "sha256": "74a581aedd4960cbbbb43a70daa532aaa3bccc2773fda6c1f22a2ebe35348d53",
+      "labels": [
+        "last-frame"
+      ],
+      "activeCaptionId": null,
+      "expectedCaptionText": null,
+      "observedCaptionBrightPixelBounds": null,
+      "pixelScope": "Actual decoded final MP4 pixels; bright-pixel caption bounds do not certify textual correctness"
+    }
+  ],
+  "captionCount": 40,
+  "actualCaptionPixelScope": "At least one actual final MP4 sample for every cue, segment and scene plus boundary samples; not every-frame image interpretation",
+  "pyAVVersion": "18.1.0",
+  "ffmpegLibraries": {
+    "libavutil": [
+      60,
+      26,
+      102
+    ],
+    "libavcodec": [
+      62,
+      28,
+      102
+    ],
+    "libavformat": [
+      62,
+      12,
+      102
+    ],
+    "libavdevice": [
+      62,
+      3,
+      102
+    ],
+    "libavfilter": [
+      11,
+      14,
+      102
+    ],
+    "libswscale": [
+      9,
+      5,
+      102
+    ],
+    "libswresample": [
+      6,
+      3,
+      102
+    ]
+  },
+  "limits": [
+    "No subjective listening, physical-human authentication or ChatGPT desktop-run claim.",
+    "Textual image interpretation and native browser playback are separate checks.",
+    "No YouTube publication or Devpost Submitted claim."
+  ],
+  "videoReleaseURL": "https://github.com/ilyanaxo/offcut-webmcp/releases/download/v1.1.0-webmcp-challenge/demo.mp4"
+}

@@ -1,0 +1,206 @@
+{
+  "schemaVersion": 1,
+  "kind": "actual_final_ui_state_separate_from_native_staging_receipt",
+  "observationOrdinal": 300,
+  "observedAt": "2026-09-03T12:14:07.469Z",
+  "sourceVideoSeconds": 2417.3165006637573,
+  "currentURL": "https://ilyanaxo.github.io/offcut-webmcp/#cutting-plan",
+  "observedState": {
+    "currentRevision": 2,
+    "committedKerfMm": 4,
+    "draftKerfText": "4",
+    "selectedPlanId": "plan-683635c8-5b2c-40d1-82e8-31916f4a622b-32",
+    "reviewPlanId": "plan-683635c8-5b2c-40d1-82e8-31916f4a622b-32",
+    "approvedPlanId": null,
+    "pendingMeasurements": false,
+    "reviewModal": true,
+    "acknowledgementChecked": false,
+    "approveDisabled": true,
+    "activeElement": {
+      "tag": "SUMMARY",
+      "id": null,
+      "ariaLabel": null,
+      "text": "Cut order & exact offsets",
+      "value": null,
+      "checked": null,
+      "disabled": null,
+      "type": null,
+      "ariaPressed": null,
+      "className": "",
+      "rect": {
+        "x": 196,
+        "y": 1394.390625,
+        "width": 943,
+        "height": 18
+      }
+    },
+    "evidence": {
+      "revisionText": "Revision 2",
+      "committedConstraintsText": "4 mm kerf / partKeep remnants ≥ 400 mm",
+      "nativeCorroboration": {
+        "receiptOrdinal": 14,
+        "revision": 2,
+        "kerfMm": 4
+      },
+      "selectedStatusText": "This selected proposal is not approved.",
+      "releaseText": "03 / HUMAN RELEASE\n\nA final call that stays yours\n\nReview a fresh, complete proposal and approve it yourself to unlock CSV and print. Saving changed measurements invalidates its release.\n\nDownload approved CSV\nPrint approved cut sheet\n\nApproval lasts only in this page session. It approves a plan; it does not cut or consume stock.",
+      "reviewConstraintsText": "4 mm kerf per part · reusable positive remnants ≥ 400 mm",
+      "reviewStockText": "Using\nA-02\nA-03\nA-04\nProtected\nA-01",
+      "pendingText": null,
+      "identitySource": "Actual product DOM data-plan-id and full plan-reference text; no store hook or action-based inferred IDs"
+    }
+  },
+  "nativeStagingReceipt": {
+    "ordinal": 19,
+    "observedAt": "2026-09-03T12:08:33.492Z",
+    "sourceVideoSeconds": 2083.3394010066986,
+    "name": "stage_plan_for_review",
+    "input": {
+      "planId": "plan-683635c8-5b2c-40d1-82e8-31916f4a622b-32",
+      "expectedRevision": 2
+    },
+    "status": "awaiting_human_approval",
+    "approved": false,
+    "awaitingHumanApproval": true
+  },
+  "localModelFinishDecisionOrdinal": 25,
+  "actualFinalHold": {
+    "id": "final-r2-staged-not-approved-unchecked-through-final-source",
+    "startSourceSeconds": 2381.3640007972717,
+    "endSourceSeconds": 2416.411000728607,
+    "seconds": 35.04699993133545,
+    "startState": {
+      "currentRevision": 2,
+      "committedKerfMm": 4,
+      "draftKerfText": "4",
+      "selectedPlanId": "plan-683635c8-5b2c-40d1-82e8-31916f4a622b-32",
+      "reviewPlanId": "plan-683635c8-5b2c-40d1-82e8-31916f4a622b-32",
+      "approvedPlanId": null,
+      "pendingMeasurements": false,
+      "reviewModal": true,
+      "acknowledgementChecked": false,
+      "approveDisabled": true,
+      "activeElement": {
+        "tag": "SUMMARY",
+        "id": null,
+        "ariaLabel": null,
+        "text": "Cut order & exact offsets",
+        "value": null,
+        "checked": null,
+        "disabled": null,
+        "type": null,
+        "ariaPressed": null,
+        "className": "",
+        "rect": {
+          "x": 196,
+          "y": 1395.390625,
+          "width": 943,
+          "height": 18
+        }
+      },
+      "evidence": {
+        "revisionText": "Revision 2",
+        "committedConstraintsText": "4 mm kerf / partKeep remnants ≥ 400 mm",
+        "nativeCorroboration": {
+          "receiptOrdinal": 14,
+          "revision": 2,
+          "kerfMm": 4
+        },
+        "selectedStatusText": "This selected proposal is not approved.",
+        "releaseText": "03 / HUMAN RELEASE\n\nA final call that stays yours\n\nReview a fresh, complete proposal and approve it yourself to unlock CSV and print. Saving changed measurements invalidates its release.\n\nDownload approved CSV\nPrint approved cut sheet\n\nApproval lasts only in this page session. It approves a plan; it does not cut or consume stock.",
+        "reviewConstraintsText": "4 mm kerf per part · reusable positive remnants ≥ 400 mm",
+        "reviewStockText": "Using\nA-02\nA-03\nA-04\nProtected\nA-01",
+        "pendingText": null,
+        "identitySource": "Actual product DOM data-plan-id and full plan-reference text; no store hook or action-based inferred IDs"
+      }
+    },
+    "endState": {
+      "currentRevision": 2,
+      "committedKerfMm": 4,
+      "draftKerfText": "4",
+      "selectedPlanId": "plan-683635c8-5b2c-40d1-82e8-31916f4a622b-32",
+      "reviewPlanId": "plan-683635c8-5b2c-40d1-82e8-31916f4a622b-32",
+      "approvedPlanId": null,
+      "pendingMeasurements": false,
+      "reviewModal": true,
+      "acknowledgementChecked": false,
+      "approveDisabled": true,
+      "activeElement": {
+        "tag": "SUMMARY",
+        "id": null,
+        "ariaLabel": null,
+        "text": "Cut order & exact offsets",
+        "value": null,
+        "checked": null,
+        "disabled": null,
+        "type": null,
+        "ariaPressed": null,
+        "className": "",
+        "rect": {
+          "x": 196,
+          "y": 1395.390625,
+          "width": 943,
+          "height": 18
+        }
+      },
+      "evidence": {
+        "revisionText": "Revision 2",
+        "committedConstraintsText": "4 mm kerf / partKeep remnants ≥ 400 mm",
+        "nativeCorroboration": {
+          "receiptOrdinal": 14,
+          "revision": 2,
+          "kerfMm": 4
+        },
+        "selectedStatusText": "This selected proposal is not approved.",
+        "releaseText": "03 / HUMAN RELEASE\n\nA final call that stays yours\n\nReview a fresh, complete proposal and approve it yourself to unlock CSV and print. Saving changed measurements invalidates its release.\n\nDownload approved CSV\nPrint approved cut sheet\n\nApproval lasts only in this page session. It approves a plan; it does not cut or consume stock.",
+        "reviewConstraintsText": "4 mm kerf per part · reusable positive remnants ≥ 400 mm",
+        "reviewStockText": "Using\nA-02\nA-03\nA-04\nProtected\nA-01",
+        "pendingText": null,
+        "identitySource": "Actual product DOM data-plan-id and full plan-reference text; no store hook or action-based inferred IDs"
+      }
+    }
+  },
+  "stopSourceSeconds": 2417.3497009277344,
+  "lastActualFrame": {
+    "index": 850,
+    "originalSourceFrameName": "frame-0000850.jpg",
+    "sourceFrameEvidencePath": "submission/evidence/capture-take-02/frame-manifest.portable.json",
+    "sourceFrameJsonPointer": "/frames/850",
+    "timestampUnixSeconds": 1788437646.716198,
+    "sourceSeconds": 2416.563598871231,
+    "sha256": "050738e9b42b5c11a32de312b89e0a8e36df5cbb6755618e5c45782e17021006",
+    "metadata": {
+      "offsetTop": 0,
+      "pageScaleFactor": 1,
+      "deviceWidth": 1365,
+      "deviceHeight": 900,
+      "scrollOffsetX": 0,
+      "scrollOffsetY": 1616
+    },
+    "receivedAtUnixSeconds": 1788437646.733,
+    "sessionId": 1
+  },
+  "uiAttribution": {
+    "actor": "Automated recording UI controls",
+    "mechanism": "Playwright-driven actual Chrome DOM mouse/keyboard/wheel events; isTrusted recorded independently",
+    "provesPhysicalHumanPresence": false,
+    "provesPhysicalMeasurements": false
+  },
+  "evidenceBoundary": "No final approval, fresh-plan export, physical human or measurement verification, cutting execution, final movie validation or submission claim.",
+  "portableProvenance": {
+    "representation": "transformed-full-capture-record",
+    "originalSourceArtifactName": "final-ui-state.json",
+    "originalSourceSha256": "1d184da4a1718965d5d51b35a295370a519c15001e44fc9e95658913d58d28df",
+    "originalSourceBytes": 7555,
+    "sourceBytesIdenticalToPortableFile": false,
+    "observationScope": "Actual current-candidate capture take-02; original source observations/ordinals/times, not final edited MP4 verification",
+    "pathBase": "repository-root",
+    "transformations": [
+      "Only artifact references/locator field names are transformed. Original native/model/UI/state/clock observations, recorded counts, capture errors and original JPEG/video hashes are retained; raw JPEG images are not copied."
+    ],
+    "referenceReplacementCounts": {
+      "sourceJPEGPathToManifestRecord": 1
+    },
+    "portableFileHashManifest": "submission/evidence/manifest.json"
+  }
+}

@@ -1,50 +1,583 @@
 {
-  "verified_at_utc": "2026-09-03T00:01:55.800749+00:00",
+  "verified_at_utc": "2026-09-03T12:14:07.469Z",
+  "functional_source_commit": "f8091483ef2003b1bff361ab8f1b49a5715cd19d",
+  "static_deployment_commit": "c88b3050ee128d19b5f79a9380822771a0167160",
+  "current_static_deployment_commit": "ffc85c8300d8ec8a17bafa2751fb4b02f2093409",
+  "current_deployment_evidence": "submission/evidence/browser/final-public-guide.json",
+  "deployment_scope": "static_deployment_commit identifies the actually tested/recorded c88b305 candidate. The current deployment changes only guide text; actual JS/CSS SHA256 values remain identical to the tested and captured HTTPS resources.",
   "live_url": "https://ilyanaxo.github.io/offcut-webmcp/",
-  "public_source_url": "https://github.com/ilyanaxo/offcut-webmcp",
+  "public_source_url": "https://github.com/ilyanaxo/offcut-webmcp/tree/f8091483ef2003b1bff361ab8f1b49a5715cd19d",
   "guide_url": "https://ilyanaxo.github.io/offcut-webmcp/guide.html",
-  "public_license_detected": "MIT by GitHub public license API",
+  "public_license_detected": "MIT (actual GitHub repository API detected unchanged current LICENSE; repository public, not archived)",
   "https_enforced": true,
   "production_build": {
-    "command": "bun run build",
-    "status": "passed",
-    "typescript": "7.0.2",
-    "vite": "8.2.2",
-    "bundle_js": "index-CyHZ3dwn.js",
-    "bundle_css": "index-BSVPmI5h.css"
+    "typecheck": "tsc --noEmit passed, including src/tests/vite/playwright",
+    "vite_version": "8.2.2",
+    "modules": 27,
+    "js_asset": "index-BXFW-YOC.js",
+    "js_bytes": 301245,
+    "js_gzip_kb": 91.41,
+    "css_asset": "index-wHlxX3aJ.css",
+    "css_bytes": 42055,
+    "css_gzip_kb": 7.9,
+    "exact_published_git_tree": "f4c6bec4df3163e596390001173ce2322c70c7be",
+    "actual_pages_build_commit": "c88b3050ee128d19b5f79a9380822771a0167160",
+    "unit_build_evidence": "submission/evidence/offcut-overhaul-unit-build-proof.portable.json",
+    "public_build_evidence": "submission/evidence/offcut-overhaul-public-build-proof.portable.json",
+    "actual_delivered_resources_evidence": "submission/evidence/capture-take-02/delivered-resources.original.json",
+    "build_phase_boundary": "The10:25 converged working-tree unit/build proof emitted index-CKOQ29Ge.js. Later pinned published delivery emitted index-BXFW-YOC.js with the bytes/hashes recorded by actual hosted Chrome resource acquisition. The earlier working-tree build and published build are distinct artifacts; no identical-byte/hash claim is made."
   },
   "core_contract_tests": {
-    "command": "bun run test",
-    "passed": 841,
-    "failed": 0,
-    "expect_calls": 118503,
-    "runtime": "Bun1.4.0"
+    "command": "bun test src",
+    "runtime": "Bun1.4.0",
+    "pass": 884,
+    "fail": 0,
+    "expectCalls": 118823,
+    "files": 4,
+    "runnerReportedMs": 336,
+    "evidence_path": "submission/evidence/offcut-overhaul-unit-build-proof.portable.json",
+    "observation_scope": "Prepublication converged1.1.0 working-tree build/unit observation at2026-09-03T10:25:47.728Z; not the later delivered JS blob or a browser result"
   },
   "browser_contract_tests": {
-    "command": "bun run test:browser",
-    "passed": 9,
+    "sourceCommit": "f8091483ef2003b1bff361ab8f1b49a5715cd19d",
+    "staticCommit": "c88b3050ee128d19b5f79a9380822771a0167160",
+    "nativeProfiles": {
+      "149": "149.0.7827.155/navigator/syncundefined/JSON-stringclient/onecallbackargument",
+      "152": "152.0.7977.64/document/promise/JSON-stringclient/onecallbackargument"
+    },
+    "sameContractDefinitions": 18,
+    "actualExecutedCases": 72,
+    "sameContractsRepeatedAcrossProfilesAndDeployments": true,
+    "passed": 72,
     "failed": 0,
-    "workers": 2,
-    "sandbox_enabled": true,
-    "projects": ["native-webmcp", "ordinary-manual"],
-    "hosted_run": {
-      "OFFCUT_BASE_URL": "https://ilyanaxo.github.io/offcut-webmcp/",
-      "passed": 9,
-      "failed": 0
-    }
+    "scope": "Both actualnative-enabled/native-disabledmanualprojects on actuallocalproductionpreviewandactualpublicprojectsubpath, two workers perrun,sandbox/privateTMPDIR/freshcontexts. Not actualChatGPT-host or physicalhuman/hardware proof.",
+    "runs": [
+      {
+        "profile": "149",
+        "surface": "local",
+        "baseURL": "http://127.0.0.1:4183/",
+        "stats": {
+          "startTime": "2026-09-03T10:34:15.261Z",
+          "duration": 35171.805,
+          "expected": 18,
+          "skipped": 0,
+          "unexpected": 0,
+          "flaky": 0
+        },
+        "cases": [
+          {
+            "title": "Native tools preserve human stock protection through objective comparison, review and approved-only release",
+            "project": "native-webmcp",
+            "status": "expected",
+            "results": ["passed"]
+          },
+          {
+            "title": "Only Enter/blur commits reach native tools; committed revisions invalidate approval, staging, comparison and export",
+            "project": "native-webmcp",
+            "status": "expected",
+            "results": ["passed"]
+          },
+          {
+            "title": "Native planning uses committed measurements while pending fields and new rows reject review without stealing focus",
+            "project": "native-webmcp",
+            "status": "expected",
+            "results": ["passed"]
+          },
+          {
+            "title": "A focused valid draft rejects native review until genuine Enter-save invalidates the old plan and a fresh replan is reviewed",
+            "project": "native-webmcp",
+            "status": "expected",
+            "results": ["passed"]
+          },
+          {
+            "title": "Textual 03 is pending until a no-op save normalizes it without a revision, and an unchanged focused 3 permits native review",
+            "project": "native-webmcp",
+            "status": "expected",
+            "results": ["passed"]
+          },
+          {
+            "title": "Clear confirmation paused by native review resumes with native modality and two Escapes return the original invoker without changing approval",
+            "project": "native-webmcp",
+            "status": "expected",
+            "results": ["passed"]
+          },
+          {
+            "title": "Replacing an acknowledged three-board review with six boards resets the same open dialog and releases only the new exact ID and filename",
+            "project": "native-webmcp",
+            "status": "expected",
+            "results": ["passed"]
+          },
+          {
+            "title": "A reused checked solution receives a new unapproved native record even when its retained human source is approved",
+            "project": "native-webmcp",
+            "status": "expected",
+            "results": ["passed"]
+          },
+          {
+            "title": "Two invalid fields retain their pending union and saved approval until both real Escape cancellations complete",
+            "project": "native-webmcp",
+            "status": "expected",
+            "results": ["passed"]
+          },
+          {
+            "title": "Empty and insufficient stock remain explicit, non-releasable proposals until the human supplies allowed stock",
+            "project": "native-webmcp",
+            "status": "expected",
+            "results": ["passed"]
+          },
+          {
+            "title": "The maximum forty-cut batch releases all seventeen CSV cells and complete print DOM tables with continuation-safe rows",
+            "project": "native-webmcp",
+            "status": "expected",
+            "results": ["passed"]
+          },
+          {
+            "title": "Ordinary Chrome completes manual planning and real CSV/PDF release, persisting measurements but never page-session approval",
+            "project": "ordinary-manual",
+            "status": "expected",
+            "results": ["passed"]
+          },
+          {
+            "title": "Two invalid fields retain their pending union and saved approval until both real Escape cancellations complete",
+            "project": "ordinary-manual",
+            "status": "expected",
+            "results": ["passed"]
+          },
+          {
+            "title": "Unfinished fields, invalid numbers and pending add forms block solving and release until saved or cancelled",
+            "project": "ordinary-manual",
+            "status": "expected",
+            "results": ["passed"]
+          },
+          {
+            "title": "Replacing measurements requires explicit confirmation and discards proposals, approval and unfinished rows",
+            "project": "ordinary-manual",
+            "status": "expected",
+            "results": ["passed"]
+          },
+          {
+            "title": "Empty and insufficient stock remain explicit, non-releasable proposals until the human supplies allowed stock",
+            "project": "ordinary-manual",
+            "status": "expected",
+            "results": ["passed"]
+          },
+          {
+            "title": "The narrow workbench exposes full references by keyboard and contains review controls with native Escape and focus semantics",
+            "project": "ordinary-manual",
+            "status": "expected",
+            "results": ["passed"]
+          },
+          {
+            "title": "The maximum forty-cut batch releases all seventeen CSV cells and complete print DOM tables with continuation-safe rows",
+            "project": "ordinary-manual",
+            "status": "expected",
+            "results": ["passed"]
+          }
+        ],
+        "recordedReport": "submission/evidence/browser/149-local-report.portable-summary.json",
+        "recordedReportRepresentation": "Produced transformed full-result Playwright summary; source raw report hash is distinct from portable file hash",
+        "baseURLRole": "Observed local runtime address, not an external evidence link"
+      },
+      {
+        "profile": "152",
+        "surface": "local",
+        "baseURL": "http://127.0.0.1:4183/",
+        "stats": {
+          "startTime": "2026-09-03T10:34:15.276Z",
+          "duration": 34918.04,
+          "expected": 18,
+          "skipped": 0,
+          "unexpected": 0,
+          "flaky": 0
+        },
+        "cases": [
+          {
+            "title": "Native tools preserve human stock protection through objective comparison, review and approved-only release",
+            "project": "native-webmcp",
+            "status": "expected",
+            "results": ["passed"]
+          },
+          {
+            "title": "Only Enter/blur commits reach native tools; committed revisions invalidate approval, staging, comparison and export",
+            "project": "native-webmcp",
+            "status": "expected",
+            "results": ["passed"]
+          },
+          {
+            "title": "Native planning uses committed measurements while pending fields and new rows reject review without stealing focus",
+            "project": "native-webmcp",
+            "status": "expected",
+            "results": ["passed"]
+          },
+          {
+            "title": "A focused valid draft rejects native review until genuine Enter-save invalidates the old plan and a fresh replan is reviewed",
+            "project": "native-webmcp",
+            "status": "expected",
+            "results": ["passed"]
+          },
+          {
+            "title": "Textual 03 is pending until a no-op save normalizes it without a revision, and an unchanged focused 3 permits native review",
+            "project": "native-webmcp",
+            "status": "expected",
+            "results": ["passed"]
+          },
+          {
+            "title": "Clear confirmation paused by native review resumes with native modality and two Escapes return the original invoker without changing approval",
+            "project": "native-webmcp",
+            "status": "expected",
+            "results": ["passed"]
+          },
+          {
+            "title": "Replacing an acknowledged three-board review with six boards resets the same open dialog and releases only the new exact ID and filename",
+            "project": "native-webmcp",
+            "status": "expected",
+            "results": ["passed"]
+          },
+          {
+            "title": "A reused checked solution receives a new unapproved native record even when its retained human source is approved",
+            "project": "native-webmcp",
+            "status": "expected",
+            "results": ["passed"]
+          },
+          {
+            "title": "Two invalid fields retain their pending union and saved approval until both real Escape cancellations complete",
+            "project": "native-webmcp",
+            "status": "expected",
+            "results": ["passed"]
+          },
+          {
+            "title": "Empty and insufficient stock remain explicit, non-releasable proposals until the human supplies allowed stock",
+            "project": "native-webmcp",
+            "status": "expected",
+            "results": ["passed"]
+          },
+          {
+            "title": "The maximum forty-cut batch releases all seventeen CSV cells and complete print DOM tables with continuation-safe rows",
+            "project": "native-webmcp",
+            "status": "expected",
+            "results": ["passed"]
+          },
+          {
+            "title": "Ordinary Chrome completes manual planning and real CSV/PDF release, persisting measurements but never page-session approval",
+            "project": "ordinary-manual",
+            "status": "expected",
+            "results": ["passed"]
+          },
+          {
+            "title": "Two invalid fields retain their pending union and saved approval until both real Escape cancellations complete",
+            "project": "ordinary-manual",
+            "status": "expected",
+            "results": ["passed"]
+          },
+          {
+            "title": "Unfinished fields, invalid numbers and pending add forms block solving and release until saved or cancelled",
+            "project": "ordinary-manual",
+            "status": "expected",
+            "results": ["passed"]
+          },
+          {
+            "title": "Replacing measurements requires explicit confirmation and discards proposals, approval and unfinished rows",
+            "project": "ordinary-manual",
+            "status": "expected",
+            "results": ["passed"]
+          },
+          {
+            "title": "Empty and insufficient stock remain explicit, non-releasable proposals until the human supplies allowed stock",
+            "project": "ordinary-manual",
+            "status": "expected",
+            "results": ["passed"]
+          },
+          {
+            "title": "The narrow workbench exposes full references by keyboard and contains review controls with native Escape and focus semantics",
+            "project": "ordinary-manual",
+            "status": "expected",
+            "results": ["passed"]
+          },
+          {
+            "title": "The maximum forty-cut batch releases all seventeen CSV cells and complete print DOM tables with continuation-safe rows",
+            "project": "ordinary-manual",
+            "status": "expected",
+            "results": ["passed"]
+          }
+        ],
+        "recordedReport": "submission/evidence/browser/152-local-final-report.portable-summary.json",
+        "recordedReportRepresentation": "Produced transformed full-result Playwright summary; source raw report hash is distinct from portable file hash",
+        "baseURLRole": "Observed local runtime address, not an external evidence link"
+      },
+      {
+        "profile": "149",
+        "surface": "hosted",
+        "baseURL": "https://ilyanaxo.github.io/offcut-webmcp/",
+        "stats": {
+          "startTime": "2026-09-03T11:29:40.516Z",
+          "duration": 120010.136,
+          "expected": 18,
+          "skipped": 0,
+          "unexpected": 0,
+          "flaky": 0
+        },
+        "cases": [
+          {
+            "title": "Native tools preserve human stock protection through objective comparison, review and approved-only release",
+            "project": "native-webmcp",
+            "status": "expected",
+            "results": ["passed"]
+          },
+          {
+            "title": "Only Enter/blur commits reach native tools; committed revisions invalidate approval, staging, comparison and export",
+            "project": "native-webmcp",
+            "status": "expected",
+            "results": ["passed"]
+          },
+          {
+            "title": "Native planning uses committed measurements while pending fields and new rows reject review without stealing focus",
+            "project": "native-webmcp",
+            "status": "expected",
+            "results": ["passed"]
+          },
+          {
+            "title": "A focused valid draft rejects native review until genuine Enter-save invalidates the old plan and a fresh replan is reviewed",
+            "project": "native-webmcp",
+            "status": "expected",
+            "results": ["passed"]
+          },
+          {
+            "title": "Textual 03 is pending until a no-op save normalizes it without a revision, and an unchanged focused 3 permits native review",
+            "project": "native-webmcp",
+            "status": "expected",
+            "results": ["passed"]
+          },
+          {
+            "title": "Clear confirmation paused by native review resumes with native modality and two Escapes return the original invoker without changing approval",
+            "project": "native-webmcp",
+            "status": "expected",
+            "results": ["passed"]
+          },
+          {
+            "title": "Replacing an acknowledged three-board review with six boards resets the same open dialog and releases only the new exact ID and filename",
+            "project": "native-webmcp",
+            "status": "expected",
+            "results": ["passed"]
+          },
+          {
+            "title": "A reused checked solution receives a new unapproved native record even when its retained human source is approved",
+            "project": "native-webmcp",
+            "status": "expected",
+            "results": ["passed"]
+          },
+          {
+            "title": "Two invalid fields retain their pending union and saved approval until both real Escape cancellations complete",
+            "project": "native-webmcp",
+            "status": "expected",
+            "results": ["passed"]
+          },
+          {
+            "title": "Empty and insufficient stock remain explicit, non-releasable proposals until the human supplies allowed stock",
+            "project": "native-webmcp",
+            "status": "expected",
+            "results": ["passed"]
+          },
+          {
+            "title": "The maximum forty-cut batch releases all seventeen CSV cells and complete print DOM tables with continuation-safe rows",
+            "project": "native-webmcp",
+            "status": "expected",
+            "results": ["passed"]
+          },
+          {
+            "title": "Ordinary Chrome completes manual planning and real CSV/PDF release, persisting measurements but never page-session approval",
+            "project": "ordinary-manual",
+            "status": "expected",
+            "results": ["passed"]
+          },
+          {
+            "title": "Two invalid fields retain their pending union and saved approval until both real Escape cancellations complete",
+            "project": "ordinary-manual",
+            "status": "expected",
+            "results": ["passed"]
+          },
+          {
+            "title": "Unfinished fields, invalid numbers and pending add forms block solving and release until saved or cancelled",
+            "project": "ordinary-manual",
+            "status": "expected",
+            "results": ["passed"]
+          },
+          {
+            "title": "Replacing measurements requires explicit confirmation and discards proposals, approval and unfinished rows",
+            "project": "ordinary-manual",
+            "status": "expected",
+            "results": ["passed"]
+          },
+          {
+            "title": "Empty and insufficient stock remain explicit, non-releasable proposals until the human supplies allowed stock",
+            "project": "ordinary-manual",
+            "status": "expected",
+            "results": ["passed"]
+          },
+          {
+            "title": "The narrow workbench exposes full references by keyboard and contains review controls with native Escape and focus semantics",
+            "project": "ordinary-manual",
+            "status": "expected",
+            "results": ["passed"]
+          },
+          {
+            "title": "The maximum forty-cut batch releases all seventeen CSV cells and complete print DOM tables with continuation-safe rows",
+            "project": "ordinary-manual",
+            "status": "expected",
+            "results": ["passed"]
+          }
+        ],
+        "recordedReport": "submission/evidence/browser/149-hosted-report.portable-summary.json",
+        "recordedReportRepresentation": "Produced transformed full-result Playwright summary; source raw report hash is distinct from portable file hash",
+        "baseURLRole": "Observed actual public hosted test address"
+      },
+      {
+        "profile": "152",
+        "surface": "hosted",
+        "baseURL": "https://ilyanaxo.github.io/offcut-webmcp/",
+        "stats": {
+          "startTime": "2026-09-03T11:29:33.802Z",
+          "duration": 115662.204,
+          "expected": 18,
+          "skipped": 0,
+          "unexpected": 0,
+          "flaky": 0
+        },
+        "cases": [
+          {
+            "title": "Native tools preserve human stock protection through objective comparison, review and approved-only release",
+            "project": "native-webmcp",
+            "status": "expected",
+            "results": ["passed"]
+          },
+          {
+            "title": "Only Enter/blur commits reach native tools; committed revisions invalidate approval, staging, comparison and export",
+            "project": "native-webmcp",
+            "status": "expected",
+            "results": ["passed"]
+          },
+          {
+            "title": "Native planning uses committed measurements while pending fields and new rows reject review without stealing focus",
+            "project": "native-webmcp",
+            "status": "expected",
+            "results": ["passed"]
+          },
+          {
+            "title": "A focused valid draft rejects native review until genuine Enter-save invalidates the old plan and a fresh replan is reviewed",
+            "project": "native-webmcp",
+            "status": "expected",
+            "results": ["passed"]
+          },
+          {
+            "title": "Textual 03 is pending until a no-op save normalizes it without a revision, and an unchanged focused 3 permits native review",
+            "project": "native-webmcp",
+            "status": "expected",
+            "results": ["passed"]
+          },
+          {
+            "title": "Clear confirmation paused by native review resumes with native modality and two Escapes return the original invoker without changing approval",
+            "project": "native-webmcp",
+            "status": "expected",
+            "results": ["passed"]
+          },
+          {
+            "title": "Replacing an acknowledged three-board review with six boards resets the same open dialog and releases only the new exact ID and filename",
+            "project": "native-webmcp",
+            "status": "expected",
+            "results": ["passed"]
+          },
+          {
+            "title": "A reused checked solution receives a new unapproved native record even when its retained human source is approved",
+            "project": "native-webmcp",
+            "status": "expected",
+            "results": ["passed"]
+          },
+          {
+            "title": "Two invalid fields retain their pending union and saved approval until both real Escape cancellations complete",
+            "project": "native-webmcp",
+            "status": "expected",
+            "results": ["passed"]
+          },
+          {
+            "title": "Empty and insufficient stock remain explicit, non-releasable proposals until the human supplies allowed stock",
+            "project": "native-webmcp",
+            "status": "expected",
+            "results": ["passed"]
+          },
+          {
+            "title": "The maximum forty-cut batch releases all seventeen CSV cells and complete print DOM tables with continuation-safe rows",
+            "project": "native-webmcp",
+            "status": "expected",
+            "results": ["passed"]
+          },
+          {
+            "title": "Ordinary Chrome completes manual planning and real CSV/PDF release, persisting measurements but never page-session approval",
+            "project": "ordinary-manual",
+            "status": "expected",
+            "results": ["passed"]
+          },
+          {
+            "title": "Two invalid fields retain their pending union and saved approval until both real Escape cancellations complete",
+            "project": "ordinary-manual",
+            "status": "expected",
+            "results": ["passed"]
+          },
+          {
+            "title": "Unfinished fields, invalid numbers and pending add forms block solving and release until saved or cancelled",
+            "project": "ordinary-manual",
+            "status": "expected",
+            "results": ["passed"]
+          },
+          {
+            "title": "Replacing measurements requires explicit confirmation and discards proposals, approval and unfinished rows",
+            "project": "ordinary-manual",
+            "status": "expected",
+            "results": ["passed"]
+          },
+          {
+            "title": "Empty and insufficient stock remain explicit, non-releasable proposals until the human supplies allowed stock",
+            "project": "ordinary-manual",
+            "status": "expected",
+            "results": ["passed"]
+          },
+          {
+            "title": "The narrow workbench exposes full references by keyboard and contains review controls with native Escape and focus semantics",
+            "project": "ordinary-manual",
+            "status": "expected",
+            "results": ["passed"]
+          },
+          {
+            "title": "The maximum forty-cut batch releases all seventeen CSV cells and complete print DOM tables with continuation-safe rows",
+            "project": "ordinary-manual",
+            "status": "expected",
+            "results": ["passed"]
+          }
+        ],
+        "recordedReport": "submission/evidence/browser/152-hosted-report.portable-summary.json",
+        "recordedReportRepresentation": "Produced transformed full-result Playwright summary; source raw report hash is distinct from portable file hash",
+        "baseURLRole": "Observed actual public hosted test address"
+      }
+    ],
+    "evidence_path": "submission/evidence/offcut-overhaul-complete-browser-matrix.portable.json"
   },
   "independent_solver_oracle": {
-    "oracleCases": 600,
-    "objectiveChecks": 1800,
-    "status": "passed",
-    "seed": "0x57eb2026",
-    "oracle": "independent exhaustive assignment enumeration"
+    "cases": 600,
+    "objectives_per_case": 3,
+    "same_seed_as_original_smoke": "0x57eb2026",
+    "algorithm": "Independent exhaustive physical-board assignment enumeration, not production greedy/search pruning",
+    "scope": "Not two independent random corpora; full updated unit run passed.",
+    "evidence_path": "submission/evidence/offcut-overhaul-unit-build-proof.portable.json",
+    "observation_basis": "Original current-candidate verification report's oracle observations and full884-test passing unit artifact; no new oracle execution during portable-evidence conversion"
   },
   "actual_search_bound_fixtures": {
-    "outputs": [
+    "complete_100000node": [
       {
-        "goal": "least_stock",
+        "boards": 24,
+        "lengthMm": 2400,
+        "objective": "least_stock",
+        "elapsedMs": 71.192585,
         "complete": true,
+        "producedParts": 40,
+        "missingParts": 0,
         "metrics": {
           "stockUsedMm": 33600,
           "partsMm": 31440,
@@ -60,11 +593,18 @@
           "nodes": 100000,
           "limit": 100000
         },
-        "elapsedMs": 64.552997
+        "unfulfilled": [],
+        "inputUnchanged": true,
+        "physicalBalanceVerified": true
       },
       {
-        "goal": "fewest_boards",
+        "boards": 24,
+        "lengthMm": 2400,
+        "objective": "fewest_boards",
+        "elapsedMs": 89.309341,
         "complete": true,
+        "producedParts": 40,
+        "missingParts": 0,
         "metrics": {
           "stockUsedMm": 33600,
           "partsMm": 31440,
@@ -80,11 +620,18 @@
           "nodes": 100000,
           "limit": 100000
         },
-        "elapsedMs": 63.99511900000002
+        "unfulfilled": [],
+        "inputUnchanged": true,
+        "physicalBalanceVerified": true
       },
       {
-        "goal": "least_waste",
+        "boards": 24,
+        "lengthMm": 2400,
+        "objective": "least_waste",
+        "elapsedMs": 43.186239,
         "complete": true,
+        "producedParts": 40,
+        "missingParts": 0,
         "metrics": {
           "stockUsedMm": 38400,
           "partsMm": 31440,
@@ -100,59 +647,1037 @@
           "nodes": 100000,
           "limit": 100000
         },
-        "elapsedMs": 26.82912399999998
+        "unfulfilled": [],
+        "inputUnchanged": true,
+        "physicalBalanceVerified": true
       }
     ],
-    "greedyRecovery": {
-      "complete": true,
-      "metrics": {
-        "stockUsedMm": 2020,
-        "partsMm": 1988,
-        "kerfMm": 18,
-        "reusableMm": 0,
-        "scrapMm": 14,
-        "boardCount": 2,
-        "utilization": 0.9841584158415841
+    "incomplete_100000node": [
+      {
+        "boards": 14,
+        "lengthMm": 2279,
+        "objective": "least_stock",
+        "elapsedMs": 38.622668000000004,
+        "complete": false,
+        "producedParts": 38,
+        "missingParts": 2,
+        "metrics": {
+          "stockUsedMm": 31906,
+          "partsMm": 30840,
+          "kerfMm": 114,
+          "reusableMm": 0,
+          "scrapMm": 952,
+          "boardCount": 14,
+          "utilization": 0.9665893562339372
+        },
+        "search": {
+          "method": "branch-and-bound",
+          "provenOptimal": false,
+          "nodes": 100000,
+          "limit": 100000
+        },
+        "unfulfilled": [
+          {
+            "requirementId": "P-1",
+            "label": "Part 1",
+            "quantity": 2,
+            "reason": "No complete arrangement was found within the 100000-node bound. This quantity remains unplanned; infeasibility is not proven."
+          }
+        ],
+        "inputUnchanged": true,
+        "physicalBalanceVerified": true
       },
-      "search": {
-        "method": "branch-and-bound",
-        "provenOptimal": true,
-        "nodes": 11,
-        "limit": 100000
+      {
+        "boards": 14,
+        "lengthMm": 2279,
+        "objective": "fewest_boards",
+        "elapsedMs": 55.714690999999995,
+        "complete": false,
+        "producedParts": 38,
+        "missingParts": 2,
+        "metrics": {
+          "stockUsedMm": 31906,
+          "partsMm": 30840,
+          "kerfMm": 114,
+          "reusableMm": 0,
+          "scrapMm": 952,
+          "boardCount": 14,
+          "utilization": 0.9665893562339372
+        },
+        "search": {
+          "method": "branch-and-bound",
+          "provenOptimal": false,
+          "nodes": 100000,
+          "limit": 100000
+        },
+        "unfulfilled": [
+          {
+            "requirementId": "P-1",
+            "label": "Part 1",
+            "quantity": 2,
+            "reason": "No complete arrangement was found within the 100000-node bound. This quantity remains unplanned; infeasibility is not proven."
+          }
+        ],
+        "inputUnchanged": true,
+        "physicalBalanceVerified": true
+      },
+      {
+        "boards": 14,
+        "lengthMm": 2279,
+        "objective": "least_waste",
+        "elapsedMs": 19.122816999999998,
+        "complete": false,
+        "producedParts": 38,
+        "missingParts": 2,
+        "metrics": {
+          "stockUsedMm": 31906,
+          "partsMm": 30840,
+          "kerfMm": 114,
+          "reusableMm": 0,
+          "scrapMm": 952,
+          "boardCount": 14,
+          "utilization": 0.9665893562339372
+        },
+        "search": {
+          "method": "branch-and-bound",
+          "provenOptimal": false,
+          "nodes": 100000,
+          "limit": 100000
+        },
+        "unfulfilled": [
+          {
+            "requirementId": "P-1",
+            "label": "Part 1",
+            "quantity": 2,
+            "reason": "No complete arrangement was found within the 100000-node bound. This quantity remains unplanned; infeasibility is not proven."
+          }
+        ],
+        "inputUnchanged": true,
+        "physicalBalanceVerified": true
       }
+    ],
+    "actual_input_40_part_lengths": [300, 440, 580, 620, 710, 830, 950, 1020, 1140, 1270],
+    "quantity_each": 4,
+    "kerf_mm": 3,
+    "minimum_reusable_mm": 400,
+    "complete_stock": "24×2400mm",
+    "incomplete_stock": "14×2279mm",
+    "limits_not_lowered_for_test": true,
+    "partial_fixture_evidence_path": "submission/evidence/offcut-overhaul-bounded-partial.original.json",
+    "identical_problem_workload_evidence_path": "submission/evidence/offcut-overhaul-after.original.json",
+    "complete_fixture_observation_basis": "Actual complete-bound observations are retained from the original current-candidate verification report; the independently retained partial-fixture record and after-workload fixtures provide their separately stated scopes."
+  },
+  "native_browser_versions": {
+    "149": {
+      "version": "149.0.7827.155",
+      "native_surface": "navigator.modelContext",
+      "registration_return": "synchronousundefined",
+      "actual_callback_arguments": 1,
+      "client_schema_input_result": "JSONstrings",
+      "lifecycle_cases": [
+        {
+          "name": "immediate-dispose",
+          "passed": true,
+          "bridge": {
+            "state": "checking",
+            "provider": "navigator",
+            "registeredTools": 0,
+            "message": "Checking native WebMCP support…"
+          },
+          "catalogue_count": 0
+        },
+        {
+          "name": "partial-name-collision",
+          "passed": true,
+          "bridge": {
+            "state": "error",
+            "provider": "navigator",
+            "registeredTools": 0,
+            "message": "Native tool registration failed: Failed to execute 'registerTool' on 'ModelContext': Duplicate tool name. Manual planning remains available."
+          },
+          "catalogue_count": 1
+        },
+        {
+          "name": "fresh-source-reinitialization",
+          "passed": true,
+          "bridge": {
+            "state": "ready",
+            "provider": "navigator",
+            "registeredTools": 6,
+            "message": "6 native WebMCP tools registered in this document. Your browser agent can discover them."
+          },
+          "catalogue_count": 6
+        }
+      ],
+      "lifecycle_evidence_path": "submission/evidence/offcut-overhaul-lifecycle149.original.json"
+    },
+    "152": {
+      "version": "152.0.7977.64",
+      "native_surface": "document.modelContext",
+      "registration_return": "Promise",
+      "actual_callback_arguments": 1,
+      "client_schema_input_result": "JSONstrings",
+      "lifecycle_cases": [
+        {
+          "name": "immediate-dispose",
+          "passed": true,
+          "bridge": {
+            "state": "checking",
+            "provider": "document",
+            "registeredTools": 0,
+            "message": "Checking native WebMCP support…"
+          },
+          "catalogue_count": 0
+        },
+        {
+          "name": "partial-name-collision",
+          "passed": true,
+          "bridge": {
+            "state": "error",
+            "provider": "document",
+            "registeredTools": 0,
+            "message": "Native tool registration failed: Duplicate tool name. Manual planning remains available."
+          },
+          "catalogue_count": 1
+        },
+        {
+          "name": "fresh-source-reinitialization",
+          "passed": true,
+          "bridge": {
+            "state": "ready",
+            "provider": "document",
+            "registeredTools": 6,
+            "message": "6 native WebMCP tools registered in this document. Your browser agent can discover them."
+          },
+          "catalogue_count": 6
+        }
+      ],
+      "lifecycle_evidence_path": "submission/evidence/offcut-overhaul-lifecycle152.original.json"
     }
   },
-  "native_browser_versions": ["149.0.7827.155", "152.0.7977.64"],
   "real_model_workflow": {
-    "record": "submission/agent-trace.json",
-    "actual_model_selected_native_calls": 14,
-    "all_six_tool_types_selected": true,
-    "three_complete_objectives_compared": true,
-    "protected_A01_untouched": true,
-    "exact_separate_UI_approval_and_model_export": true,
-    "actual_CSV_download_rows": 15,
-    "human_kerf_change_invalidated_release": true,
-    "model_fresh_replan_revision": 2,
-    "model_fresh_replan_sawdust_mm": 56,
-    "console_errors": [],
-    "page_errors": [],
-    "UI_controls_were_automation": true,
-    "not_ChatGPT_screen_recording": true
+    "actual_model_decisions": 25,
+    "actual_model_selected_native_calls": 19,
+    "local_finish_decisions_not_native_calls": 6,
+    "automated_ui_events": 70,
+    "all_six_tool_types": true,
+    "trace_file": "submission/agent-trace.json",
+    "source_candidate": {
+      "sourceCommit": "f8091483ef2003b1bff361ab8f1b49a5715cd19d",
+      "sourceURL": "https://github.com/ilyanaxo/offcut-webmcp/tree/f8091483ef2003b1bff361ab8f1b49a5715cd19d",
+      "appURL": "https://ilyanaxo.github.io/offcut-webmcp/",
+      "pagesCommitProvidedByMain": "c88b3050ee128d19b5f79a9380822771a0167160",
+      "browserVersion": "Chrome/152.0.7977.64",
+      "browserVersionDetails": {
+        "protocolVersion": "1.3",
+        "product": "Chrome/152.0.7977.64",
+        "revision": "@506c834ecceaa943c5f41e6cfe7f68acb5c45346",
+        "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36",
+        "jsVersion": "15.2.124.18"
+      },
+      "capturedAt": "2026-09-03T11:33:50.152Z",
+      "sourceVideoEvidencePath": "submission/evidence/capture-take-02/source-recording.provenance.json",
+      "sourceDurationSeconds": 2417.36,
+      "sourceViewport": {
+        "width": 1365,
+        "height": 900
+      },
+      "captureMethod": "Chrome CDP Page.screencastFrame JPEG with native Network.TimeSinceEpoch metadata; acknowledged frames; actual DOM-event observation",
+      "sourceFrameManifestPath": "submission/evidence/capture-take-02/frame-manifest.portable.json",
+      "modelAttribution": {
+        "client": "External recording harness",
+        "inferenceAPI": "OMP Eval completion",
+        "requestedModelRole": "default",
+        "decisionPolicy": "A separate real completion receives the actually discovered serializable native catalogue and retained actual transcript before every tool selection or local finish.",
+        "providerResponseMetadataAvailable": false,
+        "isChatGPTInAppRecording": false,
+        "approvalCapability": false
+      },
+      "uiAttribution": {
+        "actor": "Automated recording UI controls",
+        "mechanism": "Playwright-driven actual Chrome DOM mouse/keyboard/wheel events; isTrusted recorded independently",
+        "provesPhysicalHumanPresence": false,
+        "provesPhysicalMeasurements": false
+      },
+      "deliveredResources": [
+        {
+          "url": "https://ilyanaxo.github.io/offcut-webmcp/assets/index-wHlxX3aJ.css",
+          "status": 200,
+          "sha256": "9b5aa8cdff45ec68a8732865240cfe66f0934313c0795a8afff6bf28ad64a7ee",
+          "bytes": 42055,
+          "observedAt": "2026-09-03T11:33:42.035Z"
+        },
+        {
+          "url": "https://ilyanaxo.github.io/offcut-webmcp/assets/index-BXFW-YOC.js",
+          "status": 200,
+          "sha256": "e4cff05b03454ac310258402c8533f7ed9a6f900c76a82ba5943e2785ddcf680",
+          "bytes": 301245,
+          "observedAt": "2026-09-03T11:33:42.302Z"
+        }
+      ],
+      "version": "1.1.0"
+    },
+    "csv_acquisition": {
+      "kind": "actual_native_export_and_browser_download_acquisition",
+      "path": "submission/evidence/capture-take-02/offcut-the-little-library-r1-plan-683635c8-5b2c-40d1-82e8-31916f4a622b-6.csv",
+      "filename": "offcut-the-little-library-r1-plan-683635c8-5b2c-40d1-82e8-31916f4a622b-6.csv",
+      "downloadUIEventOrdinal": 47,
+      "nativeExportReceiptOrdinal": 9,
+      "planId": "plan-683635c8-5b2c-40d1-82e8-31916f4a622b-6",
+      "revision": 1,
+      "columns": 17,
+      "dataRows": 14,
+      "allRowColumnCounts": [17],
+      "sha256": "9391830cdd096fab3cc3f825c7b2a35e0cda41b9efd0b7f0b88ba2d1fd35cbc2",
+      "nativeReturnedCsvUtf8Sha256": "9391830cdd096fab3cc3f825c7b2a35e0cda41b9efd0b7f0b88ba2d1fd35cbc2",
+      "nativeReturnMatchesActualDownloadBytes": true,
+      "header": [
+        "Project",
+        "Material (same cross-section)",
+        "Plan ID",
+        "Workspace revision",
+        "Board ID",
+        "Board label",
+        "Usable stock length (mm)",
+        "Cut order",
+        "Part ID",
+        "Part",
+        "Part instance",
+        "Part length (mm)",
+        "Start from usable edge (mm)",
+        "End before kerf (mm)",
+        "Kerf after this part (mm)",
+        "Final remnant (mm)",
+        "Remnant class"
+      ],
+      "actualPartIds": ["brace", "rail", "shelf", "upright"],
+      "totalPartLengthMm": 7000,
+      "totalKerfMm": 42,
+      "totalFinalRemnantMm": 158,
+      "evidenceBoundary": "Complete bytes genuinely returned by native model-selected export and saved by the actual site UI browser download. This is a planning document, not cutting execution, physical review or inventory consumption. No final video/submission/publication claim."
+    },
+    "decision_input_receipt_bindings_verified": true,
+    "final_actual_state": {
+      "currentRevision": 2,
+      "committedKerfMm": 4,
+      "draftKerfText": "4",
+      "selectedPlanId": "plan-683635c8-5b2c-40d1-82e8-31916f4a622b-32",
+      "reviewPlanId": "plan-683635c8-5b2c-40d1-82e8-31916f4a622b-32",
+      "approvedPlanId": null,
+      "pendingMeasurements": false,
+      "reviewModal": true,
+      "acknowledgementChecked": false,
+      "approveDisabled": true,
+      "activeElement": {
+        "tag": "SUMMARY",
+        "id": null,
+        "ariaLabel": null,
+        "text": "Cut order & exact offsets",
+        "value": null,
+        "checked": null,
+        "disabled": null,
+        "type": null,
+        "ariaPressed": null,
+        "className": "",
+        "rect": {
+          "x": 196,
+          "y": 1394.390625,
+          "width": 943,
+          "height": 18
+        }
+      },
+      "evidence": {
+        "revisionText": "Revision 2",
+        "committedConstraintsText": "4 mm kerf / partKeep remnants ≥ 400 mm",
+        "nativeCorroboration": {
+          "receiptOrdinal": 14,
+          "revision": 2,
+          "kerfMm": 4
+        },
+        "selectedStatusText": "This selected proposal is not approved.",
+        "releaseText": "03 / HUMAN RELEASE\n\nA final call that stays yours\n\nReview a fresh, complete proposal and approve it yourself to unlock CSV and print. Saving changed measurements invalidates its release.\n\nDownload approved CSV\nPrint approved cut sheet\n\nApproval lasts only in this page session. It approves a plan; it does not cut or consume stock.",
+        "reviewConstraintsText": "4 mm kerf per part · reusable positive remnants ≥ 400 mm",
+        "reviewStockText": "Using\nA-02\nA-03\nA-04\nProtected\nA-01",
+        "pendingText": null,
+        "identitySource": "Actual product DOM data-plan-id and full plan-reference text; no store hook or action-based inferred IDs"
+      }
+    },
+    "source_frame_count": 851,
+    "source_video_sha256": "48e2e955bc43d7b9e5b5cb1cea23b854e5a46f55be9e9f0b92c0c96eb8889711",
+    "source_acquisition_errors_preserved": [
+      {
+        "observedAt": "2026-09-03T11:36:25.861Z",
+        "message": "Error: Screencast timestamp moved backwards",
+        "frameMetadata": {
+          "offsetTop": 0,
+          "pageScaleFactor": 1,
+          "deviceWidth": 1365,
+          "deviceHeight": 900,
+          "scrollOffsetX": 0,
+          "scrollOffsetY": 9.46707820892334,
+          "timestamp": 1788435385.784376
+        }
+      },
+      {
+        "observedAt": "2026-09-03T11:36:26.042Z",
+        "message": "Error: Screencast timestamp moved backwards",
+        "frameMetadata": {
+          "offsetTop": 0,
+          "pageScaleFactor": 1,
+          "deviceWidth": 1365,
+          "deviceHeight": 900,
+          "scrollOffsetX": 0,
+          "scrollOffsetY": 554.51513671875,
+          "timestamp": 1788435385.9188
+        }
+      }
+    ],
+    "evidence_path": "submission/evidence/offcut-overhaul-real-model-proof.portable.json",
+    "source_recording_provenance_path": "submission/evidence/capture-take-02/source-recording.provenance.json",
+    "source_frame_bindings_path": "submission/evidence/capture-take-02/source-frame-bindings.portable.json",
+    "verifier_observations_path": "submission/evidence/capture-take-02/observations.portable.json",
+    "verifier_observations_json_pointer": "/records",
+    "dom_events_path": "submission/evidence/capture-take-02/dom-events.portable.json",
+    "dom_events_json_pointer": "/records",
+    "actual_dom_events": 323,
+    "trusted_dom_events": 322,
+    "actual_observations": 300,
+    "actual_capture_marks": 50,
+    "observation_basis": "Original completed real-model proof and retained trace/Main's original independent checks. External actual model selections execute real native capabilities; Playwright browser UI automation operates review/approval. No ChatGPT desktop/in-app recording or physical-human field study is claimed.",
+    "ui_post_observation_bindings_path": "submission/evidence/capture-take-02/ui-observation-bindings.portable-summary.json",
+    "ui_observation_ordinal_boundary": "UI event ordinal and original observation ordinal are different domains. UI event afterObservationOrdinal identifies the original observation, not a new event/frame index. JSON pointers use array positions while record ordinals are preserved explicitly."
+  },
+  "output_and_visual_contracts": {
+    "csv_columns": 17,
+    "part_id_column_zero_based": 8,
+    "exact_plan_id_filename": true,
+    "actual_maximum_cut_rows": 40,
+    "maximum_final_start_mm": 39780,
+    "maximum_final_end_before_kerf_mm": 40780,
+    "maximum_sawdust_mm": 800,
+    "maximum_reusable_remnant_mm": 59200,
+    "actual_native_manual_maximum_pdf_documents": 2,
+    "actual_pages_per_document": 6,
+    "all_actual_rendered_pages_inspected": 12,
+    "page_pixel_inspections": [
+      {
+        "kind": "native",
+        "page": 1,
+        "path": "submission/evidence/printed-pages/max-native-page-1.png",
+        "pixelFindings": "## 1) Bestätigung\n\n**Ja:** Die Toolbar zeigt **`1 / 6`** bei **`100%`**, die erste Miniatur ist markiert. Von Papierseite 1 sind **alle vier Kanten – oben, unten, links und rechts – vollständig sichtbar**.\n\n## 2) Lesbare Angaben\n\n- Titel: **`Forty-cut continuation`**\n- Status: **`40 / 40 parts planned`**, daneben `Optimal for this objective`\n\n| Anzeige | Sichtbarer Wert |\n|---|---:|\n| Stock opened | 100,000 mm |\n| Finished parts | 40,000 mm |\n| Sawdust | 800 mm |\n| Reusable remnants | 59,200 mm |\n| Short scrap | 0 mm |\n| Boards handled | 1 |\n\n**Die vollständigen IDs sind lesbar:**\n- Plan: `plan-07b39e6c-babe-41a7-b244-d8dc5ddf40b7-13`\n- Board/Stock: `stock-07b39e6c-babe-41a7-b244-d8dc5ddf40b7-9`\n\n**Schutzhinweise vollständig lesbar:**\n> Saw kerf: 20 mm per part. Keep positive remnants: at least 500 mm.\n\n> Usable lengths only; deduct trimming and defects first. One saw pass per produced part, including the last one. Same material and cross-section throughout.\n\n**Tabellenkopf und Zeilen 1–2 sind vollständig lesbar:**\n\n| Order | Part | Length | Start | Kerf |\n|---|---|---|---|---|\n| 1 | One-metre shelf #1 | 1,000 mm | 0 mm | 20 mm |\n| 2 | One-metre shelf #2 | 1,000 mm | 1,020 mm | 20 mm |\n\nIn beiden Part-Zellen steht außerdem diese vollständig sichtbare, dreizeilig umgebrochene ID:\n```text\npart-07b39e6c-\nbabe-41a7-b244-\nd8dc5ddf40b7-11\n```\n\n## 3) Seitenende / Lesbarkeitsgrenzen\n\n- **Am Ende von Seite 1 keine teilweise gezeichnete oder abgeschnittene Zeile 3.** Nach Zeile 2 folgen eine vollständige Abschlusslinie und ein breiter weißer Rand bis zur sichtbaren unteren Papierkante. In Zeilen 1–2 sind keine Zahlen sichtbar abgeschnitten.\n- **Zeile 3 erscheint erst auf der folgenden Papierseite**, unterhalb des klar sichtbaren Seitenabstands. Dort sind `3`, `One-metre shelf #3`, `1,000 mm`, `2,040 mm` und `20 mm` lesbar. Der untere Teil dieser Zeile samt weiterer Part-ID-Zeilen ist **am Screenshot-Unterrand abgeschnitten**, nicht am Ende von Seite 1.\n- **Dekorative Streifenlabels getrennt betrachtet:** Die winzigen Beschriftungen der schmalen Streifen sind nicht zuverlässig vollständig lesbar. Das große Restflächenlabel **`59200`** ist lesbar. Aus den winzigen Labels ergibt sich kein Pixelbeleg für fehlende Zahlen in der maßgeblichen Tabelle."
+      },
+      {
+        "kind": "native",
+        "page": 2,
+        "path": "submission/evidence/printed-pages/max-native-page-2.png",
+        "pixelFindings": "## Bestätigte Pixelbefunde\n\n- **Toolbar:** `2 / 6`, Zoom `100%`; Miniatur **2** ist blau markiert.\n- **Papierkanten:** Alle vier Kanten von Seite 2 sind sichtbar, einschließlich oberer und unterer Kante.\n- **Spaltenköpfe:** `Order`, `Part`, `Length`, `Start`, `Kerf` sind vollständig sichtbar. Dieselben fünf Köpfe erscheinen erneut auf der darunter beginnenden Folgeseite.\n- **Erste Datenzeile:** Die Orderzahl **`3`** steht vollständig **auf Seite 2**, unterhalb der Kopfzeile, ohne Randbeschnitt. Ebenfalls vollständig sichtbar:\n  `One-metre shelf #3` | `1,000 mm` | `2,040 mm` | `20 mm`.\n\n## Zeilen 3–12\n\nAlle zehn Zeilen sind vollständig sichtbar und lesbar, **ohne erkennbare Textüberlappungen oder abgeschnittene Zeilen**. Die Partbezeichnungen reichen von `One-metre shelf #3` bis `One-metre shelf #12`. Überall stehen Length `1,000 mm` und Kerf `20 mm`.\n\n| Order | Start |\n|---|---|\n| 3 | `2,040 mm` |\n| 4 | `3,060 mm` |\n| 5 | `4,080 mm` |\n| 6 | `5,100 mm` |\n| 7 | `6,120 mm` |\n| 8 | `7,140 mm` |\n| 9 | `8,160 mm` |\n| 10 | `9,180 mm` |\n| 11 | `10,200 mm` |\n| 12 | `11,220 mm` |\n\nUnter jeder Partbezeichnung ist dieselbe ID ohne sichtbaren Beschnitt lesbar, mit diesen Zeilenumbrüchen:\n```text\npart-07b39e6c-\nbabe-41a7-b244-\nd8dc5ddf40b7-11\n```\nAuch die letzte ID-Zeile von Order `12` liegt vollständig oberhalb der unteren Tabellenlinie und des freien Seitenrands.\n\n## Grenzen der Bestätigung\n\n- Die ID ist hier **nicht ausdrücklich als „RequirementID“ beschriftet**; bestätigt ist ihr sichtbarer Text, nicht ihre interne Zuordnung.\n- Ob Order `3` **zusätzlich** auf Seite 1 vorkommt, ist aus deren Miniatur nicht verlässlich prüfbar. Ihre vollständige Darstellung auf Seite 2 ist eindeutig bestätigt."
+      },
+      {
+        "kind": "native",
+        "page": 3,
+        "path": "submission/evidence/printed-pages/max-native-page-3.png",
+        "pixelFindings": "## 1) Bestätigung\n\n- **Toolbar:** `3 / 6`, Zoom `100%`; Miniatur **3** ist blau markiert.\n- **Seite 3:** Alle vier Papierkanten — oben, unten, links und rechts — sind in der Hauptansicht sichtbar.\n- **Köpfe:** `Order`, `Part`, `Length`, `Start`, `Kerf` stehen über Zeile 13. Dieselben Köpfe sind am sichtbaren Anfang der Folgeseite erneut vorhanden.\n- **Erste Order-Zahl:** **`13` ist tatsächlich lesbar**, nicht aus nachfolgenden Zeilen erschlossen.\n\n## 2) Sichtbare Zeilen 13–22\n\n| Order | Part | Length | Start | Kerf |\n|---|---|---|---|---|\n| 13 | One-metre shelf #13 | 1,000 mm | 12,240 mm | 20 mm |\n| 14 | One-metre shelf #14 | 1,000 mm | 13,260 mm | 20 mm |\n| 15 | One-metre shelf #15 | 1,000 mm | 14,280 mm | 20 mm |\n| 16 | One-metre shelf #16 | 1,000 mm | 15,300 mm | 20 mm |\n| 17 | One-metre shelf #17 | 1,000 mm | 16,320 mm | 20 mm |\n| 18 | One-metre shelf #18 | 1,000 mm | 17,340 mm | 20 mm |\n| 19 | One-metre shelf #19 | 1,000 mm | 18,360 mm | 20 mm |\n| 20 | One-metre shelf #20 | 1,000 mm | 19,380 mm | 20 mm |\n| 21 | One-metre shelf #21 | 1,000 mm | 20,400 mm | 20 mm |\n| 22 | One-metre shelf #22 | 1,000 mm | 21,420 mm | 20 mm |\n\nUnter jedem dieser Part-Einträge, einschließlich Zeile 13, steht dieselbe lesbare ID mit diesen sichtbaren Zeilenumbrüchen:\n\n```text\npart-07b39e6c-\nbabe-41a7-b244-\nd8dc5ddf40b7-11\n```\n\n## 3) Grenzen der Bestätigung\n\n**Für Zeilen 13–22:** Alle zehn Order-Zahlen, Zahlenfelder und dreizeiligen ID-Blöcke sind sichtbar. Keine abgeschnittenen Zeichen oder überlappenden Zeilen erkennbar.\n\nEine Beschriftung **`RequirementID`** ist nicht sichtbar; bestätigt ist die oben transkribierte ID unter `Part`. Ob gegenüber den Quelldaten etwas fehlt, lässt sich aus dem Screenshot allein nicht prüfen. Die unten angeschnittene Folgeseite ist von der Vollständigkeitsbestätigung ausgenommen."
+      },
+      {
+        "kind": "native",
+        "page": 4,
+        "path": "submission/evidence/printed-pages/max-native-page-4.png",
+        "pixelFindings": "**Ja – für die vollständig sichtbare Seite 4 bestätigt.**\n\n- **Toolbar:** `4 / 6`, Zoom `100%`; Miniatur 4 blau markiert.\n- **Papierkanten:** oben, unten, links und rechts sichtbar.\n- **Fünf Spaltenköpfe:** `Order`, `Part`, `Length`, `Start`, `Kerf`. Diese stehen auch am sichtbaren Anfang der Folgeseite erneut.\n- **Erste Orderzahl:** `23` ist unter `Order` sichtbar.\n- **Zeilen 23–32:** vollständig sichtbar und lesbar; keine sichtbaren Abschneidungen oder Textüberlappungen.\n\n### Abgelesene Werte\n\n| Order | Part | Length | Start | Kerf |\n|---|---|---|---|---|\n| 23 | One-metre shelf #23 | 1,000 mm | 22,440 mm | 20 mm |\n| 24 | One-metre shelf #24 | 1,000 mm | 23,460 mm | 20 mm |\n| 25 | One-metre shelf #25 | 1,000 mm | 24,480 mm | 20 mm |\n| 26 | One-metre shelf #26 | 1,000 mm | 25,500 mm | 20 mm |\n| 27 | One-metre shelf #27 | 1,000 mm | 26,520 mm | 20 mm |\n| 28 | One-metre shelf #28 | 1,000 mm | 27,540 mm | 20 mm |\n| 29 | One-metre shelf #29 | 1,000 mm | 28,560 mm | 20 mm |\n| 30 | One-metre shelf #30 | 1,000 mm | 29,580 mm | 20 mm |\n| 31 | One-metre shelf #31 | 1,000 mm | 30,600 mm | 20 mm |\n| 32 | One-metre shelf #32 | 1,000 mm | 31,620 mm | 20 mm |\n\n### Sichtbarer ID-Text\n\nIn jeder Zeile 23–32 steht unter `Part` derselbe vollständig sichtbare, dreizeilig umgebrochene Text:\n\n```text\npart-07b39e6c-\nbabe-41a7-b244-\nd8dc5ddf40b7-11\n```\n\nDie ID-Zeilen sind **umgebrochen, nicht abgeschnitten**. Eine eigene Beschriftung `RequirementID` ist nicht sichtbar; bestätigt ist der oben wiedergegebene ID-Text unter `Part`."
+      },
+      {
+        "kind": "native",
+        "page": 5,
+        "path": "submission/evidence/printed-pages/max-native-page-5.png",
+        "pixelFindings": "**Bestätigt für Seite 5 – keine sichtbare Überlappung oder Abschneidung der abgefragten Inhalte.**\n\n### Pixelbefunde\n- **Toolbar:** `5 / 6`, Zoom `100%`; Miniatur 5 blau markiert.\n- **Papier:** Alle vier Kanten der großen Seite 5 vollständig sichtbar.\n- **Tabellenkopf:** `Order`, `Part`, `Length`, `Start`, `Kerf` stehen oben auf dieser Seite.\n- **Zeilen:** Erste Orderzahl `33`. Alle acht Zeilen `33–40` einschließlich Partnamen, Werten und dreizeiligen IDs vollständig sichtbar.\n- **Schlusszeile:**\n  `40 | One-metre shelf #40 | 1,000 mm | 39,780 mm | 20 mm`\n\nDie ID unter dem Partnamen ist vollständig sichtbar, einschließlich Endung `-11`:\n```text\npart-07b39e6c-\nbabe-41a7-b244-\nd8dc5ddf40b7-11\n```\n\n### Nachfolgende Inhalte\nAlle folgenden Texte sind vollständig sichtbar und voneinander getrennt:\n\n- **Tabellenunterschrift:**  \n  “Starts are measured from the usable stock end; each part includes one subsequent saw pass.”\n- **Bilanzhinweis:**  \n  “Every millimetre accounted for. 40.0% of opened stock becomes finished parts in this proposal.”\n- **Bilanz:**  \n  `100,000 mm = 40,000 + 800 + 59,200 + 0 mm`\n- **Waste:**  \n  “Waste is sawdust + short scrap (800 mm). Reusable remnants and untouched stock are not waste.”\n- **Erläuterung, zweizeilig:**  \n  “For a fixed complete job, sawdust is constant: one kerf per requested part. The trade-offs are stock opened, boards handled,  \n  and whether remaining lengths become reusable remnants or short scrap.”\n\nUnter der Erläuterung bleibt deutlicher Weißraum bis zur unteren Papierkante.\n\n**Abgrenzung:** Eine ausdrückliche Beschriftung `RequirementID` ist nicht sichtbar; die transkribierte ID steht unter `Part`. Der unten sichtbare Beginn von Seite 6 ist am Bildschirmrand abgeschnitten, Seite 5 nicht."
+      },
+      {
+        "kind": "native",
+        "page": 6,
+        "path": "submission/evidence/printed-pages/max-native-page-6.png",
+        "pixelFindings": "**Ja:** Die genannten Inhalte auf Seite 6 sind vollständig lesbar, ohne sichtbares Abschneiden oder Überlappen.\n\n**Pixelbelege:**\n- **Seite und Kanten:** Toolbar zeigt `6 / 6` bei `100%`; Miniatur 6 ist markiert. Alle vier Papierkanten von Seite 6 sind in der Hauptansicht sichtbar.\n- **Bilanz:** `Every copy checked` und `40 planned / 40 requested`. Für `One-metre shelf`: `Requested` **40**, `Planned` **40**, `Missing` **0**.\n- **ID:** vollständig sichtbar, über drei Zeilen umbrochen:\n  ```text\n  part-07b39e6c-babe-\n  41a7-b244-\n  d8dc5ddf40b7-11\n  ```\n- **Suchhinweis:** vollständig lesbar:\n  > Deterministic branch-and-bound. 1 of 100,000 search nodes examined. The search proved this solution optimal for the selected objective and allowed stock.\n\n  Auch die Zielformulierung ist vollständig:\n  > Minimize the total length of stock opened for this job. Ties favor less waste, then fewer boards.\n\n- **Planning-estimate-/Safe-cutting-Abgrenzung:** vollständig lesbar:\n  > A planning estimate, not machine-control instructions or a safe-cutting guarantee. Verify measurements, stock identity and safe workholding at the bench. Approval does not physically consume stock.\n\n**Abgrenzung:** Der große untere Leerraum ist kein Fehler. Bestätigt ist ausschließlich die sichtbare Darstellung, nicht die tatsächliche Optimalität oder Schnittsicherheit."
+      },
+      {
+        "kind": "manual",
+        "page": 1,
+        "path": "submission/evidence/printed-pages/max-manual-page-1.png",
+        "pixelFindings": "## 1) Bestätigung\n\n- **Toolbar:** `1 / 6`, Zoom `100%`; Miniatur **1** ist ausgewählt.\n- **Papierseite 1:** Alle vier Kanten – oben, unten, links und rechts – sind vollständig sichtbar. Unterhalb liegt ein dunkler Zwischenraum zur nächsten Papierseite.\n- **Titel:** `Forty-cut continuation`\n- **Status:** `40 / 40 parts planned`\n- **Kennzahlen stimmen mit der Vorgabe überein:**\n  - Stock opened: `100,000 mm`\n  - Finished parts: `40,000 mm`\n  - Sawdust: `800 mm`\n  - Reusable remnants: `59,200 mm`\n  - Short scrap: `0 mm`\n  - Boards handled: `1`\n\n## 2) Vollständig lesbare Belege\n\n**Plan- und Board-/Stock-ID sind vollständig sichtbar:**\n\n- `plan-18f74717-20d0-48cc-9c2c-760fd83c4a81-13`\n- `stock-18f74717-20d0-48cc-9c2c-760fd83c4a81-9`\n\n**Die Schutz-/Arbeitsregeln sind vollständig lesbar:**\n\n> Saw kerf: 20 mm per part. Keep positive remnants: at least 500 mm.\n\n> Usable lengths only; deduct trimming and defects first. One saw pass per produced part, including the last one. Same material and cross-section throughout.\n\nAuch der Hinweis unter der Legende zur proportionalen Skala und zu schmalen Streifen/Labels ist vollständig sichtbar.\n\n**Tabellenkopf und Zeilen 1–2 sind vollständig lesbar:**\n\n| Order | Part | Length | Start | Kerf |\n|---|---|---|---|---|\n| 1 | One-metre shelf #1 | 1,000 mm | 0 mm | 20 mm |\n| 2 | One-metre shelf #2 | 1,000 mm | 1,020 mm | 20 mm |\n\nUnter beiden Part-Namen steht jeweils vollständig, dreizeilig umbrochen:\n`part-18f74717-20d0-48cc-9c2c-760fd83c4a81-11`\n\n## 3) Seitenende / Einschränkungen\n\n- **Am Ende von Seite 1 keine angebrochene oder abgeschnittene Zeile 3.** Nach Zeile 2 folgt eine vollständige horizontale Linie und darunter ein leerer unterer Seitenbereich. In Zeilen 1–2 sind keine fehlenden oder abgeschnittenen Zahlen erkennbar.\n- **Zeile 3 steht auf der darunter sichtbaren Folgeseite.** Lesbar sind `3`, `One-metre shelf #3`, `1,000 mm`, `2,040 mm` und `20 mm`. Ihr unterer Part-ID-Bereich ist **am Screenshotrand abgeschnitten**, nicht am Ende von Seite 1.\n- **Winzige Streifenlabels getrennt betrachtet:** In den schmalen Grafiksegmenten sind nur Zeichenfragmente erkennbar; ihre vollständigen Zahlen sind **[unlesbar]**. Das größere Streifenlabel `59200` ist lesbar. Die maßgeblichen Tabellenzahlen bleiben davon getrennt vollständig lesbar."
+      },
+      {
+        "kind": "manual",
+        "page": 2,
+        "path": "submission/evidence/printed-pages/max-manual-page-2.png",
+        "pixelFindings": "## Bestätigt\n- **Toolbar:** `2 / 6`, Zoom `100%`; Seitenminiatur **2** blau markiert.\n- **Seite 2:** Alle vier Papierkanten und alle vier Ecken sind sichtbar.\n- **Erste Orderzahl `3`:** vollständig **auf Seite 2**, unterhalb der Kopfzeile. Weder Zahl noch zugehörige Zeile sind am Seitenrand abgeschnitten.\n- **Alle fünf Spaltenköpfe:** `Order`, `Part`, `Length`, `Start`, `Kerf`. Dieselben Köpfe erscheinen auch am sichtbaren Anfang der Folgeseite.\n- **Zeilen 3–12:** Zahlen, Part-Bezeichnungen und ID-Texte sind lesbar; keine sichtbaren Überlappungen oder abgeschnittenen Zeilen. Auch Zeile 12 endet vollständig oberhalb der unteren Papierkante.\n\n## Lesbare Inhalte\n\n| Order | Part | Length | Start | Kerf |\n|---|---|---|---|---|\n| 3 | One-metre shelf #3 | 1,000 mm | 2,040 mm | 20 mm |\n| 4 | One-metre shelf #4 | 1,000 mm | 3,060 mm | 20 mm |\n| 5 | One-metre shelf #5 | 1,000 mm | 4,080 mm | 20 mm |\n| 6 | One-metre shelf #6 | 1,000 mm | 5,100 mm | 20 mm |\n| 7 | One-metre shelf #7 | 1,000 mm | 6,120 mm | 20 mm |\n| 8 | One-metre shelf #8 | 1,000 mm | 7,140 mm | 20 mm |\n| 9 | One-metre shelf #9 | 1,000 mm | 8,160 mm | 20 mm |\n| 10 | One-metre shelf #10 | 1,000 mm | 9,180 mm | 20 mm |\n| 11 | One-metre shelf #11 | 1,000 mm | 10,200 mm | 20 mm |\n| 12 | One-metre shelf #12 | 1,000 mm | 11,220 mm | 20 mm |\n\nUnter `Part` steht in **jeder Zeile 3–12** diese vollständig sichtbare ID, mit folgenden Zeilenumbrüchen:\n\n```text\npart-18f74717-\n20d0-48cc-9c2c-\n760fd83c4a81-11\n```\n\n## Grenzen der Bestätigung\n- Die ID ist im Bild **nicht als „RequirementID“ beschriftet**; bestätigt ist der sichtbare ID-Text unter `Part`.\n- Dass Order `3` **nicht zusätzlich auf Seite 1** vorkommt, lässt sich anhand deren kleiner Miniatur nicht prüfen. Ihr vollständiges Vorkommen auf Seite 2 ist eindeutig.\n- Der Anschnitt am unteren Screenshotrand betrifft die **Folgeseite ab Order `13`**, nicht Zeile 12."
+      },
+      {
+        "kind": "manual",
+        "page": 3,
+        "path": "submission/evidence/printed-pages/max-manual-page-3.png",
+        "pixelFindings": "## Bestätigt für Seite 3\n\n- **Toolbar:** `3 / 6`; Miniatur **3** ist blau markiert.\n- **Alle vier Papierkanten** der Hauptseite sind sichtbar: oben, unten, links und rechts.\n- **Kopfzeile vollständig sichtbar:** `Order | Part | Length | Start | Kerf`. Dieselben Köpfe erscheinen auch am sichtbaren Anfang der Folgeseite.\n- **Erste Orderzahl unter der Kopfzeile ist tatsächlich `13`**, vollständig sichtbar.\n- **Zeilen 13–22 sind lückenlos sichtbar**, ohne erkennbare abgeschnittene Zahlen/IDs oder überlappende Zeilen.\n\n## Abgelesene Werte\n\n| Order | Part | Length | Start | Kerf |\n|---|---|---|---|---|\n| 13 | One-metre shelf #13 | 1,000 mm | 12,240 mm | 20 mm |\n| 14 | One-metre shelf #14 | 1,000 mm | 13,260 mm | 20 mm |\n| 15 | One-metre shelf #15 | 1,000 mm | 14,280 mm | 20 mm |\n| 16 | One-metre shelf #16 | 1,000 mm | 15,300 mm | 20 mm |\n| 17 | One-metre shelf #17 | 1,000 mm | 16,320 mm | 20 mm |\n| 18 | One-metre shelf #18 | 1,000 mm | 17,340 mm | 20 mm |\n| 19 | One-metre shelf #19 | 1,000 mm | 18,360 mm | 20 mm |\n| 20 | One-metre shelf #20 | 1,000 mm | 19,380 mm | 20 mm |\n| 21 | One-metre shelf #21 | 1,000 mm | 20,400 mm | 20 mm |\n| 22 | One-metre shelf #22 | 1,000 mm | 21,420 mm | 20 mm |\n\n**ID unter „Part“**, einschließlich Zeile 13: In allen zehn Zeilen ist derselbe Text vollständig sichtbar, mit diesen Zeilenumbrüchen:\n\n```text\npart-18f74717-\n20d0-48cc-9c2c-\n760fd83c4a81-11\n```\n\n## Sichtgrenzen\n\n- Die Beschriftung **`RequirementID`** selbst ist in dieser Tabelle nicht sichtbar; bestätigt ist der oben wiedergegebene ID-Text unter `Part`.\n- Die Aussage „nicht abgeschnitten“ gilt für **Seite 3 / Zeilen 13–22**. Unten ist die Folgeseite nur teilweise sichtbar; **Zeile 23 samt weiterem ID-Text ist am unteren Bildrand abgeschnitten**."
+      },
+      {
+        "kind": "manual",
+        "page": 4,
+        "path": "submission/evidence/printed-pages/max-manual-page-4.png",
+        "pixelFindings": "**Bestätigt für die dargestellte Seite 4:**\n\n- Toolbar zeigt **`4 / 6`** bei `100%`; Miniatur 4 ist blau markiert.\n- **Alle vier Papierkanten** der Seite 4 sind sichtbar.\n- Alle fünf Spaltenköpfe sind vollständig sichtbar: **`Order | Part | Length | Start | Kerf`**. Sie erscheinen auch am sichtbaren Anfang der Folgeseite erneut.\n- Die **erste Zahl in der Spalte `Order` ist `23`**, vollständig sichtbar – unabhängig vom `#23` im Part-Text.\n- Sämtliche Zeilen **23–32** sind vollständig sichtbar.\n\n### Abgelesene Werte\n\n| Order | Part | Length | Start | Kerf |\n|---|---|---|---|---|\n| 23 | One-metre shelf #23 | 1,000 mm | 22,440 mm | 20 mm |\n| 24 | One-metre shelf #24 | 1,000 mm | 23,460 mm | 20 mm |\n| 25 | One-metre shelf #25 | 1,000 mm | 24,480 mm | 20 mm |\n| 26 | One-metre shelf #26 | 1,000 mm | 25,500 mm | 20 mm |\n| 27 | One-metre shelf #27 | 1,000 mm | 26,520 mm | 20 mm |\n| 28 | One-metre shelf #28 | 1,000 mm | 27,540 mm | 20 mm |\n| 29 | One-metre shelf #29 | 1,000 mm | 28,560 mm | 20 mm |\n| 30 | One-metre shelf #30 | 1,000 mm | 29,580 mm | 20 mm |\n| 31 | One-metre shelf #31 | 1,000 mm | 30,600 mm | 20 mm |\n| 32 | One-metre shelf #32 | 1,000 mm | 31,620 mm | 20 mm |\n\nDer ID-Block unter `Part` ist in allen zehn Zeilen vollständig sichtbar und lautet, mit sichtbaren Zeilenumbrüchen:\n\n```text\npart-18f74717-\n20d0-48cc-9c2c-\n760fd83c4a81-11\n```\n\n**Lesbarkeit:** In den Zeilen 23–32 sind alle Zahlen, Part-Texte und ID-Zeilen lesbar; keine sichtbaren Abschneidungen oder Überlappungen. Die IDs sind dreizeilig umgebrochen.\n\n**Abgrenzung:** Ein eigenes Label `RequirementID` ist nicht sichtbar; bestätigt ist der oben transkribierte ID-Text unter `Part`. Die Folgeseite ist nur teilweise sichtbar."
+      },
+      {
+        "kind": "manual",
+        "page": 5,
+        "path": "submission/evidence/printed-pages/max-manual-page-5.png",
+        "pixelFindings": "## 1) Antwort\nDie Toolbar zeigt **`5 / 6`**, Zoom **`100%`**. **Alle vier Papierkanten von Seite 5 sind sichtbar.** Die Tabelle und die nachfolgenden Textblöcke sind vollständig im Bild; keine sichtbare Überlappung oder Abschneidung.\n\n## 2) Pixelbefunde\n- **Fünf Spaltenköpfe:** `Order` · `Part` · `Length` · `Start` · `Kerf`.\n- **Erste Order-Zahl:** `33`. Die Zeilen **33–40** sind lückenlos mit sämtlichen Spalteninhalten und dreizeiligen IDs sichtbar.\n- **Schlusszeile:**\n  `40 | One-metre shelf #40 | 1,000 mm | 39,780 mm | 20 mm`\n- **Darunter vollständig sichtbare ID**, mit den Umbrüchen aus dem Bild:\n  ```text\n  part-18f74717-\n  20d0-48cc-9c2c-\n  760fd83c4a81-11\n  ```\n\n**Tabellen-Caption vollständig:**\n> Starts are measured from the usable stock end; each part includes one subsequent saw pass.\n\n**Bilanzblock vollständig:**\n> Every millimetre accounted for. 40.0% of opened stock becomes finished parts in this proposal.\n\n```text\n100,000 mm = 40,000 + 800 + 59,200 + 0 mm\n```\n\n> Waste is sawdust + short scrap (800 mm). Reusable remnants and untouched stock are not waste.\n\n**Abschließende Erläuterung vollständig, zweizeilig:**\n> For a fixed complete job, sawdust is constant: one kerf per requested part. The trade-offs are stock opened, boards handled,  \n> and whether remaining lengths become reusable remnants or short scrap.\n\nZwischen diesen Blöcken und zur unteren Papierkante ist freier Abstand sichtbar.\n\n## 3) Einschränkung\nDie fünf Köpfe **auf Seite 5** sind bestätigt. Ihre wortgleiche Wiederholung gegenüber vorherigen Seiten lässt sich aus den kleinen Vorschaubildern nicht sicher prüfen."
+      },
+      {
+        "kind": "manual",
+        "page": 6,
+        "path": "submission/evidence/printed-pages/max-manual-page-6.png",
+        "pixelFindings": "**Bestätigt für Seite 6:** Alle genannten Inhalte sind lesbar, ohne sichtbares Abschneiden oder Überlappen. Der große Leerraum ist kein Fehler.\n\n### Pixelbelege\n- **Toolbar:** `6 / 6`, Zoom `100%`; Miniatur 6 ist blau markiert.\n- **Papierkanten:** Oben, unten, links und rechts vollständig sichtbar. Unter der unteren Kante bleibt ein schmaler dunkler Außenrand.\n- **Übersicht:** `Every copy checked` und `40 planned / 40 requested`.\n- **Zeile „One-metre shelf“:** `Requested` = `40`, `Planned` = `40`, `Missing` = `0`.\n- **ID:** vollständig lesbar, ohne sichtbare Kürzung; Zeilenumbrüche wie im Bild:\n  ```text\n  part-18f74717-20d0-\n  48cc-9c2c-\n  760fd83c4a81-11\n  ```\n\n**Suchhinweis vollständig lesbar:**\n> Deterministic branch-and-bound. 1 of 100,000 search nodes examined. The search proved this solution optimal for the selected objective and allowed stock.\n\n> Minimize the total length of stock opened for this job. Ties favor less waste, then fewer boards.\n\n**Planning-estimate-/Safe-cutting-Abgrenzung vollständig lesbar:**\n> A planning estimate, not machine-control instructions or a safe-cutting guarantee. Verify measurements, stock identity and safe workholding at the bench. Approval does not physically consume stock.\n\n**Prüfgrenze:** Bestätigt ist die sichtbare Darstellung, nicht die rechnerische Optimalität oder praktische Schnittsicherheit."
+      }
+    ],
+    "touch_reference_scope": {
+      "scope": "Actual Chrome152 touch-event emulation, not physical touchscreen hardware; fresh native-capable app context",
+      "browser": "152.0.7977.64",
+      "url": "http://127.0.0.1:4183/",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "planId": "plan-f732e228-2e02-4fc2-8188-35671d6bcc4d-5",
+      "selectedDisclosureOpenedByTouch": true,
+      "rawIds": [
+        "plan-f732e228-2e02-4fc2-8188-35671d6bcc4d-5",
+        "A-02",
+        "A-03",
+        "A-04",
+        "shelf",
+        "brace",
+        "rail",
+        "upright"
+      ],
+      "fullDateAndTimeVisible": "9/3/2026, 10:40:49 AM",
+      "reviewDisclosureOpenedByTouch": true,
+      "modal": true,
+      "acknowledged": false,
+      "approveDisabled": true,
+      "errors": []
+    },
+    "current_screenshot_bindings": [
+      {
+        "path": "submission/screenshots/cutting-layout.png",
+        "actualPNGHash": "d59e7e65e7612244ff84625398b127a06a9ff94bb4bc0da3588dba073acb692f",
+        "sourceMark": "cold-open-unapproved-leaststock-layout",
+        "sourcePointSeconds": 254.4661009311676,
+        "actualCDPFrameIndex": 69,
+        "actualCDPFrameSeconds": 248.80869483947754,
+        "actualSourceJPEGHash": "734ed827588acf7adf2d199941281f4fee6bc204a622995d0c6705010a215ea9",
+        "nativeReceiptOrdinal": 2,
+        "uiEventOrdinal": 7,
+        "scope": "PNG encoded from actual currentcandidate genuineCDPJPEG; no alteredreceipt/count/geometry/sourceUI"
+      },
+      {
+        "path": "submission/screenshots/planning-tradeoffs.png",
+        "actualPNGHash": "fbbf56c704f63b15c92bfeb8e1df799f7ce00995deca11ad8a712cf183591f0f",
+        "sourceMark": "alternatives-comparison-effective-constraints",
+        "sourcePointSeconds": 450.4134508371353,
+        "actualCDPFrameIndex": 73,
+        "actualCDPFrameSeconds": 445.7593379020691,
+        "actualSourceJPEGHash": "e90ca3fcee07ced434b4ac4931d5b4f31141ca673c13ad9d3c2b51cc580d5a3f",
+        "nativeReceiptOrdinal": 5,
+        "uiEventOrdinal": 9,
+        "scope": "PNG encoded from actual currentcandidate genuineCDPJPEG; no alteredreceipt/count/geometry/sourceUI"
+      },
+      {
+        "path": "submission/screenshots/human-review.png",
+        "actualPNGHash": "74e686b76184a1ab338603403ecdea303fe0f1bb7f7528c1b395cd0b205e1fc7",
+        "sourceMark": "review-r1-unchecked-final-preack-identity-hold",
+        "sourcePointSeconds": 1000.799850821495,
+        "actualCDPFrameIndex": 126,
+        "actualCDPFrameSeconds": 994.167356967926,
+        "actualSourceJPEGHash": "75ae19f0f747dec522860bc2ccd011122b3e9ee00bbff130fe6fb5af6d2c52ef",
+        "nativeReceiptOrdinal": 7,
+        "uiEventOrdinal": 44,
+        "scope": "PNG encoded from actual currentcandidate genuineCDPJPEG; no alteredreceipt/count/geometry/sourceUI"
+      },
+      {
+        "path": "submission/screenshots/fresh-human-review.png",
+        "actualPNGHash": "9cd3a528fb679a72f2a27cd9ea78d92a944c5686310e54fec01abc9e6b8faeb2",
+        "sourceMark": "final-r2-staged-not-approved-unchecked-through-final-source",
+        "sourcePointSeconds": 2398.8875007629395,
+        "actualCDPFrameIndex": 848,
+        "actualCDPFrameSeconds": 2380.348990917206,
+        "actualSourceJPEGHash": "1d2c1a4add03fe7a8b572d09202905b7f183e76d684827a87e68fca5529f7297",
+        "nativeReceiptOrdinal": 19,
+        "uiEventOrdinal": 69,
+        "scope": "PNG encoded from actual currentcandidate genuineCDPJPEG; no alteredreceipt/count/geometry/sourceUI"
+      }
+    ],
+    "all_printed_pages_evidence_path": "submission/evidence/offcut-overhaul-all-printed-pages-proof.portable.json",
+    "touch_reference_evidence_path": "submission/evidence/offcut-overhaul-touch-reference.original.json",
+    "current_submission_image_findings_path": "submission/evidence/offcut-overhaul-submission-image-proof.original.json",
+    "pixel_inspection_scope": "The12 original settled Chrome152 native PDF-viewer PNG captures and both exact6-page PDFs are packaged; retained pixelFindings are the original inspections, not newly performed checks or physical paper proof. Existing four submission PNGs remain bound to original current-candidate CDP JPEG hashes, not final MP4 frames."
+  },
+  "measured_optimizations": {
+    "bun_duplicate_search_before": [
+      {
+        "objective": "least_stock",
+        "iterations": 16,
+        "minMs": 24.038095,
+        "medianMs": 24.352446499999985,
+        "p95Ms": 67.711923,
+        "totalMs": 440.8144319999999,
+        "heapBefore": 636724,
+        "heapAfter": 926801,
+        "retainedHeapDeltaBytes": 290077,
+        "reusedRecords": 0,
+        "retainedRecords": 12,
+        "metrics": {
+          "stockUsedMm": 33600,
+          "partsMm": 31440,
+          "kerfMm": 120,
+          "reusableMm": 1263,
+          "scrapMm": 777,
+          "boardCount": 14,
+          "utilization": 0.9357142857142857
+        },
+        "search": {
+          "method": "branch-and-bound",
+          "provenOptimal": false,
+          "nodes": 100000,
+          "limit": 100000
+        }
+      },
+      {
+        "objective": "fewest_boards",
+        "iterations": 16,
+        "minMs": 23.622860999999943,
+        "medianMs": 23.843002000000013,
+        "p95Ms": 28.85741399999995,
+        "totalMs": 388.1359659999996,
+        "heapBefore": 838979,
+        "heapAfter": 960150,
+        "retainedHeapDeltaBytes": 121171,
+        "reusedRecords": 0,
+        "retainedRecords": 12,
+        "metrics": {
+          "stockUsedMm": 33600,
+          "partsMm": 31440,
+          "kerfMm": 120,
+          "reusableMm": 1263,
+          "scrapMm": 777,
+          "boardCount": 14,
+          "utilization": 0.9357142857142857
+        },
+        "search": {
+          "method": "branch-and-bound",
+          "provenOptimal": false,
+          "nodes": 100000,
+          "limit": 100000
+        }
+      },
+      {
+        "objective": "least_waste",
+        "iterations": 16,
+        "minMs": 23.231661999999915,
+        "medianMs": 23.541774000000032,
+        "p95Ms": 28.638984000000164,
+        "totalMs": 384.2026510000003,
+        "heapBefore": 879492,
+        "heapAfter": 970732,
+        "retainedHeapDeltaBytes": 91240,
+        "reusedRecords": 0,
+        "retainedRecords": 12,
+        "metrics": {
+          "stockUsedMm": 38400,
+          "partsMm": 31440,
+          "kerfMm": 120,
+          "reusableMm": 6840,
+          "scrapMm": 0,
+          "boardCount": 16,
+          "utilization": 0.81875
+        },
+        "search": {
+          "method": "branch-and-bound",
+          "provenOptimal": false,
+          "nodes": 100000,
+          "limit": 100000
+        }
+      }
+    ],
+    "bun_duplicate_search_after": [
+      {
+        "objective": "least_stock",
+        "iterations": 16,
+        "minMs": 0.07884900000000528,
+        "medianMs": 0.2926880000000054,
+        "p95Ms": 1.4561749999999876,
+        "totalMs": 5.71681999999997,
+        "heapBefore": 624867,
+        "heapAfter": 782954,
+        "retainedHeapDeltaBytes": 158087,
+        "reusedRecords": 16,
+        "retainedRecords": 12,
+        "metrics": {
+          "stockUsedMm": 33600,
+          "partsMm": 31440,
+          "kerfMm": 120,
+          "reusableMm": 1263,
+          "scrapMm": 777,
+          "boardCount": 14,
+          "utilization": 0.9357142857142857
+        },
+        "search": {
+          "method": "branch-and-bound",
+          "provenOptimal": false,
+          "nodes": 100000,
+          "limit": 100000
+        }
+      },
+      {
+        "objective": "fewest_boards",
+        "iterations": 16,
+        "minMs": 0.11296099999998432,
+        "medianMs": 0.13343200000001332,
+        "p95Ms": 2.3264369999999985,
+        "totalMs": 4.52144100000001,
+        "heapBefore": 842474,
+        "heapAfter": 876052,
+        "retainedHeapDeltaBytes": 33578,
+        "reusedRecords": 16,
+        "retainedRecords": 12,
+        "metrics": {
+          "stockUsedMm": 33600,
+          "partsMm": 31440,
+          "kerfMm": 120,
+          "reusableMm": 1263,
+          "scrapMm": 777,
+          "boardCount": 14,
+          "utilization": 0.9357142857142857
+        },
+        "search": {
+          "method": "branch-and-bound",
+          "provenOptimal": false,
+          "nodes": 100000,
+          "limit": 100000
+        }
+      },
+      {
+        "objective": "least_waste",
+        "iterations": 16,
+        "minMs": 0.06070200000002046,
+        "medianMs": 0.06701849999998899,
+        "p95Ms": 0.22981699999999705,
+        "totalMs": 1.2736430000000212,
+        "heapBefore": 892946,
+        "heapAfter": 903389,
+        "retainedHeapDeltaBytes": 10443,
+        "reusedRecords": 16,
+        "retainedRecords": 12,
+        "metrics": {
+          "stockUsedMm": 38400,
+          "partsMm": 31440,
+          "kerfMm": 120,
+          "reusableMm": 6840,
+          "scrapMm": 0,
+          "boardCount": 16,
+          "utilization": 0.81875
+        },
+        "search": {
+          "method": "branch-and-bound",
+          "provenOptimal": false,
+          "nodes": 100000,
+          "limit": 100000
+        }
+      }
+    ],
+    "native_description_bytes_before": [
+      {
+        "name": "get_workshop",
+        "descriptionUtf8Bytes": 254,
+        "catalogueUtf8Bytes": 445
+      },
+      {
+        "name": "plan_cuts",
+        "descriptionUtf8Bytes": 505,
+        "catalogueUtf8Bytes": 1195
+      },
+      {
+        "name": "inspect_plan",
+        "descriptionUtf8Bytes": 247,
+        "catalogueUtf8Bytes": 584
+      },
+      {
+        "name": "compare_plans",
+        "descriptionUtf8Bytes": 310,
+        "catalogueUtf8Bytes": 708
+      },
+      {
+        "name": "stage_plan_for_review",
+        "descriptionUtf8Bytes": 298,
+        "catalogueUtf8Bytes": 809
+      },
+      {
+        "name": "export_cut_list",
+        "descriptionUtf8Bytes": 311,
+        "catalogueUtf8Bytes": 643
+      }
+    ],
+    "native_description_bytes_after": [
+      {
+        "name": "get_workshop",
+        "descriptionUtf8Bytes": 209,
+        "catalogueUtf8Bytes": 428
+      },
+      {
+        "name": "plan_cuts",
+        "descriptionUtf8Bytes": 476,
+        "catalogueUtf8Bytes": 1194
+      },
+      {
+        "name": "inspect_plan",
+        "descriptionUtf8Bytes": 242,
+        "catalogueUtf8Bytes": 607
+      },
+      {
+        "name": "compare_plans",
+        "descriptionUtf8Bytes": 401,
+        "catalogueUtf8Bytes": 827
+      },
+      {
+        "name": "stage_plan_for_review",
+        "descriptionUtf8Bytes": 293,
+        "catalogueUtf8Bytes": 832
+      },
+      {
+        "name": "export_cut_list",
+        "descriptionUtf8Bytes": 304,
+        "catalogueUtf8Bytes": 664
+      }
+    ],
+    "renderer_native_read_before_after": {
+      "browser": "152.0.7977.64",
+      "scope": "Actual old retained-public1.0.0 versus actualpublic1.1.0f809148, same1365x900UTC/reducedmotion/stockconstraints/r1/approved3board+staged6board/3planviews/80eventcap, three60-readwavesperversion inABB AAB order",
+      "waveOrder": [
+        "old-1.0.0-retained-public-page",
+        "new-1.1.0-public-f809148",
+        "new-1.1.0-public-f809148",
+        "old-1.0.0-retained-public-page",
+        "old-1.0.0-retained-public-page",
+        "new-1.1.0-public-f809148"
+      ],
+      "summary": [
+        {
+          "label": "old-1.0.0-retained-public-page",
+          "waves": 3,
+          "readsPerWave": 60,
+          "medianWallMs": 2615.39416000247,
+          "medianRendererScriptMs": 1679.11,
+          "medianRendererTaskMs": 2394.212,
+          "medianRendererLayoutMs": 28.109,
+          "sourceIdentityObservedPendingField": false,
+          "historicalObservedScriptIdentities": [
+            {
+              "scheme": "https",
+              "host": "ilyanaxo.github.io",
+              "projectPathSegments": ["offcut-webmcp", "assets"],
+              "resourceName": "index-CyHZ3dwn.js",
+              "role": "Historical retained-page resource identity; not a current download or current1.1.0 proof"
+            }
+          ],
+          "candidateRole": "historical1.0.0-workload-control"
+        },
+        {
+          "label": "new-1.1.0-public-f809148",
+          "scriptURLs": ["https://ilyanaxo.github.io/offcut-webmcp/assets/index-BXFW-YOC.js"],
+          "waves": 3,
+          "readsPerWave": 60,
+          "medianWallMs": 1023.1683439984918,
+          "medianRendererScriptMs": 124.528,
+          "medianRendererTaskMs": 748.308,
+          "medianRendererLayoutMs": 34.144000000000005,
+          "sourceIdentityObservedPendingField": true,
+          "candidateRole": "current1.1.0-measured-workload"
+        }
+      ],
+      "rawWaves": [
+        {
+          "label": "old-1.0.0-retained-public-page",
+          "iterations": 60,
+          "wallMs": 2585.7981749996543,
+          "rendererDeltas": {
+            "TaskDurationSeconds": 2.394212,
+            "ScriptDurationSeconds": 1.654955,
+            "LayoutDurationSeconds": 0.027178,
+            "RecalcStyleDurationSeconds": 0.008221
+          },
+          "heapUsedAfterBytes": 8627048,
+          "nodesAfter": 4503,
+          "scope": "Actual nativegetTools/executeTool/get_workshop plus renderedaudit updates;60reads/80eventcap/3planviews. BrowserIPC+renderer+UIaggregate, not isolatedmemo speed or model latency."
+        },
+        {
+          "label": "new-1.1.0-public-f809148",
+          "iterations": 60,
+          "wallMs": 1023.1683439984918,
+          "rendererDeltas": {
+            "TaskDurationSeconds": 0.748308,
+            "ScriptDurationSeconds": 0.119245,
+            "LayoutDurationSeconds": 0.036236,
+            "RecalcStyleDurationSeconds": 0.011026000000000001
+          },
+          "heapUsedAfterBytes": 5676768,
+          "nodesAfter": 5306,
+          "scope": "Actual nativegetTools/executeTool/get_workshop plus renderedaudit updates;60reads/80eventcap/3planviews. BrowserIPC+renderer+UIaggregate, not isolatedmemo speed or model latency."
+        },
+        {
+          "label": "new-1.1.0-public-f809148",
+          "iterations": 60,
+          "wallMs": 1078.9718680009246,
+          "rendererDeltas": {
+            "TaskDurationSeconds": 0.8487870000000001,
+            "ScriptDurationSeconds": 0.129824,
+            "LayoutDurationSeconds": 0.03414400000000001,
+            "RecalcStyleDurationSeconds": 0.009556
+          },
+          "heapUsedAfterBytes": 5284540,
+          "nodesAfter": 4914,
+          "scope": "Actual nativegetTools/executeTool/get_workshop plus renderedaudit updates;60reads/80eventcap/3planviews. BrowserIPC+renderer+UIaggregate, not isolatedmemo speed or model latency."
+        },
+        {
+          "label": "old-1.0.0-retained-public-page",
+          "iterations": 60,
+          "wallMs": 2676.80353000015,
+          "rendererDeltas": {
+            "TaskDurationSeconds": 2.3840950000000003,
+            "ScriptDurationSeconds": 1.6791099999999999,
+            "LayoutDurationSeconds": 0.028109000000000002,
+            "RecalcStyleDurationSeconds": 0.008669
+          },
+          "heapUsedAfterBytes": 7732560,
+          "nodesAfter": 5211,
+          "scope": "Actual nativegetTools/executeTool/get_workshop plus renderedaudit updates;60reads/80eventcap/3planviews. BrowserIPC+renderer+UIaggregate, not isolatedmemo speed or model latency."
+        },
+        {
+          "label": "old-1.0.0-retained-public-page",
+          "iterations": 60,
+          "wallMs": 2615.39416000247,
+          "rendererDeltas": {
+            "TaskDurationSeconds": 2.4266430000000003,
+            "ScriptDurationSeconds": 1.6811049999999996,
+            "LayoutDurationSeconds": 0.029789999999999997,
+            "RecalcStyleDurationSeconds": 0.008917000000000001
+          },
+          "heapUsedAfterBytes": 10866540,
+          "nodesAfter": 4928,
+          "scope": "Actual nativegetTools/executeTool/get_workshop plus renderedaudit updates;60reads/80eventcap/3planviews. BrowserIPC+renderer+UIaggregate, not isolatedmemo speed or model latency."
+        },
+        {
+          "label": "new-1.1.0-public-f809148",
+          "iterations": 60,
+          "wallMs": 1021.3117670044303,
+          "rendererDeltas": {
+            "TaskDurationSeconds": 0.7084510000000002,
+            "ScriptDurationSeconds": 0.124528,
+            "LayoutDurationSeconds": 0.030663999999999997,
+            "RecalcStyleDurationSeconds": 0.009744
+          },
+          "heapUsedAfterBytes": 7212648,
+          "nodesAfter": 5630,
+          "scope": "Actual nativegetTools/executeTool/get_workshop plus renderedaudit updates;60reads/80eventcap/3planviews. BrowserIPC+renderer+UIaggregate, not isolatedmemo speed or model latency."
+        }
+      ],
+      "limits": [
+        "AggregateUI/audit/nativeclient/producer/IPCmeasurements, notisolatedmemo/compilerattribution",
+        "No model-latency or cold-loading benchmark",
+        "No generalp95/userstudy/physicaltime-savingsclaim",
+        "Sourcecaptureotherprocessactivitymayaffectwalltimings; interleavedprotocolandrenderercountersretained"
+      ],
+      "observedAt": "2026-09-03T11:33:19.985Z",
+      "measurementInterpretation": "Three sixty-read waves per version measure the aggregate browser/native-client/producer/IPC/audit/render workload. The Bun protocol separately measures same-problem checked-solution reuse. Neither is every-model latency, judge latency, a user study, cold-load performance, an isolated compiler/memo speed attribution or physical workshop savings.",
+      "portableProvenance": {
+        "representation": "transformed-full-observation-record",
+        "originalSourceArtifactName": "offcut-overhaul-render-performance.json",
+        "originalSourceSha256": "7a1db0b82eda6b28247aa52cae1822002694ac7eb42e011a76ecfef411003ec9",
+        "originalSourceBytes": 5408,
+        "sourceBytesIdenticalToPortableFile": false,
+        "observationScope": "Historical retained-public1.0.0 control versus actual public1.1.0f809148; aggregate native-read/UI/IPC workload, not model/judge latency",
+        "pathBase": "repository-root",
+        "transformations": [
+          "Evidence references are repository-relative; source video is represented by its provenance record; original JPEG paths become explicit frame-manifest record locators. Original tool/model/UI/clock values and original media hashes are retained.",
+          "Historical1.0.0 script URL is preserved as reconstructable scheme/host/project-path/resource identity rather than an unverified current asset link; all timing/counter values and interleaved wave labels remain unchanged."
+        ],
+        "referenceReplacementCounts": {},
+        "portableFileHashManifest": "submission/evidence/manifest.json"
+      }
+    },
+    "scope": "Actual described syntheticBun duplicates and aggregateChromeUI/native-read workload, not model/coldload/physicalworkshop latency/savings/carbon.",
+    "before_workload_evidence_path": "submission/evidence/offcut-overhaul-baseline.original.json",
+    "after_workload_evidence_path": "submission/evidence/offcut-overhaul-after.original.json",
+    "renderer_workload_evidence_path": "submission/evidence/offcut-overhaul-render-performance.portable.json",
+    "measurement_interpretation": "Measured aggregate Chrome UI/native-client/producer/IPC/audit/render workload and separately measured same-problem checked-solution reuse in Bun. Not every-model latency, judge latency, cold loading, isolated compiler/memo attribution, a user study or physical-workshop time/material/carbon savings.",
+    "historical_control_boundary": "The retained-public1.0.0 renderer wave is only the before-workload control. The Bun baseline predates optimization and has no source commit pinned by its record. Neither supplies current1.1.0 behavior or video evidence."
   },
   "scope_limits": [
-    "Original illustrative stock/cut measurements, not real-shop impact or physical cutting validation.",
-    "Human approval means the app UI route absent from the registered tool capability catalogue, not authenticated human presence.",
-    "No claim of visual ChatGPT in-app-browser testing.",
-    "No actual public YouTube or green Devpost Submitted state established by these code/browser/model records.",
-    "Future availability and jury outcome remain external obligations; no justified99.99percent winning probability."
+    "ActualChrome149/152native/manualsource/platform/UI/callback/model/outputproof; noactualChatGPT-host/interfaceproof",
+    "UIapprovalabsentfromnativecatalogueisacapabilityboundary,nothuman-presencecryptography;trustedUIcontrolsareautomated",
+    "Onehomogeneoususable-integer-mmplanningbatch;onekerfperproducedpartincludingfinal,nofreefactoryendcut;notmachinecontrol/safecutguarantee/inventoryconsume",
+    "Actual19newmodel-nativecallsreplacetheold14callcandidate;finish/UIeventsseparate",
+    "2out-of-orderCDPtimestampframeslogged/omittedbeforecriticalsequence;851acceptedframes/hashpreserved,notzero-acquisitionerrorclaim",
+    "Portable evidence references identify actual repository-relative files/record locators. Original/transformed/media hashes are distinct; original source media identity, final edited-media acceptance and public release/download observations are separate records.",
+    "ActualYouTubePublicupload/DevpostSubmitted/entranteligibility/authority/rights/futurejudgingnotverified",
+    "Performance observations are aggregate workload/same-problem solution reuse, not every-model or judge latency; historical1.0.0 control data is labelled and never current-candidate behavior/media evidence."
   ],
   "final_demo": {
-    "file": "submission/demo.mp4",
-    "actual_seconds": 165,
-    "English_embedded_AAC_ASR_checked": true,
-    "full_decode_exit_code": 0,
-    "burned_English_subtitles": true,
-    "record": "submission/demo-verification.json",
-    "actual_Public_YouTube_verified": false
-  }
+    "status": "verified_actual_current_candidate_mp4",
+    "verification_record": "submission/demo-verification.json",
+    "new_final_encoded_video_verified": true,
+    "video_file": "submission/demo.mp4",
+    "video_sha256": "c91ba242684a288452f12d9754caaff662347559714cf7f453c35695282aa79c",
+    "video_bytes": 12497854,
+    "actual_duration_seconds": 165,
+    "actual_decoded_video_frames": 4125,
+    "actual_frame_rate": 25,
+    "English_encoded_AAC_ASR_verified": true,
+    "actual_caption_cues": 40,
+    "actual_final_PNG_images_inspected": 108,
+    "all_40_caption_cues_and_41_segments_and_9_scenes_sampled": true,
+    "actual_native_Chrome_paint_callbacks": 10,
+    "final_unapproved_genuine_source_frames": 679,
+    "final_unapproved_edited_hold_frames": 0,
+    "actual_source_pcm_sha256": "a612fc6c88921fa6a241617ab741957c1dfb8eac706a4e7a3c8a947d4706efd8",
+    "media_evidence": "submission/evidence/media/final-media.portable.json",
+    "visual_evidence": "submission/evidence/media/final-visual-inspections.portable.json",
+    "scope": "Actual current1.1.0 finalMP4 decode/stream durations/EnglishAAC-ASR/108image inspections/caption pixels/nativeChrome playback; not all4125frame image interpretation, physicalhuman presence, ChatGPT recording, YouTube/Submitted or winning proof."
+  },
+  "candidate_version": "1.1.0",
+  "evidence_reference_policy": {
+    "pathBase": "Repository root; keep the submission directory layout when extracting a package",
+    "evidencePaths": "Paths identify produced files beneath submission/evidence or existing submission artifacts. A path plus jsonPointer identifies a record within a produced JSON file, not a JPEG image.",
+    "originalNames": "originalSourceArtifactName/originalSourceFrameName/originalRunnerArtifactName are provenance labels, not downloadable artifact references.",
+    "observedRuntimeAddresses": "Loopback URLs retained inside observations identify the actually exercised local surface; they are not portable download links or hosted-test claims.",
+    "sourceFootage": "Original encoded footage is a separate versioned release asset; source identity is recorded in its provenance descriptor, and actual public access/download evidence is separately recorded in https://github.com/ilyanaxo/offcut-webmcp/blob/main/submission/publication-verification.json. No original JPEG set is copied.",
+    "hashes": "originalSourceSha256 hashes the untouched source artifact snapshot. portableFileSha256 in the evidence manifest hashes the exact delivered portable file. Source JPEG/video hashes remain hashes of those original media bytes, never of transformed summaries.",
+    "finalMedia": "Actual current1.1.0 final encoded-media decode/ASR/108PNG/native-player evidence is recorded separately in submission/demo-verification.json and submission/evidence/media; source capture records do not themselves verify edited media.",
+    "ordinalDomains": "The70 UI event ordinals,300 original observation ordinals,323 DOM event ordinals,19 native receipt ordinals and25 model decision ordinals are separate domains. UI before/afterObservationOrdinal refer to original observations; trustedDomEventOrdinal refers to original DOM events. Preserve these values, do not renumber them. Post-state observation time, action time, native receipt time and CDP paint time remain separate."
+  },
+  "evidence_manifest": "submission/evidence/manifest.json",
+  "verified_at_scope": "Retained original final browser-observation timestamp; not an assembly, final edited-MP4 verification, release publication or formal-submission timestamp",
+  "portable_provenance": {
+    "representation": "transformed-current-candidate-verification-report",
+    "originalSourceArtifactName": "verification.json",
+    "originalSourceSha256": "6c344b11eaff5a8cf2a1d8254c162b7d72104f2a0533b29afbc38dbb4512ff30",
+    "originalSourceBytes": 84260,
+    "sourceBytesIdenticalToPortableFile": false,
+    "observationScope": "Current1.1.0 source/runtime/model and actually verified final edited-media summary; public-access and entrant-owned account gates are separate observations.",
+    "pathBase": "repository-root",
+    "transformations": [
+      "Full original current-candidate observations are retained; private evidence references are mapped to produced files or explicit source-frame JSON record locators. Original tool/UI/model results and original media hashes are not rewritten.",
+      "Added explicit prepublication-build versus published-delivery, historical-workload-control, aggregate-performance, source-footage-publication-pending and final-new-MP4-awaiting-Main boundaries.",
+      "Clarified existing license/final-browser observation scope; removed the premature final-archive mapping claim. This is a transformed report, not an identical-hash raw source artifact.",
+      "Main finalized actual165s/4125frame/40cue/108image/encodedEnglishAAC/nativeChrome video acceptance after independent execution and image/text comparisons; original pre-export source digest remains distinct."
+    ],
+    "referenceReplacementCounts": {
+      "evidencePathToProducedPortableFile": 18,
+      "sourceVideoPathToProvenanceRecord": 1
+    },
+    "portableFileHashManifest": "submission/evidence/manifest.json"
+  },
+  "final_media_verified_at_utc": "2026-09-03T15:04:06.945Z"
 }

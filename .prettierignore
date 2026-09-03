@@ -8,3 +8,5 @@ test-results/
 submission/*.mp4
 submission/*.wav
 submission/screenshots/
+# Source-provenance snapshots retain their original bytes and recorded digests.
+submission/evidence/

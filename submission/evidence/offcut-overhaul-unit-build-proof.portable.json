@@ -1,0 +1,48 @@
+{
+  "packageVersion": "1.1.0",
+  "sourcePhase": "Current uncommitted converged source",
+  "format": "Project formatter completed, private runtime/artifacts excluded",
+  "build": {
+    "command": "bun run build",
+    "typecheck": "tsc --noEmit passed including src/tests/vite/playwright",
+    "vite": "8.2.2",
+    "modules": 27,
+    "js": "index-CKOQ29Ge.js",
+    "jsKB": 301.23,
+    "jsGzipKB": 91.41,
+    "css": "index-wHlxX3aJ.css",
+    "cssKB": 42.05,
+    "cssGzipKB": 7.9
+  },
+  "units": {
+    "command": "bun test src",
+    "runtime": "Bun1.4.0",
+    "pass": 884,
+    "fail": 0,
+    "expectCalls": 118823,
+    "files": 4,
+    "runnerReportedMs": 336
+  },
+  "fixtureCorrection": "The newly added same-revision3/6-board CSV case now correctly protects A-01 before capturing revision/planning; expectations were not weakened. All884 passed on the corrected full suite.",
+  "measurementScope": "Five descriptions shortened by91bytes while new comparison instructions consume91extra bytes; total description bytes1925 unchanged with additional necessary semantics. Required payload grew; exact layouts/CSV/rules retained.",
+  "browserEvidence": "Separate real18-case Chrome152 run now executing; no browser pass claimed yet",
+  "observedAt": "2026-09-03T10:25:47.728Z",
+  "laterBrowserProof": "submission/evidence/offcut-overhaul-complete-browser-matrix.portable.json",
+  "laterPublicBuildProof": "submission/evidence/offcut-overhaul-public-build-proof.portable.json",
+  "phaseBoundary": "This working-tree build emitted index-CKOQ29Ge.js. Later current published delivery emitted index-BXFW-YOC.js. These are distinct observed build artifacts, not identical-byte/hash claims. The browserEvidence text is the original time-scoped pending observation, superseded by the separately completed matrix.",
+  "portableProvenance": {
+    "representation": "transformed-full-observation-record",
+    "originalSourceArtifactName": "offcut-overhaul-unit-build-proof.json",
+    "originalSourceSha256": "10caf49d6dbef1f4043c6b4ae0ef469dbe9d89e9b428ee31f7144b987b78f225",
+    "originalSourceBytes": 1268,
+    "sourceBytesIdenticalToPortableFile": false,
+    "observationScope": "Prepublication converged1.1.0 working-tree build/unit observation at2026-09-03T10:25:47.728Z; not the later delivered JS blob or a browser result",
+    "pathBase": "repository-root",
+    "transformations": [
+      "Evidence references are repository-relative; source video is represented by its provenance record; original JPEG paths become explicit frame-manifest record locators. Original tool/model/UI/clock values and original media hashes are retained.",
+      "Removed a private runtime-folder label from formatter scope text; kept the original build filename, original sourcePhase and original at-that-time pending browserEvidence, with later proof links."
+    ],
+    "referenceReplacementCounts": {},
+    "portableFileHashManifest": "submission/evidence/manifest.json"
+  }
+}

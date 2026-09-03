@@ -1,0 +1,2363 @@
+{
+  "audio_path": "submission/demo.mp4",
+  "duration_seconds": 165.0133125,
+  "language": "en",
+  "model_repo": "Systran/faster-whisper-base.en",
+  "model_revision": "3d3d5dee26484f91867d81cb899cfcf72b96be6c",
+  "model_settings": {
+    "device": "cpu",
+    "compute_type": "int8",
+    "cpu_threads": 4,
+    "num_workers": 1,
+    "local_files_only": true
+  },
+  "transcription_settings": {
+    "language": "en",
+    "task": "transcribe",
+    "beam_size": 5,
+    "temperature": 0,
+    "condition_on_previous_text": false,
+    "vad_filter": false,
+    "word_timestamps": true,
+    "initial_prompt": null,
+    "prefix": null,
+    "hotwords": null
+  },
+  "python": "3.12.14",
+  "package_versions": {
+    "PyYAML": "6.0.3",
+    "anyio": "4.15.0",
+    "av": "18.1.0",
+    "certifi": "2026.7.22",
+    "click": "8.5.0",
+    "ctranslate2": "4.8.2",
+    "faster-whisper": "1.2.1",
+    "filelock": "3.32.5",
+    "flatbuffers": "25.12.19",
+    "fsspec": "2026.7.0",
+    "h11": "0.16.0",
+    "hf-xet": "1.6.0",
+    "httpcore": "1.0.9",
+    "httpx": "0.28.1",
+    "huggingface_hub": "1.29.0",
+    "idna": "3.19",
+    "numpy": "2.5.2",
+    "onnxruntime": "1.29.0",
+    "packaging": "26.3",
+    "pip": "25.0.1",
+    "protobuf": "7.36.1",
+    "tokenizers": "0.23.1",
+    "tqdm": "4.70.0",
+    "typing_extensions": "4.16.0"
+  },
+  "model_load_seconds": 0.492,
+  "transcription_seconds": 7.984,
+  "transcript": "Offcut gives people and browser agents the same cutting stock workbench. Fourteen parts fit, the longboard stays protected. These illustrative measurements cover usable stock, parts, kerf, and the reusable remnant threshold. People own measurements and protection. Registered tools cannot change them. The right-hand panel is an external model recording harness, not a chatbot inside the website. site. A real model chooses native WebM, CP calls on the shared committed workbench. This is not a chat GPT recording. The model compares three complete alternatives, less stock, fewer boards, or useful offcuts. The deterministic branch and bounce solver checks quantities, stock, and one curve per part. A search limit is not a proof of optimality. Less stock and fewer boards, both open 7.2m across 3 boards, 42mm of sawdust, plus 158mm of short scrap. Keeping useful offcuts opens 10.08m across 6 boards, 42mm of sawdust, no short scrap, and 3.038m reusable. useable. Computed trade-offs not measured time or carbon savings. The agent inspects and stages the exact plan. Pause for review. This is not approval. Check stock identities, quantities, and kerf. No registered tool can approve. These UI controls are automated, not proof of human presence. Now the controls check the acknowledgement. Then, they click approve cut sheet. The model inspects approval and exports the actual CSV, 14 parts part identifiers, offsets, kerf, and the exact approved plan identifier. Another draft cannot inherit approval. Typing four leaves committed kerf at three. Pending edits block staging without moving focus or saving. Now commit. Revision two invalidates the old approval. The old plan is stale. The model replans, 14 parts, 56 mm of sawdust. Revision 2 is staged, not approved. The acknowledgment stays unchecked. Offcut itself needs no account. Model Key or McKend. A workbench and MIT license source are public. These are planning estimates, not machine instructions. Barify usable stock and safe cutting conditions at the bench.",
+  "segments": [
+    {
+      "start": 0,
+      "end": 4.28,
+      "text": "Offcut gives people and browser agents the same cutting stock workbench.",
+      "avg_logprob": -0.302191619860365,
+      "no_speech_prob": 0.003104963805526495,
+      "words": [
+        {
+          "start": 0,
+          "end": 0.64,
+          "word": " Offcut",
+          "probability": 0.7305826842784882
+        },
+        {
+          "start": 0.64,
+          "end": 0.86,
+          "word": " gives",
+          "probability": 0.9397807717323303
+        },
+        {
+          "start": 0.86,
+          "end": 1.36,
+          "word": " people",
+          "probability": 0.9862515330314636
+        },
+        {
+          "start": 1.36,
+          "end": 1.62,
+          "word": " and",
+          "probability": 0.9811912178993225
+        },
+        {
+          "start": 1.62,
+          "end": 1.84,
+          "word": " browser",
+          "probability": 0.9708570837974548
+        },
+        {
+          "start": 1.84,
+          "end": 2.4,
+          "word": " agents",
+          "probability": 0.9871839880943298
+        },
+        {
+          "start": 2.4,
+          "end": 2.7,
+          "word": " the",
+          "probability": 0.9826422929763794
+        },
+        {
+          "start": 2.7,
+          "end": 2.92,
+          "word": " same",
+          "probability": 0.9985004663467407
+        },
+        {
+          "start": 2.92,
+          "end": 3.18,
+          "word": " cutting",
+          "probability": 0.9537634253501892
+        },
+        {
+          "start": 3.18,
+          "end": 3.66,
+          "word": " stock",
+          "probability": 0.9543682932853699
+        },
+        {
+          "start": 3.66,
+          "end": 4.28,
+          "word": " workbench.",
+          "probability": 0.9837226569652557
+        }
+      ]
+    },
+    {
+      "start": 4.7,
+      "end": 8.5,
+      "text": "Fourteen parts fit, the longboard stays protected.",
+      "avg_logprob": -0.302191619860365,
+      "no_speech_prob": 0.003104963805526495,
+      "words": [
+        {
+          "start": 4.7,
+          "end": 5.24,
+          "word": " Fourteen",
+          "probability": 0.557752437889576
+        },
+        {
+          "start": 5.24,
+          "end": 5.58,
+          "word": " parts",
+          "probability": 0.9761800765991211
+        },
+        {
+          "start": 5.58,
+          "end": 6.08,
+          "word": " fit,",
+          "probability": 0.8471940755844116
+        },
+        {
+          "start": 6.56,
+          "end": 6.74,
+          "word": " the",
+          "probability": 0.9509004354476929
+        },
+        {
+          "start": 6.74,
+          "end": 7.36,
+          "word": " longboard",
+          "probability": 0.7442938685417175
+        },
+        {
+          "start": 7.36,
+          "end": 7.68,
+          "word": " stays",
+          "probability": 0.9970628619194031
+        },
+        {
+          "start": 7.68,
+          "end": 8.5,
+          "word": " protected.",
+          "probability": 0.9988044500350952
+        }
+      ]
+    },
+    {
+      "start": 10.08,
+      "end": 13.76,
+      "text": "These illustrative measurements cover usable stock, parts,",
+      "avg_logprob": -0.302191619860365,
+      "no_speech_prob": 0.003104963805526495,
+      "words": [
+        {
+          "start": 10.08,
+          "end": 10.32,
+          "word": " These",
+          "probability": 0.9565600752830505
+        },
+        {
+          "start": 10.32,
+          "end": 11.14,
+          "word": " illustrative",
+          "probability": 0.9075263440608978
+        },
+        {
+          "start": 11.14,
+          "end": 11.36,
+          "word": " measurements",
+          "probability": 0.992819607257843
+        },
+        {
+          "start": 11.36,
+          "end": 11.98,
+          "word": " cover",
+          "probability": 0.996551513671875
+        },
+        {
+          "start": 11.98,
+          "end": 12.3,
+          "word": " usable",
+          "probability": 0.9794672131538391
+        },
+        {
+          "start": 12.3,
+          "end": 13,
+          "word": " stock,",
+          "probability": 0.9860228300094604
+        },
+        {
+          "start": 13.48,
+          "end": 13.76,
+          "word": " parts,",
+          "probability": 0.9965866804122925
+        }
+      ]
+    },
+    {
+      "start": 14.12,
+      "end": 16.08,
+      "text": "kerf, and the reusable remnant threshold.",
+      "avg_logprob": -0.302191619860365,
+      "no_speech_prob": 0.003104963805526495,
+      "words": [
+        {
+          "start": 14.12,
+          "end": 14.42,
+          "word": " kerf,",
+          "probability": 0.8324640393257141
+        },
+        {
+          "start": 14.64,
+          "end": 14.68,
+          "word": " and",
+          "probability": 0.9922478199005127
+        },
+        {
+          "start": 14.68,
+          "end": 14.8,
+          "word": " the",
+          "probability": 0.9513870477676392
+        },
+        {
+          "start": 14.8,
+          "end": 15.2,
+          "word": " reusable",
+          "probability": 0.9883473515510559
+        },
+        {
+          "start": 15.2,
+          "end": 15.58,
+          "word": " remnant",
+          "probability": 0.40210679173469543
+        },
+        {
+          "start": 15.58,
+          "end": 16.08,
+          "word": " threshold.",
+          "probability": 0.9773568511009216
+        }
+      ]
+    },
+    {
+      "start": 16.8,
+      "end": 18.3,
+      "text": "People own measurements and protection.",
+      "avg_logprob": -0.302191619860365,
+      "no_speech_prob": 0.003104963805526495,
+      "words": [
+        {
+          "start": 16.8,
+          "end": 16.94,
+          "word": " People",
+          "probability": 0.9666661620140076
+        },
+        {
+          "start": 16.94,
+          "end": 17.18,
+          "word": " own",
+          "probability": 0.9843653440475464
+        },
+        {
+          "start": 17.18,
+          "end": 17.58,
+          "word": " measurements",
+          "probability": 0.9903342127799988
+        },
+        {
+          "start": 17.58,
+          "end": 17.94,
+          "word": " and",
+          "probability": 0.9928293824195862
+        },
+        {
+          "start": 17.94,
+          "end": 18.3,
+          "word": " protection.",
+          "probability": 0.9950122237205505
+        }
+      ]
+    },
+    {
+      "start": 19.16,
+      "end": 20.76,
+      "text": "Registered tools cannot change them.",
+      "avg_logprob": -0.302191619860365,
+      "no_speech_prob": 0.003104963805526495,
+      "words": [
+        {
+          "start": 19.16,
+          "end": 19.16,
+          "word": " Registered",
+          "probability": 0.8581097722053528
+        },
+        {
+          "start": 19.16,
+          "end": 19.7,
+          "word": " tools",
+          "probability": 0.9939321875572205
+        },
+        {
+          "start": 19.7,
+          "end": 20.04,
+          "word": " cannot",
+          "probability": 0.9774938821792603
+        },
+        {
+          "start": 20.04,
+          "end": 20.44,
+          "word": " change",
+          "probability": 0.9993687272071838
+        },
+        {
+          "start": 20.44,
+          "end": 20.76,
+          "word": " them.",
+          "probability": 0.9991029500961304
+        }
+      ]
+    },
+    {
+      "start": 21.74,
+      "end": 25.04,
+      "text": "The right-hand panel is an external model recording harness,",
+      "avg_logprob": -0.302191619860365,
+      "no_speech_prob": 0.003104963805526495,
+      "words": [
+        {
+          "start": 21.74,
+          "end": 21.84,
+          "word": " The",
+          "probability": 0.9897581338882446
+        },
+        {
+          "start": 21.84,
+          "end": 22.04,
+          "word": " right",
+          "probability": 0.9079674482345581
+        },
+        {
+          "start": 22.04,
+          "end": 22.32,
+          "word": "-hand",
+          "probability": 0.8404995799064636
+        },
+        {
+          "start": 22.32,
+          "end": 22.78,
+          "word": " panel",
+          "probability": 0.9989450573921204
+        },
+        {
+          "start": 22.78,
+          "end": 23.34,
+          "word": " is",
+          "probability": 0.9926583170890808
+        },
+        {
+          "start": 23.34,
+          "end": 23.44,
+          "word": " an",
+          "probability": 0.9957322478294373
+        },
+        {
+          "start": 23.44,
+          "end": 23.78,
+          "word": " external",
+          "probability": 0.992558479309082
+        },
+        {
+          "start": 23.78,
+          "end": 24.18,
+          "word": " model",
+          "probability": 0.8523140549659729
+        },
+        {
+          "start": 24.18,
+          "end": 24.6,
+          "word": " recording",
+          "probability": 0.9802588224411011
+        },
+        {
+          "start": 24.6,
+          "end": 25.04,
+          "word": " harness,",
+          "probability": 0.9987313151359558
+        }
+      ]
+    },
+    {
+      "start": 25.72,
+      "end": 27.58,
+      "text": "not a chatbot inside the website.",
+      "avg_logprob": -0.302191619860365,
+      "no_speech_prob": 0.003104963805526495,
+      "words": [
+        {
+          "start": 25.72,
+          "end": 25.98,
+          "word": " not",
+          "probability": 0.9892165660858154
+        },
+        {
+          "start": 25.98,
+          "end": 26.14,
+          "word": " a",
+          "probability": 0.9872719645500183
+        },
+        {
+          "start": 26.14,
+          "end": 26.64,
+          "word": " chatbot",
+          "probability": 0.8971334993839264
+        },
+        {
+          "start": 26.64,
+          "end": 26.88,
+          "word": " inside",
+          "probability": 0.9324797987937927
+        },
+        {
+          "start": 26.88,
+          "end": 27.3,
+          "word": " the",
+          "probability": 0.9946564435958862
+        },
+        {
+          "start": 27.3,
+          "end": 27.58,
+          "word": " website.",
+          "probability": 0.9854410290718079
+        }
+      ]
+    },
+    {
+      "start": 27.58,
+      "end": 27.9,
+      "text": "site.",
+      "avg_logprob": -0.20034517995689227,
+      "no_speech_prob": 0.11697294563055038,
+      "words": [
+        {
+          "start": 27.58,
+          "end": 27.9,
+          "word": " site.",
+          "probability": 0.3409622609615326
+        }
+      ]
+    },
+    {
+      "start": 28.3,
+      "end": 33.46,
+      "text": "A real model chooses native WebM, CP calls on the shared committed workbench.",
+      "avg_logprob": -0.20034517995689227,
+      "no_speech_prob": 0.11697294563055038,
+      "words": [
+        {
+          "start": 28.3,
+          "end": 28.38,
+          "word": " A",
+          "probability": 0.9203013181686401
+        },
+        {
+          "start": 28.38,
+          "end": 28.56,
+          "word": " real",
+          "probability": 0.9512606263160706
+        },
+        {
+          "start": 28.56,
+          "end": 28.9,
+          "word": " model",
+          "probability": 0.9762365221977234
+        },
+        {
+          "start": 28.9,
+          "end": 29.44,
+          "word": " chooses",
+          "probability": 0.9832651019096375
+        },
+        {
+          "start": 29.44,
+          "end": 29.82,
+          "word": " native",
+          "probability": 0.9076230525970459
+        },
+        {
+          "start": 29.82,
+          "end": 30.54,
+          "word": " WebM,",
+          "probability": 0.5343858003616333
+        },
+        {
+          "start": 30.86,
+          "end": 31.18,
+          "word": " CP",
+          "probability": 0.9192017912864685
+        },
+        {
+          "start": 31.18,
+          "end": 31.64,
+          "word": " calls",
+          "probability": 0.9824138879776001
+        },
+        {
+          "start": 31.64,
+          "end": 32.08,
+          "word": " on",
+          "probability": 0.9131407141685486
+        },
+        {
+          "start": 32.08,
+          "end": 32.18,
+          "word": " the",
+          "probability": 0.9704563021659851
+        },
+        {
+          "start": 32.18,
+          "end": 32.5,
+          "word": " shared",
+          "probability": 0.8759376406669617
+        },
+        {
+          "start": 32.5,
+          "end": 32.88,
+          "word": " committed",
+          "probability": 0.8773741126060486
+        },
+        {
+          "start": 32.88,
+          "end": 33.46,
+          "word": " workbench.",
+          "probability": 0.9389300346374512
+        }
+      ]
+    },
+    {
+      "start": 34.02,
+      "end": 35.82,
+      "text": "This is not a chat GPT recording.",
+      "avg_logprob": -0.20034517995689227,
+      "no_speech_prob": 0.11697294563055038,
+      "words": [
+        {
+          "start": 34.02,
+          "end": 34.2,
+          "word": " This",
+          "probability": 0.9462788701057434
+        },
+        {
+          "start": 34.2,
+          "end": 34.32,
+          "word": " is",
+          "probability": 0.986777663230896
+        },
+        {
+          "start": 34.32,
+          "end": 34.54,
+          "word": " not",
+          "probability": 0.9935471415519714
+        },
+        {
+          "start": 34.54,
+          "end": 34.68,
+          "word": " a",
+          "probability": 0.985527753829956
+        },
+        {
+          "start": 34.68,
+          "end": 34.84,
+          "word": " chat",
+          "probability": 0.7332807779312134
+        },
+        {
+          "start": 34.84,
+          "end": 35.38,
+          "word": " GPT",
+          "probability": 0.8196791112422943
+        },
+        {
+          "start": 35.38,
+          "end": 35.82,
+          "word": " recording.",
+          "probability": 0.9656084775924683
+        }
+      ]
+    },
+    {
+      "start": 37.6,
+      "end": 44.34,
+      "text": "The model compares three complete alternatives, less stock, fewer boards, or useful offcuts.",
+      "avg_logprob": -0.20034517995689227,
+      "no_speech_prob": 0.11697294563055038,
+      "words": [
+        {
+          "start": 37.6,
+          "end": 37.74,
+          "word": " The",
+          "probability": 0.9608935117721558
+        },
+        {
+          "start": 37.74,
+          "end": 37.92,
+          "word": " model",
+          "probability": 0.976810097694397
+        },
+        {
+          "start": 37.92,
+          "end": 38.56,
+          "word": " compares",
+          "probability": 0.9929279685020447
+        },
+        {
+          "start": 38.56,
+          "end": 39.22,
+          "word": " three",
+          "probability": 0.8400068879127502
+        },
+        {
+          "start": 39.22,
+          "end": 39.6,
+          "word": " complete",
+          "probability": 0.993065357208252
+        },
+        {
+          "start": 39.6,
+          "end": 40.24,
+          "word": " alternatives,",
+          "probability": 0.9838545918464661
+        },
+        {
+          "start": 40.98,
+          "end": 41.16,
+          "word": " less",
+          "probability": 0.6927496194839478
+        },
+        {
+          "start": 41.16,
+          "end": 41.56,
+          "word": " stock,",
+          "probability": 0.973271906375885
+        },
+        {
+          "start": 42.24,
+          "end": 42.38,
+          "word": " fewer",
+          "probability": 0.9947270750999451
+        },
+        {
+          "start": 42.38,
+          "end": 42.88,
+          "word": " boards,",
+          "probability": 0.9832577109336853
+        },
+        {
+          "start": 43.24,
+          "end": 43.3,
+          "word": " or",
+          "probability": 0.9867493510246277
+        },
+        {
+          "start": 43.3,
+          "end": 43.7,
+          "word": " useful",
+          "probability": 0.9910674691200256
+        },
+        {
+          "start": 43.7,
+          "end": 44.34,
+          "word": " offcuts.",
+          "probability": 0.815380334854126
+        }
+      ]
+    },
+    {
+      "start": 45,
+      "end": 49.68,
+      "text": "The deterministic branch and bounce solver checks quantities, stock, and one curve per",
+      "avg_logprob": -0.20034517995689227,
+      "no_speech_prob": 0.11697294563055038,
+      "words": [
+        {
+          "start": 45,
+          "end": 45.06,
+          "word": " The",
+          "probability": 0.9603519439697266
+        },
+        {
+          "start": 45.06,
+          "end": 45.6,
+          "word": " deterministic",
+          "probability": 0.9922287464141846
+        },
+        {
+          "start": 45.6,
+          "end": 46,
+          "word": " branch",
+          "probability": 0.9111265540122986
+        },
+        {
+          "start": 46,
+          "end": 46.26,
+          "word": " and",
+          "probability": 0.7849951982498169
+        },
+        {
+          "start": 46.26,
+          "end": 46.52,
+          "word": " bounce",
+          "probability": 0.6955087780952454
+        },
+        {
+          "start": 46.52,
+          "end": 47.02,
+          "word": " solver",
+          "probability": 0.9556775093078613
+        },
+        {
+          "start": 47.02,
+          "end": 47.22,
+          "word": " checks",
+          "probability": 0.9428655505180359
+        },
+        {
+          "start": 47.22,
+          "end": 47.88,
+          "word": " quantities,",
+          "probability": 0.9180076718330383
+        },
+        {
+          "start": 48.5,
+          "end": 48.64,
+          "word": " stock,",
+          "probability": 0.989147961139679
+        },
+        {
+          "start": 48.94,
+          "end": 48.98,
+          "word": " and",
+          "probability": 0.99491286277771
+        },
+        {
+          "start": 48.98,
+          "end": 49.16,
+          "word": " one",
+          "probability": 0.843820333480835
+        },
+        {
+          "start": 49.16,
+          "end": 49.42,
+          "word": " curve",
+          "probability": 0.9320284128189087
+        },
+        {
+          "start": 49.42,
+          "end": 49.68,
+          "word": " per",
+          "probability": 0.9929177761077881
+        }
+      ]
+    },
+    {
+      "start": 49.68,
+      "end": 49.98,
+      "text": "part.",
+      "avg_logprob": -0.20034517995689227,
+      "no_speech_prob": 0.11697294563055038,
+      "words": [
+        {
+          "start": 49.68,
+          "end": 49.98,
+          "word": " part.",
+          "probability": 0.9875727891921997
+        }
+      ]
+    },
+    {
+      "start": 50.56,
+      "end": 53.14,
+      "text": "A search limit is not a proof of optimality.",
+      "avg_logprob": -0.20034517995689227,
+      "no_speech_prob": 0.11697294563055038,
+      "words": [
+        {
+          "start": 50.56,
+          "end": 50.58,
+          "word": " A",
+          "probability": 0.9883394241333008
+        },
+        {
+          "start": 50.58,
+          "end": 50.76,
+          "word": " search",
+          "probability": 0.9811708927154541
+        },
+        {
+          "start": 50.76,
+          "end": 51.18,
+          "word": " limit",
+          "probability": 0.9985462427139282
+        },
+        {
+          "start": 51.18,
+          "end": 51.7,
+          "word": " is",
+          "probability": 0.9850132465362549
+        },
+        {
+          "start": 51.7,
+          "end": 51.96,
+          "word": " not",
+          "probability": 0.9979915618896484
+        },
+        {
+          "start": 51.96,
+          "end": 52.04,
+          "word": " a",
+          "probability": 0.8805388808250427
+        },
+        {
+          "start": 52.04,
+          "end": 52.3,
+          "word": " proof",
+          "probability": 0.9984723925590515
+        },
+        {
+          "start": 52.3,
+          "end": 52.48,
+          "word": " of",
+          "probability": 0.99647456407547
+        },
+        {
+          "start": 52.48,
+          "end": 53.14,
+          "word": " optimality.",
+          "probability": 0.9830536842346191
+        }
+      ]
+    },
+    {
+      "start": 53.14,
+      "end": 65.66,
+      "text": "Less stock and fewer boards, both open 7.2m across 3 boards, 42mm of sawdust, plus 158mm of short scrap.",
+      "avg_logprob": -0.22263278225154587,
+      "no_speech_prob": 0.027085624635219574,
+      "words": [
+        {
+          "start": 53.14,
+          "end": 54.32,
+          "word": " Less",
+          "probability": 0.47675639390945435
+        },
+        {
+          "start": 54.32,
+          "end": 54.8,
+          "word": " stock",
+          "probability": 0.7503315210342407
+        },
+        {
+          "start": 54.8,
+          "end": 55.18,
+          "word": " and",
+          "probability": 0.9746502637863159
+        },
+        {
+          "start": 55.18,
+          "end": 55.38,
+          "word": " fewer",
+          "probability": 0.9947946667671204
+        },
+        {
+          "start": 55.38,
+          "end": 55.96,
+          "word": " boards,",
+          "probability": 0.9891891479492188
+        },
+        {
+          "start": 56.3,
+          "end": 56.44,
+          "word": " both",
+          "probability": 0.9965936541557312
+        },
+        {
+          "start": 56.44,
+          "end": 56.68,
+          "word": " open",
+          "probability": 0.890798807144165
+        },
+        {
+          "start": 56.68,
+          "end": 57.14,
+          "word": " 7",
+          "probability": 0.9646598696708679
+        },
+        {
+          "start": 57.14,
+          "end": 58.12,
+          "word": ".2m",
+          "probability": 0.733616461356481
+        },
+        {
+          "start": 58.12,
+          "end": 58.66,
+          "word": " across",
+          "probability": 0.8571182489395142
+        },
+        {
+          "start": 58.66,
+          "end": 59.22,
+          "word": " 3",
+          "probability": 0.6341052651405334
+        },
+        {
+          "start": 59.22,
+          "end": 59.54,
+          "word": " boards,",
+          "probability": 0.9381313323974609
+        },
+        {
+          "start": 60.12,
+          "end": 60.8,
+          "word": " 42mm",
+          "probability": 0.7921876311302185
+        },
+        {
+          "start": 60.8,
+          "end": 61.5,
+          "word": " of",
+          "probability": 0.9687243103981018
+        },
+        {
+          "start": 61.5,
+          "end": 61.94,
+          "word": " sawdust,",
+          "probability": 0.9362336099147797
+        },
+        {
+          "start": 62.38,
+          "end": 62.56,
+          "word": " plus",
+          "probability": 0.5571171641349792
+        },
+        {
+          "start": 62.56,
+          "end": 63.12,
+          "word": " 158mm",
+          "probability": 0.9227948486804962
+        },
+        {
+          "start": 63.12,
+          "end": 64.92,
+          "word": " of",
+          "probability": 0.9786608219146729
+        },
+        {
+          "start": 64.92,
+          "end": 65.16,
+          "word": " short",
+          "probability": 0.9792704582214355
+        },
+        {
+          "start": 65.16,
+          "end": 65.66,
+          "word": " scrap.",
+          "probability": 0.9781639575958252
+        }
+      ]
+    },
+    {
+      "start": 66.28,
+      "end": 77.68,
+      "text": "Keeping useful offcuts opens 10.08m across 6 boards, 42mm of sawdust, no short scrap, and 3.038m reusable.",
+      "avg_logprob": -0.22263278225154587,
+      "no_speech_prob": 0.027085624635219574,
+      "words": [
+        {
+          "start": 66.28,
+          "end": 66.28,
+          "word": " Keeping",
+          "probability": 0.9773842096328735
+        },
+        {
+          "start": 66.28,
+          "end": 66.62,
+          "word": " useful",
+          "probability": 0.8459206819534302
+        },
+        {
+          "start": 66.62,
+          "end": 67.36,
+          "word": " offcuts",
+          "probability": 0.7874935269355774
+        },
+        {
+          "start": 67.36,
+          "end": 67.64,
+          "word": " opens",
+          "probability": 0.7792935967445374
+        },
+        {
+          "start": 67.64,
+          "end": 68.22,
+          "word": " 10",
+          "probability": 0.963428795337677
+        },
+        {
+          "start": 68.22,
+          "end": 69.4,
+          "word": ".08m",
+          "probability": 0.9102491935094198
+        },
+        {
+          "start": 69.4,
+          "end": 70.04,
+          "word": " across",
+          "probability": 0.980981707572937
+        },
+        {
+          "start": 70.04,
+          "end": 70.62,
+          "word": " 6",
+          "probability": 0.9360453486442566
+        },
+        {
+          "start": 70.62,
+          "end": 70.96,
+          "word": " boards,",
+          "probability": 0.9688058495521545
+        },
+        {
+          "start": 71.48,
+          "end": 72.18,
+          "word": " 42mm",
+          "probability": 0.9835246503353119
+        },
+        {
+          "start": 72.18,
+          "end": 72.78,
+          "word": " of",
+          "probability": 0.9796069264411926
+        },
+        {
+          "start": 72.78,
+          "end": 73.26,
+          "word": " sawdust,",
+          "probability": 0.9899729490280151
+        },
+        {
+          "start": 73.64,
+          "end": 73.86,
+          "word": " no",
+          "probability": 0.9760270714759827
+        },
+        {
+          "start": 73.86,
+          "end": 74.14,
+          "word": " short",
+          "probability": 0.9921201467514038
+        },
+        {
+          "start": 74.14,
+          "end": 74.52,
+          "word": " scrap,",
+          "probability": 0.9901300072669983
+        },
+        {
+          "start": 74.98,
+          "end": 75.1,
+          "word": " and",
+          "probability": 0.995354413986206
+        },
+        {
+          "start": 75.1,
+          "end": 75.4,
+          "word": " 3",
+          "probability": 0.9956710338592529
+        },
+        {
+          "start": 75.4,
+          "end": 77,
+          "word": ".038m",
+          "probability": 0.958078071475029
+        },
+        {
+          "start": 77,
+          "end": 77.68,
+          "word": " reusable.",
+          "probability": 0.8724373579025269
+        }
+      ]
+    },
+    {
+      "start": 77.68,
+      "end": 78.08,
+      "text": "useable.",
+      "avg_logprob": -0.2798966351151466,
+      "no_speech_prob": 0.12282667309045792,
+      "words": [
+        {
+          "start": 77.68,
+          "end": 78.08,
+          "word": " useable.",
+          "probability": 0.4564180467277765
+        }
+      ]
+    },
+    {
+      "start": 78.34,
+      "end": 81.5,
+      "text": "Computed trade-offs not measured time or carbon savings.",
+      "avg_logprob": -0.2798966351151466,
+      "no_speech_prob": 0.12282667309045792,
+      "words": [
+        {
+          "start": 78.34,
+          "end": 78.88,
+          "word": " Computed",
+          "probability": 0.6140353381633759
+        },
+        {
+          "start": 78.88,
+          "end": 79.12,
+          "word": " trade",
+          "probability": 0.8749551773071289
+        },
+        {
+          "start": 79.12,
+          "end": 79.46,
+          "word": "-offs",
+          "probability": 0.8167506158351898
+        },
+        {
+          "start": 79.46,
+          "end": 79.82,
+          "word": " not",
+          "probability": 0.8040602803230286
+        },
+        {
+          "start": 79.82,
+          "end": 80.26,
+          "word": " measured",
+          "probability": 0.9558135867118835
+        },
+        {
+          "start": 80.26,
+          "end": 80.58,
+          "word": " time",
+          "probability": 0.9906721711158752
+        },
+        {
+          "start": 80.58,
+          "end": 80.78,
+          "word": " or",
+          "probability": 0.9807024598121643
+        },
+        {
+          "start": 80.78,
+          "end": 80.98,
+          "word": " carbon",
+          "probability": 0.9895461201667786
+        },
+        {
+          "start": 80.98,
+          "end": 81.5,
+          "word": " savings.",
+          "probability": 0.9893625378608704
+        }
+      ]
+    },
+    {
+      "start": 85.04,
+      "end": 87.5,
+      "text": "The agent inspects and stages the exact plan.",
+      "avg_logprob": -0.2798966351151466,
+      "no_speech_prob": 0.12282667309045792,
+      "words": [
+        {
+          "start": 84.74000000000001,
+          "end": 85.06,
+          "word": " The",
+          "probability": 0.8801474571228027
+        },
+        {
+          "start": 85.06,
+          "end": 85.36,
+          "word": " agent",
+          "probability": 0.8817920088768005
+        },
+        {
+          "start": 85.36,
+          "end": 86.02,
+          "word": " inspects",
+          "probability": 0.9670631289482117
+        },
+        {
+          "start": 86.02,
+          "end": 86.08,
+          "word": " and",
+          "probability": 0.9579840302467346
+        },
+        {
+          "start": 86.08,
+          "end": 86.46,
+          "word": " stages",
+          "probability": 0.9924306273460388
+        },
+        {
+          "start": 86.46,
+          "end": 86.76,
+          "word": " the",
+          "probability": 0.9903159737586975
+        },
+        {
+          "start": 86.76,
+          "end": 86.92,
+          "word": " exact",
+          "probability": 0.9964486360549927
+        },
+        {
+          "start": 86.92,
+          "end": 87.5,
+          "word": " plan.",
+          "probability": 0.9905023574829102
+        }
+      ]
+    },
+    {
+      "start": 87.98,
+      "end": 88.76,
+      "text": "Pause for review.",
+      "avg_logprob": -0.2798966351151466,
+      "no_speech_prob": 0.12282667309045792,
+      "words": [
+        {
+          "start": 87.98,
+          "end": 88.24,
+          "word": " Pause",
+          "probability": 0.9205529689788818
+        },
+        {
+          "start": 88.24,
+          "end": 88.54,
+          "word": " for",
+          "probability": 0.9970903396606445
+        },
+        {
+          "start": 88.54,
+          "end": 88.76,
+          "word": " review.",
+          "probability": 0.9826111197471619
+        }
+      ]
+    },
+    {
+      "start": 89.58,
+      "end": 90.26,
+      "text": "This is not approval.",
+      "avg_logprob": -0.2798966351151466,
+      "no_speech_prob": 0.12282667309045792,
+      "words": [
+        {
+          "start": 89.58,
+          "end": 89.58,
+          "word": " This",
+          "probability": 0.9712647795677185
+        },
+        {
+          "start": 89.58,
+          "end": 89.7,
+          "word": " is",
+          "probability": 0.9954649806022644
+        },
+        {
+          "start": 89.7,
+          "end": 89.94,
+          "word": " not",
+          "probability": 0.9936431646347046
+        },
+        {
+          "start": 89.94,
+          "end": 90.26,
+          "word": " approval.",
+          "probability": 0.9887048602104187
+        }
+      ]
+    },
+    {
+      "start": 90.88,
+      "end": 93.48,
+      "text": "Check stock identities, quantities, and kerf.",
+      "avg_logprob": -0.2798966351151466,
+      "no_speech_prob": 0.12282667309045792,
+      "words": [
+        {
+          "start": 90.88,
+          "end": 90.92,
+          "word": " Check",
+          "probability": 0.9029249548912048
+        },
+        {
+          "start": 90.92,
+          "end": 91.26,
+          "word": " stock",
+          "probability": 0.8377505540847778
+        },
+        {
+          "start": 91.26,
+          "end": 91.72,
+          "word": " identities,",
+          "probability": 0.8916359543800354
+        },
+        {
+          "start": 92.1,
+          "end": 92.34,
+          "word": " quantities,",
+          "probability": 0.9816890954971313
+        },
+        {
+          "start": 92.96,
+          "end": 93,
+          "word": " and",
+          "probability": 0.9971193075180054
+        },
+        {
+          "start": 93,
+          "end": 93.48,
+          "word": " kerf.",
+          "probability": 0.6255931407213211
+        }
+      ]
+    },
+    {
+      "start": 93.86,
+      "end": 95.48,
+      "text": "No registered tool can approve.",
+      "avg_logprob": -0.2798966351151466,
+      "no_speech_prob": 0.12282667309045792,
+      "words": [
+        {
+          "start": 93.86,
+          "end": 93.9,
+          "word": " No",
+          "probability": 0.9694126844406128
+        },
+        {
+          "start": 93.9,
+          "end": 94.26,
+          "word": " registered",
+          "probability": 0.9068761467933655
+        },
+        {
+          "start": 94.26,
+          "end": 94.86,
+          "word": " tool",
+          "probability": 0.993145227432251
+        },
+        {
+          "start": 94.86,
+          "end": 95.14,
+          "word": " can",
+          "probability": 0.9973063468933105
+        },
+        {
+          "start": 95.14,
+          "end": 95.48,
+          "word": " approve.",
+          "probability": 0.9931827187538147
+        }
+      ]
+    },
+    {
+      "start": 96.04,
+      "end": 99.66,
+      "text": "These UI controls are automated, not proof of human presence.",
+      "avg_logprob": -0.2798966351151466,
+      "no_speech_prob": 0.12282667309045792,
+      "words": [
+        {
+          "start": 96.04,
+          "end": 96.2,
+          "word": " These",
+          "probability": 0.9870191812515259
+        },
+        {
+          "start": 96.2,
+          "end": 96.5,
+          "word": " UI",
+          "probability": 0.9719255566596985
+        },
+        {
+          "start": 96.5,
+          "end": 97,
+          "word": " controls",
+          "probability": 0.9801095724105835
+        },
+        {
+          "start": 97,
+          "end": 97.42,
+          "word": " are",
+          "probability": 0.9985830783843994
+        },
+        {
+          "start": 97.42,
+          "end": 97.76,
+          "word": " automated,",
+          "probability": 0.9955587387084961
+        },
+        {
+          "start": 98.56,
+          "end": 98.64,
+          "word": " not",
+          "probability": 0.9959898591041565
+        },
+        {
+          "start": 98.64,
+          "end": 98.94,
+          "word": " proof",
+          "probability": 0.9847084283828735
+        },
+        {
+          "start": 98.94,
+          "end": 99.14,
+          "word": " of",
+          "probability": 0.9724273085594177
+        },
+        {
+          "start": 99.14,
+          "end": 99.42,
+          "word": " human",
+          "probability": 0.992316722869873
+        },
+        {
+          "start": 99.42,
+          "end": 99.66,
+          "word": " presence.",
+          "probability": 0.9936687350273132
+        }
+      ]
+    },
+    {
+      "start": 100.48,
+      "end": 102.28,
+      "text": "Now the controls check the acknowledgement.",
+      "avg_logprob": -0.2798966351151466,
+      "no_speech_prob": 0.12282667309045792,
+      "words": [
+        {
+          "start": 100.48,
+          "end": 100.6,
+          "word": " Now",
+          "probability": 0.9596689939498901
+        },
+        {
+          "start": 100.6,
+          "end": 100.82,
+          "word": " the",
+          "probability": 0.8172314763069153
+        },
+        {
+          "start": 100.82,
+          "end": 101.2,
+          "word": " controls",
+          "probability": 0.9824021458625793
+        },
+        {
+          "start": 101.2,
+          "end": 101.6,
+          "word": " check",
+          "probability": 0.9958165287971497
+        },
+        {
+          "start": 101.6,
+          "end": 101.96,
+          "word": " the",
+          "probability": 0.9908418655395508
+        },
+        {
+          "start": 101.96,
+          "end": 102.28,
+          "word": " acknowledgement.",
+          "probability": 0.5643212795257568
+        }
+      ]
+    },
+    {
+      "start": 103.26,
+      "end": 105.06,
+      "text": "Then, they click approve cut sheet.",
+      "avg_logprob": -0.2798966351151466,
+      "no_speech_prob": 0.12282667309045792,
+      "words": [
+        {
+          "start": 103.26,
+          "end": 103.44,
+          "word": " Then,",
+          "probability": 0.9924749732017517
+        },
+        {
+          "start": 103.76,
+          "end": 103.94,
+          "word": " they",
+          "probability": 0.9411607384681702
+        },
+        {
+          "start": 103.94,
+          "end": 104.14,
+          "word": " click",
+          "probability": 0.9960149526596069
+        },
+        {
+          "start": 104.14,
+          "end": 104.52,
+          "word": " approve",
+          "probability": 0.40878167748451233
+        },
+        {
+          "start": 104.52,
+          "end": 104.84,
+          "word": " cut",
+          "probability": 0.8599928617477417
+        },
+        {
+          "start": 104.84,
+          "end": 105.06,
+          "word": " sheet.",
+          "probability": 0.942158043384552
+        }
+      ]
+    },
+    {
+      "start": 105.06,
+      "end": 112.66,
+      "text": "The model inspects approval and exports the actual CSV, 14 parts part identifiers,",
+      "avg_logprob": -0.20328494326935875,
+      "no_speech_prob": 0.13167105615139008,
+      "words": [
+        {
+          "start": 105.06,
+          "end": 105.66,
+          "word": " The",
+          "probability": 0.4428292214870453
+        },
+        {
+          "start": 105.66,
+          "end": 107.16,
+          "word": " model",
+          "probability": 0.9793154001235962
+        },
+        {
+          "start": 107.16,
+          "end": 107.84,
+          "word": " inspects",
+          "probability": 0.9863897562026978
+        },
+        {
+          "start": 107.84,
+          "end": 108.06,
+          "word": " approval",
+          "probability": 0.9870801568031311
+        },
+        {
+          "start": 108.06,
+          "end": 108.62,
+          "word": " and",
+          "probability": 0.8290327191352844
+        },
+        {
+          "start": 108.62,
+          "end": 109.06,
+          "word": " exports",
+          "probability": 0.9899028539657593
+        },
+        {
+          "start": 109.06,
+          "end": 109.4,
+          "word": " the",
+          "probability": 0.997467041015625
+        },
+        {
+          "start": 109.4,
+          "end": 109.76,
+          "word": " actual",
+          "probability": 0.9974693059921265
+        },
+        {
+          "start": 109.76,
+          "end": 110.32,
+          "word": " CSV,",
+          "probability": 0.6282597780227661
+        },
+        {
+          "start": 111.06,
+          "end": 111.24,
+          "word": " 14",
+          "probability": 0.9325400590896606
+        },
+        {
+          "start": 111.24,
+          "end": 111.82,
+          "word": " parts",
+          "probability": 0.9215426445007324
+        },
+        {
+          "start": 111.82,
+          "end": 112.14,
+          "word": " part",
+          "probability": 0.8929482698440552
+        },
+        {
+          "start": 112.14,
+          "end": 112.66,
+          "word": " identifiers,",
+          "probability": 0.9342564940452576
+        }
+      ]
+    },
+    {
+      "start": 113.4,
+      "end": 116.24,
+      "text": "offsets, kerf, and the exact approved plan identifier.",
+      "avg_logprob": -0.20328494326935875,
+      "no_speech_prob": 0.13167105615139008,
+      "words": [
+        {
+          "start": 113.4,
+          "end": 113.68,
+          "word": " offsets,",
+          "probability": 0.8238571882247925
+        },
+        {
+          "start": 114.02,
+          "end": 114.38,
+          "word": " kerf,",
+          "probability": 0.7430424690246582
+        },
+        {
+          "start": 114.7,
+          "end": 114.72,
+          "word": " and",
+          "probability": 0.9950798749923706
+        },
+        {
+          "start": 114.72,
+          "end": 114.86,
+          "word": " the",
+          "probability": 0.9887393712997437
+        },
+        {
+          "start": 114.86,
+          "end": 115.06,
+          "word": " exact",
+          "probability": 0.9529822468757629
+        },
+        {
+          "start": 115.06,
+          "end": 115.5,
+          "word": " approved",
+          "probability": 0.7227078676223755
+        },
+        {
+          "start": 115.5,
+          "end": 115.9,
+          "word": " plan",
+          "probability": 0.9838914275169373
+        },
+        {
+          "start": 115.9,
+          "end": 116.24,
+          "word": " identifier.",
+          "probability": 0.9958239793777466
+        }
+      ]
+    },
+    {
+      "start": 117.22,
+      "end": 119.18,
+      "text": "Another draft cannot inherit approval.",
+      "avg_logprob": -0.20328494326935875,
+      "no_speech_prob": 0.13167105615139008,
+      "words": [
+        {
+          "start": 117.22,
+          "end": 117.4,
+          "word": " Another",
+          "probability": 0.9574836492538452
+        },
+        {
+          "start": 117.4,
+          "end": 117.7,
+          "word": " draft",
+          "probability": 0.9938828945159912
+        },
+        {
+          "start": 117.7,
+          "end": 118.2,
+          "word": " cannot",
+          "probability": 0.9756059050559998
+        },
+        {
+          "start": 118.2,
+          "end": 118.7,
+          "word": " inherit",
+          "probability": 0.997878909111023
+        },
+        {
+          "start": 118.7,
+          "end": 119.18,
+          "word": " approval.",
+          "probability": 0.9981302618980408
+        }
+      ]
+    },
+    {
+      "start": 120.58,
+      "end": 123.5,
+      "text": "Typing four leaves committed kerf at three.",
+      "avg_logprob": -0.20328494326935875,
+      "no_speech_prob": 0.13167105615139008,
+      "words": [
+        {
+          "start": 120.58,
+          "end": 121.34,
+          "word": " Typing",
+          "probability": 0.9613853991031647
+        },
+        {
+          "start": 121.34,
+          "end": 121.6,
+          "word": " four",
+          "probability": 0.5528828501701355
+        },
+        {
+          "start": 121.6,
+          "end": 121.9,
+          "word": " leaves",
+          "probability": 0.5372735261917114
+        },
+        {
+          "start": 121.9,
+          "end": 122.38,
+          "word": " committed",
+          "probability": 0.8941376209259033
+        },
+        {
+          "start": 122.38,
+          "end": 123.02,
+          "word": " kerf",
+          "probability": 0.8515573740005493
+        },
+        {
+          "start": 123.02,
+          "end": 123.12,
+          "word": " at",
+          "probability": 0.9449976682662964
+        },
+        {
+          "start": 123.12,
+          "end": 123.5,
+          "word": " three.",
+          "probability": 0.8756376504898071
+        }
+      ]
+    },
+    {
+      "start": 124,
+      "end": 127.22,
+      "text": "Pending edits block staging without moving focus or saving.",
+      "avg_logprob": -0.20328494326935875,
+      "no_speech_prob": 0.13167105615139008,
+      "words": [
+        {
+          "start": 124,
+          "end": 124.18,
+          "word": " Pending",
+          "probability": 0.9784697592258453
+        },
+        {
+          "start": 124.18,
+          "end": 124.48,
+          "word": " edits",
+          "probability": 0.9451830983161926
+        },
+        {
+          "start": 124.48,
+          "end": 124.86,
+          "word": " block",
+          "probability": 0.8290882706642151
+        },
+        {
+          "start": 124.86,
+          "end": 125.28,
+          "word": " staging",
+          "probability": 0.5752803683280945
+        },
+        {
+          "start": 125.28,
+          "end": 125.58,
+          "word": " without",
+          "probability": 0.9929367899894714
+        },
+        {
+          "start": 125.58,
+          "end": 126.06,
+          "word": " moving",
+          "probability": 0.9953277111053467
+        },
+        {
+          "start": 126.06,
+          "end": 126.46,
+          "word": " focus",
+          "probability": 0.9968427419662476
+        },
+        {
+          "start": 126.46,
+          "end": 126.82,
+          "word": " or",
+          "probability": 0.978865921497345
+        },
+        {
+          "start": 126.82,
+          "end": 127.22,
+          "word": " saving.",
+          "probability": 0.9932186007499695
+        }
+      ]
+    },
+    {
+      "start": 127.88,
+      "end": 128.18,
+      "text": "Now commit.",
+      "avg_logprob": -0.20328494326935875,
+      "no_speech_prob": 0.13167105615139008,
+      "words": [
+        {
+          "start": 127.88,
+          "end": 127.9,
+          "word": " Now",
+          "probability": 0.979583203792572
+        },
+        {
+          "start": 127.9,
+          "end": 128.18,
+          "word": " commit.",
+          "probability": 0.9361295104026794
+        }
+      ]
+    },
+    {
+      "start": 128.84,
+      "end": 130.78,
+      "text": "Revision two invalidates the old approval.",
+      "avg_logprob": -0.20328494326935875,
+      "no_speech_prob": 0.13167105615139008,
+      "words": [
+        {
+          "start": 128.84,
+          "end": 129,
+          "word": " Revision",
+          "probability": 0.8367794752120972
+        },
+        {
+          "start": 129,
+          "end": 129.46,
+          "word": " two",
+          "probability": 0.7482486963272095
+        },
+        {
+          "start": 129.46,
+          "end": 130.24,
+          "word": " invalidates",
+          "probability": 0.9833009839057922
+        },
+        {
+          "start": 130.24,
+          "end": 130.36,
+          "word": " the",
+          "probability": 0.9975274205207825
+        },
+        {
+          "start": 130.36,
+          "end": 130.52,
+          "word": " old",
+          "probability": 0.9927343130111694
+        },
+        {
+          "start": 130.52,
+          "end": 130.78,
+          "word": " approval.",
+          "probability": 0.995746910572052
+        }
+      ]
+    },
+    {
+      "start": 131.44,
+      "end": 132.54,
+      "text": "The old plan is stale.",
+      "avg_logprob": -0.20328494326935875,
+      "no_speech_prob": 0.13167105615139008,
+      "words": [
+        {
+          "start": 131.44,
+          "end": 131.46,
+          "word": " The",
+          "probability": 0.9920027256011963
+        },
+        {
+          "start": 131.46,
+          "end": 131.64,
+          "word": " old",
+          "probability": 0.9937340617179871
+        },
+        {
+          "start": 131.64,
+          "end": 132.02,
+          "word": " plan",
+          "probability": 0.9968395233154297
+        },
+        {
+          "start": 132.02,
+          "end": 132.26,
+          "word": " is",
+          "probability": 0.9957122802734375
+        },
+        {
+          "start": 132.26,
+          "end": 132.54,
+          "word": " stale.",
+          "probability": 0.9861233234405518
+        }
+      ]
+    },
+    {
+      "start": 132.54,
+      "end": 137.36,
+      "text": "The model replans, 14 parts, 56 mm of sawdust.",
+      "avg_logprob": -0.27247901519139606,
+      "no_speech_prob": 0.12047620117664337,
+      "words": [
+        {
+          "start": 132.54,
+          "end": 133.12,
+          "word": " The",
+          "probability": 0.432041734457016
+        },
+        {
+          "start": 133.12,
+          "end": 133.34,
+          "word": " model",
+          "probability": 0.9541386961936951
+        },
+        {
+          "start": 133.34,
+          "end": 134.08,
+          "word": " replans,",
+          "probability": 0.8146221041679382
+        },
+        {
+          "start": 134.42,
+          "end": 134.8,
+          "word": " 14",
+          "probability": 0.9019095301628113
+        },
+        {
+          "start": 134.8,
+          "end": 135.16,
+          "word": " parts,",
+          "probability": 0.8957058787345886
+        },
+        {
+          "start": 135.46,
+          "end": 136.04,
+          "word": " 56",
+          "probability": 0.9935845732688904
+        },
+        {
+          "start": 136.04,
+          "end": 136.48,
+          "word": " mm",
+          "probability": 0.5158889889717102
+        },
+        {
+          "start": 136.48,
+          "end": 136.9,
+          "word": " of",
+          "probability": 0.96358722448349
+        },
+        {
+          "start": 136.9,
+          "end": 137.36,
+          "word": " sawdust.",
+          "probability": 0.7627393901348114
+        }
+      ]
+    },
+    {
+      "start": 137.84,
+      "end": 139.9,
+      "text": "Revision 2 is staged, not approved.",
+      "avg_logprob": -0.27247901519139606,
+      "no_speech_prob": 0.12047620117664337,
+      "words": [
+        {
+          "start": 137.84,
+          "end": 138.04,
+          "word": " Revision",
+          "probability": 0.8533532023429871
+        },
+        {
+          "start": 138.04,
+          "end": 138.56,
+          "word": " 2",
+          "probability": 0.6644923090934753
+        },
+        {
+          "start": 138.56,
+          "end": 138.72,
+          "word": " is",
+          "probability": 0.9868180751800537
+        },
+        {
+          "start": 138.72,
+          "end": 138.96,
+          "word": " staged,",
+          "probability": 0.9899197816848755
+        },
+        {
+          "start": 139.48,
+          "end": 139.58,
+          "word": " not",
+          "probability": 0.9963765740394592
+        },
+        {
+          "start": 139.58,
+          "end": 139.9,
+          "word": " approved.",
+          "probability": 0.9967426657676697
+        }
+      ]
+    },
+    {
+      "start": 140.66,
+      "end": 142.04,
+      "text": "The acknowledgment stays unchecked.",
+      "avg_logprob": -0.27247901519139606,
+      "no_speech_prob": 0.12047620117664337,
+      "words": [
+        {
+          "start": 140.66,
+          "end": 140.68,
+          "word": " The",
+          "probability": 0.9747599959373474
+        },
+        {
+          "start": 140.68,
+          "end": 140.86,
+          "word": " acknowledgment",
+          "probability": 0.2830306589603424
+        },
+        {
+          "start": 140.86,
+          "end": 141.74,
+          "word": " stays",
+          "probability": 0.9922560453414917
+        },
+        {
+          "start": 141.74,
+          "end": 142.04,
+          "word": " unchecked.",
+          "probability": 0.9917023777961731
+        }
+      ]
+    },
+    {
+      "start": 148.4,
+      "end": 150.52,
+      "text": "Offcut itself needs no account.",
+      "avg_logprob": -0.27247901519139606,
+      "no_speech_prob": 0.12047620117664337,
+      "words": [
+        {
+          "start": 148.4,
+          "end": 149.16,
+          "word": " Offcut",
+          "probability": 0.7352677881717682
+        },
+        {
+          "start": 149.16,
+          "end": 149.44,
+          "word": " itself",
+          "probability": 0.9706060290336609
+        },
+        {
+          "start": 149.44,
+          "end": 149.9,
+          "word": " needs",
+          "probability": 0.9776780605316162
+        },
+        {
+          "start": 149.9,
+          "end": 150.28,
+          "word": " no",
+          "probability": 0.9236193895339966
+        },
+        {
+          "start": 150.28,
+          "end": 150.52,
+          "word": " account.",
+          "probability": 0.9150773286819458
+        }
+      ]
+    },
+    {
+      "start": 151.46,
+      "end": 152.36,
+      "text": "Model Key or McKend.",
+      "avg_logprob": -0.27247901519139606,
+      "no_speech_prob": 0.12047620117664337,
+      "words": [
+        {
+          "start": 151.46,
+          "end": 151.46,
+          "word": " Model",
+          "probability": 0.9436558485031128
+        },
+        {
+          "start": 151.46,
+          "end": 151.68,
+          "word": " Key",
+          "probability": 0.4315252900123596
+        },
+        {
+          "start": 151.68,
+          "end": 151.94,
+          "word": " or",
+          "probability": 0.288312166929245
+        },
+        {
+          "start": 151.94,
+          "end": 152.36,
+          "word": " McKend.",
+          "probability": 0.5959304869174957
+        }
+      ]
+    },
+    {
+      "start": 152.9,
+      "end": 155.92,
+      "text": "A workbench and MIT license source are public.",
+      "avg_logprob": -0.27247901519139606,
+      "no_speech_prob": 0.12047620117664337,
+      "words": [
+        {
+          "start": 152.9,
+          "end": 152.92,
+          "word": " A",
+          "probability": 0.8707655668258667
+        },
+        {
+          "start": 152.92,
+          "end": 153.34,
+          "word": " workbench",
+          "probability": 0.6516003757715225
+        },
+        {
+          "start": 153.34,
+          "end": 153.6,
+          "word": " and",
+          "probability": 0.884784460067749
+        },
+        {
+          "start": 153.6,
+          "end": 154.16,
+          "word": " MIT",
+          "probability": 0.30946406722068787
+        },
+        {
+          "start": 154.16,
+          "end": 154.76,
+          "word": " license",
+          "probability": 0.7716088891029358
+        },
+        {
+          "start": 154.76,
+          "end": 155.32,
+          "word": " source",
+          "probability": 0.8631691336631775
+        },
+        {
+          "start": 155.32,
+          "end": 155.6,
+          "word": " are",
+          "probability": 0.9926115870475769
+        },
+        {
+          "start": 155.6,
+          "end": 155.92,
+          "word": " public.",
+          "probability": 0.9951474070549011
+        }
+      ]
+    },
+    {
+      "start": 156.48,
+      "end": 159.22,
+      "text": "These are planning estimates, not machine instructions.",
+      "avg_logprob": -0.27247901519139606,
+      "no_speech_prob": 0.12047620117664337,
+      "words": [
+        {
+          "start": 156.48,
+          "end": 156.52,
+          "word": " These",
+          "probability": 0.9930040240287781
+        },
+        {
+          "start": 156.52,
+          "end": 156.78,
+          "word": " are",
+          "probability": 0.9980625510215759
+        },
+        {
+          "start": 156.78,
+          "end": 157.12,
+          "word": " planning",
+          "probability": 0.9923720359802246
+        },
+        {
+          "start": 157.12,
+          "end": 157.44,
+          "word": " estimates,",
+          "probability": 0.9940517544746399
+        },
+        {
+          "start": 158.26,
+          "end": 158.38,
+          "word": " not",
+          "probability": 0.9942036271095276
+        },
+        {
+          "start": 158.38,
+          "end": 158.6,
+          "word": " machine",
+          "probability": 0.9903156161308289
+        },
+        {
+          "start": 158.6,
+          "end": 159.22,
+          "word": " instructions.",
+          "probability": 0.984777569770813
+        }
+      ]
+    },
+    {
+      "start": 159.22,
+      "end": 163.62,
+      "text": "Barify usable stock and safe cutting conditions at the bench.",
+      "avg_logprob": -0.44103320837020876,
+      "no_speech_prob": 0.02203841507434845,
+      "words": [
+        {
+          "start": 159.22,
+          "end": 160.42,
+          "word": " Barify",
+          "probability": 0.522278118878603
+        },
+        {
+          "start": 160.42,
+          "end": 160.72,
+          "word": " usable",
+          "probability": 0.9578984379768372
+        },
+        {
+          "start": 160.72,
+          "end": 161.34,
+          "word": " stock",
+          "probability": 0.9779437780380249
+        },
+        {
+          "start": 161.34,
+          "end": 161.72,
+          "word": " and",
+          "probability": 0.9400639533996582
+        },
+        {
+          "start": 161.72,
+          "end": 161.94,
+          "word": " safe",
+          "probability": 0.9318974614143372
+        },
+        {
+          "start": 161.94,
+          "end": 162.28,
+          "word": " cutting",
+          "probability": 0.9442363381385803
+        },
+        {
+          "start": 162.28,
+          "end": 162.9,
+          "word": " conditions",
+          "probability": 0.982833981513977
+        },
+        {
+          "start": 162.9,
+          "end": 163.24,
+          "word": " at",
+          "probability": 0.992510199546814
+        },
+        {
+          "start": 163.24,
+          "end": 163.38,
+          "word": " the",
+          "probability": 0.9963012933731079
+        },
+        {
+          "start": 163.38,
+          "end": 163.62,
+          "word": " bench.",
+          "probability": 0.9903241395950317
+        }
+      ]
+    }
+  ],
+  "kind": "Transformed full unprompted offline ASR of the actual final MP4 AAC stream",
+  "input_container_sha256": "c91ba242684a288452f12d9754caaff662347559714cf7f453c35695282aa79c",
+  "model_source": "https://huggingface.co/Systran/faster-whisper-base.en/tree/3d3d5dee26484f91867d81cb899cfcf72b96be6c",
+  "scope": "The input hash identifies the MP4 container read by offline PyAV/ASR, not an extracted AAC/WAV byte hash. English-model language=en inference, no prompt/hotwords; recognition slips retained. Not subjective listening or automatic language detection."
+}

@@ -1,82 +1,156 @@
 {
-  "verified_at_utc": "2026-09-03T00:28:50.134148+00:00",
+  "schema_version": 2,
+  "candidate_version": "1.1.0",
+  "verified_at_utc": "2026-09-03T15:04:06.945Z",
+  "functional_source_commit": "f8091483ef2003b1bff361ab8f1b49a5715cd19d",
   "video_file": "submission/demo.mp4",
-  "sha256": "ee5915268fa0b528a87e7aa87d2a532ad3f1491e3eefbef185217e438f63fab5",
-  "bytes": 11635375,
+  "sha256": "c91ba242684a288452f12d9754caaff662347559714cf7f453c35695282aa79c",
+  "bytes": 12497854,
   "actual_media_probe": {
-    "durationSeconds": 165.0,
+    "durationSeconds": 165,
     "streams": [
       {
+        "index": 0,
         "type": "video",
         "codec": "h264",
-        "frames": 4125,
+        "declaredFrames": 4125,
+        "timeBase": "1/12800",
+        "durationSeconds": 165,
+        "metadata": {
+          "language": "und",
+          "handler_name": "VideoHandler",
+          "encoder": "Lavc61.3.100 libx264"
+        },
         "width": 1920,
         "height": 1080,
-        "sampleRate": null,
-        "timeBase": "1/12800",
-        "durationSeconds": 165.0
+        "pixelFormat": "yuv420p",
+        "averageRate": "25",
+        "baseRate": "25",
+        "sampleAspectRatio": "1"
       },
       {
+        "index": 1,
         "type": "audio",
         "codec": "aac",
-        "frames": 7736,
-        "width": null,
-        "height": null,
-        "sampleRate": 48000,
+        "declaredFrames": 7736,
         "timeBase": "1/48000",
-        "durationSeconds": 165.0
+        "durationSeconds": 165,
+        "metadata": {
+          "language": "und",
+          "handler_name": "SoundHandler"
+        },
+        "sampleRate": 48000,
+        "channels": 2,
+        "layout": "stereo"
       }
     ]
   },
   "strict_less_than_180_seconds": true,
   "full_video_audio_decode": {
-    "command": "ffmpeg -v error -i submission/demo.mp4 -f null -",
     "exit_code": 0,
-    "decode_errors": []
+    "decode_errors": [],
+    "actual_record": "submission/evidence/media/final-media.portable.json",
+    "all_video_pts_equal_frame_index_over_25": true,
+    "video_frames": 4125
   },
   "embedded_English_audio": {
     "verified_from_encoded_AAC": true,
-    "extracted_audio_sha256": "7d5db52bcb964a16098a6c690cf04d441621bab9f94741a7b2abd45c8eaef561",
+    "input_container_sha256": "c91ba242684a288452f12d9754caaff662347559714cf7f453c35695282aa79c",
     "offline_ASR_model": "Systran/faster-whisper-base.en",
     "model_revision": "3d3d5dee26484f91867d81cb899cfcf72b96be6c",
-    "transcript": "Off-cut turns, usable stock into a cutting plan that people and browser agents can work on together. Here, all 14 requested parts fit and the longboard stays protected. This workshop is an original illustrative example. Enter your own usable lengths, finished parts, blade kerf, and reusable remnant threshold. People own these measurements and protection controls. Agents cannot change them through the registered tools. tools. The right-hand panel is a separate recording harness, not a chatbot inside the website. A real model chooses native web MCP calls. It reads the live revision, stock, and requirements without reconstructing the page from pixels. The model requests three complete alternatives. Use less stock, handle fewer boards, or keep useful offcuts. The website's deterministic branch and bound solver checks every part quantity, saw pass and stock length. Search limits are reported, honestly. Not has invented optimality. Both efficient handling options open 7.2 meters across three stock pieces, with 200 millimeters of waste. Heaping useful offcuts opens 10.08 meters across six pieces, leaving 42 millimeters of waste and 3.038 meters reusable. That avoids 158 millimeters of short scrap, but handles more stock. Nothing here claims carbon savings. The agent inspects the exact least stock plan and stages it for review using and protected identify the real stock records. The registered tool surface has no approval operation. The acknowledgement and approval happen in the website UI. These recording According controls are automated, not proof of a physical human. After that separate approval, the model inspects the release and exports its actual CSB. The download contains all 14 parts, exact offsets, kerf and the approved plan identifier. A different selected draft cannot silently replace it. Now the blade kerf changes from 3 to 4 millimeters. The old approval is invalidated. The model reads, the new revision inspects the stale plan and generates a fresh proposal with 56 millimeters of sawdust. Its state is another review, without approving. Offcup runs without an application account, model key or backend. The live workbench and MIT license source are public. These are planning estimates, not machine instructions. Verify usable stock and safe cutting conditions at the bench.",
-    "critical_concept_checks": {
-      "fourteen_parts": true,
-      "least_stock_7_2_metres": true,
-      "reuse_stock_10_08_metres": true,
-      "200mm_waste": true,
-      "42mm_waste": true,
-      "3038mm_reusable": true,
-      "158mm_short_scrap": true,
-      "56mm_replanned_sawdust": true,
-      "kerf_three_to_four": true,
-      "native_WebMCP": true,
-      "external_recording_harness": true,
-      "UI_automation_disclosed": true
+    "transcript": "Offcut gives people and browser agents the same cutting stock workbench. Fourteen parts fit, the longboard stays protected. These illustrative measurements cover usable stock, parts, kerf, and the reusable remnant threshold. People own measurements and protection. Registered tools cannot change them. The right-hand panel is an external model recording harness, not a chatbot inside the website. site. A real model chooses native WebM, CP calls on the shared committed workbench. This is not a chat GPT recording. The model compares three complete alternatives, less stock, fewer boards, or useful offcuts. The deterministic branch and bounce solver checks quantities, stock, and one curve per part. A search limit is not a proof of optimality. Less stock and fewer boards, both open 7.2m across 3 boards, 42mm of sawdust, plus 158mm of short scrap. Keeping useful offcuts opens 10.08m across 6 boards, 42mm of sawdust, no short scrap, and 3.038m reusable. useable. Computed trade-offs not measured time or carbon savings. The agent inspects and stages the exact plan. Pause for review. This is not approval. Check stock identities, quantities, and kerf. No registered tool can approve. These UI controls are automated, not proof of human presence. Now the controls check the acknowledgement. Then, they click approve cut sheet. The model inspects approval and exports the actual CSV, 14 parts part identifiers, offsets, kerf, and the exact approved plan identifier. Another draft cannot inherit approval. Typing four leaves committed kerf at three. Pending edits block staging without moving focus or saving. Now commit. Revision two invalidates the old approval. The old plan is stale. The model replans, 14 parts, 56 mm of sawdust. Revision 2 is staged, not approved. The acknowledgment stays unchecked. Offcut itself needs no account. Model Key or McKend. A workbench and MIT license source are public. These are planning estimates, not machine instructions. Barify usable stock and safe cutting conditions at the bench.",
+    "actual_encoded_ASR_word_boundaries": [
+      {
+        "start": 101.2,
+        "end": 101.6,
+        "word": " check",
+        "probability": 0.9958165287971497
+      },
+      {
+        "start": 103.94,
+        "end": 104.14,
+        "word": " click",
+        "probability": 0.9960149526596069
+      },
+      {
+        "start": 127.9,
+        "end": 128.18,
+        "word": " commit.",
+        "probability": 0.9361295104026794
+      }
+    ],
+    "record": "submission/evidence/media/final-audio-asr.portable.json",
+    "loudness": {
+      "integrated_LUFS": -17.4,
+      "LRA_LU": 4.7,
+      "true_peak_dBFS": -2.2
     },
-    "limits": "Actual unprompted offline recognition, not subjective listening or proof of human naturalness. Minor spelling/grouping/duplication recognition slips, including an inserted word before the automated-controls disclosure, are retained in the transcript."
+    "limits": "Unprompted offline English-model/language=en recognition from actual encodedAAC, not subjective listening or automatic language detection. Recognition slips including branch-and-bounce/curve, McKend and Barify are retained; source narration/captions spell the intended terminology. No hotwords, prefix or initial prompt."
   },
   "captions": {
     "file": "submission/demo-subtitles.vtt",
     "burned_in": true,
-    "cues": 29,
-    "original_words": 361,
-    "max_words": 15,
+    "cues": 40,
+    "spoken_words": 331,
+    "covered_spoken_words": 331,
+    "display_words": 324,
+    "max_words": 12,
     "max_lines": 2,
-    "max_characters_per_line": 64,
-    "max_seconds_per_cue": 6,
+    "max_seconds_per_cue": 5.88,
     "overlap_count": 0,
-    "cue_end_seconds": 164.02,
-    "actual_libass_sample_bounds_y": [1017, 1066]
+    "actual_final_glyph_bounds_y": [1011, 1065],
+    "actual_caption_bearing_images": 96,
+    "actual_correct_absence_images": 12,
+    "caption_accuracy_scope": "95 matching quoted-caption samples plusone2535 punctuation discrepancy resolved by actual pixel equality to correctly quoted2534;12 correct absences. Every40cue has actual sampled-caption evidence.",
+    "record": "submission/evidence/media/audio-captions.portable-summary.json"
   },
-  "visible_final_frames_inspected_seconds": [1, 75, 140],
+  "final_video_visually_verified": true,
+  "actual_final_images_inspected": 108,
+  "visual_verification_record": "submission/evidence/media/final-visual-inspections.portable.json",
+  "native_video_playback": {
+    "verified": true,
+    "browser": "Chrome152.0.7977.64",
+    "keyboard_play_pause_exercised": true,
+    "matched_actual_video_paint_callbacks": 10,
+    "decode_error": null,
+    "record": "submission/evidence/media/native-player.portable.json"
+  },
+  "separate_UI_action_and_paint_timing": {
+    "acknowledgement_target_frame": 2530,
+    "acknowledgement_seconds": 101.2,
+    "approval_button_target_frame": 2599,
+    "approval_button_seconds": 103.96,
+    "first_approved_paint_frame": 2600,
+    "first_approved_paint_seconds": 104,
+    "checked_before_separate_button_event_target_frames": 69,
+    "commit_target_frame": 3198,
+    "commit_seconds": 127.92,
+    "post_state_observation_target_frames": {
+      "acknowledgement": 2545,
+      "approval": 2615,
+      "commit": 3220
+    },
+    "final_unapproved_start_frame": 3446,
+    "final_unapproved_end_frame_exclusive": 4125,
+    "final_unapproved_seconds": 27.16,
+    "final_window_edited_hold_frames": 0,
+    "scope": "Action/native-receipt/post-state-observation/CDP-paint clocks remain separate; exact source/target frame map and sampledactualpixels are recorded independently."
+  },
   "source_record": "submission/agent-trace.json",
-  "actual_model_selected_native_calls": 14,
-  "source_footage": "Actual live HTTPS app recording, with actual captured native receipt screenshots. Waiting time trimmed; replan footage modestly sped up; original narration/annotations identify automation/harness scope.",
+  "source_render_record": "submission/evidence/media/final-render.portable-summary.json",
+  "actual_model_decisions": 25,
+  "actual_model_selected_native_calls": 19,
+  "local_finish_decisions_not_native_calls": 6,
+  "source_footage": "Actual headed Chrome live HTTPS app CDP capture. Genuine selected source ranges play1x; waiting time is trimmed;190 explicitly labelled last-frame hold frames occur only in setup/catalogue/workshop-read areas. The finalunapprovedwindow is679genuine source frames withnoeditedhold.",
   "not_ChatGPT_screen_recording": true,
   "UI_automation_disclosed": true,
   "media_rights_record": "submission/media-rights.json",
   "entrant_media_rights_confirmation": null,
   "actual_public_YouTube_url": null,
-  "public_YouTube_publication_verified": false
+  "public_YouTube_publication_verified": false,
+  "visibility_limits": [
+    "In-app notification banners obscure some upper source-app details; those remain unreadable and are not reconstructed.",
+    "App/modal scroll boundaries crop internal content intentionally; four visibleC34 kerf cells are readable, though the fourth row lower detail reaches the footer boundary.",
+    "Paused native-player controls may overlay captions; all108 baked-in PNG inspections are separate from native controls."
+  ]
 }

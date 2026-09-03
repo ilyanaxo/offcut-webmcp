@@ -1,0 +1,67 @@
+{
+  "kind": "Compact summaries transcribed by Main from actual inspect_image observations of headed Chrome native-video PNGs",
+  "videoSha256": "c91ba242684a288452f12d9754caaff662347559714cf7f453c35695282aa79c",
+  "inspectionScope": "Four actual native-player captures; playback control overlays are not baked-in video artifacts; no physical-human or YouTube claim",
+  "observations": [
+    {
+      "frame": 2599,
+      "paintedSeconds": 103.96,
+      "reviewOpen": true,
+      "acknowledgementChecked": true,
+      "approvalConfirmationVisible": false,
+      "uiEventOrdinal": 46,
+      "actionSourceSeconds": 1038.473,
+      "postStateWithheld": true,
+      "screenshotPath": "submission/evidence/media/chrome-frame-2599.png"
+    },
+    {
+      "frame": 2600,
+      "paintedSeconds": 104,
+      "reviewOpen": false,
+      "approvedStatusVisible": true,
+      "approvedPlanId": "plan-683635c8-5b2c-40d1-82e8-31916f4a622b-6",
+      "releaseText": "Human approval recorded for plan-683635c8-5b2c-40d1-82e8-31916f4a622b-6. Its CSV and printable cut sheet are now available for this page session.",
+      "uiEventOrdinal": 46,
+      "postStateWithheld": true,
+      "humanWordingIsNotPhysicalHumanProof": true,
+      "screenshotPath": "submission/evidence/media/chrome-frame-2600.png"
+    },
+    {
+      "frame": 3375,
+      "paintedSeconds": 135,
+      "tableHeadings": [
+        "Order",
+        "Part",
+        "Length",
+        "Start",
+        "Kerf"
+      ],
+      "visibleKerfMm": [
+        4,
+        4,
+        4,
+        4
+      ],
+      "acknowledgementChecked": false,
+      "approvalButtonVisiblyMuted": true,
+      "attribution": "Edit: Actual post-stage kerf-4 table. Native #17 is a retained planning result.",
+      "partialRowBoundary": "Fourth visible row lower content is cut at the modal action-footer boundary; all four visible kerf values remain readable. A still does not establish disabled behavior.",
+      "screenshotPath": "submission/evidence/media/chrome-frame-3375.png"
+    },
+    {
+      "frame": 4124,
+      "paintedSeconds": 164.96,
+      "title": "REVISION 2 — STAGED, NOT APPROVED",
+      "revision": 2,
+      "kerfMm": 4,
+      "acknowledgementChecked": false,
+      "approvalButtonVisiblyMuted": true,
+      "nativeStatus": "awaiting_human_approval",
+      "approved": false,
+      "approvedId": null,
+      "appURL": "https://ilyanaxo.github.io/offcut-webmcp/",
+      "sourceURL": "https://github.com/ilyanaxo/offcut-webmcp",
+      "screenshotPath": "submission/evidence/media/chrome-frame-4124.png"
+    }
+  ]
+}

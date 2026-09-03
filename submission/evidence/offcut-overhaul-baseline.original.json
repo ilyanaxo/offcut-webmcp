@@ -1,0 +1,894 @@
+{
+  "runtime": "1.4.0",
+  "scope": "Real Bun subprocess before source changes; duplicate computation/retained heap and actual-handler serialized bytes, not browser/model latency or human approval proof",
+  "duplicateResults": [
+    {
+      "objective": "least_stock",
+      "iterations": 16,
+      "minMs": 24.038095,
+      "medianMs": 24.352446499999985,
+      "p95Ms": 67.711923,
+      "totalMs": 440.8144319999999,
+      "heapBefore": 636724,
+      "heapAfter": 926801,
+      "retainedHeapDeltaBytes": 290077,
+      "reusedRecords": 0,
+      "retainedRecords": 12,
+      "metrics": {
+        "stockUsedMm": 33600,
+        "partsMm": 31440,
+        "kerfMm": 120,
+        "reusableMm": 1263,
+        "scrapMm": 777,
+        "boardCount": 14,
+        "utilization": 0.9357142857142857
+      },
+      "search": {
+        "method": "branch-and-bound",
+        "provenOptimal": false,
+        "nodes": 100000,
+        "limit": 100000
+      },
+      "fixture": {
+        "version": 1,
+        "workspace": {
+          "title": "Duplicate-search optimization baseline",
+          "material": "Uniform synthetic benchmark batch",
+          "stock": [
+            {
+              "id": "B-1",
+              "label": "Benchmark board 1",
+              "lengthMm": 2400,
+              "kind": "board",
+              "locked": false
+            },
+            {
+              "id": "B-2",
+              "label": "Benchmark board 2",
+              "lengthMm": 2400,
+              "kind": "board",
+              "locked": false
+            },
+            {
+              "id": "B-3",
+              "label": "Benchmark board 3",
+              "lengthMm": 2400,
+              "kind": "board",
+              "locked": false
+            },
+            {
+              "id": "B-4",
+              "label": "Benchmark board 4",
+              "lengthMm": 2400,
+              "kind": "board",
+              "locked": false
+            },
+            {
+              "id": "B-5",
+              "label": "Benchmark board 5",
+              "lengthMm": 2400,
+              "kind": "board",
+              "locked": false
+            },
+            {
+              "id": "B-6",
+              "label": "Benchmark board 6",
+              "lengthMm": 2400,
+              "kind": "board",
+              "locked": false
+            },
+            {
+              "id": "B-7",
+              "label": "Benchmark board 7",
+              "lengthMm": 2400,
+              "kind": "board",
+              "locked": false
+            },
+            {
+              "id": "B-8",
+              "label": "Benchmark board 8",
+              "lengthMm": 2400,
+              "kind": "board",
+              "locked": false
+            },
+            {
+              "id": "B-9",
+              "label": "Benchmark board 9",
+              "lengthMm": 2400,
+              "kind": "board",
+              "locked": false
+            },
+            {
+              "id": "B-10",
+              "label": "Benchmark board 10",
+              "lengthMm": 2400,
+              "kind": "board",
+              "locked": false
+            },
+            {
+              "id": "B-11",
+              "label": "Benchmark board 11",
+              "lengthMm": 2400,
+              "kind": "board",
+              "locked": false
+            },
+            {
+              "id": "B-12",
+              "label": "Benchmark board 12",
+              "lengthMm": 2400,
+              "kind": "board",
+              "locked": false
+            },
+            {
+              "id": "B-13",
+              "label": "Benchmark board 13",
+              "lengthMm": 2400,
+              "kind": "board",
+              "locked": false
+            },
+            {
+              "id": "B-14",
+              "label": "Benchmark board 14",
+              "lengthMm": 2400,
+              "kind": "board",
+              "locked": false
+            },
+            {
+              "id": "B-15",
+              "label": "Benchmark board 15",
+              "lengthMm": 2400,
+              "kind": "board",
+              "locked": false
+            },
+            {
+              "id": "B-16",
+              "label": "Benchmark board 16",
+              "lengthMm": 2400,
+              "kind": "board",
+              "locked": false
+            },
+            {
+              "id": "B-17",
+              "label": "Benchmark board 17",
+              "lengthMm": 2400,
+              "kind": "board",
+              "locked": false
+            },
+            {
+              "id": "B-18",
+              "label": "Benchmark board 18",
+              "lengthMm": 2400,
+              "kind": "board",
+              "locked": false
+            },
+            {
+              "id": "B-19",
+              "label": "Benchmark board 19",
+              "lengthMm": 2400,
+              "kind": "board",
+              "locked": false
+            },
+            {
+              "id": "B-20",
+              "label": "Benchmark board 20",
+              "lengthMm": 2400,
+              "kind": "board",
+              "locked": false
+            },
+            {
+              "id": "B-21",
+              "label": "Benchmark board 21",
+              "lengthMm": 2400,
+              "kind": "board",
+              "locked": false
+            },
+            {
+              "id": "B-22",
+              "label": "Benchmark board 22",
+              "lengthMm": 2400,
+              "kind": "board",
+              "locked": false
+            },
+            {
+              "id": "B-23",
+              "label": "Benchmark board 23",
+              "lengthMm": 2400,
+              "kind": "board",
+              "locked": false
+            },
+            {
+              "id": "B-24",
+              "label": "Benchmark board 24",
+              "lengthMm": 2400,
+              "kind": "board",
+              "locked": false
+            }
+          ],
+          "requirements": [
+            {
+              "id": "P-1",
+              "label": "Benchmark part 1",
+              "lengthMm": 300,
+              "quantity": 4
+            },
+            {
+              "id": "P-2",
+              "label": "Benchmark part 2",
+              "lengthMm": 440,
+              "quantity": 4
+            },
+            {
+              "id": "P-3",
+              "label": "Benchmark part 3",
+              "lengthMm": 580,
+              "quantity": 4
+            },
+            {
+              "id": "P-4",
+              "label": "Benchmark part 4",
+              "lengthMm": 620,
+              "quantity": 4
+            },
+            {
+              "id": "P-5",
+              "label": "Benchmark part 5",
+              "lengthMm": 710,
+              "quantity": 4
+            },
+            {
+              "id": "P-6",
+              "label": "Benchmark part 6",
+              "lengthMm": 830,
+              "quantity": 4
+            },
+            {
+              "id": "P-7",
+              "label": "Benchmark part 7",
+              "lengthMm": 950,
+              "quantity": 4
+            },
+            {
+              "id": "P-8",
+              "label": "Benchmark part 8",
+              "lengthMm": 1020,
+              "quantity": 4
+            },
+            {
+              "id": "P-9",
+              "label": "Benchmark part 9",
+              "lengthMm": 1140,
+              "quantity": 4
+            },
+            {
+              "id": "P-10",
+              "label": "Benchmark part 10",
+              "lengthMm": 1270,
+              "quantity": 4
+            }
+          ],
+          "settings": {
+            "kerfMm": 3,
+            "minReusableMm": 400
+          }
+        }
+      }
+    },
+    {
+      "objective": "fewest_boards",
+      "iterations": 16,
+      "minMs": 23.622860999999943,
+      "medianMs": 23.843002000000013,
+      "p95Ms": 28.85741399999995,
+      "totalMs": 388.1359659999996,
+      "heapBefore": 838979,
+      "heapAfter": 960150,
+      "retainedHeapDeltaBytes": 121171,
+      "reusedRecords": 0,
+      "retainedRecords": 12,
+      "metrics": {
+        "stockUsedMm": 33600,
+        "partsMm": 31440,
+        "kerfMm": 120,
+        "reusableMm": 1263,
+        "scrapMm": 777,
+        "boardCount": 14,
+        "utilization": 0.9357142857142857
+      },
+      "search": {
+        "method": "branch-and-bound",
+        "provenOptimal": false,
+        "nodes": 100000,
+        "limit": 100000
+      },
+      "fixture": {
+        "version": 1,
+        "workspace": {
+          "title": "Duplicate-search optimization baseline",
+          "material": "Uniform synthetic benchmark batch",
+          "stock": [
+            {
+              "id": "B-1",
+              "label": "Benchmark board 1",
+              "lengthMm": 2400,
+              "kind": "board",
+              "locked": false
+            },
+            {
+              "id": "B-2",
+              "label": "Benchmark board 2",
+              "lengthMm": 2400,
+              "kind": "board",
+              "locked": false
+            },
+            {
+              "id": "B-3",
+              "label": "Benchmark board 3",
+              "lengthMm": 2400,
+              "kind": "board",
+              "locked": false
+            },
+            {
+              "id": "B-4",
+              "label": "Benchmark board 4",
+              "lengthMm": 2400,
+              "kind": "board",
+              "locked": false
+            },
+            {
+              "id": "B-5",
+              "label": "Benchmark board 5",
+              "lengthMm": 2400,
+              "kind": "board",
+              "locked": false
+            },
+            {
+              "id": "B-6",
+              "label": "Benchmark board 6",
+              "lengthMm": 2400,
+              "kind": "board",
+              "locked": false
+            },
+            {
+              "id": "B-7",
+              "label": "Benchmark board 7",
+              "lengthMm": 2400,
+              "kind": "board",
+              "locked": false
+            },
+            {
+              "id": "B-8",
+              "label": "Benchmark board 8",
+              "lengthMm": 2400,
+              "kind": "board",
+              "locked": false
+            },
+            {
+              "id": "B-9",
+              "label": "Benchmark board 9",
+              "lengthMm": 2400,
+              "kind": "board",
+              "locked": false
+            },
+            {
+              "id": "B-10",
+              "label": "Benchmark board 10",
+              "lengthMm": 2400,
+              "kind": "board",
+              "locked": false
+            },
+            {
+              "id": "B-11",
+              "label": "Benchmark board 11",
+              "lengthMm": 2400,
+              "kind": "board",
+              "locked": false
+            },
+            {
+              "id": "B-12",
+              "label": "Benchmark board 12",
+              "lengthMm": 2400,
+              "kind": "board",
+              "locked": false
+            },
+            {
+              "id": "B-13",
+              "label": "Benchmark board 13",
+              "lengthMm": 2400,
+              "kind": "board",
+              "locked": false
+            },
+            {
+              "id": "B-14",
+              "label": "Benchmark board 14",
+              "lengthMm": 2400,
+              "kind": "board",
+              "locked": false
+            },
+            {
+              "id": "B-15",
+              "label": "Benchmark board 15",
+              "lengthMm": 2400,
+              "kind": "board",
+              "locked": false
+            },
+            {
+              "id": "B-16",
+              "label": "Benchmark board 16",
+              "lengthMm": 2400,
+              "kind": "board",
+              "locked": false
+            },
+            {
+              "id": "B-17",
+              "label": "Benchmark board 17",
+              "lengthMm": 2400,
+              "kind": "board",
+              "locked": false
+            },
+            {
+              "id": "B-18",
+              "label": "Benchmark board 18",
+              "lengthMm": 2400,
+              "kind": "board",
+              "locked": false
+            },
+            {
+              "id": "B-19",
+              "label": "Benchmark board 19",
+              "lengthMm": 2400,
+              "kind": "board",
+              "locked": false
+            },
+            {
+              "id": "B-20",
+              "label": "Benchmark board 20",
+              "lengthMm": 2400,
+              "kind": "board",
+              "locked": false
+            },
+            {
+              "id": "B-21",
+              "label": "Benchmark board 21",
+              "lengthMm": 2400,
+              "kind": "board",
+              "locked": false
+            },
+            {
+              "id": "B-22",
+              "label": "Benchmark board 22",
+              "lengthMm": 2400,
+              "kind": "board",
+              "locked": false
+            },
+            {
+              "id": "B-23",
+              "label": "Benchmark board 23",
+              "lengthMm": 2400,
+              "kind": "board",
+              "locked": false
+            },
+            {
+              "id": "B-24",
+              "label": "Benchmark board 24",
+              "lengthMm": 2400,
+              "kind": "board",
+              "locked": false
+            }
+          ],
+          "requirements": [
+            {
+              "id": "P-1",
+              "label": "Benchmark part 1",
+              "lengthMm": 300,
+              "quantity": 4
+            },
+            {
+              "id": "P-2",
+              "label": "Benchmark part 2",
+              "lengthMm": 440,
+              "quantity": 4
+            },
+            {
+              "id": "P-3",
+              "label": "Benchmark part 3",
+              "lengthMm": 580,
+              "quantity": 4
+            },
+            {
+              "id": "P-4",
+              "label": "Benchmark part 4",
+              "lengthMm": 620,
+              "quantity": 4
+            },
+            {
+              "id": "P-5",
+              "label": "Benchmark part 5",
+              "lengthMm": 710,
+              "quantity": 4
+            },
+            {
+              "id": "P-6",
+              "label": "Benchmark part 6",
+              "lengthMm": 830,
+              "quantity": 4
+            },
+            {
+              "id": "P-7",
+              "label": "Benchmark part 7",
+              "lengthMm": 950,
+              "quantity": 4
+            },
+            {
+              "id": "P-8",
+              "label": "Benchmark part 8",
+              "lengthMm": 1020,
+              "quantity": 4
+            },
+            {
+              "id": "P-9",
+              "label": "Benchmark part 9",
+              "lengthMm": 1140,
+              "quantity": 4
+            },
+            {
+              "id": "P-10",
+              "label": "Benchmark part 10",
+              "lengthMm": 1270,
+              "quantity": 4
+            }
+          ],
+          "settings": {
+            "kerfMm": 3,
+            "minReusableMm": 400
+          }
+        }
+      }
+    },
+    {
+      "objective": "least_waste",
+      "iterations": 16,
+      "minMs": 23.231661999999915,
+      "medianMs": 23.541774000000032,
+      "p95Ms": 28.638984000000164,
+      "totalMs": 384.2026510000003,
+      "heapBefore": 879492,
+      "heapAfter": 970732,
+      "retainedHeapDeltaBytes": 91240,
+      "reusedRecords": 0,
+      "retainedRecords": 12,
+      "metrics": {
+        "stockUsedMm": 38400,
+        "partsMm": 31440,
+        "kerfMm": 120,
+        "reusableMm": 6840,
+        "scrapMm": 0,
+        "boardCount": 16,
+        "utilization": 0.81875
+      },
+      "search": {
+        "method": "branch-and-bound",
+        "provenOptimal": false,
+        "nodes": 100000,
+        "limit": 100000
+      },
+      "fixture": {
+        "version": 1,
+        "workspace": {
+          "title": "Duplicate-search optimization baseline",
+          "material": "Uniform synthetic benchmark batch",
+          "stock": [
+            {
+              "id": "B-1",
+              "label": "Benchmark board 1",
+              "lengthMm": 2400,
+              "kind": "board",
+              "locked": false
+            },
+            {
+              "id": "B-2",
+              "label": "Benchmark board 2",
+              "lengthMm": 2400,
+              "kind": "board",
+              "locked": false
+            },
+            {
+              "id": "B-3",
+              "label": "Benchmark board 3",
+              "lengthMm": 2400,
+              "kind": "board",
+              "locked": false
+            },
+            {
+              "id": "B-4",
+              "label": "Benchmark board 4",
+              "lengthMm": 2400,
+              "kind": "board",
+              "locked": false
+            },
+            {
+              "id": "B-5",
+              "label": "Benchmark board 5",
+              "lengthMm": 2400,
+              "kind": "board",
+              "locked": false
+            },
+            {
+              "id": "B-6",
+              "label": "Benchmark board 6",
+              "lengthMm": 2400,
+              "kind": "board",
+              "locked": false
+            },
+            {
+              "id": "B-7",
+              "label": "Benchmark board 7",
+              "lengthMm": 2400,
+              "kind": "board",
+              "locked": false
+            },
+            {
+              "id": "B-8",
+              "label": "Benchmark board 8",
+              "lengthMm": 2400,
+              "kind": "board",
+              "locked": false
+            },
+            {
+              "id": "B-9",
+              "label": "Benchmark board 9",
+              "lengthMm": 2400,
+              "kind": "board",
+              "locked": false
+            },
+            {
+              "id": "B-10",
+              "label": "Benchmark board 10",
+              "lengthMm": 2400,
+              "kind": "board",
+              "locked": false
+            },
+            {
+              "id": "B-11",
+              "label": "Benchmark board 11",
+              "lengthMm": 2400,
+              "kind": "board",
+              "locked": false
+            },
+            {
+              "id": "B-12",
+              "label": "Benchmark board 12",
+              "lengthMm": 2400,
+              "kind": "board",
+              "locked": false
+            },
+            {
+              "id": "B-13",
+              "label": "Benchmark board 13",
+              "lengthMm": 2400,
+              "kind": "board",
+              "locked": false
+            },
+            {
+              "id": "B-14",
+              "label": "Benchmark board 14",
+              "lengthMm": 2400,
+              "kind": "board",
+              "locked": false
+            },
+            {
+              "id": "B-15",
+              "label": "Benchmark board 15",
+              "lengthMm": 2400,
+              "kind": "board",
+              "locked": false
+            },
+            {
+              "id": "B-16",
+              "label": "Benchmark board 16",
+              "lengthMm": 2400,
+              "kind": "board",
+              "locked": false
+            },
+            {
+              "id": "B-17",
+              "label": "Benchmark board 17",
+              "lengthMm": 2400,
+              "kind": "board",
+              "locked": false
+            },
+            {
+              "id": "B-18",
+              "label": "Benchmark board 18",
+              "lengthMm": 2400,
+              "kind": "board",
+              "locked": false
+            },
+            {
+              "id": "B-19",
+              "label": "Benchmark board 19",
+              "lengthMm": 2400,
+              "kind": "board",
+              "locked": false
+            },
+            {
+              "id": "B-20",
+              "label": "Benchmark board 20",
+              "lengthMm": 2400,
+              "kind": "board",
+              "locked": false
+            },
+            {
+              "id": "B-21",
+              "label": "Benchmark board 21",
+              "lengthMm": 2400,
+              "kind": "board",
+              "locked": false
+            },
+            {
+              "id": "B-22",
+              "label": "Benchmark board 22",
+              "lengthMm": 2400,
+              "kind": "board",
+              "locked": false
+            },
+            {
+              "id": "B-23",
+              "label": "Benchmark board 23",
+              "lengthMm": 2400,
+              "kind": "board",
+              "locked": false
+            },
+            {
+              "id": "B-24",
+              "label": "Benchmark board 24",
+              "lengthMm": 2400,
+              "kind": "board",
+              "locked": false
+            }
+          ],
+          "requirements": [
+            {
+              "id": "P-1",
+              "label": "Benchmark part 1",
+              "lengthMm": 300,
+              "quantity": 4
+            },
+            {
+              "id": "P-2",
+              "label": "Benchmark part 2",
+              "lengthMm": 440,
+              "quantity": 4
+            },
+            {
+              "id": "P-3",
+              "label": "Benchmark part 3",
+              "lengthMm": 580,
+              "quantity": 4
+            },
+            {
+              "id": "P-4",
+              "label": "Benchmark part 4",
+              "lengthMm": 620,
+              "quantity": 4
+            },
+            {
+              "id": "P-5",
+              "label": "Benchmark part 5",
+              "lengthMm": 710,
+              "quantity": 4
+            },
+            {
+              "id": "P-6",
+              "label": "Benchmark part 6",
+              "lengthMm": 830,
+              "quantity": 4
+            },
+            {
+              "id": "P-7",
+              "label": "Benchmark part 7",
+              "lengthMm": 950,
+              "quantity": 4
+            },
+            {
+              "id": "P-8",
+              "label": "Benchmark part 8",
+              "lengthMm": 1020,
+              "quantity": 4
+            },
+            {
+              "id": "P-9",
+              "label": "Benchmark part 9",
+              "lengthMm": 1140,
+              "quantity": 4
+            },
+            {
+              "id": "P-10",
+              "label": "Benchmark part 10",
+              "lengthMm": 1270,
+              "quantity": 4
+            }
+          ],
+          "settings": {
+            "kerfMm": 3,
+            "minReusableMm": 400
+          }
+        }
+      }
+    }
+  ],
+  "catalogue": [
+    {
+      "name": "get_workshop",
+      "descriptionUtf8Bytes": 254,
+      "catalogueUtf8Bytes": 445
+    },
+    {
+      "name": "plan_cuts",
+      "descriptionUtf8Bytes": 505,
+      "catalogueUtf8Bytes": 1195
+    },
+    {
+      "name": "inspect_plan",
+      "descriptionUtf8Bytes": 247,
+      "catalogueUtf8Bytes": 584
+    },
+    {
+      "name": "compare_plans",
+      "descriptionUtf8Bytes": 310,
+      "catalogueUtf8Bytes": 708
+    },
+    {
+      "name": "stage_plan_for_review",
+      "descriptionUtf8Bytes": 298,
+      "catalogueUtf8Bytes": 809
+    },
+    {
+      "name": "export_cut_list",
+      "descriptionUtf8Bytes": 311,
+      "catalogueUtf8Bytes": 643
+    }
+  ],
+  "payloads": [
+    {
+      "name": "get_workshop",
+      "utf8Bytes": 1951,
+      "physicalModelBytes": 423
+    },
+    {
+      "name": "plan_cuts:least_stock",
+      "utf8Bytes": 2336,
+      "physicalModelBytes": 0
+    },
+    {
+      "name": "plan_cuts:fewest_boards",
+      "utf8Bytes": 2337,
+      "physicalModelBytes": 0
+    },
+    {
+      "name": "plan_cuts:least_waste",
+      "utf8Bytes": 2807,
+      "physicalModelBytes": 0
+    },
+    {
+      "name": "inspect_plan",
+      "utf8Bytes": 2694,
+      "physicalModelBytes": 423
+    },
+    {
+      "name": "compare_plans",
+      "utf8Bytes": 1200,
+      "physicalModelBytes": 0
+    },
+    {
+      "name": "stage_plan_for_review",
+      "utf8Bytes": 2460,
+      "physicalModelBytes": 0
+    },
+    {
+      "name": "export_cut_list",
+      "utf8Bytes": 4103,
+      "physicalModelBytes": 423
+    }
+  ],
+  "observedAt": "2026-09-03T09:15:36.358Z"
+}

@@ -1,0 +1,91 @@
+{
+  "observedAt": "2026-09-03T11:33:43.053Z",
+  "browserVersion": {
+    "protocolVersion": "1.3",
+    "product": "Chrome/152.0.7977.64",
+    "revision": "@506c834ecceaa943c5f41e6cfe7f68acb5c45346",
+    "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36",
+    "jsVersion": "15.2.124.18"
+  },
+  "secureContext": true,
+  "topLevel": true,
+  "url": "https://ilyanaxo.github.io/offcut-webmcp/",
+  "nativeLocation": "document.modelContext",
+  "navigatorModelContextPresent": false,
+  "documentModelContextPresent": true,
+  "nativeConstructor": "ModelContext",
+  "tools": [
+    {
+      "name": "compare_plans",
+      "title": "Compare real planning tradeoffs",
+      "description": "Compare 2-3 distinct COMPLETE FRESH plans for the SAME current job: real balances/deltas from first; negative stock/waste/board deltas mean less, not invented savings/carbon. protectedStockIds + each row’s additional excludedStockIds define constraints; sameConstraints/sameConstraintsAsFirst compare EFFECTIVE unions. Different-constraint what-ifs are allowed; human physics/protection stays fixed.",
+      "inputSchema": "{\"type\":\"object\",\"properties\":{\"planIds\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"minLength\":1,\"maxLength\":64,\"description\":\"Exact plan ID returned by plan_cuts.\"},\"minItems\":2,\"maxItems\":3,\"uniqueItems\":true}},\"required\":[\"planIds\"],\"additionalProperties\":false}",
+      "origin": "https://ilyanaxo.github.io",
+      "annotations": {
+        "readOnlyHint": true,
+        "untrustedContentHint": true
+      },
+      "sameWindow": true
+    },
+    {
+      "name": "export_cut_list",
+      "title": "Export the human-approved cut sheet",
+      "description": "Return CSV for the exact human-approved COMPLETE FRESH committed ID; reject unapproved/stale/partial plans. Include ALL part IDs/lengths/offsets, kerf and final remnants; quote/formula-escape human text. Pending drafts still allow this committed export. Planning document only: no cuts/inventory changes.",
+      "inputSchema": "{\"type\":\"object\",\"properties\":{\"planId\":{\"type\":\"string\",\"minLength\":1,\"maxLength\":64,\"description\":\"Exact plan ID returned by plan_cuts.\"}},\"required\":[\"planId\"],\"additionalProperties\":false}",
+      "origin": "https://ilyanaxo.github.io",
+      "annotations": {
+        "readOnlyHint": true,
+        "untrustedContentHint": true
+      },
+      "sameWindow": true
+    },
+    {
+      "name": "get_workshop",
+      "title": "Inspect the shared workshop",
+      "description": "Read committed human stock/protection, ALL part requirements, settings, revision, pending drafts and proposals BEFORE planning. Integer mm. Measurements and approval are human-owned; this tool changes neither.",
+      "inputSchema": "{\"type\":\"object\",\"properties\":{},\"additionalProperties\":false}",
+      "origin": "https://ilyanaxo.github.io",
+      "annotations": {
+        "readOnlyHint": true,
+        "untrustedContentHint": true
+      },
+      "sameWindow": true
+    },
+    {
+      "name": "inspect_plan",
+      "title": "Inspect a proposal and its material balance",
+      "description": "Read exact layouts/instances/offsets, board kerf/reusable remnants/scrap, proof/freshness. reusedFromPlanId marks reused nodes/proof, not rerun search. Stale/partial plans cannot stage/export; pending drafts block review. No changes/approval.",
+      "inputSchema": "{\"type\":\"object\",\"properties\":{\"planId\":{\"type\":\"string\",\"minLength\":1,\"maxLength\":64,\"description\":\"Exact plan ID returned by plan_cuts.\"}},\"required\":[\"planId\"],\"additionalProperties\":false}",
+      "origin": "https://ilyanaxo.github.io",
+      "annotations": {
+        "readOnlyHint": true,
+        "untrustedContentHint": true
+      },
+      "sameWindow": true
+    },
+    {
+      "name": "plan_cuts",
+      "title": "Propose a checked cutting plan",
+      "description": "Propose ALL committed parts; honor protection, kerf and remnant rules. Lexicographic goals: least_stock(opened mm,waste,boards), fewest_boards(boards,opened mm,waste), least_waste(waste,opened mm,boards); waste=kerf+short scrap. excludedStockIds only protects MORE stock. Check complete/search.provenOptimal: a budget stop proves neither optimum nor infeasibility. reusedFromPlanId marks reused search nodes/proof, not new search. New IDs are unapproved; no stock is consumed.",
+      "inputSchema": "{\"type\":\"object\",\"properties\":{\"expectedRevision\":{\"type\":\"integer\",\"minimum\":0,\"description\":\"Current workspace revision returned by get_workshop. Re-read after any human edit.\"},\"objective\":{\"type\":\"string\",\"enum\":[\"least_stock\",\"fewest_boards\",\"least_waste\"]},\"excludedStockIds\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"minLength\":1,\"maxLength\":64},\"uniqueItems\":true,\"maxItems\":24,\"description\":\"Optional additional board IDs to keep untouched, on top of human-protected boards.\"}},\"required\":[\"expectedRevision\",\"objective\"],\"additionalProperties\":false}",
+      "origin": "https://ilyanaxo.github.io",
+      "annotations": {
+        "readOnlyHint": false,
+        "untrustedContentHint": true
+      },
+      "sameWindow": true
+    },
+    {
+      "name": "stage_plan_for_review",
+      "title": "Ask the human to review this exact plan",
+      "description": "Stage the exact COMPLETE FRESH plan at expectedRevision. Drafts reject with PENDING_MEASUREMENTS: finish/cancel them first. Returns awaiting_human_approval immediately, NOT approval. Human approval requires the site button; no tool can approve. Committed measurement changes invalidate review.",
+      "inputSchema": "{\"type\":\"object\",\"properties\":{\"planId\":{\"type\":\"string\",\"minLength\":1,\"maxLength\":64,\"description\":\"Exact plan ID returned by plan_cuts.\"},\"expectedRevision\":{\"type\":\"integer\",\"minimum\":0,\"description\":\"Current workspace revision returned by get_workshop. Re-read after any human edit.\"}},\"required\":[\"planId\",\"expectedRevision\"],\"additionalProperties\":false}",
+      "origin": "https://ilyanaxo.github.io",
+      "annotations": {
+        "readOnlyHint": false,
+        "untrustedContentHint": true
+      },
+      "sameWindow": true
+    }
+  ]
+}

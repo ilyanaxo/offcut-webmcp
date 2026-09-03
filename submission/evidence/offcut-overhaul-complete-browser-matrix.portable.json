@@ -1,0 +1,681 @@
+{
+  "sourceCommit": "f8091483ef2003b1bff361ab8f1b49a5715cd19d",
+  "staticCommit": "c88b3050ee128d19b5f79a9380822771a0167160",
+  "nativeProfiles": {
+    "149": "149.0.7827.155/navigator/syncundefined/JSON-stringclient/onecallbackargument",
+    "152": "152.0.7977.64/document/promise/JSON-stringclient/onecallbackargument"
+  },
+  "sameContractDefinitions": 18,
+  "actualExecutedCases": 72,
+  "sameContractsRepeatedAcrossProfilesAndDeployments": true,
+  "passed": 72,
+  "failed": 0,
+  "scope": "Both actualnative-enabled/native-disabledmanualprojects on actuallocalproductionpreviewandactualpublicprojectsubpath, two workers perrun,sandbox/privateTMPDIR/freshcontexts. Not actualChatGPT-host or physicalhuman/hardware proof.",
+  "runs": [
+    {
+      "profile": "149",
+      "surface": "local",
+      "baseURL": "http://127.0.0.1:4183/",
+      "stats": {
+        "startTime": "2026-09-03T10:34:15.261Z",
+        "duration": 35171.805,
+        "expected": 18,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "cases": [
+        {
+          "title": "Native tools preserve human stock protection through objective comparison, review and approved-only release",
+          "project": "native-webmcp",
+          "status": "expected",
+          "results": [
+            "passed"
+          ]
+        },
+        {
+          "title": "Only Enter/blur commits reach native tools; committed revisions invalidate approval, staging, comparison and export",
+          "project": "native-webmcp",
+          "status": "expected",
+          "results": [
+            "passed"
+          ]
+        },
+        {
+          "title": "Native planning uses committed measurements while pending fields and new rows reject review without stealing focus",
+          "project": "native-webmcp",
+          "status": "expected",
+          "results": [
+            "passed"
+          ]
+        },
+        {
+          "title": "A focused valid draft rejects native review until genuine Enter-save invalidates the old plan and a fresh replan is reviewed",
+          "project": "native-webmcp",
+          "status": "expected",
+          "results": [
+            "passed"
+          ]
+        },
+        {
+          "title": "Textual 03 is pending until a no-op save normalizes it without a revision, and an unchanged focused 3 permits native review",
+          "project": "native-webmcp",
+          "status": "expected",
+          "results": [
+            "passed"
+          ]
+        },
+        {
+          "title": "Clear confirmation paused by native review resumes with native modality and two Escapes return the original invoker without changing approval",
+          "project": "native-webmcp",
+          "status": "expected",
+          "results": [
+            "passed"
+          ]
+        },
+        {
+          "title": "Replacing an acknowledged three-board review with six boards resets the same open dialog and releases only the new exact ID and filename",
+          "project": "native-webmcp",
+          "status": "expected",
+          "results": [
+            "passed"
+          ]
+        },
+        {
+          "title": "A reused checked solution receives a new unapproved native record even when its retained human source is approved",
+          "project": "native-webmcp",
+          "status": "expected",
+          "results": [
+            "passed"
+          ]
+        },
+        {
+          "title": "Two invalid fields retain their pending union and saved approval until both real Escape cancellations complete",
+          "project": "native-webmcp",
+          "status": "expected",
+          "results": [
+            "passed"
+          ]
+        },
+        {
+          "title": "Empty and insufficient stock remain explicit, non-releasable proposals until the human supplies allowed stock",
+          "project": "native-webmcp",
+          "status": "expected",
+          "results": [
+            "passed"
+          ]
+        },
+        {
+          "title": "The maximum forty-cut batch releases all seventeen CSV cells and complete print DOM tables with continuation-safe rows",
+          "project": "native-webmcp",
+          "status": "expected",
+          "results": [
+            "passed"
+          ]
+        },
+        {
+          "title": "Ordinary Chrome completes manual planning and real CSV/PDF release, persisting measurements but never page-session approval",
+          "project": "ordinary-manual",
+          "status": "expected",
+          "results": [
+            "passed"
+          ]
+        },
+        {
+          "title": "Two invalid fields retain their pending union and saved approval until both real Escape cancellations complete",
+          "project": "ordinary-manual",
+          "status": "expected",
+          "results": [
+            "passed"
+          ]
+        },
+        {
+          "title": "Unfinished fields, invalid numbers and pending add forms block solving and release until saved or cancelled",
+          "project": "ordinary-manual",
+          "status": "expected",
+          "results": [
+            "passed"
+          ]
+        },
+        {
+          "title": "Replacing measurements requires explicit confirmation and discards proposals, approval and unfinished rows",
+          "project": "ordinary-manual",
+          "status": "expected",
+          "results": [
+            "passed"
+          ]
+        },
+        {
+          "title": "Empty and insufficient stock remain explicit, non-releasable proposals until the human supplies allowed stock",
+          "project": "ordinary-manual",
+          "status": "expected",
+          "results": [
+            "passed"
+          ]
+        },
+        {
+          "title": "The narrow workbench exposes full references by keyboard and contains review controls with native Escape and focus semantics",
+          "project": "ordinary-manual",
+          "status": "expected",
+          "results": [
+            "passed"
+          ]
+        },
+        {
+          "title": "The maximum forty-cut batch releases all seventeen CSV cells and complete print DOM tables with continuation-safe rows",
+          "project": "ordinary-manual",
+          "status": "expected",
+          "results": [
+            "passed"
+          ]
+        }
+      ],
+      "recordedReport": "submission/evidence/browser/149-local-report.portable-summary.json",
+      "recordedReportRepresentation": "Transformed full-result Playwright summary with decoded original JSON attachments; original raw report hash is retained in the linked file and manifest",
+      "baseURLRole": "Observed local runtime address, not an external evidence link"
+    },
+    {
+      "profile": "152",
+      "surface": "local",
+      "baseURL": "http://127.0.0.1:4183/",
+      "stats": {
+        "startTime": "2026-09-03T10:34:15.276Z",
+        "duration": 34918.04,
+        "expected": 18,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "cases": [
+        {
+          "title": "Native tools preserve human stock protection through objective comparison, review and approved-only release",
+          "project": "native-webmcp",
+          "status": "expected",
+          "results": [
+            "passed"
+          ]
+        },
+        {
+          "title": "Only Enter/blur commits reach native tools; committed revisions invalidate approval, staging, comparison and export",
+          "project": "native-webmcp",
+          "status": "expected",
+          "results": [
+            "passed"
+          ]
+        },
+        {
+          "title": "Native planning uses committed measurements while pending fields and new rows reject review without stealing focus",
+          "project": "native-webmcp",
+          "status": "expected",
+          "results": [
+            "passed"
+          ]
+        },
+        {
+          "title": "A focused valid draft rejects native review until genuine Enter-save invalidates the old plan and a fresh replan is reviewed",
+          "project": "native-webmcp",
+          "status": "expected",
+          "results": [
+            "passed"
+          ]
+        },
+        {
+          "title": "Textual 03 is pending until a no-op save normalizes it without a revision, and an unchanged focused 3 permits native review",
+          "project": "native-webmcp",
+          "status": "expected",
+          "results": [
+            "passed"
+          ]
+        },
+        {
+          "title": "Clear confirmation paused by native review resumes with native modality and two Escapes return the original invoker without changing approval",
+          "project": "native-webmcp",
+          "status": "expected",
+          "results": [
+            "passed"
+          ]
+        },
+        {
+          "title": "Replacing an acknowledged three-board review with six boards resets the same open dialog and releases only the new exact ID and filename",
+          "project": "native-webmcp",
+          "status": "expected",
+          "results": [
+            "passed"
+          ]
+        },
+        {
+          "title": "A reused checked solution receives a new unapproved native record even when its retained human source is approved",
+          "project": "native-webmcp",
+          "status": "expected",
+          "results": [
+            "passed"
+          ]
+        },
+        {
+          "title": "Two invalid fields retain their pending union and saved approval until both real Escape cancellations complete",
+          "project": "native-webmcp",
+          "status": "expected",
+          "results": [
+            "passed"
+          ]
+        },
+        {
+          "title": "Empty and insufficient stock remain explicit, non-releasable proposals until the human supplies allowed stock",
+          "project": "native-webmcp",
+          "status": "expected",
+          "results": [
+            "passed"
+          ]
+        },
+        {
+          "title": "The maximum forty-cut batch releases all seventeen CSV cells and complete print DOM tables with continuation-safe rows",
+          "project": "native-webmcp",
+          "status": "expected",
+          "results": [
+            "passed"
+          ]
+        },
+        {
+          "title": "Ordinary Chrome completes manual planning and real CSV/PDF release, persisting measurements but never page-session approval",
+          "project": "ordinary-manual",
+          "status": "expected",
+          "results": [
+            "passed"
+          ]
+        },
+        {
+          "title": "Two invalid fields retain their pending union and saved approval until both real Escape cancellations complete",
+          "project": "ordinary-manual",
+          "status": "expected",
+          "results": [
+            "passed"
+          ]
+        },
+        {
+          "title": "Unfinished fields, invalid numbers and pending add forms block solving and release until saved or cancelled",
+          "project": "ordinary-manual",
+          "status": "expected",
+          "results": [
+            "passed"
+          ]
+        },
+        {
+          "title": "Replacing measurements requires explicit confirmation and discards proposals, approval and unfinished rows",
+          "project": "ordinary-manual",
+          "status": "expected",
+          "results": [
+            "passed"
+          ]
+        },
+        {
+          "title": "Empty and insufficient stock remain explicit, non-releasable proposals until the human supplies allowed stock",
+          "project": "ordinary-manual",
+          "status": "expected",
+          "results": [
+            "passed"
+          ]
+        },
+        {
+          "title": "The narrow workbench exposes full references by keyboard and contains review controls with native Escape and focus semantics",
+          "project": "ordinary-manual",
+          "status": "expected",
+          "results": [
+            "passed"
+          ]
+        },
+        {
+          "title": "The maximum forty-cut batch releases all seventeen CSV cells and complete print DOM tables with continuation-safe rows",
+          "project": "ordinary-manual",
+          "status": "expected",
+          "results": [
+            "passed"
+          ]
+        }
+      ],
+      "recordedReport": "submission/evidence/browser/152-local-final-report.portable-summary.json",
+      "recordedReportRepresentation": "Transformed full-result Playwright summary with decoded original JSON attachments; original raw report hash is retained in the linked file and manifest",
+      "baseURLRole": "Observed local runtime address, not an external evidence link"
+    },
+    {
+      "profile": "149",
+      "surface": "hosted",
+      "baseURL": "https://ilyanaxo.github.io/offcut-webmcp/",
+      "stats": {
+        "startTime": "2026-09-03T11:29:40.516Z",
+        "duration": 120010.136,
+        "expected": 18,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "cases": [
+        {
+          "title": "Native tools preserve human stock protection through objective comparison, review and approved-only release",
+          "project": "native-webmcp",
+          "status": "expected",
+          "results": [
+            "passed"
+          ]
+        },
+        {
+          "title": "Only Enter/blur commits reach native tools; committed revisions invalidate approval, staging, comparison and export",
+          "project": "native-webmcp",
+          "status": "expected",
+          "results": [
+            "passed"
+          ]
+        },
+        {
+          "title": "Native planning uses committed measurements while pending fields and new rows reject review without stealing focus",
+          "project": "native-webmcp",
+          "status": "expected",
+          "results": [
+            "passed"
+          ]
+        },
+        {
+          "title": "A focused valid draft rejects native review until genuine Enter-save invalidates the old plan and a fresh replan is reviewed",
+          "project": "native-webmcp",
+          "status": "expected",
+          "results": [
+            "passed"
+          ]
+        },
+        {
+          "title": "Textual 03 is pending until a no-op save normalizes it without a revision, and an unchanged focused 3 permits native review",
+          "project": "native-webmcp",
+          "status": "expected",
+          "results": [
+            "passed"
+          ]
+        },
+        {
+          "title": "Clear confirmation paused by native review resumes with native modality and two Escapes return the original invoker without changing approval",
+          "project": "native-webmcp",
+          "status": "expected",
+          "results": [
+            "passed"
+          ]
+        },
+        {
+          "title": "Replacing an acknowledged three-board review with six boards resets the same open dialog and releases only the new exact ID and filename",
+          "project": "native-webmcp",
+          "status": "expected",
+          "results": [
+            "passed"
+          ]
+        },
+        {
+          "title": "A reused checked solution receives a new unapproved native record even when its retained human source is approved",
+          "project": "native-webmcp",
+          "status": "expected",
+          "results": [
+            "passed"
+          ]
+        },
+        {
+          "title": "Two invalid fields retain their pending union and saved approval until both real Escape cancellations complete",
+          "project": "native-webmcp",
+          "status": "expected",
+          "results": [
+            "passed"
+          ]
+        },
+        {
+          "title": "Empty and insufficient stock remain explicit, non-releasable proposals until the human supplies allowed stock",
+          "project": "native-webmcp",
+          "status": "expected",
+          "results": [
+            "passed"
+          ]
+        },
+        {
+          "title": "The maximum forty-cut batch releases all seventeen CSV cells and complete print DOM tables with continuation-safe rows",
+          "project": "native-webmcp",
+          "status": "expected",
+          "results": [
+            "passed"
+          ]
+        },
+        {
+          "title": "Ordinary Chrome completes manual planning and real CSV/PDF release, persisting measurements but never page-session approval",
+          "project": "ordinary-manual",
+          "status": "expected",
+          "results": [
+            "passed"
+          ]
+        },
+        {
+          "title": "Two invalid fields retain their pending union and saved approval until both real Escape cancellations complete",
+          "project": "ordinary-manual",
+          "status": "expected",
+          "results": [
+            "passed"
+          ]
+        },
+        {
+          "title": "Unfinished fields, invalid numbers and pending add forms block solving and release until saved or cancelled",
+          "project": "ordinary-manual",
+          "status": "expected",
+          "results": [
+            "passed"
+          ]
+        },
+        {
+          "title": "Replacing measurements requires explicit confirmation and discards proposals, approval and unfinished rows",
+          "project": "ordinary-manual",
+          "status": "expected",
+          "results": [
+            "passed"
+          ]
+        },
+        {
+          "title": "Empty and insufficient stock remain explicit, non-releasable proposals until the human supplies allowed stock",
+          "project": "ordinary-manual",
+          "status": "expected",
+          "results": [
+            "passed"
+          ]
+        },
+        {
+          "title": "The narrow workbench exposes full references by keyboard and contains review controls with native Escape and focus semantics",
+          "project": "ordinary-manual",
+          "status": "expected",
+          "results": [
+            "passed"
+          ]
+        },
+        {
+          "title": "The maximum forty-cut batch releases all seventeen CSV cells and complete print DOM tables with continuation-safe rows",
+          "project": "ordinary-manual",
+          "status": "expected",
+          "results": [
+            "passed"
+          ]
+        }
+      ],
+      "recordedReport": "submission/evidence/browser/149-hosted-report.portable-summary.json",
+      "recordedReportRepresentation": "Transformed full-result Playwright summary with decoded original JSON attachments; original raw report hash is retained in the linked file and manifest",
+      "baseURLRole": "Observed actual public hosted test address"
+    },
+    {
+      "profile": "152",
+      "surface": "hosted",
+      "baseURL": "https://ilyanaxo.github.io/offcut-webmcp/",
+      "stats": {
+        "startTime": "2026-09-03T11:29:33.802Z",
+        "duration": 115662.204,
+        "expected": 18,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "cases": [
+        {
+          "title": "Native tools preserve human stock protection through objective comparison, review and approved-only release",
+          "project": "native-webmcp",
+          "status": "expected",
+          "results": [
+            "passed"
+          ]
+        },
+        {
+          "title": "Only Enter/blur commits reach native tools; committed revisions invalidate approval, staging, comparison and export",
+          "project": "native-webmcp",
+          "status": "expected",
+          "results": [
+            "passed"
+          ]
+        },
+        {
+          "title": "Native planning uses committed measurements while pending fields and new rows reject review without stealing focus",
+          "project": "native-webmcp",
+          "status": "expected",
+          "results": [
+            "passed"
+          ]
+        },
+        {
+          "title": "A focused valid draft rejects native review until genuine Enter-save invalidates the old plan and a fresh replan is reviewed",
+          "project": "native-webmcp",
+          "status": "expected",
+          "results": [
+            "passed"
+          ]
+        },
+        {
+          "title": "Textual 03 is pending until a no-op save normalizes it without a revision, and an unchanged focused 3 permits native review",
+          "project": "native-webmcp",
+          "status": "expected",
+          "results": [
+            "passed"
+          ]
+        },
+        {
+          "title": "Clear confirmation paused by native review resumes with native modality and two Escapes return the original invoker without changing approval",
+          "project": "native-webmcp",
+          "status": "expected",
+          "results": [
+            "passed"
+          ]
+        },
+        {
+          "title": "Replacing an acknowledged three-board review with six boards resets the same open dialog and releases only the new exact ID and filename",
+          "project": "native-webmcp",
+          "status": "expected",
+          "results": [
+            "passed"
+          ]
+        },
+        {
+          "title": "A reused checked solution receives a new unapproved native record even when its retained human source is approved",
+          "project": "native-webmcp",
+          "status": "expected",
+          "results": [
+            "passed"
+          ]
+        },
+        {
+          "title": "Two invalid fields retain their pending union and saved approval until both real Escape cancellations complete",
+          "project": "native-webmcp",
+          "status": "expected",
+          "results": [
+            "passed"
+          ]
+        },
+        {
+          "title": "Empty and insufficient stock remain explicit, non-releasable proposals until the human supplies allowed stock",
+          "project": "native-webmcp",
+          "status": "expected",
+          "results": [
+            "passed"
+          ]
+        },
+        {
+          "title": "The maximum forty-cut batch releases all seventeen CSV cells and complete print DOM tables with continuation-safe rows",
+          "project": "native-webmcp",
+          "status": "expected",
+          "results": [
+            "passed"
+          ]
+        },
+        {
+          "title": "Ordinary Chrome completes manual planning and real CSV/PDF release, persisting measurements but never page-session approval",
+          "project": "ordinary-manual",
+          "status": "expected",
+          "results": [
+            "passed"
+          ]
+        },
+        {
+          "title": "Two invalid fields retain their pending union and saved approval until both real Escape cancellations complete",
+          "project": "ordinary-manual",
+          "status": "expected",
+          "results": [
+            "passed"
+          ]
+        },
+        {
+          "title": "Unfinished fields, invalid numbers and pending add forms block solving and release until saved or cancelled",
+          "project": "ordinary-manual",
+          "status": "expected",
+          "results": [
+            "passed"
+          ]
+        },
+        {
+          "title": "Replacing measurements requires explicit confirmation and discards proposals, approval and unfinished rows",
+          "project": "ordinary-manual",
+          "status": "expected",
+          "results": [
+            "passed"
+          ]
+        },
+        {
+          "title": "Empty and insufficient stock remain explicit, non-releasable proposals until the human supplies allowed stock",
+          "project": "ordinary-manual",
+          "status": "expected",
+          "results": [
+            "passed"
+          ]
+        },
+        {
+          "title": "The narrow workbench exposes full references by keyboard and contains review controls with native Escape and focus semantics",
+          "project": "ordinary-manual",
+          "status": "expected",
+          "results": [
+            "passed"
+          ]
+        },
+        {
+          "title": "The maximum forty-cut batch releases all seventeen CSV cells and complete print DOM tables with continuation-safe rows",
+          "project": "ordinary-manual",
+          "status": "expected",
+          "results": [
+            "passed"
+          ]
+        }
+      ],
+      "recordedReport": "submission/evidence/browser/152-hosted-report.portable-summary.json",
+      "recordedReportRepresentation": "Transformed full-result Playwright summary with decoded original JSON attachments; original raw report hash is retained in the linked file and manifest",
+      "baseURLRole": "Observed actual public hosted test address"
+    }
+  ],
+  "portableProvenance": {
+    "representation": "transformed-full-observation-record",
+    "originalSourceArtifactName": "offcut-overhaul-complete-browser-matrix.json",
+    "originalSourceSha256": "0889b75a18b06a2bf6b3df05e00987c27ebf062c0d57ef637ac8fe1826fe98c5",
+    "originalSourceBytes": 23013,
+    "sourceBytesIdenticalToPortableFile": false,
+    "observationScope": "Current pinned candidate; four actual local/hosted x Chrome149/152 runs;18 contracts repeated,72 cases executed",
+    "pathBase": "repository-root",
+    "transformations": [
+      "Evidence references are repository-relative; source video is represented by its provenance record; original JPEG paths become explicit frame-manifest record locators. Original tool/model/UI/clock values and original media hashes are retained.",
+      "Bare runner-report names now identify produced portable summaries, not byte-identical raw runner reports."
+    ],
+    "referenceReplacementCounts": {
+      "evidencePathToProducedPortableFile": 4
+    },
+    "portableFileHashManifest": "submission/evidence/manifest.json"
+  }
+}

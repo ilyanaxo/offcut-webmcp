@@ -1,0 +1,183 @@
+{
+  "schemaVersion": 1,
+  "kind": "actual_authorized_live_take_handoff_continuity",
+  "captureEvidenceDirectory": "submission/evidence/capture-take-02/",
+  "originalTakeName": "take-02",
+  "authorizedUpstreamAgent": "OverhaulSourceCapture",
+  "resumedBy": "OverhaulCaptureFinish",
+  "ownedProcesses": {
+    "display": "overhaul-capture-x107",
+    "browser": "overhaul-capture-chrome9242",
+    "driver": "overhaul-capture-driver9243"
+  },
+  "actualLiveStatusAtRecovery": {
+    "recording": true,
+    "stopped": false,
+    "origin": 1788435230.152599,
+    "frameCount": 443,
+    "receiptCount": 11,
+    "decisionCount": 15,
+    "uiEventCount": 61,
+    "latestFrame": {
+      "index": 442,
+      "originalSourceFrameName": "frame-0000442.jpg",
+      "sourceFrameEvidencePath": "submission/evidence/capture-take-02/frame-manifest.portable.json",
+      "sourceFrameJsonPointer": "/frames/442",
+      "timestampUnixSeconds": 1788436744.620071,
+      "sourceSeconds": 1514.4674718379974,
+      "sha256": "867c974cbe684a609ee37b79e904857e0d9705e52d290f5997fb786b17d6db9d",
+      "metadata": {
+        "offsetTop": 0,
+        "pageScaleFactor": 1,
+        "deviceWidth": 1365,
+        "deviceHeight": 900,
+        "scrollOffsetX": 0,
+        "scrollOffsetY": 1616
+      },
+      "receivedAtUnixSeconds": 1788436744.651,
+      "sessionId": 1
+    }
+  },
+  "persistedTimeOriginUnixSeconds": 1788435230.152599,
+  "originalBrowserPerformanceTimeOriginUnixSeconds": 1788435221.9017,
+  "actualRecoveryObservation": {
+    "ordinal": 230,
+    "observedAt": "2026-09-03T11:59:05.069Z",
+    "sourceVideoSeconds": 1514.9164009094238,
+    "url": "https://ilyanaxo.github.io/offcut-webmcp/#cutting-plan",
+    "observedState": {
+      "currentRevision": 1,
+      "committedKerfMm": 3,
+      "draftKerfText": "4",
+      "selectedPlanId": "plan-683635c8-5b2c-40d1-82e8-31916f4a622b-23",
+      "reviewPlanId": null,
+      "approvedPlanId": "plan-683635c8-5b2c-40d1-82e8-31916f4a622b-6",
+      "pendingMeasurements": true,
+      "reviewModal": false,
+      "acknowledgementChecked": null,
+      "approveDisabled": null,
+      "activeElement": {
+        "tag": "INPUT",
+        "id": "kerf-mm",
+        "ariaLabel": null,
+        "text": null,
+        "value": "4",
+        "checked": false,
+        "disabled": false,
+        "type": "text",
+        "ariaPressed": null,
+        "className": "",
+        "rect": {
+          "x": 40,
+          "y": 410.375,
+          "width": 309.046875,
+          "height": 40
+        }
+      },
+      "evidence": {
+        "revisionText": "Revision 1",
+        "committedConstraintsText": "3 mm kerf / partKeep remnants ≥ 400 mm",
+        "nativeCorroboration": {
+          "receiptOrdinal": 11,
+          "revision": 1,
+          "kerfMm": 3
+        },
+        "selectedStatusText": "This selected proposal is not approved.",
+        "releaseText": "03 / HUMAN RELEASE\n\nYour cut sheet is approved\n\nApproved plan plan-683635c8-5b2c-40d1-82e8-31916f4a622b-6 · revision 1.\n\nA different proposal is selected above. Download and print always use this approved plan, not the selected draft.\n\nRelease paused; the saved plan is still approved.\nFinish or cancel your edits before downloading or printing. Saving changed measurements requires a fresh plan and approval.\n\nDownload approved CSV\nPrint approved cut sheet\nRevoke approval\n\nApproval lasts only in this page session. It approves a plan; it does not cut or consume stock.",
+        "reviewConstraintsText": null,
+        "reviewStockText": null,
+        "pendingText": "Save or cancel your field edits, and add or cancel any new row, before solving or releasing a cut sheet.",
+        "identitySource": "Actual product DOM data-plan-id and full plan-reference text; no store hook or action-based inferred IDs"
+      }
+    }
+  },
+  "lastNativeReceiptBeforeContinuation": 11,
+  "lastModelDecisionBeforeContinuation": 15,
+  "lastUIEventBeforeContinuation": 61,
+  "firstContinuedModelDecisionOrdinal": 16,
+  "firstContinuedNativeReceiptOrdinal": 12,
+  "actualRecoveredCatalogue": {
+    "topLevel": true,
+    "secureContext": true,
+    "nativeLocation": "document.modelContext",
+    "nativeConstructor": "ModelContext",
+    "tools": [
+      {
+        "name": "compare_plans",
+        "origin": "https://ilyanaxo.github.io",
+        "sameWindow": true
+      },
+      {
+        "name": "export_cut_list",
+        "origin": "https://ilyanaxo.github.io",
+        "sameWindow": true
+      },
+      {
+        "name": "get_workshop",
+        "origin": "https://ilyanaxo.github.io",
+        "sameWindow": true
+      },
+      {
+        "name": "inspect_plan",
+        "origin": "https://ilyanaxo.github.io",
+        "sameWindow": true
+      },
+      {
+        "name": "plan_cuts",
+        "origin": "https://ilyanaxo.github.io",
+        "sameWindow": true
+      },
+      {
+        "name": "stage_plan_for_review",
+        "origin": "https://ilyanaxo.github.io",
+        "sameWindow": true
+      }
+    ]
+  },
+  "continuityEvidence": "Existing owned driver remained recording with its original in-memory ordinals/time origin and exact original approval/reused selected IDs. The actual same page retained focused draft 4, saved kerf 3, revision 1, pending true and no modal. No context reset, re-navigation, counter rewrite, aborted-agent revival or cross-take merge was performed.",
+  "upstreamRecorderErrorsPreserved": [
+    {
+      "observedAt": "2026-09-03T11:36:25.861Z",
+      "message": "Error: Screencast timestamp moved backwards",
+      "frameMetadata": {
+        "offsetTop": 0,
+        "pageScaleFactor": 1,
+        "deviceWidth": 1365,
+        "deviceHeight": 900,
+        "scrollOffsetX": 0,
+        "scrollOffsetY": 9.46707820892334,
+        "timestamp": 1788435385.784376
+      }
+    },
+    {
+      "observedAt": "2026-09-03T11:36:26.042Z",
+      "message": "Error: Screencast timestamp moved backwards",
+      "frameMetadata": {
+        "offsetTop": 0,
+        "pageScaleFactor": 1,
+        "deviceWidth": 1365,
+        "deviceHeight": 900,
+        "scrollOffsetX": 0,
+        "scrollOffsetY": 554.51513671875,
+        "timestamp": 1788435385.9188
+      }
+    }
+  ],
+  "portableProvenance": {
+    "representation": "transformed-full-capture-record",
+    "originalSourceArtifactName": "handoff-continuity.json",
+    "originalSourceSha256": "00d851edd4b38e1fe092012685884f27d485593b6eb162b2af4c23022ca64a4b",
+    "originalSourceBytes": 6043,
+    "sourceBytesIdenticalToPortableFile": false,
+    "observationScope": "Actual current-candidate capture take-02; original source observations/ordinals/times, not final edited MP4 verification",
+    "pathBase": "repository-root",
+    "transformations": [
+      "Only artifact references/locator field names are transformed. Original native/model/UI/state/clock observations, recorded counts, capture errors and original JPEG/video hashes are retained; raw JPEG images are not copied."
+    ],
+    "referenceReplacementCounts": {
+      "takePathToPortableEvidenceDirectory": 1,
+      "sourceJPEGPathToManifestRecord": 1
+    },
+    "portableFileHashManifest": "submission/evidence/manifest.json"
+  }
+}

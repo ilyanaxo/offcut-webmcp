@@ -1,0 +1,197 @@
+{
+  "scope": "Actual unchanged source functions and actual native API, isolated temporary harness; no API replacement or approval hook",
+  "browser": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36",
+  "cases": [
+    {
+      "name": "immediate-dispose",
+      "catalogueCount": 0,
+      "bridge": {
+        "state": "checking",
+        "provider": "document",
+        "registeredTools": 0,
+        "message": "Checking native WebMCP support…"
+      },
+      "passed": true
+    },
+    {
+      "name": "partial-name-collision",
+      "catalogue": [
+        {
+          "name": "inspect_plan",
+          "inputSchemaType": "string"
+        }
+      ],
+      "bridge": {
+        "state": "error",
+        "provider": "document",
+        "registeredTools": 0,
+        "message": "Native tool registration failed: Duplicate tool name. Manual planning remains available."
+      },
+      "independentResult": {
+        "independent": true,
+        "callbackArguments": 1,
+        "inputKeys": []
+      },
+      "passed": true
+    },
+    {
+      "name": "fresh-source-reinitialization",
+      "catalogue": [
+        {
+          "name": "compare_plans",
+          "inputSchemaType": "string"
+        },
+        {
+          "name": "export_cut_list",
+          "inputSchemaType": "string"
+        },
+        {
+          "name": "get_workshop",
+          "inputSchemaType": "string"
+        },
+        {
+          "name": "inspect_plan",
+          "inputSchemaType": "string"
+        },
+        {
+          "name": "plan_cuts",
+          "inputSchemaType": "string"
+        },
+        {
+          "name": "stage_plan_for_review",
+          "inputSchemaType": "string"
+        }
+      ],
+      "bridge": {
+        "state": "ready",
+        "provider": "document",
+        "registeredTools": 6,
+        "message": "6 native WebMCP tools registered in this document. Your browser agent can discover them."
+      },
+      "actualRead": {
+        "ok": true,
+        "workspace": {
+          "revision": 1,
+          "title": "Reinitialized native lifecycle store",
+          "material": "Pine · 18 × 140 mm · usable lengths",
+          "stock": [
+            {
+              "id": "A-01",
+              "label": "Long board",
+              "lengthMm": 3000,
+              "kind": "board",
+              "locked": false
+            },
+            {
+              "id": "A-02",
+              "label": "Fresh board 02",
+              "lengthMm": 2400,
+              "kind": "board",
+              "locked": false
+            },
+            {
+              "id": "A-03",
+              "label": "Fresh board 03",
+              "lengthMm": 2400,
+              "kind": "board",
+              "locked": false
+            },
+            {
+              "id": "A-04",
+              "label": "Fresh board 04",
+              "lengthMm": 2400,
+              "kind": "board",
+              "locked": false
+            },
+            {
+              "id": "R-01",
+              "label": "Bench project offcut",
+              "lengthMm": 1180,
+              "kind": "offcut",
+              "locked": false
+            },
+            {
+              "id": "R-02",
+              "label": "Saved shelf offcut",
+              "lengthMm": 960,
+              "kind": "offcut",
+              "locked": false
+            },
+            {
+              "id": "R-03",
+              "label": "Window seat offcut",
+              "lengthMm": 740,
+              "kind": "offcut",
+              "locked": false
+            },
+            {
+              "id": "R-04",
+              "label": "The useful little piece",
+              "lengthMm": 650,
+              "kind": "offcut",
+              "locked": false
+            }
+          ],
+          "requirements": [
+            {
+              "id": "shelf",
+              "label": "Shelves",
+              "lengthMm": 720,
+              "quantity": 4
+            },
+            {
+              "id": "upright",
+              "label": "Uprights",
+              "lengthMm": 440,
+              "quantity": 4
+            },
+            {
+              "id": "rail",
+              "label": "Rails",
+              "lengthMm": 310,
+              "quantity": 4
+            },
+            {
+              "id": "brace",
+              "label": "Braces",
+              "lengthMm": 560,
+              "quantity": 2
+            }
+          ],
+          "settings": {
+            "kerfMm": 3,
+            "minReusableMm": 400
+          }
+        },
+        "pendingMeasurements": false,
+        "units": "mm",
+        "totalRequiredParts": 14,
+        "requiredPartsMm": 7000,
+        "availableStockMm": 13730,
+        "protectedStockIds": [],
+        "plans": [],
+        "physicalModel": [
+          "Integer mm; one material/cross-section. Stock is usable, after human-deducted end trim/defects.",
+          "Per board: sum(parts)+n*kerf+remnant=usable stock; one kerf/part, INCLUDING final (no free factory-end cut).",
+          "Positive remnant >= minReusableMm: reusable; shorter: scrap; zero: neither.",
+          "Waste=kerf+short scrap, not reusable remnants or unopened stock.",
+          "Estimate only; not machine instructions or a safe-cutting guarantee."
+        ],
+        "workflow": "plan_cuts -> inspect_plan/compare_plans -> stage_plan_for_review -> HUMAN site approval -> export_cut_list. Finish/cancel pending drafts before staging/approval (PENDING_MEASUREMENTS); tools plan/export committed values. No tool approves, unlocks stock or consumes material. reusedFromPlanId: earlier search nodes/proof, never inherited approval.",
+        "limits": {
+          "stockBoards": 24,
+          "requirements": 16,
+          "totalParts": 40
+        }
+      },
+      "passed": true
+    }
+  ],
+  "provider": "document",
+  "registrationReturnType": "promise",
+  "finalCatalogueCount": 0,
+  "passed": true,
+  "observedAt": "2026-09-03T10:38:37.300Z",
+  "actualBrowserVersion": "152.0.7977.64",
+  "pageErrors": []
+}

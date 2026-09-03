@@ -1,0 +1,2841 @@
+{
+  "kind": "Portable source PCM and actual40-cue caption timing/coverage summary",
+  "originalManifestSha256": "d870baeb49be5be74ff7de65d38a053960cdf9f08b92560e5c4f70364ea52313",
+  "fps": 25,
+  "targetSeconds": 165,
+  "targetFrames": 4125,
+  "coverage": {
+    "spokenWordCount": 331,
+    "coveredSpokenWordCount": 331,
+    "canonicalCueCount": 40,
+    "renderedCueCount": 40,
+    "displayWordCount": 324,
+    "policy": "Exact narration paragraph tokens in order, expanded from only the three declared display initialisms; this is authored-caption coverage, not exact ASR recognition certification"
+  },
+  "sourcePCM": {
+    "sha256": "a612fc6c88921fa6a241617ab741957c1dfb8eac706a4e7a3c8a947d4706efd8",
+    "actualSeconds": 165,
+    "sampleRate": 22050,
+    "samples": 3638250,
+    "scope": "Source PCM is distinct from final AAC; final encoded media is verified separately"
+  },
+  "captionFile": "submission/demo-subtitles.vtt",
+  "sourceNarrationFile": "submission/demo-narration.txt",
+  "cueCount": 40,
+  "cues": [
+    {
+      "id": "C01",
+      "canonicalCueId": "C01",
+      "scene": 1,
+      "shot": "S01",
+      "lines": [
+        "Offcut gives people and browser agents",
+        "the same cutting-stock workbench."
+      ],
+      "text": "Offcut gives people and browser agents the same cutting-stock workbench.",
+      "spokenText": "Offcut gives people and browser agents the same cutting-stock workbench.",
+      "spokenWordOrdinals": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "spokenWordCount": 10,
+      "displayWordCount": 10,
+      "sourceASRWordOrdinals": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "rawStartSeconds": 0,
+      "rawEndSeconds": 3.98,
+      "rawWithinSceneStartSeconds": 0,
+      "rawWithinSceneEndSeconds": 3.98,
+      "startSeconds": 0.3,
+      "endSeconds": 4.28,
+      "durationSeconds": 3.98,
+      "startFrame": 8,
+      "endFrame": 107,
+      "renderStartSeconds": 0.32,
+      "renderEndSeconds": 4.28,
+      "frameQuantization": "global-ceil; end frame exclusive; no per-segment cumulative rounding",
+      "lineAdvanceWidthPixels": [
+        530.6474609375,
+        463.8798828125
+      ],
+      "fontMetricBlockHeightPixels": 70.0126953125,
+      "fontMetricTopPixels": 995.9873046875,
+      "renderedGlyphBoundsVerified": false,
+      "uncertainties": []
+    },
+    {
+      "id": "C02",
+      "canonicalCueId": "C02",
+      "scene": 1,
+      "shot": "S01",
+      "lines": [
+        "Fourteen parts fit;",
+        "the long board stays protected."
+      ],
+      "text": "Fourteen parts fit; the long board stays protected.",
+      "spokenText": "Fourteen parts fit; the long board stays protected.",
+      "spokenWordOrdinals": [
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "spokenWordCount": 8,
+      "displayWordCount": 8,
+      "sourceASRWordOrdinals": [
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "rawStartSeconds": 4.44,
+      "rawEndSeconds": 8.18,
+      "rawWithinSceneStartSeconds": 4.44,
+      "rawWithinSceneEndSeconds": 8.18,
+      "startSeconds": 4.74,
+      "endSeconds": 8.48,
+      "durationSeconds": 3.74,
+      "startFrame": 119,
+      "endFrame": 212,
+      "renderStartSeconds": 4.76,
+      "renderEndSeconds": 8.48,
+      "frameQuantization": "global-ceil; end frame exclusive; no per-segment cumulative rounding",
+      "lineAdvanceWidthPixels": [
+        237.107421875,
+        413.9287109375
+      ],
+      "fontMetricBlockHeightPixels": 70.0126953125,
+      "fontMetricTopPixels": 995.9873046875,
+      "renderedGlyphBoundsVerified": false,
+      "uncertainties": [
+        {
+          "code": "protected-token-span-timing",
+          "detail": "All member script words share this actual span for caption alignment; it is not a claim that they have identical or known individual onsets."
+        },
+        {
+          "code": "asr-word-boundaries-differ",
+          "detail": "Joined lexical equivalence uses the full actual ASR span; no subword times are distributed."
+        }
+      ]
+    },
+    {
+      "id": "C03",
+      "canonicalCueId": "C03",
+      "scene": 2,
+      "shot": "S02",
+      "lines": [
+        "These illustrative measurements cover usable stock,",
+        "parts, kerf and the reusable-remnant threshold."
+      ],
+      "text": "These illustrative measurements cover usable stock, parts, kerf and the reusable-remnant threshold.",
+      "spokenText": "These illustrative measurements cover usable stock, parts, kerf and the reusable-remnant threshold.",
+      "spokenWordOrdinals": [
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30
+      ],
+      "spokenWordCount": 12,
+      "displayWordCount": 12,
+      "sourceASRWordOrdinals": [
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31
+      ],
+      "rawStartSeconds": 8.68,
+      "rawEndSeconds": 14.58,
+      "rawWithinSceneStartSeconds": 0.0020861678004535146,
+      "rawWithinSceneEndSeconds": 5.902086167800453,
+      "startSeconds": 10.202086167800454,
+      "endSeconds": 16.102086167800454,
+      "durationSeconds": 5.9,
+      "startFrame": 256,
+      "endFrame": 403,
+      "renderStartSeconds": 10.24,
+      "renderEndSeconds": 16.12,
+      "frameQuantization": "global-ceil; end frame exclusive; no per-segment cumulative rounding",
+      "lineAdvanceWidthPixels": [
+        698.9580078125,
+        627.341796875
+      ],
+      "fontMetricBlockHeightPixels": 70.0126953125,
+      "fontMetricTopPixels": 995.9873046875,
+      "renderedGlyphBoundsVerified": false,
+      "uncertainties": []
+    },
+    {
+      "id": "C04",
+      "canonicalCueId": "C04",
+      "scene": 2,
+      "shot": "S02",
+      "lines": [
+        "People own measurements and protection;",
+        "registered tools cannot change them."
+      ],
+      "text": "People own measurements and protection; registered tools cannot change them.",
+      "spokenText": "People own measurements and protection; registered tools cannot change them.",
+      "spokenWordOrdinals": [
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40
+      ],
+      "spokenWordCount": 10,
+      "displayWordCount": 10,
+      "sourceASRWordOrdinals": [
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41
+      ],
+      "rawStartSeconds": 15.22,
+      "rawEndSeconds": 19.24,
+      "rawWithinSceneStartSeconds": 6.542086167800454,
+      "rawWithinSceneEndSeconds": 10.562086167800453,
+      "startSeconds": 16.742086167800455,
+      "endSeconds": 20.762086167800454,
+      "durationSeconds": 4.02,
+      "startFrame": 419,
+      "endFrame": 520,
+      "renderStartSeconds": 16.76,
+      "renderEndSeconds": 20.8,
+      "frameQuantization": "global-ceil; end frame exclusive; no per-segment cumulative rounding",
+      "lineAdvanceWidthPixels": [
+        572.3369140625,
+        495.6376953125
+      ],
+      "fontMetricBlockHeightPixels": 70.0126953125,
+      "fontMetricTopPixels": 995.9873046875,
+      "renderedGlyphBoundsVerified": false,
+      "uncertainties": []
+    },
+    {
+      "id": "C05",
+      "canonicalCueId": "C05",
+      "scene": 3,
+      "shot": "S03",
+      "lines": [
+        "The right-hand panel is",
+        "an external model recording harness,"
+      ],
+      "text": "The right-hand panel is an external model recording harness,",
+      "spokenText": "The right-hand panel is an external model recording harness,",
+      "spokenWordOrdinals": [
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49
+      ],
+      "spokenWordCount": 9,
+      "displayWordCount": 9,
+      "sourceASRWordOrdinals": [
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51
+      ],
+      "rawStartSeconds": 19.666213151927437,
+      "rawEndSeconds": 22.92,
+      "rawWithinSceneStartSeconds": 0,
+      "rawWithinSceneEndSeconds": 3.2537868480725622,
+      "startSeconds": 21.8,
+      "endSeconds": 25.053786848072562,
+      "durationSeconds": 3.2537868480725622,
+      "startFrame": 545,
+      "endFrame": 627,
+      "renderStartSeconds": 21.8,
+      "renderEndSeconds": 25.08,
+      "frameQuantization": "global-ceil; end frame exclusive; no per-segment cumulative rounding",
+      "lineAdvanceWidthPixels": [
+        308.85546875,
+        497.2783203125
+      ],
+      "fontMetricBlockHeightPixels": 70.0126953125,
+      "fontMetricTopPixels": 995.9873046875,
+      "renderedGlyphBoundsVerified": false,
+      "uncertainties": [
+        {
+          "code": "actual-pcm-scene-boundary-clamp",
+          "sourceASRWordOrdinal": 42,
+          "observedRawStartSeconds": 19.66,
+          "observedRawEndSeconds": 19.72,
+          "clampedRawStartSeconds": 19.666213151927437,
+          "clampedRawEndSeconds": 19.72,
+          "detail": "ASR boundary drift is bounded by the actual source WAV, not treated as exact word recognition."
+        }
+      ]
+    },
+    {
+      "id": "C06",
+      "canonicalCueId": "C06",
+      "scene": 3,
+      "shot": "S03",
+      "lines": [
+        "not a chatbot inside the website."
+      ],
+      "text": "not a chatbot inside the website.",
+      "spokenText": "not a chatbot inside the website.",
+      "spokenWordOrdinals": [
+        50,
+        51,
+        52,
+        53,
+        54,
+        55
+      ],
+      "spokenWordCount": 6,
+      "displayWordCount": 6,
+      "sourceASRWordOrdinals": [
+        52,
+        53,
+        54,
+        55,
+        56,
+        57
+      ],
+      "rawStartSeconds": 23.6,
+      "rawEndSeconds": 25.44,
+      "rawWithinSceneStartSeconds": 3.9337868480725624,
+      "rawWithinSceneEndSeconds": 5.773786848072563,
+      "startSeconds": 25.733786848072562,
+      "endSeconds": 27.57378684807256,
+      "durationSeconds": 1.84,
+      "startFrame": 644,
+      "endFrame": 690,
+      "renderStartSeconds": 25.76,
+      "renderEndSeconds": 27.6,
+      "frameQuantization": "global-ceil; end frame exclusive; no per-segment cumulative rounding",
+      "lineAdvanceWidthPixels": [
+        430.61328125
+      ],
+      "fontMetricBlockHeightPixels": 35.515625,
+      "fontMetricTopPixels": 1030.484375,
+      "renderedGlyphBoundsVerified": false,
+      "uncertainties": []
+    },
+    {
+      "id": "C07",
+      "canonicalCueId": "C07",
+      "scene": 3,
+      "shot": "S03",
+      "lines": [
+        "A real model chooses native WebMCP calls"
+      ],
+      "text": "A real model chooses native WebMCP calls",
+      "spokenText": "A real model chooses native Web M C P calls",
+      "spokenWordOrdinals": [
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65
+      ],
+      "spokenWordCount": 10,
+      "displayWordCount": 7,
+      "sourceASRWordOrdinals": [
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66
+      ],
+      "rawStartSeconds": 26.16,
+      "rawEndSeconds": 29.54,
+      "rawWithinSceneStartSeconds": 6.4937868480725625,
+      "rawWithinSceneEndSeconds": 9.873786848072562,
+      "startSeconds": 28.293786848072564,
+      "endSeconds": 31.673786848072563,
+      "durationSeconds": 3.38,
+      "startFrame": 708,
+      "endFrame": 792,
+      "renderStartSeconds": 28.32,
+      "renderEndSeconds": 31.68,
+      "frameQuantization": "global-ceil; end frame exclusive; no per-segment cumulative rounding",
+      "lineAdvanceWidthPixels": [
+        583.9091796875
+      ],
+      "fontMetricBlockHeightPixels": 35.515625,
+      "fontMetricTopPixels": 1030.484375,
+      "renderedGlyphBoundsVerified": false,
+      "uncertainties": [
+        {
+          "code": "initialism-collapsed-or-split-in-asr",
+          "detail": "Letter sequence is compared as one span. Individual spoken-letter onsets are not asserted."
+        },
+        {
+          "code": "protected-token-span-timing",
+          "detail": "All member script words share this actual span for caption alignment; it is not a claim that they have identical or known individual onsets."
+        }
+      ]
+    },
+    {
+      "id": "C08",
+      "canonicalCueId": "C08",
+      "scene": 3,
+      "shot": "S03",
+      "lines": [
+        "on the shared committed workbench.",
+        "This is not a ChatGPT recording."
+      ],
+      "text": "on the shared committed workbench. This is not a ChatGPT recording.",
+      "spokenText": "on the shared committed workbench. This is not a ChatGPT recording.",
+      "spokenWordOrdinals": [
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76
+      ],
+      "spokenWordCount": 11,
+      "displayWordCount": 11,
+      "sourceASRWordOrdinals": [
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78
+      ],
+      "rawStartSeconds": 29.54,
+      "rawEndSeconds": 33.68,
+      "rawWithinSceneStartSeconds": 9.873786848072562,
+      "rawWithinSceneEndSeconds": 14.013786848072563,
+      "startSeconds": 31.673786848072563,
+      "endSeconds": 35.81378684807256,
+      "durationSeconds": 4.14,
+      "startFrame": 792,
+      "endFrame": 896,
+      "renderStartSeconds": 31.68,
+      "renderEndSeconds": 35.84,
+      "frameQuantization": "global-ceil; end frame exclusive; no per-segment cumulative rounding",
+      "lineAdvanceWidthPixels": [
+        493.923828125,
+        438.845703125
+      ],
+      "fontMetricBlockHeightPixels": 70.0126953125,
+      "fontMetricTopPixels": 995.9873046875,
+      "renderedGlyphBoundsVerified": false,
+      "uncertainties": [
+        {
+          "code": "asr-word-boundaries-differ",
+          "detail": "Joined lexical equivalence uses the full actual ASR span; no subword times are distributed."
+        }
+      ]
+    },
+    {
+      "id": "C09",
+      "canonicalCueId": "C09",
+      "scene": 4,
+      "shot": "S04",
+      "lines": [
+        "The model compares three complete alternatives:"
+      ],
+      "text": "The model compares three complete alternatives:",
+      "spokenText": "The model compares three complete alternatives:",
+      "spokenWordOrdinals": [
+        77,
+        78,
+        79,
+        80,
+        81,
+        82
+      ],
+      "spokenWordCount": 6,
+      "displayWordCount": 6,
+      "sourceASRWordOrdinals": [
+        79,
+        80,
+        81,
+        82,
+        83,
+        84
+      ],
+      "rawStartSeconds": 34.349115646258504,
+      "rawEndSeconds": 36.92,
+      "rawWithinSceneStartSeconds": 0,
+      "rawWithinSceneEndSeconds": 2.5708843537414965,
+      "startSeconds": 37.7,
+      "endSeconds": 40.270884353741494,
+      "durationSeconds": 2.5708843537414965,
+      "startFrame": 943,
+      "endFrame": 1007,
+      "renderStartSeconds": 37.72,
+      "renderEndSeconds": 40.28,
+      "frameQuantization": "global-ceil; end frame exclusive; no per-segment cumulative rounding",
+      "lineAdvanceWidthPixels": [
+        660.65234375
+      ],
+      "fontMetricBlockHeightPixels": 35.515625,
+      "fontMetricTopPixels": 1030.484375,
+      "renderedGlyphBoundsVerified": false,
+      "uncertainties": [
+        {
+          "code": "actual-pcm-scene-boundary-clamp",
+          "sourceASRWordOrdinal": 79,
+          "observedRawStartSeconds": 34.3,
+          "observedRawEndSeconds": 34.38,
+          "clampedRawStartSeconds": 34.349115646258504,
+          "clampedRawEndSeconds": 34.38,
+          "detail": "ASR boundary drift is bounded by the actual source WAV, not treated as exact word recognition."
+        },
+        {
+          "code": "protected-token-span-timing",
+          "detail": "All member script words share this actual span for caption alignment; it is not a claim that they have identical or known individual onsets."
+        }
+      ]
+    },
+    {
+      "id": "C10",
+      "canonicalCueId": "C10",
+      "scene": 4,
+      "shot": "S04",
+      "lines": [
+        "less stock, fewer boards, or useful offcuts."
+      ],
+      "text": "less stock, fewer boards, or useful offcuts.",
+      "spokenText": "less stock, fewer boards, or useful offcuts.",
+      "spokenWordOrdinals": [
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89
+      ],
+      "spokenWordCount": 7,
+      "displayWordCount": 7,
+      "sourceASRWordOrdinals": [
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91
+      ],
+      "rawStartSeconds": 37.64,
+      "rawEndSeconds": 41,
+      "rawWithinSceneStartSeconds": 3.2908843537414967,
+      "rawWithinSceneEndSeconds": 6.650884353741497,
+      "startSeconds": 40.9908843537415,
+      "endSeconds": 44.3508843537415,
+      "durationSeconds": 3.36,
+      "startFrame": 1025,
+      "endFrame": 1109,
+      "renderStartSeconds": 41,
+      "renderEndSeconds": 44.36,
+      "frameQuantization": "global-ceil; end frame exclusive; no per-segment cumulative rounding",
+      "lineAdvanceWidthPixels": [
+        560.57421875
+      ],
+      "fontMetricBlockHeightPixels": 35.515625,
+      "fontMetricTopPixels": 1030.484375,
+      "renderedGlyphBoundsVerified": false,
+      "uncertainties": []
+    },
+    {
+      "id": "C11",
+      "canonicalCueId": "C11",
+      "scene": 4,
+      "shot": "S04",
+      "lines": [
+        "The deterministic branch-and-bound solver checks quantities,",
+        "stock and one kerf per part."
+      ],
+      "text": "The deterministic branch-and-bound solver checks quantities, stock and one kerf per part.",
+      "spokenText": "The deterministic branch-and-bound solver checks quantities, stock and one kerf per part.",
+      "spokenWordOrdinals": [
+        90,
+        91,
+        92,
+        93,
+        94,
+        95,
+        96,
+        97,
+        98,
+        99,
+        100,
+        101
+      ],
+      "spokenWordCount": 12,
+      "displayWordCount": 12,
+      "sourceASRWordOrdinals": [
+        92,
+        93,
+        94,
+        95,
+        96,
+        97,
+        98,
+        99,
+        100,
+        101,
+        102,
+        103,
+        104,
+        105
+      ],
+      "rawStartSeconds": 41.64,
+      "rawEndSeconds": 46.62,
+      "rawWithinSceneStartSeconds": 7.290884353741497,
+      "rawWithinSceneEndSeconds": 12.270884353741497,
+      "startSeconds": 44.9908843537415,
+      "endSeconds": 49.970884353741496,
+      "durationSeconds": 4.98,
+      "startFrame": 1125,
+      "endFrame": 1250,
+      "renderStartSeconds": 45,
+      "renderEndSeconds": 50,
+      "frameQuantization": "global-ceil; end frame exclusive; no per-segment cumulative rounding",
+      "lineAdvanceWidthPixels": [
+        819.08984375,
+        367.2001953125
+      ],
+      "fontMetricBlockHeightPixels": 70.0126953125,
+      "fontMetricTopPixels": 995.9873046875,
+      "renderedGlyphBoundsVerified": false,
+      "uncertainties": [
+        {
+          "code": "asr-replaced-script-token-or-span",
+          "detail": "Script text is retained; this observed ASR text is not exact recognition of it."
+        },
+        {
+          "code": "protected-token-span-timing",
+          "detail": "All member script words share this actual span for caption alignment; it is not a claim that they have identical or known individual onsets."
+        },
+        {
+          "code": "asr-replaced-script-token-or-span",
+          "detail": "Script text is retained; this observed ASR text is not exact recognition of it."
+        }
+      ]
+    },
+    {
+      "id": "C12",
+      "canonicalCueId": "C12",
+      "scene": 4,
+      "shot": "S04",
+      "lines": [
+        "A search limit is not a proof of optimality."
+      ],
+      "text": "A search limit is not a proof of optimality.",
+      "spokenText": "A search limit is not a proof of optimality.",
+      "spokenWordOrdinals": [
+        102,
+        103,
+        104,
+        105,
+        106,
+        107,
+        108,
+        109,
+        110
+      ],
+      "spokenWordCount": 9,
+      "displayWordCount": 9,
+      "sourceASRWordOrdinals": [
+        106,
+        107,
+        108,
+        109,
+        110,
+        111,
+        112,
+        113,
+        114
+      ],
+      "rawStartSeconds": 47.18,
+      "rawEndSeconds": 49.78,
+      "rawWithinSceneStartSeconds": 12.830884353741496,
+      "rawWithinSceneEndSeconds": 15.430884353741497,
+      "startSeconds": 50.5308843537415,
+      "endSeconds": 53.1308843537415,
+      "durationSeconds": 2.6,
+      "startFrame": 1264,
+      "endFrame": 1329,
+      "renderStartSeconds": 50.56,
+      "renderEndSeconds": 53.16,
+      "frameQuantization": "global-ceil; end frame exclusive; no per-segment cumulative rounding",
+      "lineAdvanceWidthPixels": [
+        540.5498046875
+      ],
+      "fontMetricBlockHeightPixels": 35.515625,
+      "fontMetricTopPixels": 1030.484375,
+      "renderedGlyphBoundsVerified": false,
+      "uncertainties": []
+    },
+    {
+      "id": "C13",
+      "canonicalCueId": "C13",
+      "scene": 5,
+      "shot": "S05",
+      "lines": [
+        "Less stock and fewer boards both open"
+      ],
+      "text": "Less stock and fewer boards both open",
+      "spokenText": "Less stock and fewer boards both open",
+      "spokenWordOrdinals": [
+        111,
+        112,
+        113,
+        114,
+        115,
+        116,
+        117
+      ],
+      "spokenWordCount": 7,
+      "displayWordCount": 7,
+      "sourceASRWordOrdinals": [
+        115,
+        116,
+        117,
+        118,
+        119,
+        120,
+        121
+      ],
+      "rawStartSeconds": 50.32072562358277,
+      "rawEndSeconds": 52.8,
+      "rawWithinSceneStartSeconds": 0,
+      "rawWithinSceneEndSeconds": 2.4792743764172336,
+      "startSeconds": 54.2,
+      "endSeconds": 56.67927437641723,
+      "durationSeconds": 2.4792743764172336,
+      "startFrame": 1355,
+      "endFrame": 1417,
+      "renderStartSeconds": 54.2,
+      "renderEndSeconds": 56.68,
+      "frameQuantization": "global-ceil; end frame exclusive; no per-segment cumulative rounding",
+      "lineAdvanceWidthPixels": [
+        525.6669921875
+      ],
+      "fontMetricBlockHeightPixels": 35.515625,
+      "fontMetricTopPixels": 1030.484375,
+      "renderedGlyphBoundsVerified": false,
+      "uncertainties": [
+        {
+          "code": "actual-pcm-scene-boundary-clamp",
+          "sourceASRWordOrdinal": 115,
+          "observedRawStartSeconds": 49.78,
+          "observedRawEndSeconds": 50.44,
+          "clampedRawStartSeconds": 50.32072562358277,
+          "clampedRawEndSeconds": 50.44,
+          "detail": "ASR boundary drift is bounded by the actual source WAV, not treated as exact word recognition."
+        }
+      ]
+    },
+    {
+      "id": "C14",
+      "canonicalCueId": "C14",
+      "scene": 5,
+      "shot": "S05",
+      "lines": [
+        "seven point two metres across three boards:"
+      ],
+      "text": "seven point two metres across three boards:",
+      "spokenText": "seven point two metres across three boards:",
+      "spokenWordOrdinals": [
+        118,
+        119,
+        120,
+        121,
+        122,
+        123,
+        124
+      ],
+      "spokenWordCount": 7,
+      "displayWordCount": 7,
+      "sourceASRWordOrdinals": [
+        122,
+        123,
+        124,
+        125,
+        126
+      ],
+      "rawStartSeconds": 52.8,
+      "rawEndSeconds": 55.7,
+      "rawWithinSceneStartSeconds": 2.4792743764172336,
+      "rawWithinSceneEndSeconds": 5.379274376417234,
+      "startSeconds": 56.67927437641723,
+      "endSeconds": 59.57927437641723,
+      "durationSeconds": 2.9,
+      "startFrame": 1417,
+      "endFrame": 1490,
+      "renderStartSeconds": 56.68,
+      "renderEndSeconds": 59.6,
+      "frameQuantization": "global-ceil; end frame exclusive; no per-segment cumulative rounding",
+      "lineAdvanceWidthPixels": [
+        592.2880859375
+      ],
+      "fontMetricBlockHeightPixels": 35.515625,
+      "fontMetricTopPixels": 1030.484375,
+      "renderedGlyphBoundsVerified": false,
+      "uncertainties": [
+        {
+          "code": "numeric-or-unit-representation-collapse",
+          "detail": "Equivalent number/unit representation anchors the full spoken phrase, not separately invented number-word times."
+        },
+        {
+          "code": "protected-token-span-timing",
+          "detail": "All member script words share this actual span for caption alignment; it is not a claim that they have identical or known individual onsets."
+        },
+        {
+          "code": "numeric-or-unit-representation-collapse",
+          "detail": "Equivalent number/unit representation anchors the full spoken phrase, not separately invented number-word times."
+        },
+        {
+          "code": "protected-token-span-timing",
+          "detail": "All member script words share this actual span for caption alignment; it is not a claim that they have identical or known individual onsets."
+        }
+      ]
+    },
+    {
+      "id": "C15",
+      "canonicalCueId": "C15",
+      "scene": 5,
+      "shot": "S05",
+      "lines": [
+        "forty-two millimetres of sawdust,",
+        "plus one hundred fifty-eight millimetres of short scrap."
+      ],
+      "text": "forty-two millimetres of sawdust, plus one hundred fifty-eight millimetres of short scrap.",
+      "spokenText": "forty-two millimetres of sawdust, plus one hundred fifty-eight millimetres of short scrap.",
+      "spokenWordOrdinals": [
+        125,
+        126,
+        127,
+        128,
+        129,
+        130,
+        131,
+        132,
+        133,
+        134,
+        135,
+        136
+      ],
+      "spokenWordCount": 12,
+      "displayWordCount": 12,
+      "sourceASRWordOrdinals": [
+        127,
+        128,
+        129,
+        130,
+        131,
+        132,
+        133,
+        134
+      ],
+      "rawStartSeconds": 56.12,
+      "rawEndSeconds": 61.8,
+      "rawWithinSceneStartSeconds": 5.799274376417234,
+      "rawWithinSceneEndSeconds": 11.479274376417234,
+      "startSeconds": 59.99927437641723,
+      "endSeconds": 65.67927437641724,
+      "durationSeconds": 5.68,
+      "startFrame": 1500,
+      "endFrame": 1642,
+      "renderStartSeconds": 60,
+      "renderEndSeconds": 65.68,
+      "frameQuantization": "global-ceil; end frame exclusive; no per-segment cumulative rounding",
+      "lineAdvanceWidthPixels": [
+        428.767578125,
+        713.9873046875
+      ],
+      "fontMetricBlockHeightPixels": 70.0126953125,
+      "fontMetricTopPixels": 995.9873046875,
+      "renderedGlyphBoundsVerified": false,
+      "uncertainties": [
+        {
+          "code": "numeric-or-unit-representation-collapse",
+          "detail": "Equivalent number/unit representation anchors the full spoken phrase, not separately invented number-word times."
+        },
+        {
+          "code": "protected-token-span-timing",
+          "detail": "All member script words share this actual span for caption alignment; it is not a claim that they have identical or known individual onsets."
+        },
+        {
+          "code": "numeric-or-unit-representation-collapse",
+          "detail": "Equivalent number/unit representation anchors the full spoken phrase, not separately invented number-word times."
+        },
+        {
+          "code": "protected-token-span-timing",
+          "detail": "All member script words share this actual span for caption alignment; it is not a claim that they have identical or known individual onsets."
+        }
+      ]
+    },
+    {
+      "id": "C16",
+      "canonicalCueId": "C16",
+      "scene": 5,
+      "shot": "S05",
+      "lines": [
+        "Keeping useful offcuts opens",
+        "ten point zero eight metres across six boards:"
+      ],
+      "text": "Keeping useful offcuts opens ten point zero eight metres across six boards:",
+      "spokenText": "Keeping useful offcuts opens ten point zero eight metres across six boards:",
+      "spokenWordOrdinals": [
+        137,
+        138,
+        139,
+        140,
+        141,
+        142,
+        143,
+        144,
+        145,
+        146,
+        147,
+        148
+      ],
+      "spokenWordCount": 12,
+      "displayWordCount": 12,
+      "sourceASRWordOrdinals": [
+        135,
+        136,
+        137,
+        138,
+        139,
+        140,
+        141,
+        142,
+        143
+      ],
+      "rawStartSeconds": 62.18,
+      "rawEndSeconds": 67.08,
+      "rawWithinSceneStartSeconds": 11.859274376417234,
+      "rawWithinSceneEndSeconds": 16.759274376417235,
+      "startSeconds": 66.05927437641724,
+      "endSeconds": 70.95927437641723,
+      "durationSeconds": 4.9,
+      "startFrame": 1652,
+      "endFrame": 1774,
+      "renderStartSeconds": 66.08,
+      "renderEndSeconds": 70.96,
+      "frameQuantization": "global-ceil; end frame exclusive; no per-segment cumulative rounding",
+      "lineAdvanceWidthPixels": [
+        387.2685546875,
+        607.2880859375
+      ],
+      "fontMetricBlockHeightPixels": 70.0126953125,
+      "fontMetricTopPixels": 995.9873046875,
+      "renderedGlyphBoundsVerified": false,
+      "uncertainties": [
+        {
+          "code": "numeric-or-unit-representation-collapse",
+          "detail": "Equivalent number/unit representation anchors the full spoken phrase, not separately invented number-word times."
+        },
+        {
+          "code": "protected-token-span-timing",
+          "detail": "All member script words share this actual span for caption alignment; it is not a claim that they have identical or known individual onsets."
+        },
+        {
+          "code": "numeric-or-unit-representation-collapse",
+          "detail": "Equivalent number/unit representation anchors the full spoken phrase, not separately invented number-word times."
+        },
+        {
+          "code": "protected-token-span-timing",
+          "detail": "All member script words share this actual span for caption alignment; it is not a claim that they have identical or known individual onsets."
+        }
+      ]
+    },
+    {
+      "id": "C17",
+      "canonicalCueId": "C17",
+      "scene": 5,
+      "shot": "S05",
+      "lines": [
+        "forty-two millimetres of sawdust, no short scrap,"
+      ],
+      "text": "forty-two millimetres of sawdust, no short scrap,",
+      "spokenText": "forty-two millimetres of sawdust, no short scrap,",
+      "spokenWordOrdinals": [
+        149,
+        150,
+        151,
+        152,
+        153,
+        154,
+        155
+      ],
+      "spokenWordCount": 7,
+      "displayWordCount": 7,
+      "sourceASRWordOrdinals": [
+        144,
+        145,
+        146,
+        147,
+        148,
+        149
+      ],
+      "rawStartSeconds": 67.6,
+      "rawEndSeconds": 70.68,
+      "rawWithinSceneStartSeconds": 17.279274376417234,
+      "rawWithinSceneEndSeconds": 20.359274376417233,
+      "startSeconds": 71.47927437641724,
+      "endSeconds": 74.55927437641724,
+      "durationSeconds": 3.08,
+      "startFrame": 1787,
+      "endFrame": 1864,
+      "renderStartSeconds": 71.48,
+      "renderEndSeconds": 74.56,
+      "frameQuantization": "global-ceil; end frame exclusive; no per-segment cumulative rounding",
+      "lineAdvanceWidthPixels": [
+        635.5302734375
+      ],
+      "fontMetricBlockHeightPixels": 35.515625,
+      "fontMetricTopPixels": 1030.484375,
+      "renderedGlyphBoundsVerified": false,
+      "uncertainties": [
+        {
+          "code": "numeric-or-unit-representation-collapse",
+          "detail": "Equivalent number/unit representation anchors the full spoken phrase, not separately invented number-word times."
+        },
+        {
+          "code": "protected-token-span-timing",
+          "detail": "All member script words share this actual span for caption alignment; it is not a claim that they have identical or known individual onsets."
+        }
+      ]
+    },
+    {
+      "id": "C18",
+      "canonicalCueId": "C18",
+      "scene": 5,
+      "shot": "S05",
+      "lines": [
+        "and three point zero three eight metres reusable."
+      ],
+      "text": "and three point zero three eight metres reusable.",
+      "spokenText": "and three point zero three eight metres reusable.",
+      "spokenWordOrdinals": [
+        156,
+        157,
+        158,
+        159,
+        160,
+        161,
+        162,
+        163
+      ],
+      "spokenWordCount": 8,
+      "displayWordCount": 8,
+      "sourceASRWordOrdinals": [
+        150,
+        151,
+        152,
+        153
+      ],
+      "rawStartSeconds": 71.06,
+      "rawEndSeconds": 73.94,
+      "rawWithinSceneStartSeconds": 20.739274376417235,
+      "rawWithinSceneEndSeconds": 23.619274376417234,
+      "startSeconds": 74.93927437641723,
+      "endSeconds": 77.81927437641724,
+      "durationSeconds": 2.88,
+      "startFrame": 1874,
+      "endFrame": 1946,
+      "renderStartSeconds": 74.96,
+      "renderEndSeconds": 77.84,
+      "frameQuantization": "global-ceil; end frame exclusive; no per-segment cumulative rounding",
+      "lineAdvanceWidthPixels": [
+        650.720703125
+      ],
+      "fontMetricBlockHeightPixels": 35.515625,
+      "fontMetricTopPixels": 1030.484375,
+      "renderedGlyphBoundsVerified": false,
+      "uncertainties": [
+        {
+          "code": "numeric-or-unit-representation-collapse",
+          "detail": "Equivalent number/unit representation anchors the full spoken phrase, not separately invented number-word times."
+        },
+        {
+          "code": "protected-token-span-timing",
+          "detail": "All member script words share this actual span for caption alignment; it is not a claim that they have identical or known individual onsets."
+        }
+      ]
+    },
+    {
+      "id": "C19",
+      "canonicalCueId": "C19",
+      "scene": 5,
+      "shot": "S05",
+      "lines": [
+        "Computed trade-offs,",
+        "not measured time or carbon savings."
+      ],
+      "text": "Computed trade-offs, not measured time or carbon savings.",
+      "spokenText": "Computed trade-offs, not measured time or carbon savings.",
+      "spokenWordOrdinals": [
+        164,
+        165,
+        166,
+        167,
+        168,
+        169,
+        170,
+        171
+      ],
+      "spokenWordCount": 8,
+      "displayWordCount": 8,
+      "sourceASRWordOrdinals": [
+        154,
+        155,
+        156,
+        157,
+        158,
+        159,
+        160,
+        161,
+        162
+      ],
+      "rawStartSeconds": 73.94,
+      "rawEndSeconds": 77.62,
+      "rawWithinSceneStartSeconds": 23.619274376417234,
+      "rawWithinSceneEndSeconds": 27.299274376417234,
+      "startSeconds": 77.81927437641724,
+      "endSeconds": 81.49927437641723,
+      "durationSeconds": 3.68,
+      "startFrame": 1946,
+      "endFrame": 2038,
+      "renderStartSeconds": 77.84,
+      "renderEndSeconds": 81.52,
+      "frameQuantization": "global-ceil; end frame exclusive; no per-segment cumulative rounding",
+      "lineAdvanceWidthPixels": [
+        283.806640625,
+        503.9140625
+      ],
+      "fontMetricBlockHeightPixels": 70.0126953125,
+      "fontMetricTopPixels": 995.9873046875,
+      "renderedGlyphBoundsVerified": false,
+      "uncertainties": []
+    },
+    {
+      "id": "C20",
+      "canonicalCueId": "C20",
+      "scene": 6,
+      "shot": "S06H",
+      "lines": [
+        "The agent inspects and stages the exact plan."
+      ],
+      "text": "The agent inspects and stages the exact plan.",
+      "spokenText": "The agent inspects and stages the exact plan.",
+      "spokenWordOrdinals": [
+        172,
+        173,
+        174,
+        175,
+        176,
+        177,
+        178,
+        179
+      ],
+      "spokenWordCount": 8,
+      "displayWordCount": 8,
+      "sourceASRWordOrdinals": [
+        163,
+        164,
+        165,
+        166,
+        167,
+        168,
+        169,
+        170
+      ],
+      "rawStartSeconds": 78.42476190476191,
+      "rawEndSeconds": 80.92,
+      "rawWithinSceneStartSeconds": 0,
+      "rawWithinSceneEndSeconds": 2.4952380952380953,
+      "startSeconds": 85,
+      "endSeconds": 87.4952380952381,
+      "durationSeconds": 2.4952380952380953,
+      "startFrame": 2125,
+      "endFrame": 2188,
+      "renderStartSeconds": 85,
+      "renderEndSeconds": 87.52,
+      "frameQuantization": "global-ceil; end frame exclusive; no per-segment cumulative rounding",
+      "lineAdvanceWidthPixels": [
+        614.0703125
+      ],
+      "fontMetricBlockHeightPixels": 35.515625,
+      "fontMetricTopPixels": 1030.484375,
+      "renderedGlyphBoundsVerified": false,
+      "uncertainties": [
+        {
+          "code": "actual-pcm-scene-boundary-clamp",
+          "sourceASRWordOrdinal": 163,
+          "observedRawStartSeconds": 78.42,
+          "observedRawEndSeconds": 78.48,
+          "clampedRawStartSeconds": 78.42476190476191,
+          "clampedRawEndSeconds": 78.48,
+          "detail": "ASR boundary drift is bounded by the actual source WAV, not treated as exact word recognition."
+        }
+      ]
+    },
+    {
+      "id": "C21",
+      "canonicalCueId": "C21",
+      "scene": 6,
+      "shot": "S06H",
+      "lines": [
+        "Pause for review: this is not approval."
+      ],
+      "text": "Pause for review: this is not approval.",
+      "spokenText": "Pause for review: this is not approval.",
+      "spokenWordOrdinals": [
+        180,
+        181,
+        182,
+        183,
+        184,
+        185,
+        186
+      ],
+      "spokenWordCount": 7,
+      "displayWordCount": 7,
+      "sourceASRWordOrdinals": [
+        171,
+        172,
+        173,
+        174,
+        175,
+        176,
+        177
+      ],
+      "rawStartSeconds": 81.38,
+      "rawEndSeconds": 83.66,
+      "rawWithinSceneStartSeconds": 2.955238095238095,
+      "rawWithinSceneEndSeconds": 5.2352380952380955,
+      "startSeconds": 87.9552380952381,
+      "endSeconds": 90.23523809523809,
+      "durationSeconds": 2.28,
+      "startFrame": 2199,
+      "endFrame": 2256,
+      "renderStartSeconds": 87.96,
+      "renderEndSeconds": 90.24,
+      "frameQuantization": "global-ceil; end frame exclusive; no per-segment cumulative rounding",
+      "lineAdvanceWidthPixels": [
+        500.57421875
+      ],
+      "fontMetricBlockHeightPixels": 35.515625,
+      "fontMetricTopPixels": 1030.484375,
+      "renderedGlyphBoundsVerified": false,
+      "uncertainties": []
+    },
+    {
+      "id": "C22",
+      "canonicalCueId": "C22",
+      "scene": 6,
+      "shot": "S06H",
+      "lines": [
+        "Check stock identities, quantities and kerf."
+      ],
+      "text": "Check stock identities, quantities and kerf.",
+      "spokenText": "Check stock identities, quantities and kerf.",
+      "spokenWordOrdinals": [
+        187,
+        188,
+        189,
+        190,
+        191,
+        192
+      ],
+      "spokenWordCount": 6,
+      "displayWordCount": 6,
+      "sourceASRWordOrdinals": [
+        178,
+        179,
+        180,
+        181,
+        182,
+        183
+      ],
+      "rawStartSeconds": 84.2,
+      "rawEndSeconds": 86.66,
+      "rawWithinSceneStartSeconds": 5.7752380952380955,
+      "rawWithinSceneEndSeconds": 8.235238095238095,
+      "startSeconds": 90.7752380952381,
+      "endSeconds": 93.23523809523809,
+      "durationSeconds": 2.46,
+      "startFrame": 2270,
+      "endFrame": 2331,
+      "renderStartSeconds": 90.8,
+      "renderEndSeconds": 93.24,
+      "frameQuantization": "global-ceil; end frame exclusive; no per-segment cumulative rounding",
+      "lineAdvanceWidthPixels": [
+        562.2880859375
+      ],
+      "fontMetricBlockHeightPixels": 35.515625,
+      "fontMetricTopPixels": 1030.484375,
+      "renderedGlyphBoundsVerified": false,
+      "uncertainties": [
+        {
+          "code": "asr-replaced-script-token-or-span",
+          "detail": "Script text is retained; this observed ASR text is not exact recognition of it."
+        }
+      ]
+    },
+    {
+      "id": "C23",
+      "canonicalCueId": "C23",
+      "scene": 6,
+      "shot": "S06H",
+      "lines": [
+        "No registered tool can approve."
+      ],
+      "text": "No registered tool can approve.",
+      "spokenText": "No registered tool can approve.",
+      "spokenWordOrdinals": [
+        193,
+        194,
+        195,
+        196,
+        197
+      ],
+      "spokenWordCount": 5,
+      "displayWordCount": 5,
+      "sourceASRWordOrdinals": [
+        184,
+        185,
+        186,
+        187,
+        188
+      ],
+      "rawStartSeconds": 87.26,
+      "rawEndSeconds": 88.9,
+      "rawWithinSceneStartSeconds": 8.835238095238095,
+      "rawWithinSceneEndSeconds": 10.475238095238096,
+      "startSeconds": 93.8352380952381,
+      "endSeconds": 95.4752380952381,
+      "durationSeconds": 1.64,
+      "startFrame": 2346,
+      "endFrame": 2387,
+      "renderStartSeconds": 93.84,
+      "renderEndSeconds": 95.48,
+      "frameQuantization": "global-ceil; end frame exclusive; no per-segment cumulative rounding",
+      "lineAdvanceWidthPixels": [
+        420.5791015625
+      ],
+      "fontMetricBlockHeightPixels": 35.515625,
+      "fontMetricTopPixels": 1030.484375,
+      "renderedGlyphBoundsVerified": false,
+      "uncertainties": []
+    },
+    {
+      "id": "C24",
+      "canonicalCueId": "C24",
+      "scene": 6,
+      "shot": "S06H",
+      "lines": [
+        "These UI controls are automated,",
+        "not proof of human presence."
+      ],
+      "text": "These UI controls are automated, not proof of human presence.",
+      "spokenText": "These UI controls are automated, not proof of human presence.",
+      "spokenWordOrdinals": [
+        198,
+        199,
+        200,
+        201,
+        202,
+        203,
+        204,
+        205,
+        206,
+        207
+      ],
+      "spokenWordCount": 10,
+      "displayWordCount": 10,
+      "sourceASRWordOrdinals": [
+        189,
+        190,
+        191,
+        192,
+        193,
+        194,
+        195,
+        196,
+        197,
+        198
+      ],
+      "rawStartSeconds": 89.44,
+      "rawEndSeconds": 93.08,
+      "rawWithinSceneStartSeconds": 11.015238095238095,
+      "rawWithinSceneEndSeconds": 14.655238095238095,
+      "startSeconds": 96.01523809523809,
+      "endSeconds": 99.65523809523809,
+      "durationSeconds": 3.64,
+      "startFrame": 2401,
+      "endFrame": 2492,
+      "renderStartSeconds": 96.04,
+      "renderEndSeconds": 99.68,
+      "frameQuantization": "global-ceil; end frame exclusive; no per-segment cumulative rounding",
+      "lineAdvanceWidthPixels": [
+        447.224609375,
+        393.9189453125
+      ],
+      "fontMetricBlockHeightPixels": 70.0126953125,
+      "fontMetricTopPixels": 995.9873046875,
+      "renderedGlyphBoundsVerified": false,
+      "uncertainties": []
+    },
+    {
+      "id": "C25",
+      "canonicalCueId": "C25",
+      "scene": 6,
+      "shot": "S06A",
+      "lines": [
+        "Now the controls check the acknowledgement."
+      ],
+      "text": "Now the controls check the acknowledgement.",
+      "spokenText": "Now the controls check the acknowledgement.",
+      "spokenWordOrdinals": [
+        208,
+        209,
+        210,
+        211,
+        212,
+        213
+      ],
+      "spokenWordCount": 6,
+      "displayWordCount": 6,
+      "sourceASRWordOrdinals": [
+        199,
+        200,
+        201,
+        202,
+        203,
+        204
+      ],
+      "rawStartSeconds": 93.88,
+      "rawEndSeconds": 95.68,
+      "rawWithinSceneStartSeconds": 15.455238095238096,
+      "rawWithinSceneEndSeconds": 17.255238095238095,
+      "startSeconds": 100.4552380952381,
+      "endSeconds": 102.2552380952381,
+      "durationSeconds": 1.8,
+      "startFrame": 2512,
+      "endFrame": 2557,
+      "renderStartSeconds": 100.48,
+      "renderEndSeconds": 102.28,
+      "frameQuantization": "global-ceil; end frame exclusive; no per-segment cumulative rounding",
+      "lineAdvanceWidthPixels": [
+        620.662109375
+      ],
+      "fontMetricBlockHeightPixels": 35.515625,
+      "fontMetricTopPixels": 1030.484375,
+      "renderedGlyphBoundsVerified": false,
+      "uncertainties": []
+    },
+    {
+      "id": "C26",
+      "canonicalCueId": "C26",
+      "scene": 6,
+      "shot": "S06P",
+      "lines": [
+        "Then they click Approve cut sheet."
+      ],
+      "text": "Then they click Approve cut sheet.",
+      "spokenText": "Then they click Approve cut sheet.",
+      "spokenWordOrdinals": [
+        214,
+        215,
+        216,
+        217,
+        218,
+        219
+      ],
+      "spokenWordCount": 6,
+      "displayWordCount": 6,
+      "sourceASRWordOrdinals": [
+        205,
+        206,
+        207,
+        208,
+        209,
+        210
+      ],
+      "rawStartSeconds": 96.7,
+      "rawEndSeconds": 98.48,
+      "rawWithinSceneStartSeconds": 18.275238095238095,
+      "rawWithinSceneEndSeconds": 20.055238095238096,
+      "startSeconds": 103.2752380952381,
+      "endSeconds": 105.0552380952381,
+      "durationSeconds": 1.78,
+      "startFrame": 2582,
+      "endFrame": 2627,
+      "renderStartSeconds": 103.28,
+      "renderEndSeconds": 105.08,
+      "frameQuantization": "global-ceil; end frame exclusive; no per-segment cumulative rounding",
+      "lineAdvanceWidthPixels": [
+        460.5693359375
+      ],
+      "fontMetricBlockHeightPixels": 35.515625,
+      "fontMetricTopPixels": 1030.484375,
+      "renderedGlyphBoundsVerified": false,
+      "uncertainties": []
+    },
+    {
+      "id": "C27",
+      "canonicalCueId": "C27",
+      "scene": 7,
+      "shot": "S07",
+      "lines": [
+        "The model inspects approval",
+        "and exports the actual CSV:"
+      ],
+      "text": "The model inspects approval and exports the actual CSV:",
+      "spokenText": "The model inspects approval and exports the actual C S V:",
+      "spokenWordOrdinals": [
+        220,
+        221,
+        222,
+        223,
+        224,
+        225,
+        226,
+        227,
+        228,
+        229,
+        230
+      ],
+      "spokenWordCount": 11,
+      "displayWordCount": 9,
+      "sourceASRWordOrdinals": [
+        211,
+        212,
+        213,
+        214,
+        215,
+        216,
+        217,
+        218,
+        219
+      ],
+      "rawStartSeconds": 99.06249433106576,
+      "rawEndSeconds": 102.48,
+      "rawWithinSceneStartSeconds": 0,
+      "rawWithinSceneEndSeconds": 3.4175056689342402,
+      "startSeconds": 106.9,
+      "endSeconds": 110.31750566893425,
+      "durationSeconds": 3.4175056689342402,
+      "startFrame": 2673,
+      "endFrame": 2758,
+      "renderStartSeconds": 106.92,
+      "renderEndSeconds": 110.32,
+      "frameQuantization": "global-ceil; end frame exclusive; no per-segment cumulative rounding",
+      "lineAdvanceWidthPixels": [
+        385.5400390625,
+        375.5498046875
+      ],
+      "fontMetricBlockHeightPixels": 70.0126953125,
+      "fontMetricTopPixels": 995.9873046875,
+      "renderedGlyphBoundsVerified": false,
+      "uncertainties": [
+        {
+          "code": "actual-pcm-scene-boundary-clamp",
+          "sourceASRWordOrdinal": 211,
+          "observedRawStartSeconds": 98.48,
+          "observedRawEndSeconds": 99.08,
+          "clampedRawStartSeconds": 99.06249433106576,
+          "clampedRawEndSeconds": 99.08,
+          "detail": "ASR boundary drift is bounded by the actual source WAV, not treated as exact word recognition."
+        },
+        {
+          "code": "initialism-collapsed-or-split-in-asr",
+          "detail": "Letter sequence is compared as one span. Individual spoken-letter onsets are not asserted."
+        },
+        {
+          "code": "protected-token-span-timing",
+          "detail": "All member script words share this actual span for caption alignment; it is not a claim that they have identical or known individual onsets."
+        }
+      ]
+    },
+    {
+      "id": "C28",
+      "canonicalCueId": "C28",
+      "scene": 7,
+      "shot": "S07",
+      "lines": [
+        "fourteen parts, part identifiers, offsets, kerf,",
+        "and the exact approved plan identifier."
+      ],
+      "text": "fourteen parts, part identifiers, offsets, kerf, and the exact approved plan identifier.",
+      "spokenText": "fourteen parts, part identifiers, offsets, kerf, and the exact approved plan identifier.",
+      "spokenWordOrdinals": [
+        231,
+        232,
+        233,
+        234,
+        235,
+        236,
+        237,
+        238,
+        239,
+        240,
+        241,
+        242
+      ],
+      "spokenWordCount": 12,
+      "displayWordCount": 12,
+      "sourceASRWordOrdinals": [
+        220,
+        221,
+        222,
+        223,
+        224,
+        225,
+        226,
+        227,
+        228,
+        229,
+        230,
+        231
+      ],
+      "rawStartSeconds": 103.12,
+      "rawEndSeconds": 108.52,
+      "rawWithinSceneStartSeconds": 4.05750566893424,
+      "rawWithinSceneEndSeconds": 9.45750566893424,
+      "startSeconds": 110.95750566893425,
+      "endSeconds": 116.35750566893424,
+      "durationSeconds": 5.4,
+      "startFrame": 2774,
+      "endFrame": 2909,
+      "renderStartSeconds": 110.96,
+      "renderEndSeconds": 116.36,
+      "frameQuantization": "global-ceil; end frame exclusive; no per-segment cumulative rounding",
+      "lineAdvanceWidthPixels": [
+        572.263671875,
+        510.681640625
+      ],
+      "fontMetricBlockHeightPixels": 70.0126953125,
+      "fontMetricTopPixels": 995.9873046875,
+      "renderedGlyphBoundsVerified": false,
+      "uncertainties": [
+        {
+          "code": "numeric-or-unit-representation-collapse",
+          "detail": "Equivalent number/unit representation anchors the full spoken phrase, not separately invented number-word times."
+        },
+        {
+          "code": "protected-token-span-timing",
+          "detail": "All member script words share this actual span for caption alignment; it is not a claim that they have identical or known individual onsets."
+        }
+      ]
+    },
+    {
+      "id": "C29",
+      "canonicalCueId": "C29",
+      "scene": 7,
+      "shot": "S07",
+      "lines": [
+        "Another draft cannot inherit approval."
+      ],
+      "text": "Another draft cannot inherit approval.",
+      "spokenText": "Another draft cannot inherit approval.",
+      "spokenWordOrdinals": [
+        243,
+        244,
+        245,
+        246,
+        247
+      ],
+      "spokenWordCount": 5,
+      "displayWordCount": 5,
+      "sourceASRWordOrdinals": [
+        232,
+        233,
+        234,
+        235,
+        236
+      ],
+      "rawStartSeconds": 109.32,
+      "rawEndSeconds": 111.36,
+      "rawWithinSceneStartSeconds": 10.25750566893424,
+      "rawWithinSceneEndSeconds": 12.29750566893424,
+      "startSeconds": 117.15750566893423,
+      "endSeconds": 119.19750566893424,
+      "durationSeconds": 2.04,
+      "startFrame": 2929,
+      "endFrame": 2980,
+      "renderStartSeconds": 117.16,
+      "renderEndSeconds": 119.2,
+      "frameQuantization": "global-ceil; end frame exclusive; no per-segment cumulative rounding",
+      "lineAdvanceWidthPixels": [
+        495.6376953125
+      ],
+      "fontMetricBlockHeightPixels": 35.515625,
+      "fontMetricTopPixels": 1030.484375,
+      "renderedGlyphBoundsVerified": false,
+      "uncertainties": []
+    },
+    {
+      "id": "C30",
+      "canonicalCueId": "C30",
+      "scene": 8,
+      "shot": "S08D",
+      "lines": [
+        "Typing four leaves committed kerf at three."
+      ],
+      "text": "Typing four leaves committed kerf at three.",
+      "spokenText": "Typing four leaves committed kerf at three.",
+      "spokenWordOrdinals": [
+        248,
+        249,
+        250,
+        251,
+        252,
+        253,
+        254
+      ],
+      "spokenWordCount": 7,
+      "displayWordCount": 7,
+      "sourceASRWordOrdinals": [
+        237,
+        238,
+        239,
+        240,
+        241,
+        242,
+        243
+      ],
+      "rawStartSeconds": 111.88,
+      "rawEndSeconds": 114.38,
+      "rawWithinSceneStartSeconds": 0.006439909297052154,
+      "rawWithinSceneEndSeconds": 2.506439909297052,
+      "startSeconds": 121.00643990929706,
+      "endSeconds": 123.50643990929706,
+      "durationSeconds": 2.5,
+      "startFrame": 3026,
+      "endFrame": 3088,
+      "renderStartSeconds": 121.04,
+      "renderEndSeconds": 123.52,
+      "frameQuantization": "global-ceil; end frame exclusive; no per-segment cumulative rounding",
+      "lineAdvanceWidthPixels": [
+        570.5791015625
+      ],
+      "fontMetricBlockHeightPixels": 35.515625,
+      "fontMetricTopPixels": 1030.484375,
+      "renderedGlyphBoundsVerified": false,
+      "uncertainties": [
+        {
+          "code": "protected-token-span-timing",
+          "detail": "All member script words share this actual span for caption alignment; it is not a claim that they have identical or known individual onsets."
+        },
+        {
+          "code": "protected-token-span-timing",
+          "detail": "All member script words share this actual span for caption alignment; it is not a claim that they have identical or known individual onsets."
+        }
+      ]
+    },
+    {
+      "id": "C31",
+      "canonicalCueId": "C31",
+      "scene": 8,
+      "shot": "S08D",
+      "lines": [
+        "Pending edits block staging",
+        "without moving focus or saving."
+      ],
+      "text": "Pending edits block staging without moving focus or saving.",
+      "spokenText": "Pending edits block staging without moving focus or saving.",
+      "spokenWordOrdinals": [
+        255,
+        256,
+        257,
+        258,
+        259,
+        260,
+        261,
+        262,
+        263
+      ],
+      "spokenWordCount": 9,
+      "displayWordCount": 9,
+      "sourceASRWordOrdinals": [
+        244,
+        245,
+        246,
+        247,
+        248,
+        249,
+        250,
+        251,
+        252
+      ],
+      "rawStartSeconds": 114.88,
+      "rawEndSeconds": 118.1,
+      "rawWithinSceneStartSeconds": 3.006439909297052,
+      "rawWithinSceneEndSeconds": 6.226439909297052,
+      "startSeconds": 124.00643990929706,
+      "endSeconds": 127.22643990929706,
+      "durationSeconds": 3.22,
+      "startFrame": 3101,
+      "endFrame": 3181,
+      "renderStartSeconds": 124.04,
+      "renderEndSeconds": 127.24,
+      "frameQuantization": "global-ceil; end frame exclusive; no per-segment cumulative rounding",
+      "lineAdvanceWidthPixels": [
+        367.244140625,
+        420.53515625
+      ],
+      "fontMetricBlockHeightPixels": 70.0126953125,
+      "fontMetricTopPixels": 995.9873046875,
+      "renderedGlyphBoundsVerified": false,
+      "uncertainties": [
+        {
+          "code": "asr-replaced-script-token-or-span",
+          "detail": "Script text is retained; this observed ASR text is not exact recognition of it."
+        }
+      ]
+    },
+    {
+      "id": "C32",
+      "canonicalCueId": "C32",
+      "scene": 8,
+      "shot": "S08C",
+      "lines": [
+        "Now commit: revision two invalidates the old approval."
+      ],
+      "text": "Now commit: revision two invalidates the old approval.",
+      "spokenText": "Now commit: revision two invalidates the old approval.",
+      "spokenWordOrdinals": [
+        264,
+        265,
+        266,
+        267,
+        268,
+        269,
+        270,
+        271
+      ],
+      "spokenWordCount": 8,
+      "displayWordCount": 8,
+      "sourceASRWordOrdinals": [
+        253,
+        254,
+        255,
+        256,
+        257,
+        258,
+        259,
+        260
+      ],
+      "rawStartSeconds": 118.78,
+      "rawEndSeconds": 121.64,
+      "rawWithinSceneStartSeconds": 6.9064399092970525,
+      "rawWithinSceneEndSeconds": 9.766439909297052,
+      "startSeconds": 127.90643990929705,
+      "endSeconds": 130.76643990929705,
+      "durationSeconds": 2.86,
+      "startFrame": 3198,
+      "endFrame": 3270,
+      "renderStartSeconds": 127.92,
+      "renderEndSeconds": 130.8,
+      "frameQuantization": "global-ceil; end frame exclusive; no per-segment cumulative rounding",
+      "lineAdvanceWidthPixels": [
+        722.322265625
+      ],
+      "fontMetricBlockHeightPixels": 35.515625,
+      "fontMetricTopPixels": 1030.484375,
+      "renderedGlyphBoundsVerified": false,
+      "uncertainties": [
+        {
+          "code": "zero-duration-asr-word",
+          "detail": "An actual ASR word has equal start/end; no positive duration is invented for that word."
+        },
+        {
+          "code": "zero-duration-asr-word",
+          "detail": "An actual ASR word has equal start/end; no positive duration is invented for that word."
+        },
+        {
+          "code": "protected-token-span-timing",
+          "detail": "All member script words share this actual span for caption alignment; it is not a claim that they have identical or known individual onsets."
+        }
+      ]
+    },
+    {
+      "id": "C33",
+      "canonicalCueId": "C33",
+      "scene": 8,
+      "shot": "S08O",
+      "lines": [
+        "The old plan is stale."
+      ],
+      "text": "The old plan is stale.",
+      "spokenText": "The old plan is stale.",
+      "spokenWordOrdinals": [
+        272,
+        273,
+        274,
+        275,
+        276
+      ],
+      "spokenWordCount": 5,
+      "displayWordCount": 5,
+      "sourceASRWordOrdinals": [
+        261,
+        262,
+        263,
+        264,
+        265
+      ],
+      "rawStartSeconds": 122.32,
+      "rawEndSeconds": 123.42,
+      "rawWithinSceneStartSeconds": 10.446439909297052,
+      "rawWithinSceneEndSeconds": 11.546439909297051,
+      "startSeconds": 131.44643990929706,
+      "endSeconds": 132.54643990929705,
+      "durationSeconds": 1.1,
+      "startFrame": 3287,
+      "endFrame": 3314,
+      "renderStartSeconds": 131.48,
+      "renderEndSeconds": 132.56,
+      "frameQuantization": "global-ceil; end frame exclusive; no per-segment cumulative rounding",
+      "lineAdvanceWidthPixels": [
+        277.15625
+      ],
+      "fontMetricBlockHeightPixels": 35.515625,
+      "fontMetricTopPixels": 1030.484375,
+      "renderedGlyphBoundsVerified": false,
+      "uncertainties": []
+    },
+    {
+      "id": "C34",
+      "canonicalCueId": "C34",
+      "scene": 8,
+      "shot": "S08N",
+      "lines": [
+        "The model replans: fourteen parts,",
+        "fifty-six millimetres of sawdust."
+      ],
+      "text": "The model replans: fourteen parts, fifty-six millimetres of sawdust.",
+      "spokenText": "The model replans: fourteen parts, fifty-six millimetres of sawdust.",
+      "spokenWordOrdinals": [
+        277,
+        278,
+        279,
+        280,
+        281,
+        282,
+        283,
+        284,
+        285
+      ],
+      "spokenWordCount": 9,
+      "displayWordCount": 9,
+      "sourceASRWordOrdinals": [
+        266,
+        267,
+        268,
+        269,
+        270,
+        271,
+        272,
+        273,
+        274
+      ],
+      "rawStartSeconds": 123.42,
+      "rawEndSeconds": 128.28,
+      "rawWithinSceneStartSeconds": 11.546439909297051,
+      "rawWithinSceneEndSeconds": 16.406439909297053,
+      "startSeconds": 132.54643990929705,
+      "endSeconds": 137.40643990929706,
+      "durationSeconds": 4.86,
+      "startFrame": 3314,
+      "endFrame": 3436,
+      "renderStartSeconds": 132.56,
+      "renderEndSeconds": 137.44,
+      "frameQuantization": "global-ceil; end frame exclusive; no per-segment cumulative rounding",
+      "lineAdvanceWidthPixels": [
+        460.583984375,
+        407.0732421875
+      ],
+      "fontMetricBlockHeightPixels": 70.0126953125,
+      "fontMetricTopPixels": 995.9873046875,
+      "renderedGlyphBoundsVerified": false,
+      "uncertainties": [
+        {
+          "code": "numeric-or-unit-representation-collapse",
+          "detail": "Equivalent number/unit representation anchors the full spoken phrase, not separately invented number-word times."
+        },
+        {
+          "code": "protected-token-span-timing",
+          "detail": "All member script words share this actual span for caption alignment; it is not a claim that they have identical or known individual onsets."
+        },
+        {
+          "code": "numeric-or-unit-representation-collapse",
+          "detail": "Equivalent number/unit representation anchors the full spoken phrase, not separately invented number-word times."
+        },
+        {
+          "code": "protected-token-span-timing",
+          "detail": "All member script words share this actual span for caption alignment; it is not a claim that they have identical or known individual onsets."
+        }
+      ]
+    },
+    {
+      "id": "C35",
+      "canonicalCueId": "C35",
+      "scene": 8,
+      "shot": "S08F",
+      "lines": [
+        "Revision two is staged, not approved."
+      ],
+      "text": "Revision two is staged, not approved.",
+      "spokenText": "Revision two is staged, not approved.",
+      "spokenWordOrdinals": [
+        286,
+        287,
+        288,
+        289,
+        290,
+        291
+      ],
+      "spokenWordCount": 6,
+      "displayWordCount": 6,
+      "sourceASRWordOrdinals": [
+        275,
+        276,
+        277,
+        278,
+        279,
+        280
+      ],
+      "rawStartSeconds": 128.7,
+      "rawEndSeconds": 130.8,
+      "rawWithinSceneStartSeconds": 16.82643990929705,
+      "rawWithinSceneEndSeconds": 18.926439909297052,
+      "startSeconds": 137.82643990929705,
+      "endSeconds": 139.92643990929705,
+      "durationSeconds": 2.1,
+      "startFrame": 3446,
+      "endFrame": 3499,
+      "renderStartSeconds": 137.84,
+      "renderEndSeconds": 139.96,
+      "frameQuantization": "global-ceil; end frame exclusive; no per-segment cumulative rounding",
+      "lineAdvanceWidthPixels": [
+        500.6181640625
+      ],
+      "fontMetricBlockHeightPixels": 35.515625,
+      "fontMetricTopPixels": 1030.484375,
+      "renderedGlyphBoundsVerified": false,
+      "uncertainties": [
+        {
+          "code": "numeric-or-unit-representation-collapse",
+          "detail": "Equivalent number/unit representation anchors the full spoken phrase, not separately invented number-word times."
+        },
+        {
+          "code": "protected-token-span-timing",
+          "detail": "All member script words share this actual span for caption alignment; it is not a claim that they have identical or known individual onsets."
+        }
+      ]
+    },
+    {
+      "id": "C36",
+      "canonicalCueId": "C36",
+      "scene": 8,
+      "shot": "S08F",
+      "lines": [
+        "The acknowledgement stays unchecked."
+      ],
+      "text": "The acknowledgement stays unchecked.",
+      "spokenText": "The acknowledgement stays unchecked.",
+      "spokenWordOrdinals": [
+        292,
+        293,
+        294,
+        295
+      ],
+      "spokenWordCount": 4,
+      "displayWordCount": 4,
+      "sourceASRWordOrdinals": [
+        281,
+        282,
+        283,
+        284
+      ],
+      "rawStartSeconds": 131.56,
+      "rawEndSeconds": 132.94,
+      "rawWithinSceneStartSeconds": 19.686439909297054,
+      "rawWithinSceneEndSeconds": 21.066439909297053,
+      "startSeconds": 140.68643990929706,
+      "endSeconds": 142.06643990929706,
+      "durationSeconds": 1.38,
+      "startFrame": 3518,
+      "endFrame": 3552,
+      "renderStartSeconds": 140.72,
+      "renderEndSeconds": 142.08,
+      "frameQuantization": "global-ceil; end frame exclusive; no per-segment cumulative rounding",
+      "lineAdvanceWidthPixels": [
+        543.9775390625
+      ],
+      "fontMetricBlockHeightPixels": 35.515625,
+      "fontMetricTopPixels": 1030.484375,
+      "renderedGlyphBoundsVerified": false,
+      "uncertainties": [
+        {
+          "code": "zero-duration-asr-word",
+          "detail": "An actual ASR word has equal start/end; no positive duration is invented for that word."
+        },
+        {
+          "code": "asr-replaced-script-token-or-span",
+          "detail": "Script text is retained; this observed ASR text is not exact recognition of it."
+        }
+      ]
+    },
+    {
+      "id": "C37",
+      "canonicalCueId": "C37",
+      "scene": 9,
+      "shot": "S09",
+      "lines": [
+        "Offcut itself needs no account,",
+        "model key or backend."
+      ],
+      "text": "Offcut itself needs no account, model key or backend.",
+      "spokenText": "Offcut itself needs no account, model key or backend.",
+      "spokenWordOrdinals": [
+        296,
+        297,
+        298,
+        299,
+        300,
+        301,
+        302,
+        303,
+        304
+      ],
+      "spokenWordCount": 9,
+      "displayWordCount": 9,
+      "sourceASRWordOrdinals": [
+        285,
+        286,
+        287,
+        288,
+        289,
+        290,
+        291,
+        292,
+        293
+      ],
+      "rawStartSeconds": 133.84,
+      "rawEndSeconds": 137.28,
+      "rawWithinSceneStartSeconds": 0.12126984126984126,
+      "rawWithinSceneEndSeconds": 3.561269841269841,
+      "startSeconds": 148.92126984126983,
+      "endSeconds": 152.36126984126983,
+      "durationSeconds": 3.44,
+      "startFrame": 3724,
+      "endFrame": 3810,
+      "renderStartSeconds": 148.96,
+      "renderEndSeconds": 152.4,
+      "frameQuantization": "global-ceil; end frame exclusive; no per-segment cumulative rounding",
+      "lineAdvanceWidthPixels": [
+        405.564453125,
+        303.8310546875
+      ],
+      "fontMetricBlockHeightPixels": 70.0126953125,
+      "fontMetricTopPixels": 995.9873046875,
+      "renderedGlyphBoundsVerified": false,
+      "uncertainties": [
+        {
+          "code": "zero-duration-asr-word",
+          "detail": "An actual ASR word has equal start/end; no positive duration is invented for that word."
+        },
+        {
+          "code": "asr-replaced-script-token-or-span",
+          "detail": "Script text is retained; this observed ASR text is not exact recognition of it."
+        }
+      ]
+    },
+    {
+      "id": "C38",
+      "canonicalCueId": "C38",
+      "scene": 9,
+      "shot": "S09",
+      "lines": [
+        "The workbench and MIT licensed source are public."
+      ],
+      "text": "The workbench and MIT licensed source are public.",
+      "spokenText": "The workbench and M I T licensed source are public.",
+      "spokenWordOrdinals": [
+        305,
+        306,
+        307,
+        308,
+        309,
+        310,
+        311,
+        312,
+        313,
+        314
+      ],
+      "spokenWordCount": 10,
+      "displayWordCount": 8,
+      "sourceASRWordOrdinals": [
+        294,
+        295,
+        296,
+        297,
+        298,
+        299,
+        300,
+        301,
+        302
+      ],
+      "rawStartSeconds": 137.78,
+      "rawEndSeconds": 140.84,
+      "rawWithinSceneStartSeconds": 4.061269841269842,
+      "rawWithinSceneEndSeconds": 7.121269841269841,
+      "startSeconds": 152.86126984126983,
+      "endSeconds": 155.92126984126983,
+      "durationSeconds": 3.06,
+      "startFrame": 3822,
+      "endFrame": 3899,
+      "renderStartSeconds": 152.88,
+      "renderEndSeconds": 155.96,
+      "frameQuantization": "global-ceil; end frame exclusive; no per-segment cumulative rounding",
+      "lineAdvanceWidthPixels": [
+        689.01171875
+      ],
+      "fontMetricBlockHeightPixels": 35.515625,
+      "fontMetricTopPixels": 1030.484375,
+      "renderedGlyphBoundsVerified": false,
+      "uncertainties": [
+        {
+          "code": "asr-replaced-script-token-or-span",
+          "detail": "Script text is retained; this observed ASR text is not exact recognition of it."
+        },
+        {
+          "code": "asr-replaced-script-token-or-span",
+          "detail": "Script text is retained; this observed ASR text is not exact recognition of it."
+        },
+        {
+          "code": "initialism-collapsed-or-split-in-asr",
+          "detail": "Letter sequence is compared as one span. Individual spoken-letter onsets are not asserted."
+        },
+        {
+          "code": "protected-token-span-timing",
+          "detail": "All member script words share this actual span for caption alignment; it is not a claim that they have identical or known individual onsets."
+        },
+        {
+          "code": "asr-replaced-script-token-or-span",
+          "detail": "Script text is retained; this observed ASR text is not exact recognition of it."
+        }
+      ]
+    },
+    {
+      "id": "C39",
+      "canonicalCueId": "C39",
+      "scene": 9,
+      "shot": "S09",
+      "lines": [
+        "These are planning estimates, not machine instructions:"
+      ],
+      "text": "These are planning estimates, not machine instructions:",
+      "spokenText": "These are planning estimates, not machine instructions:",
+      "spokenWordOrdinals": [
+        315,
+        316,
+        317,
+        318,
+        319,
+        320,
+        321
+      ],
+      "spokenWordCount": 7,
+      "displayWordCount": 7,
+      "sourceASRWordOrdinals": [
+        303,
+        304,
+        305,
+        306,
+        307,
+        308,
+        309
+      ],
+      "rawStartSeconds": 141.38,
+      "rawEndSeconds": 144.16,
+      "rawWithinSceneStartSeconds": 7.661269841269841,
+      "rawWithinSceneEndSeconds": 10.441269841269841,
+      "startSeconds": 156.46126984126985,
+      "endSeconds": 159.24126984126985,
+      "durationSeconds": 2.78,
+      "startFrame": 3912,
+      "endFrame": 3982,
+      "renderStartSeconds": 156.48,
+      "renderEndSeconds": 159.28,
+      "frameQuantization": "global-ceil; end frame exclusive; no per-segment cumulative rounding",
+      "lineAdvanceWidthPixels": [
+        744.060546875
+      ],
+      "fontMetricBlockHeightPixels": 35.515625,
+      "fontMetricTopPixels": 1030.484375,
+      "renderedGlyphBoundsVerified": false,
+      "uncertainties": []
+    },
+    {
+      "id": "C40",
+      "canonicalCueId": "C40",
+      "scene": 9,
+      "shot": "S09",
+      "lines": [
+        "verify usable stock and safe cutting conditions at the bench."
+      ],
+      "text": "verify usable stock and safe cutting conditions at the bench.",
+      "spokenText": "verify usable stock and safe cutting conditions at the bench.",
+      "spokenWordOrdinals": [
+        322,
+        323,
+        324,
+        325,
+        326,
+        327,
+        328,
+        329,
+        330,
+        331
+      ],
+      "spokenWordCount": 10,
+      "displayWordCount": 10,
+      "sourceASRWordOrdinals": [
+        310,
+        311,
+        312,
+        313,
+        314,
+        315,
+        316,
+        317,
+        318,
+        319
+      ],
+      "rawStartSeconds": 144.94,
+      "rawEndSeconds": 148.52,
+      "rawWithinSceneStartSeconds": 11.22126984126984,
+      "rawWithinSceneEndSeconds": 14.801269841269841,
+      "startSeconds": 160.02126984126983,
+      "endSeconds": 163.60126984126984,
+      "durationSeconds": 3.58,
+      "startFrame": 4001,
+      "endFrame": 4091,
+      "renderStartSeconds": 160.04,
+      "renderEndSeconds": 163.64,
+      "frameQuantization": "global-ceil; end frame exclusive; no per-segment cumulative rounding",
+      "lineAdvanceWidthPixels": [
+        794.1435546875
+      ],
+      "fontMetricBlockHeightPixels": 35.515625,
+      "fontMetricTopPixels": 1030.484375,
+      "renderedGlyphBoundsVerified": false,
+      "uncertainties": []
+    }
+  ],
+  "criticalSpokenAnchors": {
+    "acknowledgement": {
+      "canonicalCueId": "C25",
+      "scene": 6,
+      "word": "check",
+      "rawSeconds": 94.62,
+      "rawEndSeconds": 95.04,
+      "rawWithinSceneSeconds": 16.195238095238096,
+      "targetWithinSceneSeconds": 18.595238095238095,
+      "targetSeconds": 101.1952380952381,
+      "frame": 2530,
+      "frameSeconds": 101.2,
+      "sourceASRWordOrdinals": [
+        202
+      ],
+      "uncertainties": [],
+      "kind": "spoken-anchor-not-observed-ui-event",
+      "uiActionObserved": false,
+      "policy": "A genuine UI action must not appear before this global-ceil frame; this narration anchor does not prove the UI event occurred.",
+      "untilApprovalSeconds": 2.74,
+      "untilApprovalFrames": 69
+    },
+    "approval": {
+      "canonicalCueId": "C26",
+      "scene": 6,
+      "word": "click",
+      "rawSeconds": 97.36,
+      "rawEndSeconds": 97.54,
+      "rawWithinSceneSeconds": 18.935238095238095,
+      "targetWithinSceneSeconds": 21.335238095238097,
+      "targetSeconds": 103.93523809523809,
+      "frame": 2599,
+      "frameSeconds": 103.96,
+      "sourceASRWordOrdinals": [
+        207
+      ],
+      "uncertainties": [],
+      "kind": "spoken-anchor-not-observed-ui-event",
+      "uiActionObserved": false,
+      "policy": "A genuine UI action must not appear before this global-ceil frame; this narration anchor does not prove the UI event occurred."
+    },
+    "commit": {
+      "canonicalCueId": "C32",
+      "scene": 8,
+      "word": "commit",
+      "rawSeconds": 118.78,
+      "rawEndSeconds": 119.02,
+      "rawWithinSceneSeconds": 6.9064399092970525,
+      "targetWithinSceneSeconds": 7.306439909297052,
+      "targetSeconds": 127.90643990929705,
+      "frame": 3198,
+      "frameSeconds": 127.92,
+      "sourceASRWordOrdinals": [
+        254
+      ],
+      "uncertainties": [],
+      "kind": "spoken-anchor-not-observed-ui-event",
+      "uiActionObserved": false,
+      "policy": "A genuine UI action must not appear before this global-ceil frame; this narration anchor does not prove the UI event occurred."
+    },
+    "finalUnapproved": {
+      "canonicalCueId": "C35",
+      "scene": 8,
+      "word": "Revision two is staged, not approved",
+      "rawSeconds": 128.7,
+      "rawWithinSceneSeconds": 16.82643990929705,
+      "targetWithinSceneSeconds": 17.226439909297053,
+      "targetSeconds": 137.82643990929705,
+      "frame": 3446,
+      "frameSeconds": 137.84,
+      "endTargetSeconds": 165,
+      "endFrame": 4125,
+      "availableHoldSeconds": 27.17356009070295,
+      "requiredMinimumVisibleSeconds": 8,
+      "sourceASRWordOrdinals": [
+        275,
+        276,
+        277,
+        278,
+        279,
+        280
+      ],
+      "uncertainties": [
+        {
+          "code": "numeric-or-unit-representation-collapse",
+          "detail": "Equivalent number/unit representation anchors the full spoken phrase, not separately invented number-word times."
+        },
+        {
+          "code": "protected-token-span-timing",
+          "detail": "All member script words share this actual span for caption alignment; it is not a claim that they have identical or known individual onsets."
+        }
+      ],
+      "kind": "spoken-anchor-not-observed-ui-event",
+      "uiActionObserved": false,
+      "requiredStateAnnotation": "REVISION 2 - STAGED, NOT APPROVED",
+      "policy": "Main must separately observe the genuine current-revision stage, unchecked acknowledgement and unapproved end state, and retain them through the actual final frame."
+    },
+    "finalEnd": {
+      "targetSeconds": 165,
+      "frame": 4125,
+      "kind": "exact-pcm-target-end-not-encoded-video-verification"
+    }
+  },
+  "scenes": [
+    {
+      "scene": 1,
+      "sourceSha256": "f904745431c4eac554b14a44e1c3da25abbd796366927b328bf11486300b0487",
+      "sourceFileBytes": 382740,
+      "sourceSamples": 191348,
+      "sampleRate": 22050,
+      "channels": 1,
+      "sampleWidthBytes": 2,
+      "actualSpeechSeconds": 8.677913832199547,
+      "sourceWavDurationSeconds": 8.677913832199547,
+      "durationMeaning": "Entire actual source WAV, including any intrinsic silence; not a voice-activity measurement",
+      "rawStartSeconds": 0,
+      "rawEndSeconds": 8.677913832199547,
+      "targetStartSeconds": 0,
+      "targetEndSeconds": 10,
+      "targetStartSample": 0,
+      "targetEndSample": 220500,
+      "targetStartFrame": 0,
+      "targetEndFrame": 250,
+      "voiceDelaySeconds": 0.3,
+      "voiceDelaySamples": 6615,
+      "voiceStartSeconds": 0.3,
+      "voiceEndSeconds": 8.977913832199546,
+      "voiceStartSample": 6615,
+      "voiceEndSample": 197963,
+      "tailPaddingSeconds": 1.0220861678004536,
+      "tailPaddingSamples": 22537,
+      "targetDurationSeconds": 10,
+      "sourceSamplesCopied": 191348,
+      "sourceSamplesTruncated": 0,
+      "text": "Offcut gives people and browser agents the same cutting-stock workbench. Fourteen parts fit; the long board stays protected.",
+      "originalSourceArtifactName": "scene-01.wav",
+      "sourceArtifactNameIsNotDownloadLink": true
+    },
+    {
+      "scene": 2,
+      "sourceSha256": "39d98d17c8319ac1c374016135838e4759c1b0704775a979404cd54974e63215",
+      "sourceFileBytes": 484628,
+      "sourceSamples": 242292,
+      "sampleRate": 22050,
+      "channels": 1,
+      "sampleWidthBytes": 2,
+      "actualSpeechSeconds": 10.988299319727892,
+      "sourceWavDurationSeconds": 10.988299319727892,
+      "durationMeaning": "Entire actual source WAV, including any intrinsic silence; not a voice-activity measurement",
+      "rawStartSeconds": 8.677913832199547,
+      "rawEndSeconds": 19.666213151927437,
+      "targetStartSeconds": 10,
+      "targetEndSeconds": 21.5,
+      "targetStartSample": 220500,
+      "targetEndSample": 474075,
+      "targetStartFrame": 250,
+      "targetEndFrame": 538,
+      "voiceDelaySeconds": 0.2,
+      "voiceDelaySamples": 4410,
+      "voiceStartSeconds": 10.2,
+      "voiceEndSeconds": 21.188299319727893,
+      "voiceStartSample": 224910,
+      "voiceEndSample": 467202,
+      "tailPaddingSeconds": 0.31170068027210884,
+      "tailPaddingSamples": 6873,
+      "targetDurationSeconds": 11.5,
+      "sourceSamplesCopied": 242292,
+      "sourceSamplesTruncated": 0,
+      "text": "These illustrative measurements cover usable stock, parts, kerf and the reusable-remnant threshold. People own measurements and protection; registered tools cannot change them.",
+      "originalSourceArtifactName": "scene-02.wav",
+      "sourceArtifactNameIsNotDownloadLink": true
+    },
+    {
+      "scene": 3,
+      "sourceSha256": "ac0845d0c31ea1a83f82abc5024a3ab0017dc90beb0a5767267acd078542aa79",
+      "sourceFileBytes": 647560,
+      "sourceSamples": 323758,
+      "sampleRate": 22050,
+      "channels": 1,
+      "sampleWidthBytes": 2,
+      "actualSpeechSeconds": 14.682902494331065,
+      "sourceWavDurationSeconds": 14.682902494331065,
+      "durationMeaning": "Entire actual source WAV, including any intrinsic silence; not a voice-activity measurement",
+      "rawStartSeconds": 19.666213151927437,
+      "rawEndSeconds": 34.349115646258504,
+      "targetStartSeconds": 21.5,
+      "targetEndSeconds": 37.5,
+      "targetStartSample": 474075,
+      "targetEndSample": 826875,
+      "targetStartFrame": 538,
+      "targetEndFrame": 938,
+      "voiceDelaySeconds": 0.3,
+      "voiceDelaySamples": 6615,
+      "voiceStartSeconds": 21.8,
+      "voiceEndSeconds": 36.482902494331064,
+      "voiceStartSample": 480690,
+      "voiceEndSample": 804448,
+      "tailPaddingSeconds": 1.0170975056689342,
+      "tailPaddingSamples": 22427,
+      "targetDurationSeconds": 16,
+      "sourceSamplesCopied": 323758,
+      "sourceSamplesTruncated": 0,
+      "text": "The right-hand panel is an external model recording harness, not a chatbot inside the website. A real model chooses native Web M C P calls on the shared committed workbench. This is not a ChatGPT recording.",
+      "originalSourceArtifactName": "scene-03.wav",
+      "sourceArtifactNameIsNotDownloadLink": true
+    },
+    {
+      "scene": 4,
+      "sourceSha256": "3dd19bf02a18bdca67bb5cabfb312098d27145585319156a633df8c62d326856",
+      "sourceFileBytes": 704392,
+      "sourceSamples": 352174,
+      "sampleRate": 22050,
+      "channels": 1,
+      "sampleWidthBytes": 2,
+      "actualSpeechSeconds": 15.971609977324263,
+      "sourceWavDurationSeconds": 15.971609977324263,
+      "durationMeaning": "Entire actual source WAV, including any intrinsic silence; not a voice-activity measurement",
+      "rawStartSeconds": 34.349115646258504,
+      "rawEndSeconds": 50.32072562358277,
+      "targetStartSeconds": 37.5,
+      "targetEndSeconds": 54,
+      "targetStartSample": 826875,
+      "targetEndSample": 1190700,
+      "targetStartFrame": 938,
+      "targetEndFrame": 1350,
+      "voiceDelaySeconds": 0.2,
+      "voiceDelaySamples": 4410,
+      "voiceStartSeconds": 37.7,
+      "voiceEndSeconds": 53.671609977324266,
+      "voiceStartSample": 831285,
+      "voiceEndSample": 1183459,
+      "tailPaddingSeconds": 0.32839002267573697,
+      "tailPaddingSamples": 7241,
+      "targetDurationSeconds": 16.5,
+      "sourceSamplesCopied": 352174,
+      "sourceSamplesTruncated": 0,
+      "text": "The model compares three complete alternatives: less stock, fewer boards, or useful offcuts. The deterministic branch-and-bound solver checks quantities, stock and one kerf per part. A search limit is not a proof of optimality.",
+      "originalSourceArtifactName": "scene-04.wav",
+      "sourceArtifactNameIsNotDownloadLink": true
+    },
+    {
+      "scene": 5,
+      "sourceSha256": "1d3952ddbaf9b11fa1b2571d45538b60d3918aad04599b7fbea67fad13577097",
+      "sourceFileBytes": 1239432,
+      "sourceSamples": 619694,
+      "sampleRate": 22050,
+      "channels": 1,
+      "sampleWidthBytes": 2,
+      "actualSpeechSeconds": 28.104036281179138,
+      "sourceWavDurationSeconds": 28.104036281179138,
+      "durationMeaning": "Entire actual source WAV, including any intrinsic silence; not a voice-activity measurement",
+      "rawStartSeconds": 50.32072562358277,
+      "rawEndSeconds": 78.42476190476191,
+      "targetStartSeconds": 54,
+      "targetEndSeconds": 82.6,
+      "targetStartSample": 1190700,
+      "targetEndSample": 1821330,
+      "targetStartFrame": 1350,
+      "targetEndFrame": 2065,
+      "voiceDelaySeconds": 0.2,
+      "voiceDelaySamples": 4410,
+      "voiceStartSeconds": 54.2,
+      "voiceEndSeconds": 82.30403628117914,
+      "voiceStartSample": 1195110,
+      "voiceEndSample": 1814804,
+      "tailPaddingSeconds": 0.2959637188208617,
+      "tailPaddingSamples": 6526,
+      "targetDurationSeconds": 28.6,
+      "sourceSamplesCopied": 619694,
+      "sourceSamplesTruncated": 0,
+      "text": "Less stock and fewer boards both open seven point two metres across three boards: forty-two millimetres of sawdust, plus one hundred fifty-eight millimetres of short scrap. Keeping useful offcuts opens ten point zero eight metres across six boards: forty-two millimetres of sawdust, no short scrap, and three point zero three eight metres reusable. Computed trade-offs, not measured time or carbon savings.",
+      "originalSourceArtifactName": "scene-05.wav",
+      "sourceArtifactNameIsNotDownloadLink": true
+    },
+    {
+      "scene": 6,
+      "sourceSha256": "6b711d2a430b5e905ea0b52626d1d88d1a484f2fd2c5ebecee15d503979ba527",
+      "sourceFileBytes": 910168,
+      "sourceSamples": 455062,
+      "sampleRate": 22050,
+      "channels": 1,
+      "sampleWidthBytes": 2,
+      "actualSpeechSeconds": 20.637732426303856,
+      "sourceWavDurationSeconds": 20.637732426303856,
+      "durationMeaning": "Entire actual source WAV, including any intrinsic silence; not a voice-activity measurement",
+      "rawStartSeconds": 78.42476190476191,
+      "rawEndSeconds": 99.06249433106576,
+      "targetStartSeconds": 82.6,
+      "targetEndSeconds": 106.6,
+      "targetStartSample": 1821330,
+      "targetEndSample": 2350530,
+      "targetStartFrame": 2065,
+      "targetEndFrame": 2665,
+      "voiceDelaySeconds": 2.4,
+      "voiceDelaySamples": 52920,
+      "voiceStartSeconds": 85,
+      "voiceEndSeconds": 105.63773242630386,
+      "voiceStartSample": 1874250,
+      "voiceEndSample": 2329312,
+      "tailPaddingSeconds": 0.9622675736961451,
+      "tailPaddingSamples": 21218,
+      "targetDurationSeconds": 24,
+      "sourceSamplesCopied": 455062,
+      "sourceSamplesTruncated": 0,
+      "text": "The agent inspects and stages the exact plan. Pause for review: this is not approval. Check stock identities, quantities and kerf. No registered tool can approve. These UI controls are automated, not proof of human presence. Now the controls check the acknowledgement. Then they click Approve cut sheet.",
+      "originalSourceArtifactName": "scene-06.wav",
+      "sourceArtifactNameIsNotDownloadLink": true
+    },
+    {
+      "scene": 7,
+      "sourceSha256": "8da0f74ae63e20485c11b70750356fe43a2db7c5fcf11844fc46784de8e4fc38",
+      "sourceFileBytes": 565012,
+      "sourceSamples": 282484,
+      "sampleRate": 22050,
+      "channels": 1,
+      "sampleWidthBytes": 2,
+      "actualSpeechSeconds": 12.811065759637188,
+      "sourceWavDurationSeconds": 12.811065759637188,
+      "durationMeaning": "Entire actual source WAV, including any intrinsic silence; not a voice-activity measurement",
+      "rawStartSeconds": 99.06249433106576,
+      "rawEndSeconds": 111.87356009070295,
+      "targetStartSeconds": 106.6,
+      "targetEndSeconds": 120.6,
+      "targetStartSample": 2350530,
+      "targetEndSample": 2659230,
+      "targetStartFrame": 2665,
+      "targetEndFrame": 3015,
+      "voiceDelaySeconds": 0.3,
+      "voiceDelaySamples": 6615,
+      "voiceStartSeconds": 106.9,
+      "voiceEndSeconds": 119.7110657596372,
+      "voiceStartSample": 2357145,
+      "voiceEndSample": 2639629,
+      "tailPaddingSeconds": 0.8889342403628118,
+      "tailPaddingSamples": 19601,
+      "targetDurationSeconds": 14,
+      "sourceSamplesCopied": 282484,
+      "sourceSamplesTruncated": 0,
+      "text": "The model inspects approval and exports the actual C S V: fourteen parts, part identifiers, offsets, kerf, and the exact approved plan identifier. Another draft cannot inherit approval.",
+      "originalSourceArtifactName": "scene-07.wav",
+      "sourceArtifactNameIsNotDownloadLink": true
+    },
+    {
+      "scene": 8,
+      "sourceSha256": "b83dc73fa28444663937b10db34cef0c688882f556a5caa7ac0023ad241ab84d",
+      "sourceFileBytes": 963416,
+      "sourceSamples": 481686,
+      "sampleRate": 22050,
+      "channels": 1,
+      "sampleWidthBytes": 2,
+      "actualSpeechSeconds": 21.845170068027212,
+      "sourceWavDurationSeconds": 21.845170068027212,
+      "durationMeaning": "Entire actual source WAV, including any intrinsic silence; not a voice-activity measurement",
+      "rawStartSeconds": 111.87356009070295,
+      "rawEndSeconds": 133.71873015873015,
+      "targetStartSeconds": 120.6,
+      "targetEndSeconds": 148.6,
+      "targetStartSample": 2659230,
+      "targetEndSample": 3276630,
+      "targetStartFrame": 3015,
+      "targetEndFrame": 3715,
+      "voiceDelaySeconds": 0.4,
+      "voiceDelaySamples": 8820,
+      "voiceStartSeconds": 121,
+      "voiceEndSeconds": 142.84517006802722,
+      "voiceStartSample": 2668050,
+      "voiceEndSample": 3149736,
+      "tailPaddingSeconds": 5.754829931972789,
+      "tailPaddingSamples": 126894,
+      "targetDurationSeconds": 28,
+      "sourceSamplesCopied": 481686,
+      "sourceSamplesTruncated": 0,
+      "text": "Typing four leaves committed kerf at three. Pending edits block staging without moving focus or saving. Now commit: revision two invalidates the old approval. The old plan is stale. The model replans: fourteen parts, fifty-six millimetres of sawdust. Revision two is staged, not approved. The acknowledgement stays unchecked.",
+      "originalSourceArtifactName": "scene-08.wav",
+      "sourceArtifactNameIsNotDownloadLink": true
+    },
+    {
+      "scene": 9,
+      "sourceSha256": "efe9c19e8d946e1bf7cb4a7cd5964bf37a43f1026734d9045ede98a4a50da059",
+      "sourceFileBytes": 681864,
+      "sourceSamples": 340910,
+      "sampleRate": 22050,
+      "channels": 1,
+      "sampleWidthBytes": 2,
+      "actualSpeechSeconds": 15.46077097505669,
+      "sourceWavDurationSeconds": 15.46077097505669,
+      "durationMeaning": "Entire actual source WAV, including any intrinsic silence; not a voice-activity measurement",
+      "rawStartSeconds": 133.71873015873015,
+      "rawEndSeconds": 149.17950113378686,
+      "targetStartSeconds": 148.6,
+      "targetEndSeconds": 165,
+      "targetStartSample": 3276630,
+      "targetEndSample": 3638250,
+      "targetStartFrame": 3715,
+      "targetEndFrame": 4125,
+      "voiceDelaySeconds": 0.2,
+      "voiceDelaySamples": 4410,
+      "voiceStartSeconds": 148.8,
+      "voiceEndSeconds": 164.2607709750567,
+      "voiceStartSample": 3281040,
+      "voiceEndSample": 3621950,
+      "tailPaddingSeconds": 0.7392290249433107,
+      "tailPaddingSamples": 16300,
+      "targetDurationSeconds": 16.4,
+      "sourceSamplesCopied": 340910,
+      "sourceSamplesTruncated": 0,
+      "text": "Offcut itself needs no account, model key or backend. The workbench and M I T licensed source are public. These are planning estimates, not machine instructions: verify usable stock and safe cutting conditions at the bench.",
+      "originalSourceArtifactName": "scene-09.wav",
+      "sourceArtifactNameIsNotDownloadLink": true
+    }
+  ],
+  "observedActualFinalGlyphBounds": {
+    "top": 1011,
+    "bottom": 1065,
+    "scope": "Bright caption pixels in actual final PNG samples; textual OCR inspection is separate"
+  },
+  "limits": [
+    "Authored word coverage is not exact ASR recognition certification.",
+    "Spoken anchors are not UI-event or CDP-paint timestamps."
+  ]
+}

@@ -1,0 +1,174 @@
+{
+  "kind": "Actual headed Chrome native video-document playback, keyboard control and independently observed paint callbacks",
+  "videoSha256": "c91ba242684a288452f12d9754caaff662347559714cf7f453c35695282aa79c",
+  "browserVersion": "152.0.7977.64",
+  "launchSurface": "Authenticated Xvfb-backed headed Chrome; no --headless or --no-sandbox launch flag",
+  "metadata": {
+    "url": "http://127.0.0.1:4186/demo.mp4",
+    "duration": 165,
+    "videoWidth": 1920,
+    "videoHeight": 1080,
+    "readyState": 4,
+    "paused": false,
+    "error": null,
+    "controls": true,
+    "rect": {
+      "x": 0,
+      "y": 0,
+      "width": 1920,
+      "height": 1080
+    },
+    "ua": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+  },
+  "pauseViaKeyboardSpace": {
+    "paused": true,
+    "time": 42.647708
+  },
+  "playViaKeyboardSpace": {
+    "paused": false,
+    "time": 4.019139,
+    "rate": 1,
+    "muted": false,
+    "error": null,
+    "totalVideoFrames": 1175,
+    "droppedVideoFrames": 0,
+    "webkitAudioDecodedByteCount": 1050287
+  },
+  "actualByteRangeDelivery": {
+    "requestedRange": "bytes=1000-1999",
+    "status": 206,
+    "acceptRanges": "bytes",
+    "contentRange": "bytes 1000-1999/12497854",
+    "contentLength": "1000",
+    "actualBodyBytes": 1000
+  },
+  "actualPaintObservations": [
+    {
+      "requestedFrame": 2529,
+      "requestedSeconds": 101.16,
+      "paintedMediaTime": 101.16,
+      "presentedFrames": 2,
+      "currentTime": 101.161999,
+      "paused": true,
+      "error": null,
+      "readyState": 4,
+      "screenshotPath": "submission/evidence/media/chrome-frame-2529.png"
+    },
+    {
+      "requestedFrame": 2530,
+      "requestedSeconds": 101.2,
+      "paintedMediaTime": 101.2,
+      "presentedFrames": 3,
+      "currentTime": 101.202,
+      "paused": true,
+      "error": null,
+      "readyState": 1,
+      "screenshotPath": "submission/evidence/media/chrome-frame-2530.png"
+    },
+    {
+      "requestedFrame": 2599,
+      "requestedSeconds": 103.96,
+      "paintedMediaTime": 103.96,
+      "presentedFrames": 4,
+      "currentTime": 103.961999,
+      "paused": true,
+      "error": null,
+      "readyState": 1,
+      "screenshotPath": "submission/evidence/media/chrome-frame-2599.png"
+    },
+    {
+      "requestedFrame": 2600,
+      "requestedSeconds": 104,
+      "paintedMediaTime": 104,
+      "presentedFrames": 5,
+      "currentTime": 104.002,
+      "paused": true,
+      "error": null,
+      "readyState": 1,
+      "screenshotPath": "submission/evidence/media/chrome-frame-2600.png"
+    },
+    {
+      "requestedFrame": 2615,
+      "requestedSeconds": 104.6,
+      "paintedMediaTime": 104.6,
+      "presentedFrames": 6,
+      "currentTime": 104.601999,
+      "paused": true,
+      "error": null,
+      "readyState": 1,
+      "screenshotPath": "submission/evidence/media/chrome-frame-2615.png"
+    },
+    {
+      "requestedFrame": 3198,
+      "requestedSeconds": 127.92,
+      "paintedMediaTime": 127.92,
+      "presentedFrames": 7,
+      "currentTime": 127.922,
+      "paused": true,
+      "error": null,
+      "readyState": 1,
+      "screenshotPath": "submission/evidence/media/chrome-frame-3198.png"
+    },
+    {
+      "requestedFrame": 3220,
+      "requestedSeconds": 128.8,
+      "paintedMediaTime": 128.8,
+      "presentedFrames": 8,
+      "currentTime": 128.801999,
+      "paused": true,
+      "error": null,
+      "readyState": 4,
+      "screenshotPath": "submission/evidence/media/chrome-frame-3220.png"
+    },
+    {
+      "requestedFrame": 3375,
+      "requestedSeconds": 135,
+      "paintedMediaTime": 135,
+      "presentedFrames": 9,
+      "currentTime": 135.002,
+      "paused": true,
+      "error": null,
+      "readyState": 1,
+      "screenshotPath": "submission/evidence/media/chrome-frame-3375.png"
+    },
+    {
+      "requestedFrame": 3446,
+      "requestedSeconds": 137.84,
+      "paintedMediaTime": 137.84,
+      "presentedFrames": 10,
+      "currentTime": 137.842,
+      "paused": true,
+      "error": null,
+      "readyState": 1,
+      "screenshotPath": "submission/evidence/media/chrome-frame-3446.png"
+    },
+    {
+      "requestedFrame": 4124,
+      "requestedSeconds": 164.96,
+      "paintedMediaTime": 164.96,
+      "presentedFrames": 11,
+      "currentTime": 164.962,
+      "paused": true,
+      "error": null,
+      "readyState": 4,
+      "screenshotPath": "submission/evidence/media/chrome-frame-4124.png"
+    }
+  ],
+  "pageErrors": [],
+  "initialVerificationServerBoundary": {
+    "originalRange": {
+      "requestedRange": "bytes=1000-1999",
+      "status": 200,
+      "acceptRanges": null,
+      "contentRange": null,
+      "contentLength": "12497854"
+    },
+    "observedSeekable": [
+      0,
+      0
+    ],
+    "resolution": "Replaced temporary plain http.server with real single-byte-range delivery; no MP4 pixels/audio/app code changed"
+  },
+  "scope": "Actual local native Chrome playback, not YouTube processing/playback or subjective listening. Native player controls may overlay captions in paused screenshots; independent decoded PNG caption inspection is separate.",
+  "actualPlayingScreenshot": "submission/evidence/media/chrome-native-playing.png"
+}

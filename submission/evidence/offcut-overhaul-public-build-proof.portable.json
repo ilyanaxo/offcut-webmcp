@@ -1,0 +1,36 @@
+{
+  "sourceCommit": "f8091483ef2003b1bff361ab8f1b49a5715cd19d",
+  "staticCommit": "c88b3050ee128d19b5f79a9380822771a0167160",
+  "actualPagesBuild": {
+    "url": "https://api.github.com/repos/ilyanaxo/offcut-webmcp/pages/builds/1191879863",
+    "status": "built",
+    "error": {
+      "message": null
+    },
+    "commit": "c88b3050ee128d19b5f79a9380822771a0167160",
+    "duration": 20454,
+    "created_at": "2026-09-03T11:18:42Z",
+    "updated_at": "2026-09-03T11:19:02Z",
+    "pusherLogin": "ilyanaxo"
+  },
+  "htmlDeliveryObserved": "Actual publicHTML atsourcecandidatequery referencesindex-BXFW-YOC.jsandindex-wHlxX3aJ.css, matchingrealcompiledblobtree",
+  "liveURL": "https://ilyanaxo.github.io/offcut-webmcp/",
+  "sourceURL": "https://github.com/ilyanaxo/offcut-webmcp/tree/f8091483ef2003b1bff361ab8f1b49a5715cd19d",
+  "scope": "Sourcepush/staticfastforward/currentbuiltcommitandactualpublicHTMLdelivery; fullhostedcontractmatrixseparate",
+  "actualDeliveredResourcesEvidencePath": "submission/evidence/capture-take-02/delivered-resources.original.json",
+  "portableProvenance": {
+    "representation": "transformed-deployment-observation-summary",
+    "originalSourceArtifactName": "offcut-overhaul-public-build-proof.json",
+    "originalSourceSha256": "1b9da945d3cd6767bfe8b255d930b3edb89397f2beed7d7d44012e08aa3b04d2",
+    "originalSourceBytes": 2012,
+    "sourceBytesIdenticalToPortableFile": false,
+    "observationScope": "Current pinned source/static commit and observed GitHub Pages built state/publicHTML delivery; browser matrix is separate",
+    "pathBase": "repository-root",
+    "transformations": [
+      "Evidence references are repository-relative; source video is represented by its provenance record; original JPEG paths become explicit frame-manifest record locators. Original tool/model/UI/clock values and original media hashes are retained.",
+      "Omitted expanded public pusher-profile metadata and its templated unrelated API URLs; retained the observed login, Pages build URL/status/error/commit/times and all deployment observations."
+    ],
+    "referenceReplacementCounts": {},
+    "portableFileHashManifest": "submission/evidence/manifest.json"
+  }
+}

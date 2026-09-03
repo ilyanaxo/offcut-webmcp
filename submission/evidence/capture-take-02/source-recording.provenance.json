@@ -1,0 +1,144 @@
+{
+  "schemaVersion": 1,
+  "kind": "original-source-recording-identity-and-provenance",
+  "sourceCandidate": {
+    "version": "1.1.0",
+    "sourceCommit": "f8091483ef2003b1bff361ab8f1b49a5715cd19d",
+    "staticCommit": "c88b3050ee128d19b5f79a9380822771a0167160",
+    "liveURL": "https://ilyanaxo.github.io/offcut-webmcp/",
+    "sourceURL": "https://github.com/ilyanaxo/offcut-webmcp/tree/f8091483ef2003b1bff361ab8f1b49a5715cd19d"
+  },
+  "originalTakeName": "take-02",
+  "originalVideo": {
+    "originalFileName": "source.mp4",
+    "sha256": "48e2e955bc43d7b9e5b5cb1cea23b854e5a46f55be9e9f0b92c0c96eb8889711",
+    "bytes": 42467633,
+    "durationSeconds": 2417.36,
+    "viewport": {
+      "width": 1365,
+      "height": 900
+    },
+    "producedFileMetadata": {
+      "codec": "h264",
+      "profile": "High 4:4:4 Predictive",
+      "width": 1365,
+      "height": 900,
+      "pixelFormat": "yuv444p",
+      "averageRate": "25",
+      "baseRate": "25",
+      "timeBase": "1/12800",
+      "durationTicks": 30942208,
+      "declaredFrames": 60434,
+      "containerDurationMicroseconds": 2417360000,
+      "audioStreams": 0
+    },
+    "sampleAspectRatio": "0/1",
+    "sampleAspectRatioMeaning": "unspecified; the original MP4 is not claimed to declare1:1 SAR",
+    "sampleAspectRatioObservationAttribution": "Main's actual source stream observation; the original source-encoding artifact omitted this SAR field",
+    "encodingEvidencePath": "submission/evidence/capture-take-02/source-encoding.portable.json"
+  },
+  "sourceClock": {
+    "timeOriginUnixSeconds": 1788435230.152599,
+    "actualStopSourceSeconds": 2417.3497009277344,
+    "frameRate": 25,
+    "encodedSamples": 60434,
+    "acceptedCDPFrames": 851
+  },
+  "actualCounts": {
+    "acceptedCDPFrames": 851,
+    "nativeModelCalls": 19,
+    "realModelDecisions": 25,
+    "localModelFinishDecisions": 6,
+    "automatedUIEvents": 70,
+    "actualDOMEvents": 323,
+    "trustedDOMEvents": 322,
+    "observations": 300,
+    "captureMarks": 50
+  },
+  "sourceFrameManifestPath": "submission/evidence/capture-take-02/frame-manifest.portable.json",
+  "sourceFrameBindingsPath": "submission/evidence/capture-take-02/source-frame-bindings.portable.json",
+  "sourceTracePath": "submission/agent-trace.json",
+  "sourceAcquisitionErrors": [
+    {
+      "observedAt": "2026-09-03T11:36:25.861Z",
+      "message": "Error: Screencast timestamp moved backwards",
+      "frameMetadata": {
+        "offsetTop": 0,
+        "pageScaleFactor": 1,
+        "deviceWidth": 1365,
+        "deviceHeight": 900,
+        "scrollOffsetX": 0,
+        "scrollOffsetY": 9.46707820892334,
+        "timestamp": 1788435385.784376
+      }
+    },
+    {
+      "observedAt": "2026-09-03T11:36:26.042Z",
+      "message": "Error: Screencast timestamp moved backwards",
+      "frameMetadata": {
+        "offsetTop": 0,
+        "pageScaleFactor": 1,
+        "deviceWidth": 1365,
+        "deviceHeight": 900,
+        "scrollOffsetX": 0,
+        "scrollOffsetY": 554.51513671875,
+        "timestamp": 1788435385.9188
+      }
+    }
+  ],
+  "rawFrameAvailability": {
+    "originalJPEGFrameCount": 851,
+    "copiedJPEGFrameCount": 0,
+    "meaning": "All original frame hashes/timestamps/metadata remain in the portable manifest. Individual original JPEG bytes are intentionally not copied; genuine encoded source footage is a separate versioned release asset."
+  },
+  "sourceFootagePublication": {
+    "url": "https://github.com/ilyanaxo/offcut-webmcp/releases/download/v1.1.0-webmcp-challenge/source-recording.mp4",
+    "expectedOriginalVideoSha256": "48e2e955bc43d7b9e5b5cb1cea23b854e5a46f55be9e9f0b92c0c96eb8889711",
+    "expectedBytes": 42467633,
+    "publicationObservationURL": "https://github.com/ilyanaxo/offcut-webmcp/blob/main/submission/publication-verification.json",
+    "scope": "This immutable descriptor identifies actual original source bytes. Public release/access/download observations are separately recorded after publication; the descriptor alone is not proof of public access."
+  },
+  "squareCaptureGridComposition": {
+    "originalSAR": "0/1-unspecified",
+    "captureRaster": "1365x900 CDP square-coordinate grid",
+    "declaredRendererOverride": "setsar1",
+    "imageRescalingForSAR": false,
+    "scope": "Main declares square capture-grid composition explicitly. This convention does not rewrite the original source metadata or verify the final edited movie."
+  },
+  "attribution": {
+    "model": {
+      "client": "External recording harness",
+      "inferenceAPI": "OMP Eval completion",
+      "requestedModelRole": "default",
+      "decisionPolicy": "A separate real completion receives the actually discovered serializable native catalogue and retained actual transcript before every tool selection or local finish.",
+      "providerResponseMetadataAvailable": false,
+      "isChatGPTInAppRecording": false,
+      "approvalCapability": false
+    },
+    "ui": {
+      "actor": "Automated recording UI controls",
+      "mechanism": "Playwright-driven actual Chrome DOM mouse/keyboard/wheel events; isTrusted recorded independently",
+      "provesPhysicalHumanPresence": false,
+      "provesPhysicalMeasurements": false
+    }
+  },
+  "finalEditedMP4VerifiedByThisRecord": false,
+  "evidenceBoundary": "The original2417.36-second source footage and its encoding/frame provenance are not the separately verified165-second edited demo. Actual external model selections dispatch through real native Chrome WebMCP. UI actions/approval are browser automation, not ChatGPT desktop/in-app-agent proof, a physical-human field study or cutting execution. No YouTube upload, Devpost Submitted, entrant eligibility/rights attestation or outcome is verified.",
+  "portableProvenance": {
+    "representation": "derived-source-media-provenance-record",
+    "originalSourceArtifactName": "source-encoding.json",
+    "originalSourceSha256": "5ace2864ceb0cf3ebd4182ff58a34b231938744011d9a3a6825077035ac6ed05",
+    "originalSourceBytes": 488703,
+    "sourceBytesIdenticalToPortableFile": false,
+    "observationScope": "Actual current-candidate source capture/encoding identity. Final edited-media and mutable publication state are verified in separate records.",
+    "pathBase": "repository-root",
+    "transformations": [
+      "Derived portable metadata from the observed original source-encoding/capture/model proof records. Source video bytes are not copied into the evidence directory. The exact separate release URL is explicitly publication-pending.",
+      "Preserved original video/JPEG hashes and metadata; clarified Main's observed unspecifiedSAR0/1 and declared square-CDP-grid setsar1 convention without claiming original squareSAR or final media verification.",
+      "Main separates stable source-media identity from later public-access observations, avoiding circular self-publication claims in immutable source/package snapshots."
+    ],
+    "referenceReplacementCounts": {},
+    "portableFileHashManifest": "submission/evidence/manifest.json"
+  },
+  "uiPostObservationBindingsEvidencePath": "submission/evidence/capture-take-02/ui-observation-bindings.portable-summary.json"
+}

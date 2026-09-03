@@ -1,0 +1,32 @@
+{
+  "kind": "Actual decoded caption-region byte equality, not guessed OCR correction",
+  "images": [
+    {
+      "sourceImageFileName": "frame-2534.png",
+      "sourceImageSha256": "750af9dd9443f35adc62640be9f3b0a098631faf4972d087b4e8f239a4ae913f",
+      "decodedCaptionRegion": {
+        "x": 0,
+        "y": 995,
+        "width": 1920,
+        "height": 85,
+        "format": "rgb24"
+      },
+      "decodedCaptionPixelSha256": "c8f1441ebce6fa9cb45b4a9f56162b11227f2d0f59298864116e72a06f1048e3"
+    },
+    {
+      "sourceImageFileName": "frame-2535.png",
+      "sourceImageSha256": "404d087c98fe5aaba9fc6f09474de6b99cbaa4cea93deb425645c57d87106957",
+      "decodedCaptionRegion": {
+        "x": 0,
+        "y": 995,
+        "width": 1920,
+        "height": 85,
+        "format": "rgb24"
+      },
+      "decodedCaptionPixelSha256": "c8f1441ebce6fa9cb45b4a9f56162b11227f2d0f59298864116e72a06f1048e3"
+    }
+  ],
+  "actualAllCaptionPixelsEqual": true,
+  "differingChannelValues": 0,
+  "scope": "Complete actual1920x85 final-caption region only. Equality authenticates shared pixels, not independent text recognition or the rest of the frame."
+}

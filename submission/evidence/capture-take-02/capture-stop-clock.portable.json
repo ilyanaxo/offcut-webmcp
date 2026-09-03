@@ -1,0 +1,46 @@
+{
+  "browserClock": {
+    "timestampUnixSeconds": 1788437647.5023,
+    "dateNowUnixSeconds": 1788437647.502,
+    "performanceTimeOriginUnixSeconds": 1788435221.9017,
+    "performanceNowSeconds": 2425.600600000024,
+    "url": "https://ilyanaxo.github.io/offcut-webmcp/#cutting-plan"
+  },
+  "hostUnixSeconds": 1788437647.502,
+  "finalObservationOrdinal": 300,
+  "latestFrame": {
+    "index": 850,
+    "originalSourceFrameName": "frame-0000850.jpg",
+    "sourceFrameEvidencePath": "submission/evidence/capture-take-02/frame-manifest.portable.json",
+    "sourceFrameJsonPointer": "/frames/850",
+    "timestampUnixSeconds": 1788437646.716198,
+    "sourceSeconds": 2416.563598871231,
+    "sha256": "050738e9b42b5c11a32de312b89e0a8e36df5cbb6755618e5c45782e17021006",
+    "metadata": {
+      "offsetTop": 0,
+      "pageScaleFactor": 1,
+      "deviceWidth": 1365,
+      "deviceHeight": 900,
+      "scrollOffsetX": 0,
+      "scrollOffsetY": 1616
+    },
+    "receivedAtUnixSeconds": 1788437646.733,
+    "sessionId": 1
+  },
+  "portableProvenance": {
+    "representation": "transformed-full-capture-record",
+    "originalSourceArtifactName": "capture-stop-clock.json",
+    "originalSourceSha256": "6f8497c5410b161400dac37d5fdaf0cc5470366b6d407312cbb93f3c9b2a6306",
+    "originalSourceBytes": 930,
+    "sourceBytesIdenticalToPortableFile": false,
+    "observationScope": "Actual current-candidate capture take-02; original source observations/ordinals/times, not final edited MP4 verification",
+    "pathBase": "repository-root",
+    "transformations": [
+      "Only artifact references/locator field names are transformed. Original native/model/UI/state/clock observations, recorded counts, capture errors and original JPEG/video hashes are retained; raw JPEG images are not copied."
+    ],
+    "referenceReplacementCounts": {
+      "sourceJPEGPathToManifestRecord": 1
+    },
+    "portableFileHashManifest": "submission/evidence/manifest.json"
+  }
+}

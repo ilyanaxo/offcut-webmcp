@@ -1,0 +1,22 @@
+{
+  "kind": "Actual final public documentation-only deployment observation",
+  "commit": "ffc85c8300d8ec8a17bafa2751fb4b02f2093409",
+  "PagesBuild": {
+    "status": "built",
+    "createdAt": "2026-09-03T15:17:52Z",
+    "updatedAt": "2026-09-03T15:18:22Z",
+    "errorMessage": null
+  },
+  "actualPublicHTTPSDelivery": {
+    "url": "https://ilyanaxo.github.io/offcut-webmcp/guide.html?candidate=ffc85c8",
+    "status": 200,
+    "actualBytes": 35456,
+    "sha256": "bbcf54cba5d581558e04d9cba731d1b19058065bc8dedd5d037f42fa8b637b99",
+    "expectedFinalGuideSha256": "bbcf54cba5d581558e04d9cba731d1b19058065bc8dedd5d037f42fa8b637b99"
+  },
+  "actualAppJSandCSSRemainByteIdenticalToTestedAndCapturedCandidate": true,
+  "testedRecordedStaticCommit": "c88b3050ee128d19b5f79a9380822771a0167160",
+  "functionalSourceCommit": "f8091483ef2003b1bff361ab8f1b49a5715cd19d",
+  "appByteEvidence": "submission/evidence/browser/final-guide-build.portable.json",
+  "scope": "New staticcommit changes onlyguide text. Actual hosted app JS/CSS SHA values match originaltested/captured bytes; no source/browser regression rerun is claimed for thedoc-only publication."
+}

@@ -1,0 +1,44 @@
+{
+  "kind": "Actual final documentation-only build and guide surface observation",
+  "functionalSourceCommit": "f8091483ef2003b1bff361ab8f1b49a5715cd19d",
+  "formatAndBuildExitCode": 0,
+  "sourceFilesFormatterReportedUnchanged": true,
+  "actualJS": {
+    "file": "assets/index-BXFW-YOC.js",
+    "sha256": "e4cff05b03454ac310258402c8533f7ed9a6f900c76a82ba5943e2785ddcf680",
+    "matchesActualRecordedHTTPSBytes": true
+  },
+  "actualCSS": {
+    "file": "assets/index-wHlxX3aJ.css",
+    "sha256": "9b5aa8cdff45ec68a8732865240cfe66f0934313c0795a8afff6bf28ad64a7ee",
+    "matchesActualRecordedHTTPSBytes": true
+  },
+  "actualGuideSha256": "bbcf54cba5d581558e04d9cba731d1b19058065bc8dedd5d037f42fa8b637b99",
+  "desktop": {
+    "url": "http://127.0.0.1:4183/guide.html",
+    "heading": "Verification scope and submission gates",
+    "verificationText": "Offcut 1.1.0 passed 884 source-contract tests and 72 executed browser cases: 18 contracts on each local/hosted and Chrome-149/152 combination. The actual public-app demonstration contains 19 model-selected native calls, with separate automated UI actions. Source identity, measured optimization workloads, native profiles and all 12 actually rendered maximum-cut PDF pages are recorded in the portable verification report. Final encoded-video duration, audio, captions and visual checks have their own media verification record; neither report is an account-publication or winning claim.",
+    "horizontalOverflow": false,
+    "viewport": [
+      1920,
+      1080
+    ]
+  },
+  "mobile": {
+    "url": "http://127.0.0.1:4183/guide.html",
+    "horizontalOverflow": false,
+    "viewport": [
+      390,
+      844
+    ],
+    "text": true
+  },
+  "imageInspection": {
+    "desktopCountsReadable": true,
+    "mobileNoHorizontalClipping": true,
+    "scope": "Actual desktop/mobile Chrome screenshots inspected; vertical screenshot edges are viewport boundaries, not horizontal content defects"
+  },
+  "scope": "Only guide text changes in final static deployment. App JS/CSS bytes exactly match the actually tested/recorded candidate; no invented retest of code after doc-only change.",
+  "desktopScreenshot": "submission/evidence/browser/guide-final-desktop.png",
+  "mobileScreenshot": "submission/evidence/browser/guide-final-mobile.png"
+}

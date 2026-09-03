@@ -1,0 +1,27 @@
+{
+  "scope": "Actual Chrome152 touch-event emulation, not physical touchscreen hardware; fresh native-capable app context",
+  "browser": "152.0.7977.64",
+  "url": "http://127.0.0.1:4183/",
+  "viewport": {
+    "width": 390,
+    "height": 844
+  },
+  "planId": "plan-f732e228-2e02-4fc2-8188-35671d6bcc4d-5",
+  "selectedDisclosureOpenedByTouch": true,
+  "rawIds": [
+    "plan-f732e228-2e02-4fc2-8188-35671d6bcc4d-5",
+    "A-02",
+    "A-03",
+    "A-04",
+    "shelf",
+    "brace",
+    "rail",
+    "upright"
+  ],
+  "fullDateAndTimeVisible": "9/3/2026, 10:40:49 AM",
+  "reviewDisclosureOpenedByTouch": true,
+  "modal": true,
+  "acknowledged": false,
+  "approveDisabled": true,
+  "errors": []
+}

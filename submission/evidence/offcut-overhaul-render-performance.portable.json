@@ -1,0 +1,160 @@
+{
+  "browser": "152.0.7977.64",
+  "scope": "Actual old retained-public1.0.0 versus actualpublic1.1.0f809148, same1365x900UTC/reducedmotion/stockconstraints/r1/approved3board+staged6board/3planviews/80eventcap, three60-readwavesperversion inABB AAB order",
+  "waveOrder": [
+    "old-1.0.0-retained-public-page",
+    "new-1.1.0-public-f809148",
+    "new-1.1.0-public-f809148",
+    "old-1.0.0-retained-public-page",
+    "old-1.0.0-retained-public-page",
+    "new-1.1.0-public-f809148"
+  ],
+  "summary": [
+    {
+      "label": "old-1.0.0-retained-public-page",
+      "waves": 3,
+      "readsPerWave": 60,
+      "medianWallMs": 2615.39416000247,
+      "medianRendererScriptMs": 1679.11,
+      "medianRendererTaskMs": 2394.212,
+      "medianRendererLayoutMs": 28.109,
+      "sourceIdentityObservedPendingField": false,
+      "historicalObservedScriptIdentities": [
+        {
+          "scheme": "https",
+          "host": "ilyanaxo.github.io",
+          "projectPathSegments": [
+            "offcut-webmcp",
+            "assets"
+          ],
+          "resourceName": "index-CyHZ3dwn.js",
+          "role": "Historical retained-page resource identity; not a current download or current1.1.0 proof"
+        }
+      ],
+      "candidateRole": "historical1.0.0-workload-control"
+    },
+    {
+      "label": "new-1.1.0-public-f809148",
+      "scriptURLs": [
+        "https://ilyanaxo.github.io/offcut-webmcp/assets/index-BXFW-YOC.js"
+      ],
+      "waves": 3,
+      "readsPerWave": 60,
+      "medianWallMs": 1023.1683439984918,
+      "medianRendererScriptMs": 124.528,
+      "medianRendererTaskMs": 748.308,
+      "medianRendererLayoutMs": 34.144000000000005,
+      "sourceIdentityObservedPendingField": true,
+      "candidateRole": "current1.1.0-measured-workload"
+    }
+  ],
+  "rawWaves": [
+    {
+      "label": "old-1.0.0-retained-public-page",
+      "iterations": 60,
+      "wallMs": 2585.7981749996543,
+      "rendererDeltas": {
+        "TaskDurationSeconds": 2.394212,
+        "ScriptDurationSeconds": 1.654955,
+        "LayoutDurationSeconds": 0.027178,
+        "RecalcStyleDurationSeconds": 0.008221
+      },
+      "heapUsedAfterBytes": 8627048,
+      "nodesAfter": 4503,
+      "scope": "Actual nativegetTools/executeTool/get_workshop plus renderedaudit updates;60reads/80eventcap/3planviews. BrowserIPC+renderer+UIaggregate, not isolatedmemo speed or model latency."
+    },
+    {
+      "label": "new-1.1.0-public-f809148",
+      "iterations": 60,
+      "wallMs": 1023.1683439984918,
+      "rendererDeltas": {
+        "TaskDurationSeconds": 0.748308,
+        "ScriptDurationSeconds": 0.119245,
+        "LayoutDurationSeconds": 0.036236,
+        "RecalcStyleDurationSeconds": 0.011026000000000001
+      },
+      "heapUsedAfterBytes": 5676768,
+      "nodesAfter": 5306,
+      "scope": "Actual nativegetTools/executeTool/get_workshop plus renderedaudit updates;60reads/80eventcap/3planviews. BrowserIPC+renderer+UIaggregate, not isolatedmemo speed or model latency."
+    },
+    {
+      "label": "new-1.1.0-public-f809148",
+      "iterations": 60,
+      "wallMs": 1078.9718680009246,
+      "rendererDeltas": {
+        "TaskDurationSeconds": 0.8487870000000001,
+        "ScriptDurationSeconds": 0.129824,
+        "LayoutDurationSeconds": 0.03414400000000001,
+        "RecalcStyleDurationSeconds": 0.009556
+      },
+      "heapUsedAfterBytes": 5284540,
+      "nodesAfter": 4914,
+      "scope": "Actual nativegetTools/executeTool/get_workshop plus renderedaudit updates;60reads/80eventcap/3planviews. BrowserIPC+renderer+UIaggregate, not isolatedmemo speed or model latency."
+    },
+    {
+      "label": "old-1.0.0-retained-public-page",
+      "iterations": 60,
+      "wallMs": 2676.80353000015,
+      "rendererDeltas": {
+        "TaskDurationSeconds": 2.3840950000000003,
+        "ScriptDurationSeconds": 1.6791099999999999,
+        "LayoutDurationSeconds": 0.028109000000000002,
+        "RecalcStyleDurationSeconds": 0.008669
+      },
+      "heapUsedAfterBytes": 7732560,
+      "nodesAfter": 5211,
+      "scope": "Actual nativegetTools/executeTool/get_workshop plus renderedaudit updates;60reads/80eventcap/3planviews. BrowserIPC+renderer+UIaggregate, not isolatedmemo speed or model latency."
+    },
+    {
+      "label": "old-1.0.0-retained-public-page",
+      "iterations": 60,
+      "wallMs": 2615.39416000247,
+      "rendererDeltas": {
+        "TaskDurationSeconds": 2.4266430000000003,
+        "ScriptDurationSeconds": 1.6811049999999996,
+        "LayoutDurationSeconds": 0.029789999999999997,
+        "RecalcStyleDurationSeconds": 0.008917000000000001
+      },
+      "heapUsedAfterBytes": 10866540,
+      "nodesAfter": 4928,
+      "scope": "Actual nativegetTools/executeTool/get_workshop plus renderedaudit updates;60reads/80eventcap/3planviews. BrowserIPC+renderer+UIaggregate, not isolatedmemo speed or model latency."
+    },
+    {
+      "label": "new-1.1.0-public-f809148",
+      "iterations": 60,
+      "wallMs": 1021.3117670044303,
+      "rendererDeltas": {
+        "TaskDurationSeconds": 0.7084510000000002,
+        "ScriptDurationSeconds": 0.124528,
+        "LayoutDurationSeconds": 0.030663999999999997,
+        "RecalcStyleDurationSeconds": 0.009744
+      },
+      "heapUsedAfterBytes": 7212648,
+      "nodesAfter": 5630,
+      "scope": "Actual nativegetTools/executeTool/get_workshop plus renderedaudit updates;60reads/80eventcap/3planviews. BrowserIPC+renderer+UIaggregate, not isolatedmemo speed or model latency."
+    }
+  ],
+  "limits": [
+    "AggregateUI/audit/nativeclient/producer/IPCmeasurements, notisolatedmemo/compilerattribution",
+    "No model-latency or cold-loading benchmark",
+    "No generalp95/userstudy/physicaltime-savingsclaim",
+    "Sourcecaptureotherprocessactivitymayaffectwalltimings; interleavedprotocolandrenderercountersretained"
+  ],
+  "observedAt": "2026-09-03T11:33:19.985Z",
+  "measurementInterpretation": "Three sixty-read waves per version measure the aggregate browser/native-client/producer/IPC/audit/render workload. The Bun protocol separately measures same-problem checked-solution reuse. Neither is every-model latency, judge latency, a user study, cold-load performance, an isolated compiler/memo speed attribution or physical workshop savings.",
+  "portableProvenance": {
+    "representation": "transformed-full-observation-record",
+    "originalSourceArtifactName": "offcut-overhaul-render-performance.json",
+    "originalSourceSha256": "7a1db0b82eda6b28247aa52cae1822002694ac7eb42e011a76ecfef411003ec9",
+    "originalSourceBytes": 5408,
+    "sourceBytesIdenticalToPortableFile": false,
+    "observationScope": "Historical retained-public1.0.0 control versus actual public1.1.0f809148; aggregate native-read/UI/IPC workload, not model/judge latency",
+    "pathBase": "repository-root",
+    "transformations": [
+      "Evidence references are repository-relative; source video is represented by its provenance record; original JPEG paths become explicit frame-manifest record locators. Original tool/model/UI/clock values and original media hashes are retained.",
+      "Historical1.0.0 script URL is preserved as reconstructable scheme/host/project-path/resource identity rather than an unverified current asset link; all timing/counter values and interleaved wave labels remain unchanged."
+    ],
+    "referenceReplacementCounts": {},
+    "portableFileHashManifest": "submission/evidence/manifest.json"
+  }
+}

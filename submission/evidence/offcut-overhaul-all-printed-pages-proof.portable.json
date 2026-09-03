@@ -1,0 +1,357 @@
+{
+  "scope": "Actual finalChrome152 native-enabled/manual-disabled maximum40cut PDFs, both6pages; actual nativePDFextension textboxnavigation/currentviewport/stableframes then independent visiblepixel inspection, not DOM-only/PDFmagic proof",
+  "actualDocuments": [
+    {
+      "kind": "native",
+      "pdfPath": "submission/evidence/printed-pages/max-native-approved-cut-sheet.pdf",
+      "pageCountFromActualRead": 6,
+      "actualBrowser": "152.0.7977.64",
+      "navigation": "Actual native extension Page number textbox/Enter, most-visible page and stable viewport; no parent-hash/toolbar-only proof",
+      "captures": [
+        {
+          "page": 1,
+          "path": "submission/evidence/printed-pages/max-native-page-1.png",
+          "viewport": {
+            "actualPage": 1,
+            "position": {
+              "x": 0,
+              "y": 0
+            },
+            "samples": 6,
+            "stableFrames": 5,
+            "pageRect": {
+              "x": 195,
+              "y": 3,
+              "width": 794,
+              "height": 1123
+            }
+          },
+          "toolbarPage": "1"
+        },
+        {
+          "page": 2,
+          "path": "submission/evidence/printed-pages/max-native-page-2.png",
+          "viewport": {
+            "actualPage": 2,
+            "position": {
+              "x": 0,
+              "y": 1137
+            },
+            "samples": 6,
+            "stableFrames": 5,
+            "pageRect": {
+              "x": 195,
+              "y": 3,
+              "width": 794,
+              "height": 1123
+            }
+          },
+          "toolbarPage": "2"
+        },
+        {
+          "page": 3,
+          "path": "submission/evidence/printed-pages/max-native-page-3.png",
+          "viewport": {
+            "actualPage": 3,
+            "position": {
+              "x": 0,
+              "y": 2274
+            },
+            "samples": 6,
+            "stableFrames": 5,
+            "pageRect": {
+              "x": 195,
+              "y": 3,
+              "width": 794,
+              "height": 1123
+            }
+          },
+          "toolbarPage": "3"
+        },
+        {
+          "page": 4,
+          "path": "submission/evidence/printed-pages/max-native-page-4.png",
+          "viewport": {
+            "actualPage": 4,
+            "position": {
+              "x": 0,
+              "y": 3411
+            },
+            "samples": 6,
+            "stableFrames": 5,
+            "pageRect": {
+              "x": 195,
+              "y": 3,
+              "width": 794,
+              "height": 1123
+            }
+          },
+          "toolbarPage": "4"
+        },
+        {
+          "page": 5,
+          "path": "submission/evidence/printed-pages/max-native-page-5.png",
+          "viewport": {
+            "actualPage": 5,
+            "position": {
+              "x": 0,
+              "y": 4548
+            },
+            "samples": 6,
+            "stableFrames": 5,
+            "pageRect": {
+              "x": 195,
+              "y": 3,
+              "width": 794,
+              "height": 1123
+            }
+          },
+          "toolbarPage": "5"
+        },
+        {
+          "page": 6,
+          "path": "submission/evidence/printed-pages/max-native-page-6.png",
+          "viewport": {
+            "actualPage": 6,
+            "position": {
+              "x": 0,
+              "y": 5524
+            },
+            "samples": 6,
+            "stableFrames": 5,
+            "pageRect": {
+              "x": 195,
+              "y": 164,
+              "width": 794,
+              "height": 1123
+            }
+          },
+          "toolbarPage": "6"
+        }
+      ]
+    },
+    {
+      "kind": "manual",
+      "pdfPath": "submission/evidence/printed-pages/max-manual-approved-cut-sheet.pdf",
+      "pageCountFromActualRead": 6,
+      "actualBrowser": "152.0.7977.64",
+      "navigation": "Actual native extension Page number textbox/Enter, most-visible page and stable viewport; no parent-hash/toolbar-only proof",
+      "captures": [
+        {
+          "page": 1,
+          "path": "submission/evidence/printed-pages/max-manual-page-1.png",
+          "viewport": {
+            "actualPage": 1,
+            "position": {
+              "x": 0,
+              "y": 0
+            },
+            "samples": 6,
+            "stableFrames": 5,
+            "pageRect": {
+              "x": 195,
+              "y": 3,
+              "width": 794,
+              "height": 1123
+            }
+          },
+          "toolbarPage": "1"
+        },
+        {
+          "page": 2,
+          "path": "submission/evidence/printed-pages/max-manual-page-2.png",
+          "viewport": {
+            "actualPage": 2,
+            "position": {
+              "x": 0,
+              "y": 1137
+            },
+            "samples": 6,
+            "stableFrames": 5,
+            "pageRect": {
+              "x": 195,
+              "y": 3,
+              "width": 794,
+              "height": 1123
+            }
+          },
+          "toolbarPage": "2"
+        },
+        {
+          "page": 3,
+          "path": "submission/evidence/printed-pages/max-manual-page-3.png",
+          "viewport": {
+            "actualPage": 3,
+            "position": {
+              "x": 0,
+              "y": 2274
+            },
+            "samples": 6,
+            "stableFrames": 5,
+            "pageRect": {
+              "x": 195,
+              "y": 3,
+              "width": 794,
+              "height": 1123
+            }
+          },
+          "toolbarPage": "3"
+        },
+        {
+          "page": 4,
+          "path": "submission/evidence/printed-pages/max-manual-page-4.png",
+          "viewport": {
+            "actualPage": 4,
+            "position": {
+              "x": 0,
+              "y": 3411
+            },
+            "samples": 6,
+            "stableFrames": 5,
+            "pageRect": {
+              "x": 195,
+              "y": 3,
+              "width": 794,
+              "height": 1123
+            }
+          },
+          "toolbarPage": "4"
+        },
+        {
+          "page": 5,
+          "path": "submission/evidence/printed-pages/max-manual-page-5.png",
+          "viewport": {
+            "actualPage": 5,
+            "position": {
+              "x": 0,
+              "y": 4548
+            },
+            "samples": 6,
+            "stableFrames": 5,
+            "pageRect": {
+              "x": 195,
+              "y": 3,
+              "width": 794,
+              "height": 1123
+            }
+          },
+          "toolbarPage": "5"
+        },
+        {
+          "page": 6,
+          "path": "submission/evidence/printed-pages/max-manual-page-6.png",
+          "viewport": {
+            "actualPage": 6,
+            "position": {
+              "x": 0,
+              "y": 5524
+            },
+            "samples": 6,
+            "stableFrames": 5,
+            "pageRect": {
+              "x": 195,
+              "y": 164,
+              "width": 794,
+              "height": 1123
+            }
+          },
+          "toolbarPage": "6"
+        }
+      ]
+    }
+  ],
+  "inspections": [
+    {
+      "kind": "native",
+      "page": 1,
+      "path": "submission/evidence/printed-pages/max-native-page-1.png",
+      "pixelFindings": "## 1) Bestätigung\n\n**Ja:** Die Toolbar zeigt **`1 / 6`** bei **`100%`**, die erste Miniatur ist markiert. Von Papierseite 1 sind **alle vier Kanten – oben, unten, links und rechts – vollständig sichtbar**.\n\n## 2) Lesbare Angaben\n\n- Titel: **`Forty-cut continuation`**\n- Status: **`40 / 40 parts planned`**, daneben `Optimal for this objective`\n\n| Anzeige | Sichtbarer Wert |\n|---|---:|\n| Stock opened | 100,000 mm |\n| Finished parts | 40,000 mm |\n| Sawdust | 800 mm |\n| Reusable remnants | 59,200 mm |\n| Short scrap | 0 mm |\n| Boards handled | 1 |\n\n**Die vollständigen IDs sind lesbar:**\n- Plan: `plan-07b39e6c-babe-41a7-b244-d8dc5ddf40b7-13`\n- Board/Stock: `stock-07b39e6c-babe-41a7-b244-d8dc5ddf40b7-9`\n\n**Schutzhinweise vollständig lesbar:**\n> Saw kerf: 20 mm per part. Keep positive remnants: at least 500 mm.\n\n> Usable lengths only; deduct trimming and defects first. One saw pass per produced part, including the last one. Same material and cross-section throughout.\n\n**Tabellenkopf und Zeilen 1–2 sind vollständig lesbar:**\n\n| Order | Part | Length | Start | Kerf |\n|---|---|---|---|---|\n| 1 | One-metre shelf #1 | 1,000 mm | 0 mm | 20 mm |\n| 2 | One-metre shelf #2 | 1,000 mm | 1,020 mm | 20 mm |\n\nIn beiden Part-Zellen steht außerdem diese vollständig sichtbare, dreizeilig umgebrochene ID:\n```text\npart-07b39e6c-\nbabe-41a7-b244-\nd8dc5ddf40b7-11\n```\n\n## 3) Seitenende / Lesbarkeitsgrenzen\n\n- **Am Ende von Seite 1 keine teilweise gezeichnete oder abgeschnittene Zeile 3.** Nach Zeile 2 folgen eine vollständige Abschlusslinie und ein breiter weißer Rand bis zur sichtbaren unteren Papierkante. In Zeilen 1–2 sind keine Zahlen sichtbar abgeschnitten.\n- **Zeile 3 erscheint erst auf der folgenden Papierseite**, unterhalb des klar sichtbaren Seitenabstands. Dort sind `3`, `One-metre shelf #3`, `1,000 mm`, `2,040 mm` und `20 mm` lesbar. Der untere Teil dieser Zeile samt weiterer Part-ID-Zeilen ist **am Screenshot-Unterrand abgeschnitten**, nicht am Ende von Seite 1.\n- **Dekorative Streifenlabels getrennt betrachtet:** Die winzigen Beschriftungen der schmalen Streifen sind nicht zuverlässig vollständig lesbar. Das große Restflächenlabel **`59200`** ist lesbar. Aus den winzigen Labels ergibt sich kein Pixelbeleg für fehlende Zahlen in der maßgeblichen Tabelle."
+    },
+    {
+      "kind": "native",
+      "page": 2,
+      "path": "submission/evidence/printed-pages/max-native-page-2.png",
+      "pixelFindings": "## Bestätigte Pixelbefunde\n\n- **Toolbar:** `2 / 6`, Zoom `100%`; Miniatur **2** ist blau markiert.\n- **Papierkanten:** Alle vier Kanten von Seite 2 sind sichtbar, einschließlich oberer und unterer Kante.\n- **Spaltenköpfe:** `Order`, `Part`, `Length`, `Start`, `Kerf` sind vollständig sichtbar. Dieselben fünf Köpfe erscheinen erneut auf der darunter beginnenden Folgeseite.\n- **Erste Datenzeile:** Die Orderzahl **`3`** steht vollständig **auf Seite 2**, unterhalb der Kopfzeile, ohne Randbeschnitt. Ebenfalls vollständig sichtbar:\n  `One-metre shelf #3` | `1,000 mm` | `2,040 mm` | `20 mm`.\n\n## Zeilen 3–12\n\nAlle zehn Zeilen sind vollständig sichtbar und lesbar, **ohne erkennbare Textüberlappungen oder abgeschnittene Zeilen**. Die Partbezeichnungen reichen von `One-metre shelf #3` bis `One-metre shelf #12`. Überall stehen Length `1,000 mm` und Kerf `20 mm`.\n\n| Order | Start |\n|---|---|\n| 3 | `2,040 mm` |\n| 4 | `3,060 mm` |\n| 5 | `4,080 mm` |\n| 6 | `5,100 mm` |\n| 7 | `6,120 mm` |\n| 8 | `7,140 mm` |\n| 9 | `8,160 mm` |\n| 10 | `9,180 mm` |\n| 11 | `10,200 mm` |\n| 12 | `11,220 mm` |\n\nUnter jeder Partbezeichnung ist dieselbe ID ohne sichtbaren Beschnitt lesbar, mit diesen Zeilenumbrüchen:\n```text\npart-07b39e6c-\nbabe-41a7-b244-\nd8dc5ddf40b7-11\n```\nAuch die letzte ID-Zeile von Order `12` liegt vollständig oberhalb der unteren Tabellenlinie und des freien Seitenrands.\n\n## Grenzen der Bestätigung\n\n- Die ID ist hier **nicht ausdrücklich als „RequirementID“ beschriftet**; bestätigt ist ihr sichtbarer Text, nicht ihre interne Zuordnung.\n- Ob Order `3` **zusätzlich** auf Seite 1 vorkommt, ist aus deren Miniatur nicht verlässlich prüfbar. Ihre vollständige Darstellung auf Seite 2 ist eindeutig bestätigt."
+    },
+    {
+      "kind": "native",
+      "page": 3,
+      "path": "submission/evidence/printed-pages/max-native-page-3.png",
+      "pixelFindings": "## 1) Bestätigung\n\n- **Toolbar:** `3 / 6`, Zoom `100%`; Miniatur **3** ist blau markiert.\n- **Seite 3:** Alle vier Papierkanten — oben, unten, links und rechts — sind in der Hauptansicht sichtbar.\n- **Köpfe:** `Order`, `Part`, `Length`, `Start`, `Kerf` stehen über Zeile 13. Dieselben Köpfe sind am sichtbaren Anfang der Folgeseite erneut vorhanden.\n- **Erste Order-Zahl:** **`13` ist tatsächlich lesbar**, nicht aus nachfolgenden Zeilen erschlossen.\n\n## 2) Sichtbare Zeilen 13–22\n\n| Order | Part | Length | Start | Kerf |\n|---|---|---|---|---|\n| 13 | One-metre shelf #13 | 1,000 mm | 12,240 mm | 20 mm |\n| 14 | One-metre shelf #14 | 1,000 mm | 13,260 mm | 20 mm |\n| 15 | One-metre shelf #15 | 1,000 mm | 14,280 mm | 20 mm |\n| 16 | One-metre shelf #16 | 1,000 mm | 15,300 mm | 20 mm |\n| 17 | One-metre shelf #17 | 1,000 mm | 16,320 mm | 20 mm |\n| 18 | One-metre shelf #18 | 1,000 mm | 17,340 mm | 20 mm |\n| 19 | One-metre shelf #19 | 1,000 mm | 18,360 mm | 20 mm |\n| 20 | One-metre shelf #20 | 1,000 mm | 19,380 mm | 20 mm |\n| 21 | One-metre shelf #21 | 1,000 mm | 20,400 mm | 20 mm |\n| 22 | One-metre shelf #22 | 1,000 mm | 21,420 mm | 20 mm |\n\nUnter jedem dieser Part-Einträge, einschließlich Zeile 13, steht dieselbe lesbare ID mit diesen sichtbaren Zeilenumbrüchen:\n\n```text\npart-07b39e6c-\nbabe-41a7-b244-\nd8dc5ddf40b7-11\n```\n\n## 3) Grenzen der Bestätigung\n\n**Für Zeilen 13–22:** Alle zehn Order-Zahlen, Zahlenfelder und dreizeiligen ID-Blöcke sind sichtbar. Keine abgeschnittenen Zeichen oder überlappenden Zeilen erkennbar.\n\nEine Beschriftung **`RequirementID`** ist nicht sichtbar; bestätigt ist die oben transkribierte ID unter `Part`. Ob gegenüber den Quelldaten etwas fehlt, lässt sich aus dem Screenshot allein nicht prüfen. Die unten angeschnittene Folgeseite ist von der Vollständigkeitsbestätigung ausgenommen."
+    },
+    {
+      "kind": "native",
+      "page": 4,
+      "path": "submission/evidence/printed-pages/max-native-page-4.png",
+      "pixelFindings": "**Ja – für die vollständig sichtbare Seite 4 bestätigt.**\n\n- **Toolbar:** `4 / 6`, Zoom `100%`; Miniatur 4 blau markiert.\n- **Papierkanten:** oben, unten, links und rechts sichtbar.\n- **Fünf Spaltenköpfe:** `Order`, `Part`, `Length`, `Start`, `Kerf`. Diese stehen auch am sichtbaren Anfang der Folgeseite erneut.\n- **Erste Orderzahl:** `23` ist unter `Order` sichtbar.\n- **Zeilen 23–32:** vollständig sichtbar und lesbar; keine sichtbaren Abschneidungen oder Textüberlappungen.\n\n### Abgelesene Werte\n\n| Order | Part | Length | Start | Kerf |\n|---|---|---|---|---|\n| 23 | One-metre shelf #23 | 1,000 mm | 22,440 mm | 20 mm |\n| 24 | One-metre shelf #24 | 1,000 mm | 23,460 mm | 20 mm |\n| 25 | One-metre shelf #25 | 1,000 mm | 24,480 mm | 20 mm |\n| 26 | One-metre shelf #26 | 1,000 mm | 25,500 mm | 20 mm |\n| 27 | One-metre shelf #27 | 1,000 mm | 26,520 mm | 20 mm |\n| 28 | One-metre shelf #28 | 1,000 mm | 27,540 mm | 20 mm |\n| 29 | One-metre shelf #29 | 1,000 mm | 28,560 mm | 20 mm |\n| 30 | One-metre shelf #30 | 1,000 mm | 29,580 mm | 20 mm |\n| 31 | One-metre shelf #31 | 1,000 mm | 30,600 mm | 20 mm |\n| 32 | One-metre shelf #32 | 1,000 mm | 31,620 mm | 20 mm |\n\n### Sichtbarer ID-Text\n\nIn jeder Zeile 23–32 steht unter `Part` derselbe vollständig sichtbare, dreizeilig umgebrochene Text:\n\n```text\npart-07b39e6c-\nbabe-41a7-b244-\nd8dc5ddf40b7-11\n```\n\nDie ID-Zeilen sind **umgebrochen, nicht abgeschnitten**. Eine eigene Beschriftung `RequirementID` ist nicht sichtbar; bestätigt ist der oben wiedergegebene ID-Text unter `Part`."
+    },
+    {
+      "kind": "native",
+      "page": 5,
+      "path": "submission/evidence/printed-pages/max-native-page-5.png",
+      "pixelFindings": "**Bestätigt für Seite 5 – keine sichtbare Überlappung oder Abschneidung der abgefragten Inhalte.**\n\n### Pixelbefunde\n- **Toolbar:** `5 / 6`, Zoom `100%`; Miniatur 5 blau markiert.\n- **Papier:** Alle vier Kanten der großen Seite 5 vollständig sichtbar.\n- **Tabellenkopf:** `Order`, `Part`, `Length`, `Start`, `Kerf` stehen oben auf dieser Seite.\n- **Zeilen:** Erste Orderzahl `33`. Alle acht Zeilen `33–40` einschließlich Partnamen, Werten und dreizeiligen IDs vollständig sichtbar.\n- **Schlusszeile:**\n  `40 | One-metre shelf #40 | 1,000 mm | 39,780 mm | 20 mm`\n\nDie ID unter dem Partnamen ist vollständig sichtbar, einschließlich Endung `-11`:\n```text\npart-07b39e6c-\nbabe-41a7-b244-\nd8dc5ddf40b7-11\n```\n\n### Nachfolgende Inhalte\nAlle folgenden Texte sind vollständig sichtbar und voneinander getrennt:\n\n- **Tabellenunterschrift:**  \n  “Starts are measured from the usable stock end; each part includes one subsequent saw pass.”\n- **Bilanzhinweis:**  \n  “Every millimetre accounted for. 40.0% of opened stock becomes finished parts in this proposal.”\n- **Bilanz:**  \n  `100,000 mm = 40,000 + 800 + 59,200 + 0 mm`\n- **Waste:**  \n  “Waste is sawdust + short scrap (800 mm). Reusable remnants and untouched stock are not waste.”\n- **Erläuterung, zweizeilig:**  \n  “For a fixed complete job, sawdust is constant: one kerf per requested part. The trade-offs are stock opened, boards handled,  \n  and whether remaining lengths become reusable remnants or short scrap.”\n\nUnter der Erläuterung bleibt deutlicher Weißraum bis zur unteren Papierkante.\n\n**Abgrenzung:** Eine ausdrückliche Beschriftung `RequirementID` ist nicht sichtbar; die transkribierte ID steht unter `Part`. Der unten sichtbare Beginn von Seite 6 ist am Bildschirmrand abgeschnitten, Seite 5 nicht."
+    },
+    {
+      "kind": "native",
+      "page": 6,
+      "path": "submission/evidence/printed-pages/max-native-page-6.png",
+      "pixelFindings": "**Ja:** Die genannten Inhalte auf Seite 6 sind vollständig lesbar, ohne sichtbares Abschneiden oder Überlappen.\n\n**Pixelbelege:**\n- **Seite und Kanten:** Toolbar zeigt `6 / 6` bei `100%`; Miniatur 6 ist markiert. Alle vier Papierkanten von Seite 6 sind in der Hauptansicht sichtbar.\n- **Bilanz:** `Every copy checked` und `40 planned / 40 requested`. Für `One-metre shelf`: `Requested` **40**, `Planned` **40**, `Missing` **0**.\n- **ID:** vollständig sichtbar, über drei Zeilen umbrochen:\n  ```text\n  part-07b39e6c-babe-\n  41a7-b244-\n  d8dc5ddf40b7-11\n  ```\n- **Suchhinweis:** vollständig lesbar:\n  > Deterministic branch-and-bound. 1 of 100,000 search nodes examined. The search proved this solution optimal for the selected objective and allowed stock.\n\n  Auch die Zielformulierung ist vollständig:\n  > Minimize the total length of stock opened for this job. Ties favor less waste, then fewer boards.\n\n- **Planning-estimate-/Safe-cutting-Abgrenzung:** vollständig lesbar:\n  > A planning estimate, not machine-control instructions or a safe-cutting guarantee. Verify measurements, stock identity and safe workholding at the bench. Approval does not physically consume stock.\n\n**Abgrenzung:** Der große untere Leerraum ist kein Fehler. Bestätigt ist ausschließlich die sichtbare Darstellung, nicht die tatsächliche Optimalität oder Schnittsicherheit."
+    },
+    {
+      "kind": "manual",
+      "page": 1,
+      "path": "submission/evidence/printed-pages/max-manual-page-1.png",
+      "pixelFindings": "## 1) Bestätigung\n\n- **Toolbar:** `1 / 6`, Zoom `100%`; Miniatur **1** ist ausgewählt.\n- **Papierseite 1:** Alle vier Kanten – oben, unten, links und rechts – sind vollständig sichtbar. Unterhalb liegt ein dunkler Zwischenraum zur nächsten Papierseite.\n- **Titel:** `Forty-cut continuation`\n- **Status:** `40 / 40 parts planned`\n- **Kennzahlen stimmen mit der Vorgabe überein:**\n  - Stock opened: `100,000 mm`\n  - Finished parts: `40,000 mm`\n  - Sawdust: `800 mm`\n  - Reusable remnants: `59,200 mm`\n  - Short scrap: `0 mm`\n  - Boards handled: `1`\n\n## 2) Vollständig lesbare Belege\n\n**Plan- und Board-/Stock-ID sind vollständig sichtbar:**\n\n- `plan-18f74717-20d0-48cc-9c2c-760fd83c4a81-13`\n- `stock-18f74717-20d0-48cc-9c2c-760fd83c4a81-9`\n\n**Die Schutz-/Arbeitsregeln sind vollständig lesbar:**\n\n> Saw kerf: 20 mm per part. Keep positive remnants: at least 500 mm.\n\n> Usable lengths only; deduct trimming and defects first. One saw pass per produced part, including the last one. Same material and cross-section throughout.\n\nAuch der Hinweis unter der Legende zur proportionalen Skala und zu schmalen Streifen/Labels ist vollständig sichtbar.\n\n**Tabellenkopf und Zeilen 1–2 sind vollständig lesbar:**\n\n| Order | Part | Length | Start | Kerf |\n|---|---|---|---|---|\n| 1 | One-metre shelf #1 | 1,000 mm | 0 mm | 20 mm |\n| 2 | One-metre shelf #2 | 1,000 mm | 1,020 mm | 20 mm |\n\nUnter beiden Part-Namen steht jeweils vollständig, dreizeilig umbrochen:\n`part-18f74717-20d0-48cc-9c2c-760fd83c4a81-11`\n\n## 3) Seitenende / Einschränkungen\n\n- **Am Ende von Seite 1 keine angebrochene oder abgeschnittene Zeile 3.** Nach Zeile 2 folgt eine vollständige horizontale Linie und darunter ein leerer unterer Seitenbereich. In Zeilen 1–2 sind keine fehlenden oder abgeschnittenen Zahlen erkennbar.\n- **Zeile 3 steht auf der darunter sichtbaren Folgeseite.** Lesbar sind `3`, `One-metre shelf #3`, `1,000 mm`, `2,040 mm` und `20 mm`. Ihr unterer Part-ID-Bereich ist **am Screenshotrand abgeschnitten**, nicht am Ende von Seite 1.\n- **Winzige Streifenlabels getrennt betrachtet:** In den schmalen Grafiksegmenten sind nur Zeichenfragmente erkennbar; ihre vollständigen Zahlen sind **[unlesbar]**. Das größere Streifenlabel `59200` ist lesbar. Die maßgeblichen Tabellenzahlen bleiben davon getrennt vollständig lesbar."
+    },
+    {
+      "kind": "manual",
+      "page": 2,
+      "path": "submission/evidence/printed-pages/max-manual-page-2.png",
+      "pixelFindings": "## Bestätigt\n- **Toolbar:** `2 / 6`, Zoom `100%`; Seitenminiatur **2** blau markiert.\n- **Seite 2:** Alle vier Papierkanten und alle vier Ecken sind sichtbar.\n- **Erste Orderzahl `3`:** vollständig **auf Seite 2**, unterhalb der Kopfzeile. Weder Zahl noch zugehörige Zeile sind am Seitenrand abgeschnitten.\n- **Alle fünf Spaltenköpfe:** `Order`, `Part`, `Length`, `Start`, `Kerf`. Dieselben Köpfe erscheinen auch am sichtbaren Anfang der Folgeseite.\n- **Zeilen 3–12:** Zahlen, Part-Bezeichnungen und ID-Texte sind lesbar; keine sichtbaren Überlappungen oder abgeschnittenen Zeilen. Auch Zeile 12 endet vollständig oberhalb der unteren Papierkante.\n\n## Lesbare Inhalte\n\n| Order | Part | Length | Start | Kerf |\n|---|---|---|---|---|\n| 3 | One-metre shelf #3 | 1,000 mm | 2,040 mm | 20 mm |\n| 4 | One-metre shelf #4 | 1,000 mm | 3,060 mm | 20 mm |\n| 5 | One-metre shelf #5 | 1,000 mm | 4,080 mm | 20 mm |\n| 6 | One-metre shelf #6 | 1,000 mm | 5,100 mm | 20 mm |\n| 7 | One-metre shelf #7 | 1,000 mm | 6,120 mm | 20 mm |\n| 8 | One-metre shelf #8 | 1,000 mm | 7,140 mm | 20 mm |\n| 9 | One-metre shelf #9 | 1,000 mm | 8,160 mm | 20 mm |\n| 10 | One-metre shelf #10 | 1,000 mm | 9,180 mm | 20 mm |\n| 11 | One-metre shelf #11 | 1,000 mm | 10,200 mm | 20 mm |\n| 12 | One-metre shelf #12 | 1,000 mm | 11,220 mm | 20 mm |\n\nUnter `Part` steht in **jeder Zeile 3–12** diese vollständig sichtbare ID, mit folgenden Zeilenumbrüchen:\n\n```text\npart-18f74717-\n20d0-48cc-9c2c-\n760fd83c4a81-11\n```\n\n## Grenzen der Bestätigung\n- Die ID ist im Bild **nicht als „RequirementID“ beschriftet**; bestätigt ist der sichtbare ID-Text unter `Part`.\n- Dass Order `3` **nicht zusätzlich auf Seite 1** vorkommt, lässt sich anhand deren kleiner Miniatur nicht prüfen. Ihr vollständiges Vorkommen auf Seite 2 ist eindeutig.\n- Der Anschnitt am unteren Screenshotrand betrifft die **Folgeseite ab Order `13`**, nicht Zeile 12."
+    },
+    {
+      "kind": "manual",
+      "page": 3,
+      "path": "submission/evidence/printed-pages/max-manual-page-3.png",
+      "pixelFindings": "## Bestätigt für Seite 3\n\n- **Toolbar:** `3 / 6`; Miniatur **3** ist blau markiert.\n- **Alle vier Papierkanten** der Hauptseite sind sichtbar: oben, unten, links und rechts.\n- **Kopfzeile vollständig sichtbar:** `Order | Part | Length | Start | Kerf`. Dieselben Köpfe erscheinen auch am sichtbaren Anfang der Folgeseite.\n- **Erste Orderzahl unter der Kopfzeile ist tatsächlich `13`**, vollständig sichtbar.\n- **Zeilen 13–22 sind lückenlos sichtbar**, ohne erkennbare abgeschnittene Zahlen/IDs oder überlappende Zeilen.\n\n## Abgelesene Werte\n\n| Order | Part | Length | Start | Kerf |\n|---|---|---|---|---|\n| 13 | One-metre shelf #13 | 1,000 mm | 12,240 mm | 20 mm |\n| 14 | One-metre shelf #14 | 1,000 mm | 13,260 mm | 20 mm |\n| 15 | One-metre shelf #15 | 1,000 mm | 14,280 mm | 20 mm |\n| 16 | One-metre shelf #16 | 1,000 mm | 15,300 mm | 20 mm |\n| 17 | One-metre shelf #17 | 1,000 mm | 16,320 mm | 20 mm |\n| 18 | One-metre shelf #18 | 1,000 mm | 17,340 mm | 20 mm |\n| 19 | One-metre shelf #19 | 1,000 mm | 18,360 mm | 20 mm |\n| 20 | One-metre shelf #20 | 1,000 mm | 19,380 mm | 20 mm |\n| 21 | One-metre shelf #21 | 1,000 mm | 20,400 mm | 20 mm |\n| 22 | One-metre shelf #22 | 1,000 mm | 21,420 mm | 20 mm |\n\n**ID unter „Part“**, einschließlich Zeile 13: In allen zehn Zeilen ist derselbe Text vollständig sichtbar, mit diesen Zeilenumbrüchen:\n\n```text\npart-18f74717-\n20d0-48cc-9c2c-\n760fd83c4a81-11\n```\n\n## Sichtgrenzen\n\n- Die Beschriftung **`RequirementID`** selbst ist in dieser Tabelle nicht sichtbar; bestätigt ist der oben wiedergegebene ID-Text unter `Part`.\n- Die Aussage „nicht abgeschnitten“ gilt für **Seite 3 / Zeilen 13–22**. Unten ist die Folgeseite nur teilweise sichtbar; **Zeile 23 samt weiterem ID-Text ist am unteren Bildrand abgeschnitten**."
+    },
+    {
+      "kind": "manual",
+      "page": 4,
+      "path": "submission/evidence/printed-pages/max-manual-page-4.png",
+      "pixelFindings": "**Bestätigt für die dargestellte Seite 4:**\n\n- Toolbar zeigt **`4 / 6`** bei `100%`; Miniatur 4 ist blau markiert.\n- **Alle vier Papierkanten** der Seite 4 sind sichtbar.\n- Alle fünf Spaltenköpfe sind vollständig sichtbar: **`Order | Part | Length | Start | Kerf`**. Sie erscheinen auch am sichtbaren Anfang der Folgeseite erneut.\n- Die **erste Zahl in der Spalte `Order` ist `23`**, vollständig sichtbar – unabhängig vom `#23` im Part-Text.\n- Sämtliche Zeilen **23–32** sind vollständig sichtbar.\n\n### Abgelesene Werte\n\n| Order | Part | Length | Start | Kerf |\n|---|---|---|---|---|\n| 23 | One-metre shelf #23 | 1,000 mm | 22,440 mm | 20 mm |\n| 24 | One-metre shelf #24 | 1,000 mm | 23,460 mm | 20 mm |\n| 25 | One-metre shelf #25 | 1,000 mm | 24,480 mm | 20 mm |\n| 26 | One-metre shelf #26 | 1,000 mm | 25,500 mm | 20 mm |\n| 27 | One-metre shelf #27 | 1,000 mm | 26,520 mm | 20 mm |\n| 28 | One-metre shelf #28 | 1,000 mm | 27,540 mm | 20 mm |\n| 29 | One-metre shelf #29 | 1,000 mm | 28,560 mm | 20 mm |\n| 30 | One-metre shelf #30 | 1,000 mm | 29,580 mm | 20 mm |\n| 31 | One-metre shelf #31 | 1,000 mm | 30,600 mm | 20 mm |\n| 32 | One-metre shelf #32 | 1,000 mm | 31,620 mm | 20 mm |\n\nDer ID-Block unter `Part` ist in allen zehn Zeilen vollständig sichtbar und lautet, mit sichtbaren Zeilenumbrüchen:\n\n```text\npart-18f74717-\n20d0-48cc-9c2c-\n760fd83c4a81-11\n```\n\n**Lesbarkeit:** In den Zeilen 23–32 sind alle Zahlen, Part-Texte und ID-Zeilen lesbar; keine sichtbaren Abschneidungen oder Überlappungen. Die IDs sind dreizeilig umgebrochen.\n\n**Abgrenzung:** Ein eigenes Label `RequirementID` ist nicht sichtbar; bestätigt ist der oben transkribierte ID-Text unter `Part`. Die Folgeseite ist nur teilweise sichtbar."
+    },
+    {
+      "kind": "manual",
+      "page": 5,
+      "path": "submission/evidence/printed-pages/max-manual-page-5.png",
+      "pixelFindings": "## 1) Antwort\nDie Toolbar zeigt **`5 / 6`**, Zoom **`100%`**. **Alle vier Papierkanten von Seite 5 sind sichtbar.** Die Tabelle und die nachfolgenden Textblöcke sind vollständig im Bild; keine sichtbare Überlappung oder Abschneidung.\n\n## 2) Pixelbefunde\n- **Fünf Spaltenköpfe:** `Order` · `Part` · `Length` · `Start` · `Kerf`.\n- **Erste Order-Zahl:** `33`. Die Zeilen **33–40** sind lückenlos mit sämtlichen Spalteninhalten und dreizeiligen IDs sichtbar.\n- **Schlusszeile:**\n  `40 | One-metre shelf #40 | 1,000 mm | 39,780 mm | 20 mm`\n- **Darunter vollständig sichtbare ID**, mit den Umbrüchen aus dem Bild:\n  ```text\n  part-18f74717-\n  20d0-48cc-9c2c-\n  760fd83c4a81-11\n  ```\n\n**Tabellen-Caption vollständig:**\n> Starts are measured from the usable stock end; each part includes one subsequent saw pass.\n\n**Bilanzblock vollständig:**\n> Every millimetre accounted for. 40.0% of opened stock becomes finished parts in this proposal.\n\n```text\n100,000 mm = 40,000 + 800 + 59,200 + 0 mm\n```\n\n> Waste is sawdust + short scrap (800 mm). Reusable remnants and untouched stock are not waste.\n\n**Abschließende Erläuterung vollständig, zweizeilig:**\n> For a fixed complete job, sawdust is constant: one kerf per requested part. The trade-offs are stock opened, boards handled,  \n> and whether remaining lengths become reusable remnants or short scrap.\n\nZwischen diesen Blöcken und zur unteren Papierkante ist freier Abstand sichtbar.\n\n## 3) Einschränkung\nDie fünf Köpfe **auf Seite 5** sind bestätigt. Ihre wortgleiche Wiederholung gegenüber vorherigen Seiten lässt sich aus den kleinen Vorschaubildern nicht sicher prüfen."
+    },
+    {
+      "kind": "manual",
+      "page": 6,
+      "path": "submission/evidence/printed-pages/max-manual-page-6.png",
+      "pixelFindings": "**Bestätigt für Seite 6:** Alle genannten Inhalte sind lesbar, ohne sichtbares Abschneiden oder Überlappen. Der große Leerraum ist kein Fehler.\n\n### Pixelbelege\n- **Toolbar:** `6 / 6`, Zoom `100%`; Miniatur 6 ist blau markiert.\n- **Papierkanten:** Oben, unten, links und rechts vollständig sichtbar. Unter der unteren Kante bleibt ein schmaler dunkler Außenrand.\n- **Übersicht:** `Every copy checked` und `40 planned / 40 requested`.\n- **Zeile „One-metre shelf“:** `Requested` = `40`, `Planned` = `40`, `Missing` = `0`.\n- **ID:** vollständig lesbar, ohne sichtbare Kürzung; Zeilenumbrüche wie im Bild:\n  ```text\n  part-18f74717-20d0-\n  48cc-9c2c-\n  760fd83c4a81-11\n  ```\n\n**Suchhinweis vollständig lesbar:**\n> Deterministic branch-and-bound. 1 of 100,000 search nodes examined. The search proved this solution optimal for the selected objective and allowed stock.\n\n> Minimize the total length of stock opened for this job. Ties favor less waste, then fewer boards.\n\n**Planning-estimate-/Safe-cutting-Abgrenzung vollständig lesbar:**\n> A planning estimate, not machine-control instructions or a safe-cutting guarantee. Verify measurements, stock identity and safe workholding at the bench. Approval does not physically consume stock.\n\n**Prüfgrenze:** Bestätigt ist die sichtbare Darstellung, nicht die rechnerische Optimalität oder praktische Schnittsicherheit."
+    }
+  ],
+  "textExtractionBoundary": "Reader dropped some first-row order numbers/repeated headers on continuation pages; actual pixel inspection, not inferred PDF failure, determines their presence",
+  "physicalContract": "40cuts×1000mm,20mmkerf each,40000parts+800sawdust+59200reusable=100000; finalstart39780,endbeforekerf40780; all17CSVcells separately verified in actual18-case tests",
+  "observedAt": "2026-09-03T11:07:25.726Z",
+  "portableAssetScope": "Both exact original PDFs and all12 already observed settled-page PNGs are copied byte-for-byte; retained pixelFindings are original inspections, not new inspections or physical print proof.",
+  "portableProvenance": {
+    "representation": "transformed-full-observation-record",
+    "originalSourceArtifactName": "offcut-overhaul-all-printed-pages-proof.json",
+    "originalSourceSha256": "0bcd075ae4fe005ca30163f24e53841887ac38287fce2a163a2463afd84ed9c4",
+    "originalSourceBytes": 32273,
+    "sourceBytesIdenticalToPortableFile": false,
+    "observationScope": "Actual current-candidate Chrome152 local native/manual forty-cut PDFs; six pages per document,12 settled page screenshots and retained pixel findings",
+    "pathBase": "repository-root",
+    "transformations": [
+      "Evidence references are repository-relative; source video is represented by its provenance record; original JPEG paths become explicit frame-manifest record locators. Original tool/model/UI/clock values and original media hashes are retained."
+    ],
+    "referenceReplacementCounts": {
+      "evidencePathToProducedPortableFile": 26
+    },
+    "portableFileHashManifest": "submission/evidence/manifest.json"
+  }
+}

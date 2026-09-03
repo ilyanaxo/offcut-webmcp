@@ -1,146 +1,180 @@
 WEBVTT
 
-1
-00:00:00.000 --> 00:00:04.300
-Offcut turns usable stock into a
-cutting plan that people and browser
+NOTE Source-backed English script captions. Global-ceil 25fps boundaries; ASR uncertainties are in audio-caption-manifest.json.
 
-2
-00:00:04.300 --> 00:00:09.280
-agents can work on together. Here,
-all fourteen requested parts fit,
+C01
+00:00:00.320 --> 00:00:04.280
+Offcut gives people and browser agents
+the same cutting-stock workbench.
 
-3
-00:00:09.280 --> 00:00:15.280
-and the long board stays protected. This
-workshop is an original illustrative example.
+C02
+00:00:04.760 --> 00:00:08.480
+Fourteen parts fit;
+the long board stays protected.
 
-4
-00:00:16.060 --> 00:00:21.220
-Enter your own usable lengths, finished parts,
-blade kerf, and reusable-remnant threshold.
+C03
+00:00:10.240 --> 00:00:16.120
+These illustrative measurements cover usable stock,
+parts, kerf and the reusable-remnant threshold.
 
-5
-00:00:21.900 --> 00:00:27.840
-People own these measurements and protection controls;
-agents cannot change them through the registered
+C04
+00:00:16.760 --> 00:00:20.800
+People own measurements and protection;
+registered tools cannot change them.
 
-6
-00:00:27.840 --> 00:00:33.400
-tools. The right-hand panel is a
-separate recording harness, not a chatbot
+C05
+00:00:21.800 --> 00:00:25.080
+The right-hand panel is
+an external model recording harness,
 
-7
-00:00:33.400 --> 00:00:38.700
-inside the website. A real model chooses native Web M C P calls.
+C06
+00:00:25.760 --> 00:00:27.600
+not a chatbot inside the website.
 
-8
-00:00:39.340 --> 00:00:44.860
-It reads the live revision, stock and requirements
-without reconstructing the page from pixels.
+C07
+00:00:28.320 --> 00:00:31.680
+A real model chooses native WebMCP calls
 
-9
-00:00:45.880 --> 00:00:51.640
-The model requests three complete alternatives:
-use less stock, handle fewer boards,
+C08
+00:00:31.680 --> 00:00:35.840
+on the shared committed workbench.
+This is not a ChatGPT recording.
 
-10
-00:00:51.940 --> 00:00:57.460
-or keep useful offcuts. The website's
-deterministic branch-and-bound solver checks every
+C09
+00:00:37.720 --> 00:00:40.280
+The model compares three complete alternatives:
 
-11
-00:00:57.460 --> 00:01:02.820
-part quantity, saw pass and stock length.
-Search limits are reported honestly,
+C10
+00:00:41.000 --> 00:00:44.360
+less stock, fewer boards, or useful offcuts.
 
-12
-00:01:03.540 --> 00:01:09.320
-not as invented optimality. Both efficient-handling
-options open seven point two metres
+C11
+00:00:45.000 --> 00:00:50.000
+The deterministic branch-and-bound solver checks quantities,
+stock and one kerf per part.
 
-13
-00:01:09.320 --> 00:01:14.700
-across three stock pieces, with two
-hundred millimetres of waste. Keeping
+C12
+00:00:50.560 --> 00:00:53.160
+A search limit is not a proof of optimality.
 
-14
-00:01:14.700 --> 00:01:19.720
-useful offcuts opens ten point zero
-eight metres across six pieces,
+C13
+00:00:54.200 --> 00:00:56.680
+Less stock and fewer boards both open
 
-15
-00:01:20.300 --> 00:01:25.220
-leaving forty-two millimetres of waste and
-three point zero three eight metres reusable.
+C14
+00:00:56.680 --> 00:00:59.600
+seven point two metres across three boards:
 
-16
-00:01:25.860 --> 00:01:30.960
-That avoids one hundred fifty-eight millimetres
-of short scrap, but handles more stock.
+C15
+00:01:00.000 --> 00:01:05.680
+forty-two millimetres of sawdust,
+plus one hundred fifty-eight millimetres of short scrap.
 
-17
-00:01:31.440 --> 00:01:37.440
-Nothing here claims carbon savings.
-The agent inspects the exact least-stock plan
+C16
+00:01:06.080 --> 00:01:10.960
+Keeping useful offcuts opens
+ten point zero eight metres across six boards:
 
-18
-00:01:37.440 --> 00:01:42.400
-and stages it for review. Using and
-Protected identify the real stock records.
+C17
+00:01:11.480 --> 00:01:14.560
+forty-two millimetres of sawdust, no short scrap,
 
-19
-00:01:43.020 --> 00:01:48.000
-The registered tool surface has no approval
-operation. The acknowledgement and approval happen
+C18
+00:01:14.960 --> 00:01:17.840
+and three point zero three eight metres reusable.
 
-20
-00:01:48.000 --> 00:01:53.780
-in the website UI; these recording controls
-are automated, not proof of a physical human.
+C19
+00:01:17.840 --> 00:01:21.520
+Computed trade-offs,
+not measured time or carbon savings.
 
-21
-00:01:54.600 --> 00:01:59.860
-After that separate approval, the model
-inspects the release and exports its actual CSV.
+C20
+00:01:25.000 --> 00:01:27.520
+The agent inspects and stages the exact plan.
 
-22
-00:02:00.680 --> 00:02:05.860
-The download contains all fourteen parts,
-exact offsets, kerf and the approved plan
+C21
+00:01:27.960 --> 00:01:30.240
+Pause for review: this is not approval.
 
-23
-00:02:05.860 --> 00:02:11.500
-identifier. A different selected draft
-cannot silently replace it. Now the blade
+C22
+00:01:30.800 --> 00:01:33.240
+Check stock identities, quantities and kerf.
 
-24
-00:02:11.500 --> 00:02:16.940
-kerf changes from three to four millimetres.
-The old approval is invalidated.
+C23
+00:01:33.840 --> 00:01:35.480
+No registered tool can approve.
 
-25
-00:02:16.940 --> 00:02:21.260
-The model reads the new revision,
-inspects the stale plan and generates
+C24
+00:01:36.040 --> 00:01:39.680
+These UI controls are automated,
+not proof of human presence.
 
-26
-00:02:21.260 --> 00:02:26.420
-a fresh proposal with fifty-six millimetres
-of sawdust. It stages another review,
+C25
+00:01:40.480 --> 00:01:42.280
+Now the controls check the acknowledgement.
 
-27
-00:02:26.980 --> 00:02:32.400
-without approving. Offcut runs without an
-application account, model key or backend.
+C26
+00:01:43.280 --> 00:01:45.080
+Then they click Approve cut sheet.
 
-28
-00:02:33.180 --> 00:02:37.900
-The live workbench and MIT-licensed source
-are public. These are planning estimates,
+C27
+00:01:46.920 --> 00:01:50.320
+The model inspects approval
+and exports the actual CSV:
 
-29
-00:02:38.640 --> 00:02:44.020
-not machine instructions: verify usable stock
-and safe cutting conditions at the bench.
+C28
+00:01:50.960 --> 00:01:56.360
+fourteen parts, part identifiers, offsets, kerf,
+and the exact approved plan identifier.
+
+C29
+00:01:57.160 --> 00:01:59.200
+Another draft cannot inherit approval.
+
+C30
+00:02:01.040 --> 00:02:03.520
+Typing four leaves committed kerf at three.
+
+C31
+00:02:04.040 --> 00:02:07.240
+Pending edits block staging
+without moving focus or saving.
+
+C32
+00:02:07.920 --> 00:02:10.800
+Now commit: revision two invalidates the old approval.
+
+C33
+00:02:11.480 --> 00:02:12.560
+The old plan is stale.
+
+C34
+00:02:12.560 --> 00:02:17.440
+The model replans: fourteen parts,
+fifty-six millimetres of sawdust.
+
+C35
+00:02:17.840 --> 00:02:19.960
+Revision two is staged, not approved.
+
+C36
+00:02:20.720 --> 00:02:22.080
+The acknowledgement stays unchecked.
+
+C37
+00:02:28.960 --> 00:02:32.400
+Offcut itself needs no account,
+model key or backend.
+
+C38
+00:02:32.880 --> 00:02:35.960
+The workbench and MIT licensed source are public.
+
+C39
+00:02:36.480 --> 00:02:39.280
+These are planning estimates, not machine instructions:
+
+C40
+00:02:40.040 --> 00:02:43.640
+verify usable stock and safe cutting conditions at the bench.
 
