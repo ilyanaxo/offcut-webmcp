@@ -1,0 +1,82 @@
+{
+  "verified_at_utc": "2026-09-03T00:28:50.134148+00:00",
+  "video_file": "submission/demo.mp4",
+  "sha256": "ee5915268fa0b528a87e7aa87d2a532ad3f1491e3eefbef185217e438f63fab5",
+  "bytes": 11635375,
+  "actual_media_probe": {
+    "durationSeconds": 165.0,
+    "streams": [
+      {
+        "type": "video",
+        "codec": "h264",
+        "frames": 4125,
+        "width": 1920,
+        "height": 1080,
+        "sampleRate": null,
+        "timeBase": "1/12800",
+        "durationSeconds": 165.0
+      },
+      {
+        "type": "audio",
+        "codec": "aac",
+        "frames": 7736,
+        "width": null,
+        "height": null,
+        "sampleRate": 48000,
+        "timeBase": "1/48000",
+        "durationSeconds": 165.0
+      }
+    ]
+  },
+  "strict_less_than_180_seconds": true,
+  "full_video_audio_decode": {
+    "command": "ffmpeg -v error -i submission/demo.mp4 -f null -",
+    "exit_code": 0,
+    "decode_errors": []
+  },
+  "embedded_English_audio": {
+    "verified_from_encoded_AAC": true,
+    "extracted_audio_sha256": "7d5db52bcb964a16098a6c690cf04d441621bab9f94741a7b2abd45c8eaef561",
+    "offline_ASR_model": "Systran/faster-whisper-base.en",
+    "model_revision": "3d3d5dee26484f91867d81cb899cfcf72b96be6c",
+    "transcript": "Off-cut turns, usable stock into a cutting plan that people and browser agents can work on together. Here, all 14 requested parts fit and the longboard stays protected. This workshop is an original illustrative example. Enter your own usable lengths, finished parts, blade kerf, and reusable remnant threshold. People own these measurements and protection controls. Agents cannot change them through the registered tools. tools. The right-hand panel is a separate recording harness, not a chatbot inside the website. A real model chooses native web MCP calls. It reads the live revision, stock, and requirements without reconstructing the page from pixels. The model requests three complete alternatives. Use less stock, handle fewer boards, or keep useful offcuts. The website's deterministic branch and bound solver checks every part quantity, saw pass and stock length. Search limits are reported, honestly. Not has invented optimality. Both efficient handling options open 7.2 meters across three stock pieces, with 200 millimeters of waste. Heaping useful offcuts opens 10.08 meters across six pieces, leaving 42 millimeters of waste and 3.038 meters reusable. That avoids 158 millimeters of short scrap, but handles more stock. Nothing here claims carbon savings. The agent inspects the exact least stock plan and stages it for review using and protected identify the real stock records. The registered tool surface has no approval operation. The acknowledgement and approval happen in the website UI. These recording According controls are automated, not proof of a physical human. After that separate approval, the model inspects the release and exports its actual CSB. The download contains all 14 parts, exact offsets, kerf and the approved plan identifier. A different selected draft cannot silently replace it. Now the blade kerf changes from 3 to 4 millimeters. The old approval is invalidated. The model reads, the new revision inspects the stale plan and generates a fresh proposal with 56 millimeters of sawdust. Its state is another review, without approving. Offcup runs without an application account, model key or backend. The live workbench and MIT license source are public. These are planning estimates, not machine instructions. Verify usable stock and safe cutting conditions at the bench.",
+    "critical_concept_checks": {
+      "fourteen_parts": true,
+      "least_stock_7_2_metres": true,
+      "reuse_stock_10_08_metres": true,
+      "200mm_waste": true,
+      "42mm_waste": true,
+      "3038mm_reusable": true,
+      "158mm_short_scrap": true,
+      "56mm_replanned_sawdust": true,
+      "kerf_three_to_four": true,
+      "native_WebMCP": true,
+      "external_recording_harness": true,
+      "UI_automation_disclosed": true
+    },
+    "limits": "Actual unprompted offline recognition, not subjective listening or proof of human naturalness. Minor spelling/grouping/duplication recognition slips, including an inserted word before the automated-controls disclosure, are retained in the transcript."
+  },
+  "captions": {
+    "file": "submission/demo-subtitles.vtt",
+    "burned_in": true,
+    "cues": 29,
+    "original_words": 361,
+    "max_words": 15,
+    "max_lines": 2,
+    "max_characters_per_line": 64,
+    "max_seconds_per_cue": 6,
+    "overlap_count": 0,
+    "cue_end_seconds": 164.02,
+    "actual_libass_sample_bounds_y": [1017, 1066]
+  },
+  "visible_final_frames_inspected_seconds": [1, 75, 140],
+  "source_record": "submission/agent-trace.json",
+  "actual_model_selected_native_calls": 14,
+  "source_footage": "Actual live HTTPS app recording, with actual captured native receipt screenshots. Waiting time trimmed; replan footage modestly sped up; original narration/annotations identify automation/harness scope.",
+  "not_ChatGPT_screen_recording": true,
+  "UI_automation_disclosed": true,
+  "media_rights_record": "submission/media-rights.json",
+  "entrant_media_rights_confirmation": null,
+  "actual_public_YouTube_url": null,
+  "public_YouTube_publication_verified": false
+}

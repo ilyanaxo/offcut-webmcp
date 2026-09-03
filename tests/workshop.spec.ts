@@ -561,7 +561,7 @@ async function expectNoPageOverflow(page: Page) {
 }
 
 test.beforeEach(async ({ page }, info) => {
-  await page.goto('/');
+  await page.goto('./');
   await expect(page.locator('#project-title')).toBeVisible();
   await expect(selectedLayout(page)).toHaveCount(0);
   await expect(csvButton(page)).toBeDisabled();

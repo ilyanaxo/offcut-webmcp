@@ -10,3 +10,7 @@ artifacts/verification/
 artifacts/raw-video/
 *.log
 .DS_Store
+
+# Final binary demo/package are published as GitHub Release assets.
+submission/demo.mp4
+submission/entry-package.zip

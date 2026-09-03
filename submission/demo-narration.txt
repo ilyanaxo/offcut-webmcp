@@ -1,0 +1,17 @@
+Offcut turns usable stock into a cutting plan that people and browser agents can work on together. Here, all fourteen requested parts fit, and the long board stays protected.
+
+This workshop is an original illustrative example. Enter your own usable lengths, finished parts, blade kerf, and reusable-remnant threshold. People own these measurements and protection controls; agents cannot change them through the registered tools.
+
+The right-hand panel is a separate recording harness, not a chatbot inside the website. A real model chooses native Web M C P calls. It reads the live revision, stock and requirements without reconstructing the page from pixels.
+
+The model requests three complete alternatives: use less stock, handle fewer boards, or keep useful offcuts. The website's deterministic branch-and-bound solver checks every part quantity, saw pass and stock length. Search limits are reported honestly, not as invented optimality.
+
+Both efficient-handling options open seven point two metres across three stock pieces, with two hundred millimetres of waste. Keeping useful offcuts opens ten point zero eight metres across six pieces, leaving forty-two millimetres of waste and three point zero three eight metres reusable. That avoids one hundred fifty-eight millimetres of short scrap, but handles more stock. Nothing here claims carbon savings.
+
+The agent inspects the exact least-stock plan and stages it for review. Using and Protected identify the real stock records. The registered tool surface has no approval operation. The acknowledgement and approval happen in the website UI; these recording controls are automated, not proof of a physical human.
+
+After that separate approval, the model inspects the release and exports its actual CSV. The download contains all fourteen parts, exact offsets, kerf and the approved plan identifier. A different selected draft cannot silently replace it.
+
+Now the blade kerf changes from three to four millimetres. The old approval is invalidated. The model reads the new revision, inspects the stale plan and generates a fresh proposal with fifty-six millimetres of sawdust. It stages another review, without approving.
+
+Offcut runs without an application account, model key or backend. The live workbench and MIT-licensed source are public. These are planning estimates, not machine instructions: verify usable stock and safe cutting conditions at the bench.

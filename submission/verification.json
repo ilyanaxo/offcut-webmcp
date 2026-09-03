@@ -1,0 +1,158 @@
+{
+  "verified_at_utc": "2026-09-03T00:01:55.800749+00:00",
+  "live_url": "https://ilyanaxo.github.io/offcut-webmcp/",
+  "public_source_url": "https://github.com/ilyanaxo/offcut-webmcp",
+  "guide_url": "https://ilyanaxo.github.io/offcut-webmcp/guide.html",
+  "public_license_detected": "MIT by GitHub public license API",
+  "https_enforced": true,
+  "production_build": {
+    "command": "bun run build",
+    "status": "passed",
+    "typescript": "7.0.2",
+    "vite": "8.2.2",
+    "bundle_js": "index-CyHZ3dwn.js",
+    "bundle_css": "index-BSVPmI5h.css"
+  },
+  "core_contract_tests": {
+    "command": "bun run test",
+    "passed": 841,
+    "failed": 0,
+    "expect_calls": 118503,
+    "runtime": "Bun1.4.0"
+  },
+  "browser_contract_tests": {
+    "command": "bun run test:browser",
+    "passed": 9,
+    "failed": 0,
+    "workers": 2,
+    "sandbox_enabled": true,
+    "projects": ["native-webmcp", "ordinary-manual"],
+    "hosted_run": {
+      "OFFCUT_BASE_URL": "https://ilyanaxo.github.io/offcut-webmcp/",
+      "passed": 9,
+      "failed": 0
+    }
+  },
+  "independent_solver_oracle": {
+    "oracleCases": 600,
+    "objectiveChecks": 1800,
+    "status": "passed",
+    "seed": "0x57eb2026",
+    "oracle": "independent exhaustive assignment enumeration"
+  },
+  "actual_search_bound_fixtures": {
+    "outputs": [
+      {
+        "goal": "least_stock",
+        "complete": true,
+        "metrics": {
+          "stockUsedMm": 33600,
+          "partsMm": 31440,
+          "kerfMm": 120,
+          "reusableMm": 1263,
+          "scrapMm": 777,
+          "boardCount": 14,
+          "utilization": 0.9357142857142857
+        },
+        "search": {
+          "method": "branch-and-bound",
+          "provenOptimal": false,
+          "nodes": 100000,
+          "limit": 100000
+        },
+        "elapsedMs": 64.552997
+      },
+      {
+        "goal": "fewest_boards",
+        "complete": true,
+        "metrics": {
+          "stockUsedMm": 33600,
+          "partsMm": 31440,
+          "kerfMm": 120,
+          "reusableMm": 1263,
+          "scrapMm": 777,
+          "boardCount": 14,
+          "utilization": 0.9357142857142857
+        },
+        "search": {
+          "method": "branch-and-bound",
+          "provenOptimal": false,
+          "nodes": 100000,
+          "limit": 100000
+        },
+        "elapsedMs": 63.99511900000002
+      },
+      {
+        "goal": "least_waste",
+        "complete": true,
+        "metrics": {
+          "stockUsedMm": 38400,
+          "partsMm": 31440,
+          "kerfMm": 120,
+          "reusableMm": 6840,
+          "scrapMm": 0,
+          "boardCount": 16,
+          "utilization": 0.81875
+        },
+        "search": {
+          "method": "branch-and-bound",
+          "provenOptimal": false,
+          "nodes": 100000,
+          "limit": 100000
+        },
+        "elapsedMs": 26.82912399999998
+      }
+    ],
+    "greedyRecovery": {
+      "complete": true,
+      "metrics": {
+        "stockUsedMm": 2020,
+        "partsMm": 1988,
+        "kerfMm": 18,
+        "reusableMm": 0,
+        "scrapMm": 14,
+        "boardCount": 2,
+        "utilization": 0.9841584158415841
+      },
+      "search": {
+        "method": "branch-and-bound",
+        "provenOptimal": true,
+        "nodes": 11,
+        "limit": 100000
+      }
+    }
+  },
+  "native_browser_versions": ["149.0.7827.155", "152.0.7977.64"],
+  "real_model_workflow": {
+    "record": "submission/agent-trace.json",
+    "actual_model_selected_native_calls": 14,
+    "all_six_tool_types_selected": true,
+    "three_complete_objectives_compared": true,
+    "protected_A01_untouched": true,
+    "exact_separate_UI_approval_and_model_export": true,
+    "actual_CSV_download_rows": 15,
+    "human_kerf_change_invalidated_release": true,
+    "model_fresh_replan_revision": 2,
+    "model_fresh_replan_sawdust_mm": 56,
+    "console_errors": [],
+    "page_errors": [],
+    "UI_controls_were_automation": true,
+    "not_ChatGPT_screen_recording": true
+  },
+  "scope_limits": [
+    "Original illustrative stock/cut measurements, not real-shop impact or physical cutting validation.",
+    "Human approval means the app UI route absent from the registered tool capability catalogue, not authenticated human presence.",
+    "No claim of visual ChatGPT in-app-browser testing.",
+    "No actual public YouTube or green Devpost Submitted state established by these code/browser/model records.",
+    "Future availability and jury outcome remain external obligations; no justified99.99percent winning probability."
+  ],
+  "final_demo": {
+    "file": "submission/demo.mp4",
+    "actual_seconds": 165,
+    "English_embedded_AAC_ASR_checked": true,
+    "full_decode_exit_code": 0,
+    "burned_English_subtitles": true,
+    "record": "submission/demo-verification.json",
+    "actual_Public_YouTube_verified": false
+  }
+}

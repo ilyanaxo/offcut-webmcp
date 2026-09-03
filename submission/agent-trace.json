@@ -1,0 +1,2929 @@
+{
+  "verifiedAt": "2026-09-02T23:20:24.101Z",
+  "liveUrl": "https://ilyanaxo.github.io/offcut-webmcp/",
+  "browserVersion": "152.0.7977.64",
+  "modelRole": "default session model invoked through actual stateless completion calls",
+  "executionMethod": "Model-selected tool names/JSON inputs; actual Chrome native getTools/executeTool on the live HTTPS workbench",
+  "notChatGPTScreenRecording": true,
+  "uiActionsWereBrowserAutomation": true,
+  "noFakeConversation": true,
+  "requests": [
+    {
+      "phase": "compare-and-review",
+      "request": "Inspect my Offcut workshop. Produce complete proposals for all three objectives: least_stock, fewest_boards, and least_waste. Respect protected stock and the current kerf and reusable-remnant settings. Compare all three actual proposals, inspect the least-stock proposal, then stage that exact least-stock proposal for my human review. Do not approve or export before I approve in the UI. Stop when the human review is pending.",
+      "atMs": 0
+    },
+    {
+      "phase": "approved-export",
+      "request": "I have just approved the exact staged least-stock proposal in the actual workbench UI, as recorded in the transcript. Inspect its current approval/freshness status, then export_cut_list for that exact approved plan. Do not approve anything, change measurements, or create another proposal. Finish after receiving the actual approved CSV result.",
+      "atMs": 395909
+    },
+    {
+      "phase": "human-change-and-replan",
+      "request": "I changed the actual blade kerf from3to4mm in the UI and committed it. The workbench now reports revision2, and the previous release is disabled. Read the current workshop and inspect the previously approved planplan-4b5e0154-42f3-49dd-a0b7-bc8d10fc7f88-6; do not reuse or export it. Generate a fresh complete least_stock proposal using the current revision/settings and respecting protected stock. Stage that fresh proposal for a new human review, then stop without approval or export.",
+      "atMs": 527118
+    }
+  ],
+  "decisions": [
+    {
+      "atMs": 23698,
+      "decision": {
+        "reason": "Inspect the current stock, protected boards, requirements, physical settings and revision before generating proposals.",
+        "tool": "get_workshop",
+        "inputJson": "{}"
+      }
+    },
+    {
+      "atMs": 204107,
+      "decision": {
+        "reason": "The workshop is inspected at revision 1; generate the complete least-stock proposal respecting protected A-01, 3 mm kerf and the 400 mm reusable-remnant threshold.",
+        "tool": "plan_cuts",
+        "inputJson": "{\"expectedRevision\":1,\"objective\":\"least_stock\"}"
+      }
+    },
+    {
+      "atMs": 208850,
+      "decision": {
+        "reason": "The least-stock proposal is complete, fresh and proven optimal. Generate the fewest-boards proposal at revision 1, retaining protected stock and the current physical settings.",
+        "tool": "plan_cuts",
+        "inputJson": "{\"expectedRevision\":1,\"objective\":\"fewest_boards\"}"
+      }
+    },
+    {
+      "atMs": 214477,
+      "decision": {
+        "reason": "The least-stock and fewest-boards proposals are complete, fresh and proven optimal. Generate the remaining least-waste proposal at revision 1, respecting protected stock, 3 mm kerf and the 400 mm reusable-remnant threshold.",
+        "tool": "plan_cuts",
+        "inputJson": "{\"expectedRevision\":1,\"objective\":\"least_waste\"}"
+      }
+    },
+    {
+      "atMs": 219782,
+      "decision": {
+        "reason": "All three proposals are complete, fresh and proven optimal at revision 1. Compare their actual tradeoffs with least_stock as the baseline before inspecting and staging that exact proposal.",
+        "tool": "compare_plans",
+        "inputJson": "{\"planIds\":[\"plan-4b5e0154-42f3-49dd-a0b7-bc8d10fc7f88-6\",\"plan-4b5e0154-42f3-49dd-a0b7-bc8d10fc7f88-8\",\"plan-4b5e0154-42f3-49dd-a0b7-bc8d10fc7f88-10\"]}"
+      }
+    },
+    {
+      "atMs": 224442,
+      "decision": {
+        "reason": "All three actual proposals have been compared. Inspect the exact least-stock proposal to verify its layout, completeness and freshness before staging it for human review.",
+        "tool": "inspect_plan",
+        "inputJson": "{\"planId\":\"plan-4b5e0154-42f3-49dd-a0b7-bc8d10fc7f88-6\"}"
+      }
+    },
+    {
+      "atMs": 228937,
+      "decision": {
+        "reason": "All three proposals have been compared, and the exact least-stock proposal is inspected, complete, fresh and proven optimal at revision 1. Stage it for human review without approving or exporting.",
+        "tool": "stage_plan_for_review",
+        "inputJson": "{\"planId\":\"plan-4b5e0154-42f3-49dd-a0b7-bc8d10fc7f88-6\",\"expectedRevision\":1}"
+      }
+    },
+    {
+      "atMs": 233397,
+      "decision": {
+        "reason": "All three complete proposals were generated and compared with protected stock and current settings respected. The exact least-stock proposal was inspected and staged at revision 1; human review is now pending. Nothing was approved or exported. Stop as requested.",
+        "tool": "finish",
+        "inputJson": "{}"
+      }
+    },
+    {
+      "atMs": 397965,
+      "decision": {
+        "reason": "Inspect the exact UI-approved least-stock proposal to confirm its current approval, completeness and freshness before exporting.",
+        "tool": "inspect_plan",
+        "inputJson": "{\"planId\":\"plan-4b5e0154-42f3-49dd-a0b7-bc8d10fc7f88-6\"}"
+      }
+    },
+    {
+      "atMs": 402769,
+      "decision": {
+        "reason": "Inspection confirms the exact staged least-stock plan is approved, complete and fresh at revision 1. Export its approved cut-list CSV without changing the plan or measurements.",
+        "tool": "export_cut_list",
+        "inputJson": "{\"planId\":\"plan-4b5e0154-42f3-49dd-a0b7-bc8d10fc7f88-6\"}"
+      }
+    },
+    {
+      "atMs": 409406,
+      "decision": {
+        "reason": "The exact least-stock plan was confirmed approved, complete and fresh at revision 1, and export_cut_list returned its actual CSV, offcut-the-little-library-r1.csv. No measurements or proposals were changed; the requested export is complete.",
+        "tool": "finish",
+        "inputJson": "{}"
+      }
+    },
+    {
+      "atMs": 529154,
+      "decision": {
+        "reason": "Re-read the workshop after the committed kerf change to confirm the current revision, physical settings and protected stock before inspecting the old plan and generating a fresh proposal.",
+        "tool": "get_workshop",
+        "inputJson": "{}"
+      }
+    },
+    {
+      "atMs": 533589,
+      "decision": {
+        "reason": "The current workshop confirms revision 2, 4 mm kerf and protected A-01. Inspect the previously approved plan as requested; it is now stale and unapproved and must not be reused or exported.",
+        "tool": "inspect_plan",
+        "inputJson": "{\"planId\":\"plan-4b5e0154-42f3-49dd-a0b7-bc8d10fc7f88-6\"}"
+      }
+    },
+    {
+      "atMs": 538294,
+      "decision": {
+        "reason": "The current workshop and old plan are inspected: the old plan is stale and unapproved. Generate a fresh least_stock proposal for all 14 parts at revision 2 using 4 mm kerf, the 400 mm reusable-remnant threshold and protected A-01.",
+        "tool": "plan_cuts",
+        "inputJson": "{\"expectedRevision\":2,\"objective\":\"least_stock\"}"
+      }
+    },
+    {
+      "atMs": 543527,
+      "decision": {
+        "reason": "The fresh least_stock proposal is complete and proven optimal at revision 2. Inspect its exact layout and freshness before staging it for new human review; the old plan remains unused.",
+        "tool": "inspect_plan",
+        "inputJson": "{\"planId\":\"plan-4b5e0154-42f3-49dd-a0b7-bc8d10fc7f88-22\"}"
+      }
+    },
+    {
+      "atMs": 547890,
+      "decision": {
+        "reason": "Inspection confirms the new least_stock proposal is complete, fresh and proven optimal at revision 2, using 4 mm kerf and leaving protected A-01 untouched. Stage this exact proposal for new human review without approval or export.",
+        "tool": "stage_plan_for_review",
+        "inputJson": "{\"planId\":\"plan-4b5e0154-42f3-49dd-a0b7-bc8d10fc7f88-22\",\"expectedRevision\":2}"
+      }
+    },
+    {
+      "atMs": 552614,
+      "decision": {
+        "reason": "The current workshop and stale old plan were inspected; the old plan was not reused or re-exported. Fresh, complete, proven-optimal least_stock proposal plan-4b5e0154-42f3-49dd-a0b7-bc8d10fc7f88-22 uses revision 2 and 4 mm kerf, respects protected stock, and is staged awaiting human approval. Stop without approval or export.",
+        "tool": "finish",
+        "inputJson": "{}"
+      }
+    }
+  ],
+  "nativeCalls": [
+    {
+      "order": 1,
+      "tool": "get_workshop",
+      "reason": "Inspect the current stock, protected boards, requirements, physical settings and revision before generating proposals.",
+      "input": {},
+      "summary": {
+        "ok": true,
+        "revision": 1,
+        "requiredParts": 14,
+        "protected": ["A-01"],
+        "kerfMm": 3,
+        "keepRemnantsFromMm": 400
+      },
+      "result": {
+        "ok": true,
+        "workspace": {
+          "revision": 1,
+          "title": "The little library",
+          "material": "Pine · 18 × 140 mm · usable lengths",
+          "stock": [
+            {
+              "id": "A-01",
+              "label": "Long board",
+              "lengthMm": 3000,
+              "kind": "board",
+              "locked": true
+            },
+            {
+              "id": "A-02",
+              "label": "Fresh board 02",
+              "lengthMm": 2400,
+              "kind": "board",
+              "locked": false
+            },
+            {
+              "id": "A-03",
+              "label": "Fresh board 03",
+              "lengthMm": 2400,
+              "kind": "board",
+              "locked": false
+            },
+            {
+              "id": "A-04",
+              "label": "Fresh board 04",
+              "lengthMm": 2400,
+              "kind": "board",
+              "locked": false
+            },
+            {
+              "id": "R-01",
+              "label": "Bench project offcut",
+              "lengthMm": 1180,
+              "kind": "offcut",
+              "locked": false
+            },
+            {
+              "id": "R-02",
+              "label": "Saved shelf offcut",
+              "lengthMm": 960,
+              "kind": "offcut",
+              "locked": false
+            },
+            {
+              "id": "R-03",
+              "label": "Window seat offcut",
+              "lengthMm": 740,
+              "kind": "offcut",
+              "locked": false
+            },
+            {
+              "id": "R-04",
+              "label": "The useful little piece",
+              "lengthMm": 650,
+              "kind": "offcut",
+              "locked": false
+            }
+          ],
+          "requirements": [
+            {
+              "id": "shelf",
+              "label": "Shelves",
+              "lengthMm": 720,
+              "quantity": 4
+            },
+            {
+              "id": "upright",
+              "label": "Uprights",
+              "lengthMm": 440,
+              "quantity": 4
+            },
+            {
+              "id": "rail",
+              "label": "Rails",
+              "lengthMm": 310,
+              "quantity": 4
+            },
+            {
+              "id": "brace",
+              "label": "Braces",
+              "lengthMm": 560,
+              "quantity": 2
+            }
+          ],
+          "settings": {
+            "kerfMm": 3,
+            "minReusableMm": 400
+          }
+        },
+        "units": "mm",
+        "totalRequiredParts": 14,
+        "requiredPartsMm": 7000,
+        "availableStockMm": 10730,
+        "protectedStockIds": ["A-01"],
+        "plans": [],
+        "physicalModel": [
+          "Integer millimetres; all stock has the same material and cross-section.",
+          "Entered stock lengths are usable lengths, after the human has deducted end trim and defects.",
+          "Each produced part consumes one kerf. No free final factory-end cut is assumed.",
+          "Sawdust and short scrap are waste; reusable remnants and unopened stock are not.",
+          "A plan is a planning estimate, not a machine instruction or a safe-cutting guarantee."
+        ],
+        "workflow": "plan_cuts -> inspect_plan/compare_plans -> stage_plan_for_review -> HUMAN approval in the site -> export_cut_list. No tool can approve, unlock stock or consume physical material.",
+        "limits": {
+          "stockBoards": 24,
+          "requirements": 16,
+          "totalParts": 40
+        }
+      },
+      "rawResult": "{\"ok\":true,\"workspace\":{\"revision\":1,\"title\":\"The little library\",\"material\":\"Pine · 18 × 140 mm · usable lengths\",\"stock\":[{\"id\":\"A-01\",\"label\":\"Long board\",\"lengthMm\":3000,\"kind\":\"board\",\"locked\":true},{\"id\":\"A-02\",\"label\":\"Fresh board 02\",\"lengthMm\":2400,\"kind\":\"board\",\"locked\":false},{\"id\":\"A-03\",\"label\":\"Fresh board 03\",\"lengthMm\":2400,\"kind\":\"board\",\"locked\":false},{\"id\":\"A-04\",\"label\":\"Fresh board 04\",\"lengthMm\":2400,\"kind\":\"board\",\"locked\":false},{\"id\":\"R-01\",\"label\":\"Bench project offcut\",\"lengthMm\":1180,\"kind\":\"offcut\",\"locked\":false},{\"id\":\"R-02\",\"label\":\"Saved shelf offcut\",\"lengthMm\":960,\"kind\":\"offcut\",\"locked\":false},{\"id\":\"R-03\",\"label\":\"Window seat offcut\",\"lengthMm\":740,\"kind\":\"offcut\",\"locked\":false},{\"id\":\"R-04\",\"label\":\"The useful little piece\",\"lengthMm\":650,\"kind\":\"offcut\",\"locked\":false}],\"requirements\":[{\"id\":\"shelf\",\"label\":\"Shelves\",\"lengthMm\":720,\"quantity\":4},{\"id\":\"upright\",\"label\":\"Uprights\",\"lengthMm\":440,\"quantity\":4},{\"id\":\"rail\",\"label\":\"Rails\",\"lengthMm\":310,\"quantity\":4},{\"id\":\"brace\",\"label\":\"Braces\",\"lengthMm\":560,\"quantity\":2}],\"settings\":{\"kerfMm\":3,\"minReusableMm\":400}},\"units\":\"mm\",\"totalRequiredParts\":14,\"requiredPartsMm\":7000,\"availableStockMm\":10730,\"protectedStockIds\":[\"A-01\"],\"plans\":[],\"physicalModel\":[\"Integer millimetres; all stock has the same material and cross-section.\",\"Entered stock lengths are usable lengths, after the human has deducted end trim and defects.\",\"Each produced part consumes one kerf. No free final factory-end cut is assumed.\",\"Sawdust and short scrap are waste; reusable remnants and unopened stock are not.\",\"A plan is a planning estimate, not a machine instruction or a safe-cutting guarantee.\"],\"workflow\":\"plan_cuts -> inspect_plan/compare_plans -> stage_plan_for_review -> HUMAN approval in the site -> export_cut_list. No tool can approve, unlock stock or consume physical material.\",\"limits\":{\"stockBoards\":24,\"requirements\":16,\"totalParts\":40}}",
+      "startedAtMs": 149780,
+      "returnedAtMs": 149852
+    },
+    {
+      "order": 2,
+      "tool": "plan_cuts",
+      "reason": "The workshop is inspected at revision 1; generate the complete least-stock proposal respecting protected A-01, 3 mm kerf and the 400 mm reusable-remnant threshold.",
+      "input": {
+        "expectedRevision": 1,
+        "objective": "least_stock"
+      },
+      "summary": {
+        "ok": true,
+        "objective": "least_stock",
+        "complete": true,
+        "revision": 1,
+        "parts": 14,
+        "stockMm": 7200,
+        "boards": 3,
+        "wasteMm": 200,
+        "reusableMm": 0,
+        "approved": false
+      },
+      "result": {
+        "ok": true,
+        "plan": {
+          "id": "plan-4b5e0154-42f3-49dd-a0b7-bc8d10fc7f88-6",
+          "basedOnRevision": 1,
+          "createdAt": "2026-09-02T23:14:19.595Z",
+          "actor": "webmcp",
+          "solution": {
+            "objective": "least_stock",
+            "layouts": [
+              {
+                "stockId": "A-02",
+                "stockLabel": "Fresh board 02",
+                "stockKind": "board",
+                "stockLengthMm": 2400,
+                "cuts": [
+                  {
+                    "requirementId": "shelf",
+                    "label": "Shelves",
+                    "instance": 1,
+                    "lengthMm": 720,
+                    "offsetMm": 0
+                  },
+                  {
+                    "requirementId": "shelf",
+                    "label": "Shelves",
+                    "instance": 2,
+                    "lengthMm": 720,
+                    "offsetMm": 723
+                  },
+                  {
+                    "requirementId": "brace",
+                    "label": "Braces",
+                    "instance": 1,
+                    "lengthMm": 560,
+                    "offsetMm": 1446
+                  },
+                  {
+                    "requirementId": "rail",
+                    "label": "Rails",
+                    "instance": 1,
+                    "lengthMm": 310,
+                    "offsetMm": 2009
+                  }
+                ],
+                "kerfMm": 12,
+                "remnantMm": 78,
+                "remnantKind": "scrap"
+              },
+              {
+                "stockId": "A-03",
+                "stockLabel": "Fresh board 03",
+                "stockKind": "board",
+                "stockLengthMm": 2400,
+                "cuts": [
+                  {
+                    "requirementId": "shelf",
+                    "label": "Shelves",
+                    "instance": 3,
+                    "lengthMm": 720,
+                    "offsetMm": 0
+                  },
+                  {
+                    "requirementId": "shelf",
+                    "label": "Shelves",
+                    "instance": 4,
+                    "lengthMm": 720,
+                    "offsetMm": 723
+                  },
+                  {
+                    "requirementId": "brace",
+                    "label": "Braces",
+                    "instance": 2,
+                    "lengthMm": 560,
+                    "offsetMm": 1446
+                  },
+                  {
+                    "requirementId": "rail",
+                    "label": "Rails",
+                    "instance": 2,
+                    "lengthMm": 310,
+                    "offsetMm": 2009
+                  }
+                ],
+                "kerfMm": 12,
+                "remnantMm": 78,
+                "remnantKind": "scrap"
+              },
+              {
+                "stockId": "A-04",
+                "stockLabel": "Fresh board 04",
+                "stockKind": "board",
+                "stockLengthMm": 2400,
+                "cuts": [
+                  {
+                    "requirementId": "upright",
+                    "label": "Uprights",
+                    "instance": 1,
+                    "lengthMm": 440,
+                    "offsetMm": 0
+                  },
+                  {
+                    "requirementId": "upright",
+                    "label": "Uprights",
+                    "instance": 2,
+                    "lengthMm": 440,
+                    "offsetMm": 443
+                  },
+                  {
+                    "requirementId": "upright",
+                    "label": "Uprights",
+                    "instance": 3,
+                    "lengthMm": 440,
+                    "offsetMm": 886
+                  },
+                  {
+                    "requirementId": "upright",
+                    "label": "Uprights",
+                    "instance": 4,
+                    "lengthMm": 440,
+                    "offsetMm": 1329
+                  },
+                  {
+                    "requirementId": "rail",
+                    "label": "Rails",
+                    "instance": 3,
+                    "lengthMm": 310,
+                    "offsetMm": 1772
+                  },
+                  {
+                    "requirementId": "rail",
+                    "label": "Rails",
+                    "instance": 4,
+                    "lengthMm": 310,
+                    "offsetMm": 2085
+                  }
+                ],
+                "kerfMm": 18,
+                "remnantMm": 2,
+                "remnantKind": "scrap"
+              }
+            ],
+            "metrics": {
+              "stockUsedMm": 7200,
+              "partsMm": 7000,
+              "kerfMm": 42,
+              "reusableMm": 0,
+              "scrapMm": 158,
+              "boardCount": 3,
+              "utilization": 0.9722222222222222
+            },
+            "complete": true,
+            "unfulfilled": [],
+            "excludedStockIds": [],
+            "search": {
+              "method": "branch-and-bound",
+              "provenOptimal": true,
+              "nodes": 3797,
+              "limit": 100000
+            }
+          },
+          "currentRevision": 1,
+          "fresh": true,
+          "approved": false,
+          "awaitingHumanApproval": false,
+          "canRequestReview": true,
+          "wasteMm": 200
+        },
+        "nextStep": "Compare or stage this proposal for human review. It is not approved."
+      },
+      "rawResult": "{\"ok\":true,\"plan\":{\"id\":\"plan-4b5e0154-42f3-49dd-a0b7-bc8d10fc7f88-6\",\"basedOnRevision\":1,\"createdAt\":\"2026-09-02T23:14:19.595Z\",\"actor\":\"webmcp\",\"solution\":{\"objective\":\"least_stock\",\"layouts\":[{\"stockId\":\"A-02\",\"stockLabel\":\"Fresh board 02\",\"stockKind\":\"board\",\"stockLengthMm\":2400,\"cuts\":[{\"requirementId\":\"shelf\",\"label\":\"Shelves\",\"instance\":1,\"lengthMm\":720,\"offsetMm\":0},{\"requirementId\":\"shelf\",\"label\":\"Shelves\",\"instance\":2,\"lengthMm\":720,\"offsetMm\":723},{\"requirementId\":\"brace\",\"label\":\"Braces\",\"instance\":1,\"lengthMm\":560,\"offsetMm\":1446},{\"requirementId\":\"rail\",\"label\":\"Rails\",\"instance\":1,\"lengthMm\":310,\"offsetMm\":2009}],\"kerfMm\":12,\"remnantMm\":78,\"remnantKind\":\"scrap\"},{\"stockId\":\"A-03\",\"stockLabel\":\"Fresh board 03\",\"stockKind\":\"board\",\"stockLengthMm\":2400,\"cuts\":[{\"requirementId\":\"shelf\",\"label\":\"Shelves\",\"instance\":3,\"lengthMm\":720,\"offsetMm\":0},{\"requirementId\":\"shelf\",\"label\":\"Shelves\",\"instance\":4,\"lengthMm\":720,\"offsetMm\":723},{\"requirementId\":\"brace\",\"label\":\"Braces\",\"instance\":2,\"lengthMm\":560,\"offsetMm\":1446},{\"requirementId\":\"rail\",\"label\":\"Rails\",\"instance\":2,\"lengthMm\":310,\"offsetMm\":2009}],\"kerfMm\":12,\"remnantMm\":78,\"remnantKind\":\"scrap\"},{\"stockId\":\"A-04\",\"stockLabel\":\"Fresh board 04\",\"stockKind\":\"board\",\"stockLengthMm\":2400,\"cuts\":[{\"requirementId\":\"upright\",\"label\":\"Uprights\",\"instance\":1,\"lengthMm\":440,\"offsetMm\":0},{\"requirementId\":\"upright\",\"label\":\"Uprights\",\"instance\":2,\"lengthMm\":440,\"offsetMm\":443},{\"requirementId\":\"upright\",\"label\":\"Uprights\",\"instance\":3,\"lengthMm\":440,\"offsetMm\":886},{\"requirementId\":\"upright\",\"label\":\"Uprights\",\"instance\":4,\"lengthMm\":440,\"offsetMm\":1329},{\"requirementId\":\"rail\",\"label\":\"Rails\",\"instance\":3,\"lengthMm\":310,\"offsetMm\":1772},{\"requirementId\":\"rail\",\"label\":\"Rails\",\"instance\":4,\"lengthMm\":310,\"offsetMm\":2085}],\"kerfMm\":18,\"remnantMm\":2,\"remnantKind\":\"scrap\"}],\"metrics\":{\"stockUsedMm\":7200,\"partsMm\":7000,\"kerfMm\":42,\"reusableMm\":0,\"scrapMm\":158,\"boardCount\":3,\"utilization\":0.9722222222222222},\"complete\":true,\"unfulfilled\":[],\"excludedStockIds\":[],\"search\":{\"method\":\"branch-and-bound\",\"provenOptimal\":true,\"nodes\":3797,\"limit\":100000}},\"currentRevision\":1,\"fresh\":true,\"approved\":false,\"awaitingHumanApproval\":false,\"canRequestReview\":true,\"wasteMm\":200},\"nextStep\":\"Compare or stage this proposal for human review. It is not approved.\"}",
+      "startedAtMs": 204107,
+      "returnedAtMs": 204178
+    },
+    {
+      "order": 3,
+      "tool": "plan_cuts",
+      "reason": "The least-stock proposal is complete, fresh and proven optimal. Generate the fewest-boards proposal at revision 1, retaining protected stock and the current physical settings.",
+      "input": {
+        "expectedRevision": 1,
+        "objective": "fewest_boards"
+      },
+      "summary": {
+        "ok": true,
+        "objective": "fewest_boards",
+        "complete": true,
+        "revision": 1,
+        "parts": 14,
+        "stockMm": 7200,
+        "boards": 3,
+        "wasteMm": 200,
+        "reusableMm": 0,
+        "approved": false
+      },
+      "result": {
+        "ok": true,
+        "plan": {
+          "id": "plan-4b5e0154-42f3-49dd-a0b7-bc8d10fc7f88-8",
+          "basedOnRevision": 1,
+          "createdAt": "2026-09-02T23:14:24.340Z",
+          "actor": "webmcp",
+          "solution": {
+            "objective": "fewest_boards",
+            "layouts": [
+              {
+                "stockId": "A-02",
+                "stockLabel": "Fresh board 02",
+                "stockKind": "board",
+                "stockLengthMm": 2400,
+                "cuts": [
+                  {
+                    "requirementId": "shelf",
+                    "label": "Shelves",
+                    "instance": 1,
+                    "lengthMm": 720,
+                    "offsetMm": 0
+                  },
+                  {
+                    "requirementId": "shelf",
+                    "label": "Shelves",
+                    "instance": 2,
+                    "lengthMm": 720,
+                    "offsetMm": 723
+                  },
+                  {
+                    "requirementId": "brace",
+                    "label": "Braces",
+                    "instance": 1,
+                    "lengthMm": 560,
+                    "offsetMm": 1446
+                  },
+                  {
+                    "requirementId": "rail",
+                    "label": "Rails",
+                    "instance": 1,
+                    "lengthMm": 310,
+                    "offsetMm": 2009
+                  }
+                ],
+                "kerfMm": 12,
+                "remnantMm": 78,
+                "remnantKind": "scrap"
+              },
+              {
+                "stockId": "A-03",
+                "stockLabel": "Fresh board 03",
+                "stockKind": "board",
+                "stockLengthMm": 2400,
+                "cuts": [
+                  {
+                    "requirementId": "shelf",
+                    "label": "Shelves",
+                    "instance": 3,
+                    "lengthMm": 720,
+                    "offsetMm": 0
+                  },
+                  {
+                    "requirementId": "shelf",
+                    "label": "Shelves",
+                    "instance": 4,
+                    "lengthMm": 720,
+                    "offsetMm": 723
+                  },
+                  {
+                    "requirementId": "brace",
+                    "label": "Braces",
+                    "instance": 2,
+                    "lengthMm": 560,
+                    "offsetMm": 1446
+                  },
+                  {
+                    "requirementId": "rail",
+                    "label": "Rails",
+                    "instance": 2,
+                    "lengthMm": 310,
+                    "offsetMm": 2009
+                  }
+                ],
+                "kerfMm": 12,
+                "remnantMm": 78,
+                "remnantKind": "scrap"
+              },
+              {
+                "stockId": "A-04",
+                "stockLabel": "Fresh board 04",
+                "stockKind": "board",
+                "stockLengthMm": 2400,
+                "cuts": [
+                  {
+                    "requirementId": "upright",
+                    "label": "Uprights",
+                    "instance": 1,
+                    "lengthMm": 440,
+                    "offsetMm": 0
+                  },
+                  {
+                    "requirementId": "upright",
+                    "label": "Uprights",
+                    "instance": 2,
+                    "lengthMm": 440,
+                    "offsetMm": 443
+                  },
+                  {
+                    "requirementId": "upright",
+                    "label": "Uprights",
+                    "instance": 3,
+                    "lengthMm": 440,
+                    "offsetMm": 886
+                  },
+                  {
+                    "requirementId": "upright",
+                    "label": "Uprights",
+                    "instance": 4,
+                    "lengthMm": 440,
+                    "offsetMm": 1329
+                  },
+                  {
+                    "requirementId": "rail",
+                    "label": "Rails",
+                    "instance": 3,
+                    "lengthMm": 310,
+                    "offsetMm": 1772
+                  },
+                  {
+                    "requirementId": "rail",
+                    "label": "Rails",
+                    "instance": 4,
+                    "lengthMm": 310,
+                    "offsetMm": 2085
+                  }
+                ],
+                "kerfMm": 18,
+                "remnantMm": 2,
+                "remnantKind": "scrap"
+              }
+            ],
+            "metrics": {
+              "stockUsedMm": 7200,
+              "partsMm": 7000,
+              "kerfMm": 42,
+              "reusableMm": 0,
+              "scrapMm": 158,
+              "boardCount": 3,
+              "utilization": 0.9722222222222222
+            },
+            "complete": true,
+            "unfulfilled": [],
+            "excludedStockIds": [],
+            "search": {
+              "method": "branch-and-bound",
+              "provenOptimal": true,
+              "nodes": 575,
+              "limit": 100000
+            }
+          },
+          "currentRevision": 1,
+          "fresh": true,
+          "approved": false,
+          "awaitingHumanApproval": false,
+          "canRequestReview": true,
+          "wasteMm": 200
+        },
+        "nextStep": "Compare or stage this proposal for human review. It is not approved."
+      },
+      "rawResult": "{\"ok\":true,\"plan\":{\"id\":\"plan-4b5e0154-42f3-49dd-a0b7-bc8d10fc7f88-8\",\"basedOnRevision\":1,\"createdAt\":\"2026-09-02T23:14:24.340Z\",\"actor\":\"webmcp\",\"solution\":{\"objective\":\"fewest_boards\",\"layouts\":[{\"stockId\":\"A-02\",\"stockLabel\":\"Fresh board 02\",\"stockKind\":\"board\",\"stockLengthMm\":2400,\"cuts\":[{\"requirementId\":\"shelf\",\"label\":\"Shelves\",\"instance\":1,\"lengthMm\":720,\"offsetMm\":0},{\"requirementId\":\"shelf\",\"label\":\"Shelves\",\"instance\":2,\"lengthMm\":720,\"offsetMm\":723},{\"requirementId\":\"brace\",\"label\":\"Braces\",\"instance\":1,\"lengthMm\":560,\"offsetMm\":1446},{\"requirementId\":\"rail\",\"label\":\"Rails\",\"instance\":1,\"lengthMm\":310,\"offsetMm\":2009}],\"kerfMm\":12,\"remnantMm\":78,\"remnantKind\":\"scrap\"},{\"stockId\":\"A-03\",\"stockLabel\":\"Fresh board 03\",\"stockKind\":\"board\",\"stockLengthMm\":2400,\"cuts\":[{\"requirementId\":\"shelf\",\"label\":\"Shelves\",\"instance\":3,\"lengthMm\":720,\"offsetMm\":0},{\"requirementId\":\"shelf\",\"label\":\"Shelves\",\"instance\":4,\"lengthMm\":720,\"offsetMm\":723},{\"requirementId\":\"brace\",\"label\":\"Braces\",\"instance\":2,\"lengthMm\":560,\"offsetMm\":1446},{\"requirementId\":\"rail\",\"label\":\"Rails\",\"instance\":2,\"lengthMm\":310,\"offsetMm\":2009}],\"kerfMm\":12,\"remnantMm\":78,\"remnantKind\":\"scrap\"},{\"stockId\":\"A-04\",\"stockLabel\":\"Fresh board 04\",\"stockKind\":\"board\",\"stockLengthMm\":2400,\"cuts\":[{\"requirementId\":\"upright\",\"label\":\"Uprights\",\"instance\":1,\"lengthMm\":440,\"offsetMm\":0},{\"requirementId\":\"upright\",\"label\":\"Uprights\",\"instance\":2,\"lengthMm\":440,\"offsetMm\":443},{\"requirementId\":\"upright\",\"label\":\"Uprights\",\"instance\":3,\"lengthMm\":440,\"offsetMm\":886},{\"requirementId\":\"upright\",\"label\":\"Uprights\",\"instance\":4,\"lengthMm\":440,\"offsetMm\":1329},{\"requirementId\":\"rail\",\"label\":\"Rails\",\"instance\":3,\"lengthMm\":310,\"offsetMm\":1772},{\"requirementId\":\"rail\",\"label\":\"Rails\",\"instance\":4,\"lengthMm\":310,\"offsetMm\":2085}],\"kerfMm\":18,\"remnantMm\":2,\"remnantKind\":\"scrap\"}],\"metrics\":{\"stockUsedMm\":7200,\"partsMm\":7000,\"kerfMm\":42,\"reusableMm\":0,\"scrapMm\":158,\"boardCount\":3,\"utilization\":0.9722222222222222},\"complete\":true,\"unfulfilled\":[],\"excludedStockIds\":[],\"search\":{\"method\":\"branch-and-bound\",\"provenOptimal\":true,\"nodes\":575,\"limit\":100000}},\"currentRevision\":1,\"fresh\":true,\"approved\":false,\"awaitingHumanApproval\":false,\"canRequestReview\":true,\"wasteMm\":200},\"nextStep\":\"Compare or stage this proposal for human review. It is not approved.\"}",
+      "startedAtMs": 208850,
+      "returnedAtMs": 208919
+    },
+    {
+      "order": 4,
+      "tool": "plan_cuts",
+      "reason": "The least-stock and fewest-boards proposals are complete, fresh and proven optimal. Generate the remaining least-waste proposal at revision 1, respecting protected stock, 3 mm kerf and the 400 mm reusable-remnant threshold.",
+      "input": {
+        "expectedRevision": 1,
+        "objective": "least_waste"
+      },
+      "summary": {
+        "ok": true,
+        "objective": "least_waste",
+        "complete": true,
+        "revision": 1,
+        "parts": 14,
+        "stockMm": 10080,
+        "boards": 6,
+        "wasteMm": 42,
+        "reusableMm": 3038,
+        "approved": false
+      },
+      "result": {
+        "ok": true,
+        "plan": {
+          "id": "plan-4b5e0154-42f3-49dd-a0b7-bc8d10fc7f88-10",
+          "basedOnRevision": 1,
+          "createdAt": "2026-09-02T23:14:29.948Z",
+          "actor": "webmcp",
+          "solution": {
+            "objective": "least_waste",
+            "layouts": [
+              {
+                "stockId": "R-03",
+                "stockLabel": "Window seat offcut",
+                "stockKind": "offcut",
+                "stockLengthMm": 740,
+                "cuts": [
+                  {
+                    "requirementId": "rail",
+                    "label": "Rails",
+                    "instance": 4,
+                    "lengthMm": 310,
+                    "offsetMm": 0
+                  }
+                ],
+                "kerfMm": 3,
+                "remnantMm": 427,
+                "remnantKind": "reusable"
+              },
+              {
+                "stockId": "R-02",
+                "stockLabel": "Saved shelf offcut",
+                "stockKind": "offcut",
+                "stockLengthMm": 960,
+                "cuts": [
+                  {
+                    "requirementId": "upright",
+                    "label": "Uprights",
+                    "instance": 2,
+                    "lengthMm": 440,
+                    "offsetMm": 0
+                  }
+                ],
+                "kerfMm": 3,
+                "remnantMm": 517,
+                "remnantKind": "reusable"
+              },
+              {
+                "stockId": "R-01",
+                "stockLabel": "Bench project offcut",
+                "stockKind": "offcut",
+                "stockLengthMm": 1180,
+                "cuts": [
+                  {
+                    "requirementId": "shelf",
+                    "label": "Shelves",
+                    "instance": 1,
+                    "lengthMm": 720,
+                    "offsetMm": 0
+                  }
+                ],
+                "kerfMm": 3,
+                "remnantMm": 457,
+                "remnantKind": "reusable"
+              },
+              {
+                "stockId": "A-02",
+                "stockLabel": "Fresh board 02",
+                "stockKind": "board",
+                "stockLengthMm": 2400,
+                "cuts": [
+                  {
+                    "requirementId": "shelf",
+                    "label": "Shelves",
+                    "instance": 2,
+                    "lengthMm": 720,
+                    "offsetMm": 0
+                  },
+                  {
+                    "requirementId": "shelf",
+                    "label": "Shelves",
+                    "instance": 3,
+                    "lengthMm": 720,
+                    "offsetMm": 723
+                  },
+                  {
+                    "requirementId": "upright",
+                    "label": "Uprights",
+                    "instance": 1,
+                    "lengthMm": 440,
+                    "offsetMm": 1446
+                  }
+                ],
+                "kerfMm": 9,
+                "remnantMm": 511,
+                "remnantKind": "reusable"
+              },
+              {
+                "stockId": "A-03",
+                "stockLabel": "Fresh board 03",
+                "stockKind": "board",
+                "stockLengthMm": 2400,
+                "cuts": [
+                  {
+                    "requirementId": "shelf",
+                    "label": "Shelves",
+                    "instance": 4,
+                    "lengthMm": 720,
+                    "offsetMm": 0
+                  },
+                  {
+                    "requirementId": "brace",
+                    "label": "Braces",
+                    "instance": 1,
+                    "lengthMm": 560,
+                    "offsetMm": 723
+                  },
+                  {
+                    "requirementId": "brace",
+                    "label": "Braces",
+                    "instance": 2,
+                    "lengthMm": 560,
+                    "offsetMm": 1286
+                  }
+                ],
+                "kerfMm": 9,
+                "remnantMm": 551,
+                "remnantKind": "reusable"
+              },
+              {
+                "stockId": "A-04",
+                "stockLabel": "Fresh board 04",
+                "stockKind": "board",
+                "stockLengthMm": 2400,
+                "cuts": [
+                  {
+                    "requirementId": "upright",
+                    "label": "Uprights",
+                    "instance": 3,
+                    "lengthMm": 440,
+                    "offsetMm": 0
+                  },
+                  {
+                    "requirementId": "upright",
+                    "label": "Uprights",
+                    "instance": 4,
+                    "lengthMm": 440,
+                    "offsetMm": 443
+                  },
+                  {
+                    "requirementId": "rail",
+                    "label": "Rails",
+                    "instance": 1,
+                    "lengthMm": 310,
+                    "offsetMm": 886
+                  },
+                  {
+                    "requirementId": "rail",
+                    "label": "Rails",
+                    "instance": 2,
+                    "lengthMm": 310,
+                    "offsetMm": 1199
+                  },
+                  {
+                    "requirementId": "rail",
+                    "label": "Rails",
+                    "instance": 3,
+                    "lengthMm": 310,
+                    "offsetMm": 1512
+                  }
+                ],
+                "kerfMm": 15,
+                "remnantMm": 575,
+                "remnantKind": "reusable"
+              }
+            ],
+            "metrics": {
+              "stockUsedMm": 10080,
+              "partsMm": 7000,
+              "kerfMm": 42,
+              "reusableMm": 3038,
+              "scrapMm": 0,
+              "boardCount": 6,
+              "utilization": 0.6944444444444444
+            },
+            "complete": true,
+            "unfulfilled": [],
+            "excludedStockIds": [],
+            "search": {
+              "method": "branch-and-bound",
+              "provenOptimal": true,
+              "nodes": 3016,
+              "limit": 100000
+            }
+          },
+          "currentRevision": 1,
+          "fresh": true,
+          "approved": false,
+          "awaitingHumanApproval": false,
+          "canRequestReview": true,
+          "wasteMm": 42
+        },
+        "nextStep": "Compare or stage this proposal for human review. It is not approved."
+      },
+      "rawResult": "{\"ok\":true,\"plan\":{\"id\":\"plan-4b5e0154-42f3-49dd-a0b7-bc8d10fc7f88-10\",\"basedOnRevision\":1,\"createdAt\":\"2026-09-02T23:14:29.948Z\",\"actor\":\"webmcp\",\"solution\":{\"objective\":\"least_waste\",\"layouts\":[{\"stockId\":\"R-03\",\"stockLabel\":\"Window seat offcut\",\"stockKind\":\"offcut\",\"stockLengthMm\":740,\"cuts\":[{\"requirementId\":\"rail\",\"label\":\"Rails\",\"instance\":4,\"lengthMm\":310,\"offsetMm\":0}],\"kerfMm\":3,\"remnantMm\":427,\"remnantKind\":\"reusable\"},{\"stockId\":\"R-02\",\"stockLabel\":\"Saved shelf offcut\",\"stockKind\":\"offcut\",\"stockLengthMm\":960,\"cuts\":[{\"requirementId\":\"upright\",\"label\":\"Uprights\",\"instance\":2,\"lengthMm\":440,\"offsetMm\":0}],\"kerfMm\":3,\"remnantMm\":517,\"remnantKind\":\"reusable\"},{\"stockId\":\"R-01\",\"stockLabel\":\"Bench project offcut\",\"stockKind\":\"offcut\",\"stockLengthMm\":1180,\"cuts\":[{\"requirementId\":\"shelf\",\"label\":\"Shelves\",\"instance\":1,\"lengthMm\":720,\"offsetMm\":0}],\"kerfMm\":3,\"remnantMm\":457,\"remnantKind\":\"reusable\"},{\"stockId\":\"A-02\",\"stockLabel\":\"Fresh board 02\",\"stockKind\":\"board\",\"stockLengthMm\":2400,\"cuts\":[{\"requirementId\":\"shelf\",\"label\":\"Shelves\",\"instance\":2,\"lengthMm\":720,\"offsetMm\":0},{\"requirementId\":\"shelf\",\"label\":\"Shelves\",\"instance\":3,\"lengthMm\":720,\"offsetMm\":723},{\"requirementId\":\"upright\",\"label\":\"Uprights\",\"instance\":1,\"lengthMm\":440,\"offsetMm\":1446}],\"kerfMm\":9,\"remnantMm\":511,\"remnantKind\":\"reusable\"},{\"stockId\":\"A-03\",\"stockLabel\":\"Fresh board 03\",\"stockKind\":\"board\",\"stockLengthMm\":2400,\"cuts\":[{\"requirementId\":\"shelf\",\"label\":\"Shelves\",\"instance\":4,\"lengthMm\":720,\"offsetMm\":0},{\"requirementId\":\"brace\",\"label\":\"Braces\",\"instance\":1,\"lengthMm\":560,\"offsetMm\":723},{\"requirementId\":\"brace\",\"label\":\"Braces\",\"instance\":2,\"lengthMm\":560,\"offsetMm\":1286}],\"kerfMm\":9,\"remnantMm\":551,\"remnantKind\":\"reusable\"},{\"stockId\":\"A-04\",\"stockLabel\":\"Fresh board 04\",\"stockKind\":\"board\",\"stockLengthMm\":2400,\"cuts\":[{\"requirementId\":\"upright\",\"label\":\"Uprights\",\"instance\":3,\"lengthMm\":440,\"offsetMm\":0},{\"requirementId\":\"upright\",\"label\":\"Uprights\",\"instance\":4,\"lengthMm\":440,\"offsetMm\":443},{\"requirementId\":\"rail\",\"label\":\"Rails\",\"instance\":1,\"lengthMm\":310,\"offsetMm\":886},{\"requirementId\":\"rail\",\"label\":\"Rails\",\"instance\":2,\"lengthMm\":310,\"offsetMm\":1199},{\"requirementId\":\"rail\",\"label\":\"Rails\",\"instance\":3,\"lengthMm\":310,\"offsetMm\":1512}],\"kerfMm\":15,\"remnantMm\":575,\"remnantKind\":\"reusable\"}],\"metrics\":{\"stockUsedMm\":10080,\"partsMm\":7000,\"kerfMm\":42,\"reusableMm\":3038,\"scrapMm\":0,\"boardCount\":6,\"utilization\":0.6944444444444444},\"complete\":true,\"unfulfilled\":[],\"excludedStockIds\":[],\"search\":{\"method\":\"branch-and-bound\",\"provenOptimal\":true,\"nodes\":3016,\"limit\":100000}},\"currentRevision\":1,\"fresh\":true,\"approved\":false,\"awaitingHumanApproval\":false,\"canRequestReview\":true,\"wasteMm\":42},\"nextStep\":\"Compare or stage this proposal for human review. It is not approved.\"}",
+      "startedAtMs": 214477,
+      "returnedAtMs": 214531
+    },
+    {
+      "order": 5,
+      "tool": "compare_plans",
+      "reason": "All three proposals are complete, fresh and proven optimal at revision 1. Compare their actual tradeoffs with least_stock as the baseline before inspecting and staging that exact proposal.",
+      "input": {
+        "planIds": [
+          "plan-4b5e0154-42f3-49dd-a0b7-bc8d10fc7f88-6",
+          "plan-4b5e0154-42f3-49dd-a0b7-bc8d10fc7f88-8",
+          "plan-4b5e0154-42f3-49dd-a0b7-bc8d10fc7f88-10"
+        ]
+      },
+      "summary": {
+        "ok": true,
+        "revision": 1,
+        "actualAlternatives": [
+          "least_stock: 7200mm stock / 3 lengths / 200mm waste / 0mm reusable",
+          "fewest_boards: 7200mm stock / 3 lengths / 200mm waste / 0mm reusable",
+          "least_waste: 10080mm stock / 6 lengths / 42mm waste / 3038mm reusable"
+        ]
+      },
+      "result": {
+        "ok": true,
+        "revision": 1,
+        "baselinePlanId": "plan-4b5e0154-42f3-49dd-a0b7-bc8d10fc7f88-6",
+        "plans": [
+          {
+            "id": "plan-4b5e0154-42f3-49dd-a0b7-bc8d10fc7f88-6",
+            "objective": "least_stock",
+            "metrics": {
+              "stockUsedMm": 7200,
+              "partsMm": 7000,
+              "kerfMm": 42,
+              "reusableMm": 0,
+              "scrapMm": 158,
+              "boardCount": 3,
+              "utilization": 0.9722222222222222
+            },
+            "wasteMm": 200,
+            "provenOptimal": true,
+            "deltaFromFirst": {
+              "stockUsedMm": 0,
+              "boardCount": 0,
+              "wasteMm": 0,
+              "reusableMm": 0,
+              "utilizationPercentagePoints": 0
+            }
+          },
+          {
+            "id": "plan-4b5e0154-42f3-49dd-a0b7-bc8d10fc7f88-8",
+            "objective": "fewest_boards",
+            "metrics": {
+              "stockUsedMm": 7200,
+              "partsMm": 7000,
+              "kerfMm": 42,
+              "reusableMm": 0,
+              "scrapMm": 158,
+              "boardCount": 3,
+              "utilization": 0.9722222222222222
+            },
+            "wasteMm": 200,
+            "provenOptimal": true,
+            "deltaFromFirst": {
+              "stockUsedMm": 0,
+              "boardCount": 0,
+              "wasteMm": 0,
+              "reusableMm": 0,
+              "utilizationPercentagePoints": 0
+            }
+          },
+          {
+            "id": "plan-4b5e0154-42f3-49dd-a0b7-bc8d10fc7f88-10",
+            "objective": "least_waste",
+            "metrics": {
+              "stockUsedMm": 10080,
+              "partsMm": 7000,
+              "kerfMm": 42,
+              "reusableMm": 3038,
+              "scrapMm": 0,
+              "boardCount": 6,
+              "utilization": 0.6944444444444444
+            },
+            "wasteMm": 42,
+            "provenOptimal": true,
+            "deltaFromFirst": {
+              "stockUsedMm": 2880,
+              "boardCount": 3,
+              "wasteMm": -158,
+              "reusableMm": 3038,
+              "utilizationPercentagePoints": -27.77777777777778
+            }
+          }
+        ]
+      },
+      "rawResult": "{\"ok\":true,\"revision\":1,\"baselinePlanId\":\"plan-4b5e0154-42f3-49dd-a0b7-bc8d10fc7f88-6\",\"plans\":[{\"id\":\"plan-4b5e0154-42f3-49dd-a0b7-bc8d10fc7f88-6\",\"objective\":\"least_stock\",\"metrics\":{\"stockUsedMm\":7200,\"partsMm\":7000,\"kerfMm\":42,\"reusableMm\":0,\"scrapMm\":158,\"boardCount\":3,\"utilization\":0.9722222222222222},\"wasteMm\":200,\"provenOptimal\":true,\"deltaFromFirst\":{\"stockUsedMm\":0,\"boardCount\":0,\"wasteMm\":0,\"reusableMm\":0,\"utilizationPercentagePoints\":0}},{\"id\":\"plan-4b5e0154-42f3-49dd-a0b7-bc8d10fc7f88-8\",\"objective\":\"fewest_boards\",\"metrics\":{\"stockUsedMm\":7200,\"partsMm\":7000,\"kerfMm\":42,\"reusableMm\":0,\"scrapMm\":158,\"boardCount\":3,\"utilization\":0.9722222222222222},\"wasteMm\":200,\"provenOptimal\":true,\"deltaFromFirst\":{\"stockUsedMm\":0,\"boardCount\":0,\"wasteMm\":0,\"reusableMm\":0,\"utilizationPercentagePoints\":0}},{\"id\":\"plan-4b5e0154-42f3-49dd-a0b7-bc8d10fc7f88-10\",\"objective\":\"least_waste\",\"metrics\":{\"stockUsedMm\":10080,\"partsMm\":7000,\"kerfMm\":42,\"reusableMm\":3038,\"scrapMm\":0,\"boardCount\":6,\"utilization\":0.6944444444444444},\"wasteMm\":42,\"provenOptimal\":true,\"deltaFromFirst\":{\"stockUsedMm\":2880,\"boardCount\":3,\"wasteMm\":-158,\"reusableMm\":3038,\"utilizationPercentagePoints\":-27.77777777777778}}]}",
+      "startedAtMs": 219782,
+      "returnedAtMs": 219804
+    },
+    {
+      "order": 6,
+      "tool": "inspect_plan",
+      "reason": "All three actual proposals have been compared. Inspect the exact least-stock proposal to verify its layout, completeness and freshness before staging it for human review.",
+      "input": {
+        "planId": "plan-4b5e0154-42f3-49dd-a0b7-bc8d10fc7f88-6"
+      },
+      "summary": {
+        "ok": true,
+        "objective": "least_stock",
+        "complete": true,
+        "revision": 1,
+        "parts": 14,
+        "stockMm": 7200,
+        "boards": 3,
+        "wasteMm": 200,
+        "reusableMm": 0,
+        "approved": false
+      },
+      "result": {
+        "ok": true,
+        "plan": {
+          "id": "plan-4b5e0154-42f3-49dd-a0b7-bc8d10fc7f88-6",
+          "basedOnRevision": 1,
+          "createdAt": "2026-09-02T23:14:19.595Z",
+          "actor": "webmcp",
+          "solution": {
+            "objective": "least_stock",
+            "layouts": [
+              {
+                "stockId": "A-02",
+                "stockLabel": "Fresh board 02",
+                "stockKind": "board",
+                "stockLengthMm": 2400,
+                "cuts": [
+                  {
+                    "requirementId": "shelf",
+                    "label": "Shelves",
+                    "instance": 1,
+                    "lengthMm": 720,
+                    "offsetMm": 0
+                  },
+                  {
+                    "requirementId": "shelf",
+                    "label": "Shelves",
+                    "instance": 2,
+                    "lengthMm": 720,
+                    "offsetMm": 723
+                  },
+                  {
+                    "requirementId": "brace",
+                    "label": "Braces",
+                    "instance": 1,
+                    "lengthMm": 560,
+                    "offsetMm": 1446
+                  },
+                  {
+                    "requirementId": "rail",
+                    "label": "Rails",
+                    "instance": 1,
+                    "lengthMm": 310,
+                    "offsetMm": 2009
+                  }
+                ],
+                "kerfMm": 12,
+                "remnantMm": 78,
+                "remnantKind": "scrap"
+              },
+              {
+                "stockId": "A-03",
+                "stockLabel": "Fresh board 03",
+                "stockKind": "board",
+                "stockLengthMm": 2400,
+                "cuts": [
+                  {
+                    "requirementId": "shelf",
+                    "label": "Shelves",
+                    "instance": 3,
+                    "lengthMm": 720,
+                    "offsetMm": 0
+                  },
+                  {
+                    "requirementId": "shelf",
+                    "label": "Shelves",
+                    "instance": 4,
+                    "lengthMm": 720,
+                    "offsetMm": 723
+                  },
+                  {
+                    "requirementId": "brace",
+                    "label": "Braces",
+                    "instance": 2,
+                    "lengthMm": 560,
+                    "offsetMm": 1446
+                  },
+                  {
+                    "requirementId": "rail",
+                    "label": "Rails",
+                    "instance": 2,
+                    "lengthMm": 310,
+                    "offsetMm": 2009
+                  }
+                ],
+                "kerfMm": 12,
+                "remnantMm": 78,
+                "remnantKind": "scrap"
+              },
+              {
+                "stockId": "A-04",
+                "stockLabel": "Fresh board 04",
+                "stockKind": "board",
+                "stockLengthMm": 2400,
+                "cuts": [
+                  {
+                    "requirementId": "upright",
+                    "label": "Uprights",
+                    "instance": 1,
+                    "lengthMm": 440,
+                    "offsetMm": 0
+                  },
+                  {
+                    "requirementId": "upright",
+                    "label": "Uprights",
+                    "instance": 2,
+                    "lengthMm": 440,
+                    "offsetMm": 443
+                  },
+                  {
+                    "requirementId": "upright",
+                    "label": "Uprights",
+                    "instance": 3,
+                    "lengthMm": 440,
+                    "offsetMm": 886
+                  },
+                  {
+                    "requirementId": "upright",
+                    "label": "Uprights",
+                    "instance": 4,
+                    "lengthMm": 440,
+                    "offsetMm": 1329
+                  },
+                  {
+                    "requirementId": "rail",
+                    "label": "Rails",
+                    "instance": 3,
+                    "lengthMm": 310,
+                    "offsetMm": 1772
+                  },
+                  {
+                    "requirementId": "rail",
+                    "label": "Rails",
+                    "instance": 4,
+                    "lengthMm": 310,
+                    "offsetMm": 2085
+                  }
+                ],
+                "kerfMm": 18,
+                "remnantMm": 2,
+                "remnantKind": "scrap"
+              }
+            ],
+            "metrics": {
+              "stockUsedMm": 7200,
+              "partsMm": 7000,
+              "kerfMm": 42,
+              "reusableMm": 0,
+              "scrapMm": 158,
+              "boardCount": 3,
+              "utilization": 0.9722222222222222
+            },
+            "complete": true,
+            "unfulfilled": [],
+            "excludedStockIds": [],
+            "search": {
+              "method": "branch-and-bound",
+              "provenOptimal": true,
+              "nodes": 3797,
+              "limit": 100000
+            }
+          },
+          "currentRevision": 1,
+          "fresh": true,
+          "approved": false,
+          "awaitingHumanApproval": false,
+          "canRequestReview": true,
+          "wasteMm": 200
+        },
+        "physicalModel": [
+          "Integer millimetres; all stock has the same material and cross-section.",
+          "Entered stock lengths are usable lengths, after the human has deducted end trim and defects.",
+          "Each produced part consumes one kerf. No free final factory-end cut is assumed.",
+          "Sawdust and short scrap are waste; reusable remnants and unopened stock are not.",
+          "A plan is a planning estimate, not a machine instruction or a safe-cutting guarantee."
+        ]
+      },
+      "rawResult": "{\"ok\":true,\"plan\":{\"id\":\"plan-4b5e0154-42f3-49dd-a0b7-bc8d10fc7f88-6\",\"basedOnRevision\":1,\"createdAt\":\"2026-09-02T23:14:19.595Z\",\"actor\":\"webmcp\",\"solution\":{\"objective\":\"least_stock\",\"layouts\":[{\"stockId\":\"A-02\",\"stockLabel\":\"Fresh board 02\",\"stockKind\":\"board\",\"stockLengthMm\":2400,\"cuts\":[{\"requirementId\":\"shelf\",\"label\":\"Shelves\",\"instance\":1,\"lengthMm\":720,\"offsetMm\":0},{\"requirementId\":\"shelf\",\"label\":\"Shelves\",\"instance\":2,\"lengthMm\":720,\"offsetMm\":723},{\"requirementId\":\"brace\",\"label\":\"Braces\",\"instance\":1,\"lengthMm\":560,\"offsetMm\":1446},{\"requirementId\":\"rail\",\"label\":\"Rails\",\"instance\":1,\"lengthMm\":310,\"offsetMm\":2009}],\"kerfMm\":12,\"remnantMm\":78,\"remnantKind\":\"scrap\"},{\"stockId\":\"A-03\",\"stockLabel\":\"Fresh board 03\",\"stockKind\":\"board\",\"stockLengthMm\":2400,\"cuts\":[{\"requirementId\":\"shelf\",\"label\":\"Shelves\",\"instance\":3,\"lengthMm\":720,\"offsetMm\":0},{\"requirementId\":\"shelf\",\"label\":\"Shelves\",\"instance\":4,\"lengthMm\":720,\"offsetMm\":723},{\"requirementId\":\"brace\",\"label\":\"Braces\",\"instance\":2,\"lengthMm\":560,\"offsetMm\":1446},{\"requirementId\":\"rail\",\"label\":\"Rails\",\"instance\":2,\"lengthMm\":310,\"offsetMm\":2009}],\"kerfMm\":12,\"remnantMm\":78,\"remnantKind\":\"scrap\"},{\"stockId\":\"A-04\",\"stockLabel\":\"Fresh board 04\",\"stockKind\":\"board\",\"stockLengthMm\":2400,\"cuts\":[{\"requirementId\":\"upright\",\"label\":\"Uprights\",\"instance\":1,\"lengthMm\":440,\"offsetMm\":0},{\"requirementId\":\"upright\",\"label\":\"Uprights\",\"instance\":2,\"lengthMm\":440,\"offsetMm\":443},{\"requirementId\":\"upright\",\"label\":\"Uprights\",\"instance\":3,\"lengthMm\":440,\"offsetMm\":886},{\"requirementId\":\"upright\",\"label\":\"Uprights\",\"instance\":4,\"lengthMm\":440,\"offsetMm\":1329},{\"requirementId\":\"rail\",\"label\":\"Rails\",\"instance\":3,\"lengthMm\":310,\"offsetMm\":1772},{\"requirementId\":\"rail\",\"label\":\"Rails\",\"instance\":4,\"lengthMm\":310,\"offsetMm\":2085}],\"kerfMm\":18,\"remnantMm\":2,\"remnantKind\":\"scrap\"}],\"metrics\":{\"stockUsedMm\":7200,\"partsMm\":7000,\"kerfMm\":42,\"reusableMm\":0,\"scrapMm\":158,\"boardCount\":3,\"utilization\":0.9722222222222222},\"complete\":true,\"unfulfilled\":[],\"excludedStockIds\":[],\"search\":{\"method\":\"branch-and-bound\",\"provenOptimal\":true,\"nodes\":3797,\"limit\":100000}},\"currentRevision\":1,\"fresh\":true,\"approved\":false,\"awaitingHumanApproval\":false,\"canRequestReview\":true,\"wasteMm\":200},\"physicalModel\":[\"Integer millimetres; all stock has the same material and cross-section.\",\"Entered stock lengths are usable lengths, after the human has deducted end trim and defects.\",\"Each produced part consumes one kerf. No free final factory-end cut is assumed.\",\"Sawdust and short scrap are waste; reusable remnants and unopened stock are not.\",\"A plan is a planning estimate, not a machine instruction or a safe-cutting guarantee.\"]}",
+      "startedAtMs": 224442,
+      "returnedAtMs": 224472
+    },
+    {
+      "order": 7,
+      "tool": "stage_plan_for_review",
+      "reason": "All three proposals have been compared, and the exact least-stock proposal is inspected, complete, fresh and proven optimal at revision 1. Stage it for human review without approving or exporting.",
+      "input": {
+        "planId": "plan-4b5e0154-42f3-49dd-a0b7-bc8d10fc7f88-6",
+        "expectedRevision": 1
+      },
+      "summary": {
+        "ok": true,
+        "objective": "least_stock",
+        "complete": true,
+        "revision": 1,
+        "parts": 14,
+        "stockMm": 7200,
+        "boards": 3,
+        "wasteMm": 200,
+        "reusableMm": 0,
+        "approved": false,
+        "status": "awaiting_human_approval"
+      },
+      "result": {
+        "ok": true,
+        "status": "awaiting_human_approval",
+        "plan": {
+          "id": "plan-4b5e0154-42f3-49dd-a0b7-bc8d10fc7f88-6",
+          "basedOnRevision": 1,
+          "createdAt": "2026-09-02T23:14:19.595Z",
+          "actor": "webmcp",
+          "solution": {
+            "objective": "least_stock",
+            "layouts": [
+              {
+                "stockId": "A-02",
+                "stockLabel": "Fresh board 02",
+                "stockKind": "board",
+                "stockLengthMm": 2400,
+                "cuts": [
+                  {
+                    "requirementId": "shelf",
+                    "label": "Shelves",
+                    "instance": 1,
+                    "lengthMm": 720,
+                    "offsetMm": 0
+                  },
+                  {
+                    "requirementId": "shelf",
+                    "label": "Shelves",
+                    "instance": 2,
+                    "lengthMm": 720,
+                    "offsetMm": 723
+                  },
+                  {
+                    "requirementId": "brace",
+                    "label": "Braces",
+                    "instance": 1,
+                    "lengthMm": 560,
+                    "offsetMm": 1446
+                  },
+                  {
+                    "requirementId": "rail",
+                    "label": "Rails",
+                    "instance": 1,
+                    "lengthMm": 310,
+                    "offsetMm": 2009
+                  }
+                ],
+                "kerfMm": 12,
+                "remnantMm": 78,
+                "remnantKind": "scrap"
+              },
+              {
+                "stockId": "A-03",
+                "stockLabel": "Fresh board 03",
+                "stockKind": "board",
+                "stockLengthMm": 2400,
+                "cuts": [
+                  {
+                    "requirementId": "shelf",
+                    "label": "Shelves",
+                    "instance": 3,
+                    "lengthMm": 720,
+                    "offsetMm": 0
+                  },
+                  {
+                    "requirementId": "shelf",
+                    "label": "Shelves",
+                    "instance": 4,
+                    "lengthMm": 720,
+                    "offsetMm": 723
+                  },
+                  {
+                    "requirementId": "brace",
+                    "label": "Braces",
+                    "instance": 2,
+                    "lengthMm": 560,
+                    "offsetMm": 1446
+                  },
+                  {
+                    "requirementId": "rail",
+                    "label": "Rails",
+                    "instance": 2,
+                    "lengthMm": 310,
+                    "offsetMm": 2009
+                  }
+                ],
+                "kerfMm": 12,
+                "remnantMm": 78,
+                "remnantKind": "scrap"
+              },
+              {
+                "stockId": "A-04",
+                "stockLabel": "Fresh board 04",
+                "stockKind": "board",
+                "stockLengthMm": 2400,
+                "cuts": [
+                  {
+                    "requirementId": "upright",
+                    "label": "Uprights",
+                    "instance": 1,
+                    "lengthMm": 440,
+                    "offsetMm": 0
+                  },
+                  {
+                    "requirementId": "upright",
+                    "label": "Uprights",
+                    "instance": 2,
+                    "lengthMm": 440,
+                    "offsetMm": 443
+                  },
+                  {
+                    "requirementId": "upright",
+                    "label": "Uprights",
+                    "instance": 3,
+                    "lengthMm": 440,
+                    "offsetMm": 886
+                  },
+                  {
+                    "requirementId": "upright",
+                    "label": "Uprights",
+                    "instance": 4,
+                    "lengthMm": 440,
+                    "offsetMm": 1329
+                  },
+                  {
+                    "requirementId": "rail",
+                    "label": "Rails",
+                    "instance": 3,
+                    "lengthMm": 310,
+                    "offsetMm": 1772
+                  },
+                  {
+                    "requirementId": "rail",
+                    "label": "Rails",
+                    "instance": 4,
+                    "lengthMm": 310,
+                    "offsetMm": 2085
+                  }
+                ],
+                "kerfMm": 18,
+                "remnantMm": 2,
+                "remnantKind": "scrap"
+              }
+            ],
+            "metrics": {
+              "stockUsedMm": 7200,
+              "partsMm": 7000,
+              "kerfMm": 42,
+              "reusableMm": 0,
+              "scrapMm": 158,
+              "boardCount": 3,
+              "utilization": 0.9722222222222222
+            },
+            "complete": true,
+            "unfulfilled": [],
+            "excludedStockIds": [],
+            "search": {
+              "method": "branch-and-bound",
+              "provenOptimal": true,
+              "nodes": 3797,
+              "limit": 100000
+            }
+          },
+          "currentRevision": 1,
+          "fresh": true,
+          "approved": false,
+          "awaitingHumanApproval": true,
+          "canRequestReview": true,
+          "wasteMm": 200
+        },
+        "nextStep": "Wait for the human to review and approve in the site. No tool can approve. After approval, inspect_plan or export_cut_list can confirm the released cut sheet."
+      },
+      "rawResult": "{\"ok\":true,\"status\":\"awaiting_human_approval\",\"plan\":{\"id\":\"plan-4b5e0154-42f3-49dd-a0b7-bc8d10fc7f88-6\",\"basedOnRevision\":1,\"createdAt\":\"2026-09-02T23:14:19.595Z\",\"actor\":\"webmcp\",\"solution\":{\"objective\":\"least_stock\",\"layouts\":[{\"stockId\":\"A-02\",\"stockLabel\":\"Fresh board 02\",\"stockKind\":\"board\",\"stockLengthMm\":2400,\"cuts\":[{\"requirementId\":\"shelf\",\"label\":\"Shelves\",\"instance\":1,\"lengthMm\":720,\"offsetMm\":0},{\"requirementId\":\"shelf\",\"label\":\"Shelves\",\"instance\":2,\"lengthMm\":720,\"offsetMm\":723},{\"requirementId\":\"brace\",\"label\":\"Braces\",\"instance\":1,\"lengthMm\":560,\"offsetMm\":1446},{\"requirementId\":\"rail\",\"label\":\"Rails\",\"instance\":1,\"lengthMm\":310,\"offsetMm\":2009}],\"kerfMm\":12,\"remnantMm\":78,\"remnantKind\":\"scrap\"},{\"stockId\":\"A-03\",\"stockLabel\":\"Fresh board 03\",\"stockKind\":\"board\",\"stockLengthMm\":2400,\"cuts\":[{\"requirementId\":\"shelf\",\"label\":\"Shelves\",\"instance\":3,\"lengthMm\":720,\"offsetMm\":0},{\"requirementId\":\"shelf\",\"label\":\"Shelves\",\"instance\":4,\"lengthMm\":720,\"offsetMm\":723},{\"requirementId\":\"brace\",\"label\":\"Braces\",\"instance\":2,\"lengthMm\":560,\"offsetMm\":1446},{\"requirementId\":\"rail\",\"label\":\"Rails\",\"instance\":2,\"lengthMm\":310,\"offsetMm\":2009}],\"kerfMm\":12,\"remnantMm\":78,\"remnantKind\":\"scrap\"},{\"stockId\":\"A-04\",\"stockLabel\":\"Fresh board 04\",\"stockKind\":\"board\",\"stockLengthMm\":2400,\"cuts\":[{\"requirementId\":\"upright\",\"label\":\"Uprights\",\"instance\":1,\"lengthMm\":440,\"offsetMm\":0},{\"requirementId\":\"upright\",\"label\":\"Uprights\",\"instance\":2,\"lengthMm\":440,\"offsetMm\":443},{\"requirementId\":\"upright\",\"label\":\"Uprights\",\"instance\":3,\"lengthMm\":440,\"offsetMm\":886},{\"requirementId\":\"upright\",\"label\":\"Uprights\",\"instance\":4,\"lengthMm\":440,\"offsetMm\":1329},{\"requirementId\":\"rail\",\"label\":\"Rails\",\"instance\":3,\"lengthMm\":310,\"offsetMm\":1772},{\"requirementId\":\"rail\",\"label\":\"Rails\",\"instance\":4,\"lengthMm\":310,\"offsetMm\":2085}],\"kerfMm\":18,\"remnantMm\":2,\"remnantKind\":\"scrap\"}],\"metrics\":{\"stockUsedMm\":7200,\"partsMm\":7000,\"kerfMm\":42,\"reusableMm\":0,\"scrapMm\":158,\"boardCount\":3,\"utilization\":0.9722222222222222},\"complete\":true,\"unfulfilled\":[],\"excludedStockIds\":[],\"search\":{\"method\":\"branch-and-bound\",\"provenOptimal\":true,\"nodes\":3797,\"limit\":100000}},\"currentRevision\":1,\"fresh\":true,\"approved\":false,\"awaitingHumanApproval\":true,\"canRequestReview\":true,\"wasteMm\":200},\"nextStep\":\"Wait for the human to review and approve in the site. No tool can approve. After approval, inspect_plan or export_cut_list can confirm the released cut sheet.\"}",
+      "startedAtMs": 228937,
+      "returnedAtMs": 229015
+    },
+    {
+      "order": 8,
+      "tool": "inspect_plan",
+      "reason": "Inspect the exact UI-approved least-stock proposal to confirm its current approval, completeness and freshness before exporting.",
+      "input": {
+        "planId": "plan-4b5e0154-42f3-49dd-a0b7-bc8d10fc7f88-6"
+      },
+      "summary": {
+        "ok": true,
+        "objective": "least_stock",
+        "complete": true,
+        "revision": 1,
+        "parts": 14,
+        "stockMm": 7200,
+        "boards": 3,
+        "wasteMm": 200,
+        "reusableMm": 0,
+        "approved": true
+      },
+      "result": {
+        "ok": true,
+        "plan": {
+          "id": "plan-4b5e0154-42f3-49dd-a0b7-bc8d10fc7f88-6",
+          "basedOnRevision": 1,
+          "createdAt": "2026-09-02T23:14:19.595Z",
+          "actor": "webmcp",
+          "solution": {
+            "objective": "least_stock",
+            "layouts": [
+              {
+                "stockId": "A-02",
+                "stockLabel": "Fresh board 02",
+                "stockKind": "board",
+                "stockLengthMm": 2400,
+                "cuts": [
+                  {
+                    "requirementId": "shelf",
+                    "label": "Shelves",
+                    "instance": 1,
+                    "lengthMm": 720,
+                    "offsetMm": 0
+                  },
+                  {
+                    "requirementId": "shelf",
+                    "label": "Shelves",
+                    "instance": 2,
+                    "lengthMm": 720,
+                    "offsetMm": 723
+                  },
+                  {
+                    "requirementId": "brace",
+                    "label": "Braces",
+                    "instance": 1,
+                    "lengthMm": 560,
+                    "offsetMm": 1446
+                  },
+                  {
+                    "requirementId": "rail",
+                    "label": "Rails",
+                    "instance": 1,
+                    "lengthMm": 310,
+                    "offsetMm": 2009
+                  }
+                ],
+                "kerfMm": 12,
+                "remnantMm": 78,
+                "remnantKind": "scrap"
+              },
+              {
+                "stockId": "A-03",
+                "stockLabel": "Fresh board 03",
+                "stockKind": "board",
+                "stockLengthMm": 2400,
+                "cuts": [
+                  {
+                    "requirementId": "shelf",
+                    "label": "Shelves",
+                    "instance": 3,
+                    "lengthMm": 720,
+                    "offsetMm": 0
+                  },
+                  {
+                    "requirementId": "shelf",
+                    "label": "Shelves",
+                    "instance": 4,
+                    "lengthMm": 720,
+                    "offsetMm": 723
+                  },
+                  {
+                    "requirementId": "brace",
+                    "label": "Braces",
+                    "instance": 2,
+                    "lengthMm": 560,
+                    "offsetMm": 1446
+                  },
+                  {
+                    "requirementId": "rail",
+                    "label": "Rails",
+                    "instance": 2,
+                    "lengthMm": 310,
+                    "offsetMm": 2009
+                  }
+                ],
+                "kerfMm": 12,
+                "remnantMm": 78,
+                "remnantKind": "scrap"
+              },
+              {
+                "stockId": "A-04",
+                "stockLabel": "Fresh board 04",
+                "stockKind": "board",
+                "stockLengthMm": 2400,
+                "cuts": [
+                  {
+                    "requirementId": "upright",
+                    "label": "Uprights",
+                    "instance": 1,
+                    "lengthMm": 440,
+                    "offsetMm": 0
+                  },
+                  {
+                    "requirementId": "upright",
+                    "label": "Uprights",
+                    "instance": 2,
+                    "lengthMm": 440,
+                    "offsetMm": 443
+                  },
+                  {
+                    "requirementId": "upright",
+                    "label": "Uprights",
+                    "instance": 3,
+                    "lengthMm": 440,
+                    "offsetMm": 886
+                  },
+                  {
+                    "requirementId": "upright",
+                    "label": "Uprights",
+                    "instance": 4,
+                    "lengthMm": 440,
+                    "offsetMm": 1329
+                  },
+                  {
+                    "requirementId": "rail",
+                    "label": "Rails",
+                    "instance": 3,
+                    "lengthMm": 310,
+                    "offsetMm": 1772
+                  },
+                  {
+                    "requirementId": "rail",
+                    "label": "Rails",
+                    "instance": 4,
+                    "lengthMm": 310,
+                    "offsetMm": 2085
+                  }
+                ],
+                "kerfMm": 18,
+                "remnantMm": 2,
+                "remnantKind": "scrap"
+              }
+            ],
+            "metrics": {
+              "stockUsedMm": 7200,
+              "partsMm": 7000,
+              "kerfMm": 42,
+              "reusableMm": 0,
+              "scrapMm": 158,
+              "boardCount": 3,
+              "utilization": 0.9722222222222222
+            },
+            "complete": true,
+            "unfulfilled": [],
+            "excludedStockIds": [],
+            "search": {
+              "method": "branch-and-bound",
+              "provenOptimal": true,
+              "nodes": 3797,
+              "limit": 100000
+            }
+          },
+          "currentRevision": 1,
+          "fresh": true,
+          "approved": true,
+          "awaitingHumanApproval": false,
+          "canRequestReview": true,
+          "wasteMm": 200
+        },
+        "physicalModel": [
+          "Integer millimetres; all stock has the same material and cross-section.",
+          "Entered stock lengths are usable lengths, after the human has deducted end trim and defects.",
+          "Each produced part consumes one kerf. No free final factory-end cut is assumed.",
+          "Sawdust and short scrap are waste; reusable remnants and unopened stock are not.",
+          "A plan is a planning estimate, not a machine instruction or a safe-cutting guarantee."
+        ]
+      },
+      "rawResult": "{\"ok\":true,\"plan\":{\"id\":\"plan-4b5e0154-42f3-49dd-a0b7-bc8d10fc7f88-6\",\"basedOnRevision\":1,\"createdAt\":\"2026-09-02T23:14:19.595Z\",\"actor\":\"webmcp\",\"solution\":{\"objective\":\"least_stock\",\"layouts\":[{\"stockId\":\"A-02\",\"stockLabel\":\"Fresh board 02\",\"stockKind\":\"board\",\"stockLengthMm\":2400,\"cuts\":[{\"requirementId\":\"shelf\",\"label\":\"Shelves\",\"instance\":1,\"lengthMm\":720,\"offsetMm\":0},{\"requirementId\":\"shelf\",\"label\":\"Shelves\",\"instance\":2,\"lengthMm\":720,\"offsetMm\":723},{\"requirementId\":\"brace\",\"label\":\"Braces\",\"instance\":1,\"lengthMm\":560,\"offsetMm\":1446},{\"requirementId\":\"rail\",\"label\":\"Rails\",\"instance\":1,\"lengthMm\":310,\"offsetMm\":2009}],\"kerfMm\":12,\"remnantMm\":78,\"remnantKind\":\"scrap\"},{\"stockId\":\"A-03\",\"stockLabel\":\"Fresh board 03\",\"stockKind\":\"board\",\"stockLengthMm\":2400,\"cuts\":[{\"requirementId\":\"shelf\",\"label\":\"Shelves\",\"instance\":3,\"lengthMm\":720,\"offsetMm\":0},{\"requirementId\":\"shelf\",\"label\":\"Shelves\",\"instance\":4,\"lengthMm\":720,\"offsetMm\":723},{\"requirementId\":\"brace\",\"label\":\"Braces\",\"instance\":2,\"lengthMm\":560,\"offsetMm\":1446},{\"requirementId\":\"rail\",\"label\":\"Rails\",\"instance\":2,\"lengthMm\":310,\"offsetMm\":2009}],\"kerfMm\":12,\"remnantMm\":78,\"remnantKind\":\"scrap\"},{\"stockId\":\"A-04\",\"stockLabel\":\"Fresh board 04\",\"stockKind\":\"board\",\"stockLengthMm\":2400,\"cuts\":[{\"requirementId\":\"upright\",\"label\":\"Uprights\",\"instance\":1,\"lengthMm\":440,\"offsetMm\":0},{\"requirementId\":\"upright\",\"label\":\"Uprights\",\"instance\":2,\"lengthMm\":440,\"offsetMm\":443},{\"requirementId\":\"upright\",\"label\":\"Uprights\",\"instance\":3,\"lengthMm\":440,\"offsetMm\":886},{\"requirementId\":\"upright\",\"label\":\"Uprights\",\"instance\":4,\"lengthMm\":440,\"offsetMm\":1329},{\"requirementId\":\"rail\",\"label\":\"Rails\",\"instance\":3,\"lengthMm\":310,\"offsetMm\":1772},{\"requirementId\":\"rail\",\"label\":\"Rails\",\"instance\":4,\"lengthMm\":310,\"offsetMm\":2085}],\"kerfMm\":18,\"remnantMm\":2,\"remnantKind\":\"scrap\"}],\"metrics\":{\"stockUsedMm\":7200,\"partsMm\":7000,\"kerfMm\":42,\"reusableMm\":0,\"scrapMm\":158,\"boardCount\":3,\"utilization\":0.9722222222222222},\"complete\":true,\"unfulfilled\":[],\"excludedStockIds\":[],\"search\":{\"method\":\"branch-and-bound\",\"provenOptimal\":true,\"nodes\":3797,\"limit\":100000}},\"currentRevision\":1,\"fresh\":true,\"approved\":true,\"awaitingHumanApproval\":false,\"canRequestReview\":true,\"wasteMm\":200},\"physicalModel\":[\"Integer millimetres; all stock has the same material and cross-section.\",\"Entered stock lengths are usable lengths, after the human has deducted end trim and defects.\",\"Each produced part consumes one kerf. No free final factory-end cut is assumed.\",\"Sawdust and short scrap are waste; reusable remnants and unopened stock are not.\",\"A plan is a planning estimate, not a machine instruction or a safe-cutting guarantee.\"]}",
+      "startedAtMs": 397965,
+      "returnedAtMs": 398011
+    },
+    {
+      "order": 9,
+      "tool": "export_cut_list",
+      "reason": "Inspection confirms the exact staged least-stock plan is approved, complete and fresh at revision 1. Export its approved cut-list CSV without changing the plan or measurements.",
+      "input": {
+        "planId": "plan-4b5e0154-42f3-49dd-a0b7-bc8d10fc7f88-6"
+      },
+      "summary": {
+        "ok": true,
+        "approvedPlanId": "plan-4b5e0154-42f3-49dd-a0b7-bc8d10fc7f88-6",
+        "filename": "offcut-the-little-library-r1.csv",
+        "rows": 15
+      },
+      "result": {
+        "ok": true,
+        "planId": "plan-4b5e0154-42f3-49dd-a0b7-bc8d10fc7f88-6",
+        "revision": 1,
+        "mimeType": "text/csv;charset=utf-8",
+        "filename": "offcut-the-little-library-r1.csv",
+        "csv": "\"Project\",\"Material (same cross-section)\",\"Plan ID\",\"Workspace revision\",\"Board ID\",\"Board label\",\"Usable stock length (mm)\",\"Cut order\",\"Part\",\"Part instance\",\"Part length (mm)\",\"Start from usable edge (mm)\",\"End before kerf (mm)\",\"Kerf after this part (mm)\",\"Final remnant (mm)\",\"Remnant class\"\r\n\"The little library\",\"Pine · 18 × 140 mm · usable lengths\",\"plan-4b5e0154-42f3-49dd-a0b7-bc8d10fc7f88-6\",\"1\",\"A-02\",\"Fresh board 02\",\"2400\",\"1\",\"Shelves\",\"1\",\"720\",\"0\",\"720\",\"3\",\"\",\"\"\r\n\"The little library\",\"Pine · 18 × 140 mm · usable lengths\",\"plan-4b5e0154-42f3-49dd-a0b7-bc8d10fc7f88-6\",\"1\",\"A-02\",\"Fresh board 02\",\"2400\",\"2\",\"Shelves\",\"2\",\"720\",\"723\",\"1443\",\"3\",\"\",\"\"\r\n\"The little library\",\"Pine · 18 × 140 mm · usable lengths\",\"plan-4b5e0154-42f3-49dd-a0b7-bc8d10fc7f88-6\",\"1\",\"A-02\",\"Fresh board 02\",\"2400\",\"3\",\"Braces\",\"1\",\"560\",\"1446\",\"2006\",\"3\",\"\",\"\"\r\n\"The little library\",\"Pine · 18 × 140 mm · usable lengths\",\"plan-4b5e0154-42f3-49dd-a0b7-bc8d10fc7f88-6\",\"1\",\"A-02\",\"Fresh board 02\",\"2400\",\"4\",\"Rails\",\"1\",\"310\",\"2009\",\"2319\",\"3\",\"78\",\"scrap\"\r\n\"The little library\",\"Pine · 18 × 140 mm · usable lengths\",\"plan-4b5e0154-42f3-49dd-a0b7-bc8d10fc7f88-6\",\"1\",\"A-03\",\"Fresh board 03\",\"2400\",\"1\",\"Shelves\",\"3\",\"720\",\"0\",\"720\",\"3\",\"\",\"\"\r\n\"The little library\",\"Pine · 18 × 140 mm · usable lengths\",\"plan-4b5e0154-42f3-49dd-a0b7-bc8d10fc7f88-6\",\"1\",\"A-03\",\"Fresh board 03\",\"2400\",\"2\",\"Shelves\",\"4\",\"720\",\"723\",\"1443\",\"3\",\"\",\"\"\r\n\"The little library\",\"Pine · 18 × 140 mm · usable lengths\",\"plan-4b5e0154-42f3-49dd-a0b7-bc8d10fc7f88-6\",\"1\",\"A-03\",\"Fresh board 03\",\"2400\",\"3\",\"Braces\",\"2\",\"560\",\"1446\",\"2006\",\"3\",\"\",\"\"\r\n\"The little library\",\"Pine · 18 × 140 mm · usable lengths\",\"plan-4b5e0154-42f3-49dd-a0b7-bc8d10fc7f88-6\",\"1\",\"A-03\",\"Fresh board 03\",\"2400\",\"4\",\"Rails\",\"2\",\"310\",\"2009\",\"2319\",\"3\",\"78\",\"scrap\"\r\n\"The little library\",\"Pine · 18 × 140 mm · usable lengths\",\"plan-4b5e0154-42f3-49dd-a0b7-bc8d10fc7f88-6\",\"1\",\"A-04\",\"Fresh board 04\",\"2400\",\"1\",\"Uprights\",\"1\",\"440\",\"0\",\"440\",\"3\",\"\",\"\"\r\n\"The little library\",\"Pine · 18 × 140 mm · usable lengths\",\"plan-4b5e0154-42f3-49dd-a0b7-bc8d10fc7f88-6\",\"1\",\"A-04\",\"Fresh board 04\",\"2400\",\"2\",\"Uprights\",\"2\",\"440\",\"443\",\"883\",\"3\",\"\",\"\"\r\n\"The little library\",\"Pine · 18 × 140 mm · usable lengths\",\"plan-4b5e0154-42f3-49dd-a0b7-bc8d10fc7f88-6\",\"1\",\"A-04\",\"Fresh board 04\",\"2400\",\"3\",\"Uprights\",\"3\",\"440\",\"886\",\"1326\",\"3\",\"\",\"\"\r\n\"The little library\",\"Pine · 18 × 140 mm · usable lengths\",\"plan-4b5e0154-42f3-49dd-a0b7-bc8d10fc7f88-6\",\"1\",\"A-04\",\"Fresh board 04\",\"2400\",\"4\",\"Uprights\",\"4\",\"440\",\"1329\",\"1769\",\"3\",\"\",\"\"\r\n\"The little library\",\"Pine · 18 × 140 mm · usable lengths\",\"plan-4b5e0154-42f3-49dd-a0b7-bc8d10fc7f88-6\",\"1\",\"A-04\",\"Fresh board 04\",\"2400\",\"5\",\"Rails\",\"3\",\"310\",\"1772\",\"2082\",\"3\",\"\",\"\"\r\n\"The little library\",\"Pine · 18 × 140 mm · usable lengths\",\"plan-4b5e0154-42f3-49dd-a0b7-bc8d10fc7f88-6\",\"1\",\"A-04\",\"Fresh board 04\",\"2400\",\"6\",\"Rails\",\"4\",\"310\",\"2085\",\"2395\",\"3\",\"2\",\"scrap\"\r\n",
+        "physicalModel": [
+          "Integer millimetres; all stock has the same material and cross-section.",
+          "Entered stock lengths are usable lengths, after the human has deducted end trim and defects.",
+          "Each produced part consumes one kerf. No free final factory-end cut is assumed.",
+          "Sawdust and short scrap are waste; reusable remnants and unopened stock are not.",
+          "A plan is a planning estimate, not a machine instruction or a safe-cutting guarantee."
+        ]
+      },
+      "rawResult": "{\"ok\":true,\"planId\":\"plan-4b5e0154-42f3-49dd-a0b7-bc8d10fc7f88-6\",\"revision\":1,\"mimeType\":\"text/csv;charset=utf-8\",\"filename\":\"offcut-the-little-library-r1.csv\",\"csv\":\"\\\"Project\\\",\\\"Material (same cross-section)\\\",\\\"Plan ID\\\",\\\"Workspace revision\\\",\\\"Board ID\\\",\\\"Board label\\\",\\\"Usable stock length (mm)\\\",\\\"Cut order\\\",\\\"Part\\\",\\\"Part instance\\\",\\\"Part length (mm)\\\",\\\"Start from usable edge (mm)\\\",\\\"End before kerf (mm)\\\",\\\"Kerf after this part (mm)\\\",\\\"Final remnant (mm)\\\",\\\"Remnant class\\\"\\r\\n\\\"The little library\\\",\\\"Pine · 18 × 140 mm · usable lengths\\\",\\\"plan-4b5e0154-42f3-49dd-a0b7-bc8d10fc7f88-6\\\",\\\"1\\\",\\\"A-02\\\",\\\"Fresh board 02\\\",\\\"2400\\\",\\\"1\\\",\\\"Shelves\\\",\\\"1\\\",\\\"720\\\",\\\"0\\\",\\\"720\\\",\\\"3\\\",\\\"\\\",\\\"\\\"\\r\\n\\\"The little library\\\",\\\"Pine · 18 × 140 mm · usable lengths\\\",\\\"plan-4b5e0154-42f3-49dd-a0b7-bc8d10fc7f88-6\\\",\\\"1\\\",\\\"A-02\\\",\\\"Fresh board 02\\\",\\\"2400\\\",\\\"2\\\",\\\"Shelves\\\",\\\"2\\\",\\\"720\\\",\\\"723\\\",\\\"1443\\\",\\\"3\\\",\\\"\\\",\\\"\\\"\\r\\n\\\"The little library\\\",\\\"Pine · 18 × 140 mm · usable lengths\\\",\\\"plan-4b5e0154-42f3-49dd-a0b7-bc8d10fc7f88-6\\\",\\\"1\\\",\\\"A-02\\\",\\\"Fresh board 02\\\",\\\"2400\\\",\\\"3\\\",\\\"Braces\\\",\\\"1\\\",\\\"560\\\",\\\"1446\\\",\\\"2006\\\",\\\"3\\\",\\\"\\\",\\\"\\\"\\r\\n\\\"The little library\\\",\\\"Pine · 18 × 140 mm · usable lengths\\\",\\\"plan-4b5e0154-42f3-49dd-a0b7-bc8d10fc7f88-6\\\",\\\"1\\\",\\\"A-02\\\",\\\"Fresh board 02\\\",\\\"2400\\\",\\\"4\\\",\\\"Rails\\\",\\\"1\\\",\\\"310\\\",\\\"2009\\\",\\\"2319\\\",\\\"3\\\",\\\"78\\\",\\\"scrap\\\"\\r\\n\\\"The little library\\\",\\\"Pine · 18 × 140 mm · usable lengths\\\",\\\"plan-4b5e0154-42f3-49dd-a0b7-bc8d10fc7f88-6\\\",\\\"1\\\",\\\"A-03\\\",\\\"Fresh board 03\\\",\\\"2400\\\",\\\"1\\\",\\\"Shelves\\\",\\\"3\\\",\\\"720\\\",\\\"0\\\",\\\"720\\\",\\\"3\\\",\\\"\\\",\\\"\\\"\\r\\n\\\"The little library\\\",\\\"Pine · 18 × 140 mm · usable lengths\\\",\\\"plan-4b5e0154-42f3-49dd-a0b7-bc8d10fc7f88-6\\\",\\\"1\\\",\\\"A-03\\\",\\\"Fresh board 03\\\",\\\"2400\\\",\\\"2\\\",\\\"Shelves\\\",\\\"4\\\",\\\"720\\\",\\\"723\\\",\\\"1443\\\",\\\"3\\\",\\\"\\\",\\\"\\\"\\r\\n\\\"The little library\\\",\\\"Pine · 18 × 140 mm · usable lengths\\\",\\\"plan-4b5e0154-42f3-49dd-a0b7-bc8d10fc7f88-6\\\",\\\"1\\\",\\\"A-03\\\",\\\"Fresh board 03\\\",\\\"2400\\\",\\\"3\\\",\\\"Braces\\\",\\\"2\\\",\\\"560\\\",\\\"1446\\\",\\\"2006\\\",\\\"3\\\",\\\"\\\",\\\"\\\"\\r\\n\\\"The little library\\\",\\\"Pine · 18 × 140 mm · usable lengths\\\",\\\"plan-4b5e0154-42f3-49dd-a0b7-bc8d10fc7f88-6\\\",\\\"1\\\",\\\"A-03\\\",\\\"Fresh board 03\\\",\\\"2400\\\",\\\"4\\\",\\\"Rails\\\",\\\"2\\\",\\\"310\\\",\\\"2009\\\",\\\"2319\\\",\\\"3\\\",\\\"78\\\",\\\"scrap\\\"\\r\\n\\\"The little library\\\",\\\"Pine · 18 × 140 mm · usable lengths\\\",\\\"plan-4b5e0154-42f3-49dd-a0b7-bc8d10fc7f88-6\\\",\\\"1\\\",\\\"A-04\\\",\\\"Fresh board 04\\\",\\\"2400\\\",\\\"1\\\",\\\"Uprights\\\",\\\"1\\\",\\\"440\\\",\\\"0\\\",\\\"440\\\",\\\"3\\\",\\\"\\\",\\\"\\\"\\r\\n\\\"The little library\\\",\\\"Pine · 18 × 140 mm · usable lengths\\\",\\\"plan-4b5e0154-42f3-49dd-a0b7-bc8d10fc7f88-6\\\",\\\"1\\\",\\\"A-04\\\",\\\"Fresh board 04\\\",\\\"2400\\\",\\\"2\\\",\\\"Uprights\\\",\\\"2\\\",\\\"440\\\",\\\"443\\\",\\\"883\\\",\\\"3\\\",\\\"\\\",\\\"\\\"\\r\\n\\\"The little library\\\",\\\"Pine · 18 × 140 mm · usable lengths\\\",\\\"plan-4b5e0154-42f3-49dd-a0b7-bc8d10fc7f88-6\\\",\\\"1\\\",\\\"A-04\\\",\\\"Fresh board 04\\\",\\\"2400\\\",\\\"3\\\",\\\"Uprights\\\",\\\"3\\\",\\\"440\\\",\\\"886\\\",\\\"1326\\\",\\\"3\\\",\\\"\\\",\\\"\\\"\\r\\n\\\"The little library\\\",\\\"Pine · 18 × 140 mm · usable lengths\\\",\\\"plan-4b5e0154-42f3-49dd-a0b7-bc8d10fc7f88-6\\\",\\\"1\\\",\\\"A-04\\\",\\\"Fresh board 04\\\",\\\"2400\\\",\\\"4\\\",\\\"Uprights\\\",\\\"4\\\",\\\"440\\\",\\\"1329\\\",\\\"1769\\\",\\\"3\\\",\\\"\\\",\\\"\\\"\\r\\n\\\"The little library\\\",\\\"Pine · 18 × 140 mm · usable lengths\\\",\\\"plan-4b5e0154-42f3-49dd-a0b7-bc8d10fc7f88-6\\\",\\\"1\\\",\\\"A-04\\\",\\\"Fresh board 04\\\",\\\"2400\\\",\\\"5\\\",\\\"Rails\\\",\\\"3\\\",\\\"310\\\",\\\"1772\\\",\\\"2082\\\",\\\"3\\\",\\\"\\\",\\\"\\\"\\r\\n\\\"The little library\\\",\\\"Pine · 18 × 140 mm · usable lengths\\\",\\\"plan-4b5e0154-42f3-49dd-a0b7-bc8d10fc7f88-6\\\",\\\"1\\\",\\\"A-04\\\",\\\"Fresh board 04\\\",\\\"2400\\\",\\\"6\\\",\\\"Rails\\\",\\\"4\\\",\\\"310\\\",\\\"2085\\\",\\\"2395\\\",\\\"3\\\",\\\"2\\\",\\\"scrap\\\"\\r\\n\",\"physicalModel\":[\"Integer millimetres; all stock has the same material and cross-section.\",\"Entered stock lengths are usable lengths, after the human has deducted end trim and defects.\",\"Each produced part consumes one kerf. No free final factory-end cut is assumed.\",\"Sawdust and short scrap are waste; reusable remnants and unopened stock are not.\",\"A plan is a planning estimate, not a machine instruction or a safe-cutting guarantee.\"]}",
+      "startedAtMs": 402769,
+      "returnedAtMs": 402853
+    },
+    {
+      "order": 10,
+      "tool": "get_workshop",
+      "reason": "Re-read the workshop after the committed kerf change to confirm the current revision, physical settings and protected stock before inspecting the old plan and generating a fresh proposal.",
+      "input": {},
+      "summary": {
+        "ok": true,
+        "revision": 2,
+        "requiredParts": 14,
+        "protected": ["A-01"],
+        "kerfMm": 4,
+        "keepRemnantsFromMm": 400
+      },
+      "result": {
+        "ok": true,
+        "workspace": {
+          "revision": 2,
+          "title": "The little library",
+          "material": "Pine · 18 × 140 mm · usable lengths",
+          "stock": [
+            {
+              "id": "A-01",
+              "label": "Long board",
+              "lengthMm": 3000,
+              "kind": "board",
+              "locked": true
+            },
+            {
+              "id": "A-02",
+              "label": "Fresh board 02",
+              "lengthMm": 2400,
+              "kind": "board",
+              "locked": false
+            },
+            {
+              "id": "A-03",
+              "label": "Fresh board 03",
+              "lengthMm": 2400,
+              "kind": "board",
+              "locked": false
+            },
+            {
+              "id": "A-04",
+              "label": "Fresh board 04",
+              "lengthMm": 2400,
+              "kind": "board",
+              "locked": false
+            },
+            {
+              "id": "R-01",
+              "label": "Bench project offcut",
+              "lengthMm": 1180,
+              "kind": "offcut",
+              "locked": false
+            },
+            {
+              "id": "R-02",
+              "label": "Saved shelf offcut",
+              "lengthMm": 960,
+              "kind": "offcut",
+              "locked": false
+            },
+            {
+              "id": "R-03",
+              "label": "Window seat offcut",
+              "lengthMm": 740,
+              "kind": "offcut",
+              "locked": false
+            },
+            {
+              "id": "R-04",
+              "label": "The useful little piece",
+              "lengthMm": 650,
+              "kind": "offcut",
+              "locked": false
+            }
+          ],
+          "requirements": [
+            {
+              "id": "shelf",
+              "label": "Shelves",
+              "lengthMm": 720,
+              "quantity": 4
+            },
+            {
+              "id": "upright",
+              "label": "Uprights",
+              "lengthMm": 440,
+              "quantity": 4
+            },
+            {
+              "id": "rail",
+              "label": "Rails",
+              "lengthMm": 310,
+              "quantity": 4
+            },
+            {
+              "id": "brace",
+              "label": "Braces",
+              "lengthMm": 560,
+              "quantity": 2
+            }
+          ],
+          "settings": {
+            "kerfMm": 4,
+            "minReusableMm": 400
+          }
+        },
+        "units": "mm",
+        "totalRequiredParts": 14,
+        "requiredPartsMm": 7000,
+        "availableStockMm": 10730,
+        "protectedStockIds": ["A-01"],
+        "plans": [
+          {
+            "id": "plan-4b5e0154-42f3-49dd-a0b7-bc8d10fc7f88-6",
+            "objective": "least_stock",
+            "basedOnRevision": 1,
+            "fresh": false,
+            "complete": true,
+            "approved": false,
+            "metrics": {
+              "stockUsedMm": 7200,
+              "partsMm": 7000,
+              "kerfMm": 42,
+              "reusableMm": 0,
+              "scrapMm": 158,
+              "boardCount": 3,
+              "utilization": 0.9722222222222222
+            },
+            "search": {
+              "method": "branch-and-bound",
+              "provenOptimal": true,
+              "nodes": 3797,
+              "limit": 100000
+            }
+          },
+          {
+            "id": "plan-4b5e0154-42f3-49dd-a0b7-bc8d10fc7f88-8",
+            "objective": "fewest_boards",
+            "basedOnRevision": 1,
+            "fresh": false,
+            "complete": true,
+            "approved": false,
+            "metrics": {
+              "stockUsedMm": 7200,
+              "partsMm": 7000,
+              "kerfMm": 42,
+              "reusableMm": 0,
+              "scrapMm": 158,
+              "boardCount": 3,
+              "utilization": 0.9722222222222222
+            },
+            "search": {
+              "method": "branch-and-bound",
+              "provenOptimal": true,
+              "nodes": 575,
+              "limit": 100000
+            }
+          },
+          {
+            "id": "plan-4b5e0154-42f3-49dd-a0b7-bc8d10fc7f88-10",
+            "objective": "least_waste",
+            "basedOnRevision": 1,
+            "fresh": false,
+            "complete": true,
+            "approved": false,
+            "metrics": {
+              "stockUsedMm": 10080,
+              "partsMm": 7000,
+              "kerfMm": 42,
+              "reusableMm": 3038,
+              "scrapMm": 0,
+              "boardCount": 6,
+              "utilization": 0.6944444444444444
+            },
+            "search": {
+              "method": "branch-and-bound",
+              "provenOptimal": true,
+              "nodes": 3016,
+              "limit": 100000
+            }
+          }
+        ],
+        "physicalModel": [
+          "Integer millimetres; all stock has the same material and cross-section.",
+          "Entered stock lengths are usable lengths, after the human has deducted end trim and defects.",
+          "Each produced part consumes one kerf. No free final factory-end cut is assumed.",
+          "Sawdust and short scrap are waste; reusable remnants and unopened stock are not.",
+          "A plan is a planning estimate, not a machine instruction or a safe-cutting guarantee."
+        ],
+        "workflow": "plan_cuts -> inspect_plan/compare_plans -> stage_plan_for_review -> HUMAN approval in the site -> export_cut_list. No tool can approve, unlock stock or consume physical material.",
+        "limits": {
+          "stockBoards": 24,
+          "requirements": 16,
+          "totalParts": 40
+        }
+      },
+      "rawResult": "{\"ok\":true,\"workspace\":{\"revision\":2,\"title\":\"The little library\",\"material\":\"Pine · 18 × 140 mm · usable lengths\",\"stock\":[{\"id\":\"A-01\",\"label\":\"Long board\",\"lengthMm\":3000,\"kind\":\"board\",\"locked\":true},{\"id\":\"A-02\",\"label\":\"Fresh board 02\",\"lengthMm\":2400,\"kind\":\"board\",\"locked\":false},{\"id\":\"A-03\",\"label\":\"Fresh board 03\",\"lengthMm\":2400,\"kind\":\"board\",\"locked\":false},{\"id\":\"A-04\",\"label\":\"Fresh board 04\",\"lengthMm\":2400,\"kind\":\"board\",\"locked\":false},{\"id\":\"R-01\",\"label\":\"Bench project offcut\",\"lengthMm\":1180,\"kind\":\"offcut\",\"locked\":false},{\"id\":\"R-02\",\"label\":\"Saved shelf offcut\",\"lengthMm\":960,\"kind\":\"offcut\",\"locked\":false},{\"id\":\"R-03\",\"label\":\"Window seat offcut\",\"lengthMm\":740,\"kind\":\"offcut\",\"locked\":false},{\"id\":\"R-04\",\"label\":\"The useful little piece\",\"lengthMm\":650,\"kind\":\"offcut\",\"locked\":false}],\"requirements\":[{\"id\":\"shelf\",\"label\":\"Shelves\",\"lengthMm\":720,\"quantity\":4},{\"id\":\"upright\",\"label\":\"Uprights\",\"lengthMm\":440,\"quantity\":4},{\"id\":\"rail\",\"label\":\"Rails\",\"lengthMm\":310,\"quantity\":4},{\"id\":\"brace\",\"label\":\"Braces\",\"lengthMm\":560,\"quantity\":2}],\"settings\":{\"kerfMm\":4,\"minReusableMm\":400}},\"units\":\"mm\",\"totalRequiredParts\":14,\"requiredPartsMm\":7000,\"availableStockMm\":10730,\"protectedStockIds\":[\"A-01\"],\"plans\":[{\"id\":\"plan-4b5e0154-42f3-49dd-a0b7-bc8d10fc7f88-6\",\"objective\":\"least_stock\",\"basedOnRevision\":1,\"fresh\":false,\"complete\":true,\"approved\":false,\"metrics\":{\"stockUsedMm\":7200,\"partsMm\":7000,\"kerfMm\":42,\"reusableMm\":0,\"scrapMm\":158,\"boardCount\":3,\"utilization\":0.9722222222222222},\"search\":{\"method\":\"branch-and-bound\",\"provenOptimal\":true,\"nodes\":3797,\"limit\":100000}},{\"id\":\"plan-4b5e0154-42f3-49dd-a0b7-bc8d10fc7f88-8\",\"objective\":\"fewest_boards\",\"basedOnRevision\":1,\"fresh\":false,\"complete\":true,\"approved\":false,\"metrics\":{\"stockUsedMm\":7200,\"partsMm\":7000,\"kerfMm\":42,\"reusableMm\":0,\"scrapMm\":158,\"boardCount\":3,\"utilization\":0.9722222222222222},\"search\":{\"method\":\"branch-and-bound\",\"provenOptimal\":true,\"nodes\":575,\"limit\":100000}},{\"id\":\"plan-4b5e0154-42f3-49dd-a0b7-bc8d10fc7f88-10\",\"objective\":\"least_waste\",\"basedOnRevision\":1,\"fresh\":false,\"complete\":true,\"approved\":false,\"metrics\":{\"stockUsedMm\":10080,\"partsMm\":7000,\"kerfMm\":42,\"reusableMm\":3038,\"scrapMm\":0,\"boardCount\":6,\"utilization\":0.6944444444444444},\"search\":{\"method\":\"branch-and-bound\",\"provenOptimal\":true,\"nodes\":3016,\"limit\":100000}}],\"physicalModel\":[\"Integer millimetres; all stock has the same material and cross-section.\",\"Entered stock lengths are usable lengths, after the human has deducted end trim and defects.\",\"Each produced part consumes one kerf. No free final factory-end cut is assumed.\",\"Sawdust and short scrap are waste; reusable remnants and unopened stock are not.\",\"A plan is a planning estimate, not a machine instruction or a safe-cutting guarantee.\"],\"workflow\":\"plan_cuts -> inspect_plan/compare_plans -> stage_plan_for_review -> HUMAN approval in the site -> export_cut_list. No tool can approve, unlock stock or consume physical material.\",\"limits\":{\"stockBoards\":24,\"requirements\":16,\"totalParts\":40}}",
+      "startedAtMs": 529154,
+      "returnedAtMs": 529196
+    },
+    {
+      "order": 11,
+      "tool": "inspect_plan",
+      "reason": "The current workshop confirms revision 2, 4 mm kerf and protected A-01. Inspect the previously approved plan as requested; it is now stale and unapproved and must not be reused or exported.",
+      "input": {
+        "planId": "plan-4b5e0154-42f3-49dd-a0b7-bc8d10fc7f88-6"
+      },
+      "summary": {
+        "ok": true,
+        "objective": "least_stock",
+        "complete": true,
+        "revision": 1,
+        "parts": 14,
+        "stockMm": 7200,
+        "boards": 3,
+        "wasteMm": 200,
+        "reusableMm": 0,
+        "approved": false
+      },
+      "result": {
+        "ok": true,
+        "plan": {
+          "id": "plan-4b5e0154-42f3-49dd-a0b7-bc8d10fc7f88-6",
+          "basedOnRevision": 1,
+          "createdAt": "2026-09-02T23:14:19.595Z",
+          "actor": "webmcp",
+          "solution": {
+            "objective": "least_stock",
+            "layouts": [
+              {
+                "stockId": "A-02",
+                "stockLabel": "Fresh board 02",
+                "stockKind": "board",
+                "stockLengthMm": 2400,
+                "cuts": [
+                  {
+                    "requirementId": "shelf",
+                    "label": "Shelves",
+                    "instance": 1,
+                    "lengthMm": 720,
+                    "offsetMm": 0
+                  },
+                  {
+                    "requirementId": "shelf",
+                    "label": "Shelves",
+                    "instance": 2,
+                    "lengthMm": 720,
+                    "offsetMm": 723
+                  },
+                  {
+                    "requirementId": "brace",
+                    "label": "Braces",
+                    "instance": 1,
+                    "lengthMm": 560,
+                    "offsetMm": 1446
+                  },
+                  {
+                    "requirementId": "rail",
+                    "label": "Rails",
+                    "instance": 1,
+                    "lengthMm": 310,
+                    "offsetMm": 2009
+                  }
+                ],
+                "kerfMm": 12,
+                "remnantMm": 78,
+                "remnantKind": "scrap"
+              },
+              {
+                "stockId": "A-03",
+                "stockLabel": "Fresh board 03",
+                "stockKind": "board",
+                "stockLengthMm": 2400,
+                "cuts": [
+                  {
+                    "requirementId": "shelf",
+                    "label": "Shelves",
+                    "instance": 3,
+                    "lengthMm": 720,
+                    "offsetMm": 0
+                  },
+                  {
+                    "requirementId": "shelf",
+                    "label": "Shelves",
+                    "instance": 4,
+                    "lengthMm": 720,
+                    "offsetMm": 723
+                  },
+                  {
+                    "requirementId": "brace",
+                    "label": "Braces",
+                    "instance": 2,
+                    "lengthMm": 560,
+                    "offsetMm": 1446
+                  },
+                  {
+                    "requirementId": "rail",
+                    "label": "Rails",
+                    "instance": 2,
+                    "lengthMm": 310,
+                    "offsetMm": 2009
+                  }
+                ],
+                "kerfMm": 12,
+                "remnantMm": 78,
+                "remnantKind": "scrap"
+              },
+              {
+                "stockId": "A-04",
+                "stockLabel": "Fresh board 04",
+                "stockKind": "board",
+                "stockLengthMm": 2400,
+                "cuts": [
+                  {
+                    "requirementId": "upright",
+                    "label": "Uprights",
+                    "instance": 1,
+                    "lengthMm": 440,
+                    "offsetMm": 0
+                  },
+                  {
+                    "requirementId": "upright",
+                    "label": "Uprights",
+                    "instance": 2,
+                    "lengthMm": 440,
+                    "offsetMm": 443
+                  },
+                  {
+                    "requirementId": "upright",
+                    "label": "Uprights",
+                    "instance": 3,
+                    "lengthMm": 440,
+                    "offsetMm": 886
+                  },
+                  {
+                    "requirementId": "upright",
+                    "label": "Uprights",
+                    "instance": 4,
+                    "lengthMm": 440,
+                    "offsetMm": 1329
+                  },
+                  {
+                    "requirementId": "rail",
+                    "label": "Rails",
+                    "instance": 3,
+                    "lengthMm": 310,
+                    "offsetMm": 1772
+                  },
+                  {
+                    "requirementId": "rail",
+                    "label": "Rails",
+                    "instance": 4,
+                    "lengthMm": 310,
+                    "offsetMm": 2085
+                  }
+                ],
+                "kerfMm": 18,
+                "remnantMm": 2,
+                "remnantKind": "scrap"
+              }
+            ],
+            "metrics": {
+              "stockUsedMm": 7200,
+              "partsMm": 7000,
+              "kerfMm": 42,
+              "reusableMm": 0,
+              "scrapMm": 158,
+              "boardCount": 3,
+              "utilization": 0.9722222222222222
+            },
+            "complete": true,
+            "unfulfilled": [],
+            "excludedStockIds": [],
+            "search": {
+              "method": "branch-and-bound",
+              "provenOptimal": true,
+              "nodes": 3797,
+              "limit": 100000
+            }
+          },
+          "currentRevision": 2,
+          "fresh": false,
+          "approved": false,
+          "awaitingHumanApproval": false,
+          "canRequestReview": false,
+          "wasteMm": 200
+        },
+        "physicalModel": [
+          "Integer millimetres; all stock has the same material and cross-section.",
+          "Entered stock lengths are usable lengths, after the human has deducted end trim and defects.",
+          "Each produced part consumes one kerf. No free final factory-end cut is assumed.",
+          "Sawdust and short scrap are waste; reusable remnants and unopened stock are not.",
+          "A plan is a planning estimate, not a machine instruction or a safe-cutting guarantee."
+        ]
+      },
+      "rawResult": "{\"ok\":true,\"plan\":{\"id\":\"plan-4b5e0154-42f3-49dd-a0b7-bc8d10fc7f88-6\",\"basedOnRevision\":1,\"createdAt\":\"2026-09-02T23:14:19.595Z\",\"actor\":\"webmcp\",\"solution\":{\"objective\":\"least_stock\",\"layouts\":[{\"stockId\":\"A-02\",\"stockLabel\":\"Fresh board 02\",\"stockKind\":\"board\",\"stockLengthMm\":2400,\"cuts\":[{\"requirementId\":\"shelf\",\"label\":\"Shelves\",\"instance\":1,\"lengthMm\":720,\"offsetMm\":0},{\"requirementId\":\"shelf\",\"label\":\"Shelves\",\"instance\":2,\"lengthMm\":720,\"offsetMm\":723},{\"requirementId\":\"brace\",\"label\":\"Braces\",\"instance\":1,\"lengthMm\":560,\"offsetMm\":1446},{\"requirementId\":\"rail\",\"label\":\"Rails\",\"instance\":1,\"lengthMm\":310,\"offsetMm\":2009}],\"kerfMm\":12,\"remnantMm\":78,\"remnantKind\":\"scrap\"},{\"stockId\":\"A-03\",\"stockLabel\":\"Fresh board 03\",\"stockKind\":\"board\",\"stockLengthMm\":2400,\"cuts\":[{\"requirementId\":\"shelf\",\"label\":\"Shelves\",\"instance\":3,\"lengthMm\":720,\"offsetMm\":0},{\"requirementId\":\"shelf\",\"label\":\"Shelves\",\"instance\":4,\"lengthMm\":720,\"offsetMm\":723},{\"requirementId\":\"brace\",\"label\":\"Braces\",\"instance\":2,\"lengthMm\":560,\"offsetMm\":1446},{\"requirementId\":\"rail\",\"label\":\"Rails\",\"instance\":2,\"lengthMm\":310,\"offsetMm\":2009}],\"kerfMm\":12,\"remnantMm\":78,\"remnantKind\":\"scrap\"},{\"stockId\":\"A-04\",\"stockLabel\":\"Fresh board 04\",\"stockKind\":\"board\",\"stockLengthMm\":2400,\"cuts\":[{\"requirementId\":\"upright\",\"label\":\"Uprights\",\"instance\":1,\"lengthMm\":440,\"offsetMm\":0},{\"requirementId\":\"upright\",\"label\":\"Uprights\",\"instance\":2,\"lengthMm\":440,\"offsetMm\":443},{\"requirementId\":\"upright\",\"label\":\"Uprights\",\"instance\":3,\"lengthMm\":440,\"offsetMm\":886},{\"requirementId\":\"upright\",\"label\":\"Uprights\",\"instance\":4,\"lengthMm\":440,\"offsetMm\":1329},{\"requirementId\":\"rail\",\"label\":\"Rails\",\"instance\":3,\"lengthMm\":310,\"offsetMm\":1772},{\"requirementId\":\"rail\",\"label\":\"Rails\",\"instance\":4,\"lengthMm\":310,\"offsetMm\":2085}],\"kerfMm\":18,\"remnantMm\":2,\"remnantKind\":\"scrap\"}],\"metrics\":{\"stockUsedMm\":7200,\"partsMm\":7000,\"kerfMm\":42,\"reusableMm\":0,\"scrapMm\":158,\"boardCount\":3,\"utilization\":0.9722222222222222},\"complete\":true,\"unfulfilled\":[],\"excludedStockIds\":[],\"search\":{\"method\":\"branch-and-bound\",\"provenOptimal\":true,\"nodes\":3797,\"limit\":100000}},\"currentRevision\":2,\"fresh\":false,\"approved\":false,\"awaitingHumanApproval\":false,\"canRequestReview\":false,\"wasteMm\":200},\"physicalModel\":[\"Integer millimetres; all stock has the same material and cross-section.\",\"Entered stock lengths are usable lengths, after the human has deducted end trim and defects.\",\"Each produced part consumes one kerf. No free final factory-end cut is assumed.\",\"Sawdust and short scrap are waste; reusable remnants and unopened stock are not.\",\"A plan is a planning estimate, not a machine instruction or a safe-cutting guarantee.\"]}",
+      "startedAtMs": 533589,
+      "returnedAtMs": 533696
+    },
+    {
+      "order": 12,
+      "tool": "plan_cuts",
+      "reason": "The current workshop and old plan are inspected: the old plan is stale and unapproved. Generate a fresh least_stock proposal for all 14 parts at revision 2 using 4 mm kerf, the 400 mm reusable-remnant threshold and protected A-01.",
+      "input": {
+        "expectedRevision": 2,
+        "objective": "least_stock"
+      },
+      "summary": {
+        "ok": true,
+        "objective": "least_stock",
+        "complete": true,
+        "revision": 2,
+        "parts": 14,
+        "stockMm": 7200,
+        "boards": 3,
+        "wasteMm": 200,
+        "reusableMm": 0,
+        "approved": false
+      },
+      "result": {
+        "ok": true,
+        "plan": {
+          "id": "plan-4b5e0154-42f3-49dd-a0b7-bc8d10fc7f88-22",
+          "basedOnRevision": 2,
+          "createdAt": "2026-09-02T23:19:53.784Z",
+          "actor": "webmcp",
+          "solution": {
+            "objective": "least_stock",
+            "layouts": [
+              {
+                "stockId": "A-02",
+                "stockLabel": "Fresh board 02",
+                "stockKind": "board",
+                "stockLengthMm": 2400,
+                "cuts": [
+                  {
+                    "requirementId": "shelf",
+                    "label": "Shelves",
+                    "instance": 1,
+                    "lengthMm": 720,
+                    "offsetMm": 0
+                  },
+                  {
+                    "requirementId": "shelf",
+                    "label": "Shelves",
+                    "instance": 2,
+                    "lengthMm": 720,
+                    "offsetMm": 724
+                  },
+                  {
+                    "requirementId": "brace",
+                    "label": "Braces",
+                    "instance": 1,
+                    "lengthMm": 560,
+                    "offsetMm": 1448
+                  },
+                  {
+                    "requirementId": "rail",
+                    "label": "Rails",
+                    "instance": 1,
+                    "lengthMm": 310,
+                    "offsetMm": 2012
+                  }
+                ],
+                "kerfMm": 16,
+                "remnantMm": 74,
+                "remnantKind": "scrap"
+              },
+              {
+                "stockId": "A-03",
+                "stockLabel": "Fresh board 03",
+                "stockKind": "board",
+                "stockLengthMm": 2400,
+                "cuts": [
+                  {
+                    "requirementId": "shelf",
+                    "label": "Shelves",
+                    "instance": 3,
+                    "lengthMm": 720,
+                    "offsetMm": 0
+                  },
+                  {
+                    "requirementId": "shelf",
+                    "label": "Shelves",
+                    "instance": 4,
+                    "lengthMm": 720,
+                    "offsetMm": 724
+                  },
+                  {
+                    "requirementId": "upright",
+                    "label": "Uprights",
+                    "instance": 1,
+                    "lengthMm": 440,
+                    "offsetMm": 1448
+                  },
+                  {
+                    "requirementId": "upright",
+                    "label": "Uprights",
+                    "instance": 2,
+                    "lengthMm": 440,
+                    "offsetMm": 1892
+                  }
+                ],
+                "kerfMm": 16,
+                "remnantMm": 64,
+                "remnantKind": "scrap"
+              },
+              {
+                "stockId": "A-04",
+                "stockLabel": "Fresh board 04",
+                "stockKind": "board",
+                "stockLengthMm": 2400,
+                "cuts": [
+                  {
+                    "requirementId": "brace",
+                    "label": "Braces",
+                    "instance": 2,
+                    "lengthMm": 560,
+                    "offsetMm": 0
+                  },
+                  {
+                    "requirementId": "upright",
+                    "label": "Uprights",
+                    "instance": 3,
+                    "lengthMm": 440,
+                    "offsetMm": 564
+                  },
+                  {
+                    "requirementId": "upright",
+                    "label": "Uprights",
+                    "instance": 4,
+                    "lengthMm": 440,
+                    "offsetMm": 1008
+                  },
+                  {
+                    "requirementId": "rail",
+                    "label": "Rails",
+                    "instance": 2,
+                    "lengthMm": 310,
+                    "offsetMm": 1452
+                  },
+                  {
+                    "requirementId": "rail",
+                    "label": "Rails",
+                    "instance": 3,
+                    "lengthMm": 310,
+                    "offsetMm": 1766
+                  },
+                  {
+                    "requirementId": "rail",
+                    "label": "Rails",
+                    "instance": 4,
+                    "lengthMm": 310,
+                    "offsetMm": 2080
+                  }
+                ],
+                "kerfMm": 24,
+                "remnantMm": 6,
+                "remnantKind": "scrap"
+              }
+            ],
+            "metrics": {
+              "stockUsedMm": 7200,
+              "partsMm": 7000,
+              "kerfMm": 56,
+              "reusableMm": 0,
+              "scrapMm": 144,
+              "boardCount": 3,
+              "utilization": 0.9722222222222222
+            },
+            "complete": true,
+            "unfulfilled": [],
+            "excludedStockIds": [],
+            "search": {
+              "method": "branch-and-bound",
+              "provenOptimal": true,
+              "nodes": 3564,
+              "limit": 100000
+            }
+          },
+          "currentRevision": 2,
+          "fresh": true,
+          "approved": false,
+          "awaitingHumanApproval": false,
+          "canRequestReview": true,
+          "wasteMm": 200
+        },
+        "nextStep": "Compare or stage this proposal for human review. It is not approved."
+      },
+      "rawResult": "{\"ok\":true,\"plan\":{\"id\":\"plan-4b5e0154-42f3-49dd-a0b7-bc8d10fc7f88-22\",\"basedOnRevision\":2,\"createdAt\":\"2026-09-02T23:19:53.784Z\",\"actor\":\"webmcp\",\"solution\":{\"objective\":\"least_stock\",\"layouts\":[{\"stockId\":\"A-02\",\"stockLabel\":\"Fresh board 02\",\"stockKind\":\"board\",\"stockLengthMm\":2400,\"cuts\":[{\"requirementId\":\"shelf\",\"label\":\"Shelves\",\"instance\":1,\"lengthMm\":720,\"offsetMm\":0},{\"requirementId\":\"shelf\",\"label\":\"Shelves\",\"instance\":2,\"lengthMm\":720,\"offsetMm\":724},{\"requirementId\":\"brace\",\"label\":\"Braces\",\"instance\":1,\"lengthMm\":560,\"offsetMm\":1448},{\"requirementId\":\"rail\",\"label\":\"Rails\",\"instance\":1,\"lengthMm\":310,\"offsetMm\":2012}],\"kerfMm\":16,\"remnantMm\":74,\"remnantKind\":\"scrap\"},{\"stockId\":\"A-03\",\"stockLabel\":\"Fresh board 03\",\"stockKind\":\"board\",\"stockLengthMm\":2400,\"cuts\":[{\"requirementId\":\"shelf\",\"label\":\"Shelves\",\"instance\":3,\"lengthMm\":720,\"offsetMm\":0},{\"requirementId\":\"shelf\",\"label\":\"Shelves\",\"instance\":4,\"lengthMm\":720,\"offsetMm\":724},{\"requirementId\":\"upright\",\"label\":\"Uprights\",\"instance\":1,\"lengthMm\":440,\"offsetMm\":1448},{\"requirementId\":\"upright\",\"label\":\"Uprights\",\"instance\":2,\"lengthMm\":440,\"offsetMm\":1892}],\"kerfMm\":16,\"remnantMm\":64,\"remnantKind\":\"scrap\"},{\"stockId\":\"A-04\",\"stockLabel\":\"Fresh board 04\",\"stockKind\":\"board\",\"stockLengthMm\":2400,\"cuts\":[{\"requirementId\":\"brace\",\"label\":\"Braces\",\"instance\":2,\"lengthMm\":560,\"offsetMm\":0},{\"requirementId\":\"upright\",\"label\":\"Uprights\",\"instance\":3,\"lengthMm\":440,\"offsetMm\":564},{\"requirementId\":\"upright\",\"label\":\"Uprights\",\"instance\":4,\"lengthMm\":440,\"offsetMm\":1008},{\"requirementId\":\"rail\",\"label\":\"Rails\",\"instance\":2,\"lengthMm\":310,\"offsetMm\":1452},{\"requirementId\":\"rail\",\"label\":\"Rails\",\"instance\":3,\"lengthMm\":310,\"offsetMm\":1766},{\"requirementId\":\"rail\",\"label\":\"Rails\",\"instance\":4,\"lengthMm\":310,\"offsetMm\":2080}],\"kerfMm\":24,\"remnantMm\":6,\"remnantKind\":\"scrap\"}],\"metrics\":{\"stockUsedMm\":7200,\"partsMm\":7000,\"kerfMm\":56,\"reusableMm\":0,\"scrapMm\":144,\"boardCount\":3,\"utilization\":0.9722222222222222},\"complete\":true,\"unfulfilled\":[],\"excludedStockIds\":[],\"search\":{\"method\":\"branch-and-bound\",\"provenOptimal\":true,\"nodes\":3564,\"limit\":100000}},\"currentRevision\":2,\"fresh\":true,\"approved\":false,\"awaitingHumanApproval\":false,\"canRequestReview\":true,\"wasteMm\":200},\"nextStep\":\"Compare or stage this proposal for human review. It is not approved.\"}",
+      "startedAtMs": 538294,
+      "returnedAtMs": 538364
+    },
+    {
+      "order": 13,
+      "tool": "inspect_plan",
+      "reason": "The fresh least_stock proposal is complete and proven optimal at revision 2. Inspect its exact layout and freshness before staging it for new human review; the old plan remains unused.",
+      "input": {
+        "planId": "plan-4b5e0154-42f3-49dd-a0b7-bc8d10fc7f88-22"
+      },
+      "summary": {
+        "ok": true,
+        "objective": "least_stock",
+        "complete": true,
+        "revision": 2,
+        "parts": 14,
+        "stockMm": 7200,
+        "boards": 3,
+        "wasteMm": 200,
+        "reusableMm": 0,
+        "approved": false
+      },
+      "result": {
+        "ok": true,
+        "plan": {
+          "id": "plan-4b5e0154-42f3-49dd-a0b7-bc8d10fc7f88-22",
+          "basedOnRevision": 2,
+          "createdAt": "2026-09-02T23:19:53.784Z",
+          "actor": "webmcp",
+          "solution": {
+            "objective": "least_stock",
+            "layouts": [
+              {
+                "stockId": "A-02",
+                "stockLabel": "Fresh board 02",
+                "stockKind": "board",
+                "stockLengthMm": 2400,
+                "cuts": [
+                  {
+                    "requirementId": "shelf",
+                    "label": "Shelves",
+                    "instance": 1,
+                    "lengthMm": 720,
+                    "offsetMm": 0
+                  },
+                  {
+                    "requirementId": "shelf",
+                    "label": "Shelves",
+                    "instance": 2,
+                    "lengthMm": 720,
+                    "offsetMm": 724
+                  },
+                  {
+                    "requirementId": "brace",
+                    "label": "Braces",
+                    "instance": 1,
+                    "lengthMm": 560,
+                    "offsetMm": 1448
+                  },
+                  {
+                    "requirementId": "rail",
+                    "label": "Rails",
+                    "instance": 1,
+                    "lengthMm": 310,
+                    "offsetMm": 2012
+                  }
+                ],
+                "kerfMm": 16,
+                "remnantMm": 74,
+                "remnantKind": "scrap"
+              },
+              {
+                "stockId": "A-03",
+                "stockLabel": "Fresh board 03",
+                "stockKind": "board",
+                "stockLengthMm": 2400,
+                "cuts": [
+                  {
+                    "requirementId": "shelf",
+                    "label": "Shelves",
+                    "instance": 3,
+                    "lengthMm": 720,
+                    "offsetMm": 0
+                  },
+                  {
+                    "requirementId": "shelf",
+                    "label": "Shelves",
+                    "instance": 4,
+                    "lengthMm": 720,
+                    "offsetMm": 724
+                  },
+                  {
+                    "requirementId": "upright",
+                    "label": "Uprights",
+                    "instance": 1,
+                    "lengthMm": 440,
+                    "offsetMm": 1448
+                  },
+                  {
+                    "requirementId": "upright",
+                    "label": "Uprights",
+                    "instance": 2,
+                    "lengthMm": 440,
+                    "offsetMm": 1892
+                  }
+                ],
+                "kerfMm": 16,
+                "remnantMm": 64,
+                "remnantKind": "scrap"
+              },
+              {
+                "stockId": "A-04",
+                "stockLabel": "Fresh board 04",
+                "stockKind": "board",
+                "stockLengthMm": 2400,
+                "cuts": [
+                  {
+                    "requirementId": "brace",
+                    "label": "Braces",
+                    "instance": 2,
+                    "lengthMm": 560,
+                    "offsetMm": 0
+                  },
+                  {
+                    "requirementId": "upright",
+                    "label": "Uprights",
+                    "instance": 3,
+                    "lengthMm": 440,
+                    "offsetMm": 564
+                  },
+                  {
+                    "requirementId": "upright",
+                    "label": "Uprights",
+                    "instance": 4,
+                    "lengthMm": 440,
+                    "offsetMm": 1008
+                  },
+                  {
+                    "requirementId": "rail",
+                    "label": "Rails",
+                    "instance": 2,
+                    "lengthMm": 310,
+                    "offsetMm": 1452
+                  },
+                  {
+                    "requirementId": "rail",
+                    "label": "Rails",
+                    "instance": 3,
+                    "lengthMm": 310,
+                    "offsetMm": 1766
+                  },
+                  {
+                    "requirementId": "rail",
+                    "label": "Rails",
+                    "instance": 4,
+                    "lengthMm": 310,
+                    "offsetMm": 2080
+                  }
+                ],
+                "kerfMm": 24,
+                "remnantMm": 6,
+                "remnantKind": "scrap"
+              }
+            ],
+            "metrics": {
+              "stockUsedMm": 7200,
+              "partsMm": 7000,
+              "kerfMm": 56,
+              "reusableMm": 0,
+              "scrapMm": 144,
+              "boardCount": 3,
+              "utilization": 0.9722222222222222
+            },
+            "complete": true,
+            "unfulfilled": [],
+            "excludedStockIds": [],
+            "search": {
+              "method": "branch-and-bound",
+              "provenOptimal": true,
+              "nodes": 3564,
+              "limit": 100000
+            }
+          },
+          "currentRevision": 2,
+          "fresh": true,
+          "approved": false,
+          "awaitingHumanApproval": false,
+          "canRequestReview": true,
+          "wasteMm": 200
+        },
+        "physicalModel": [
+          "Integer millimetres; all stock has the same material and cross-section.",
+          "Entered stock lengths are usable lengths, after the human has deducted end trim and defects.",
+          "Each produced part consumes one kerf. No free final factory-end cut is assumed.",
+          "Sawdust and short scrap are waste; reusable remnants and unopened stock are not.",
+          "A plan is a planning estimate, not a machine instruction or a safe-cutting guarantee."
+        ]
+      },
+      "rawResult": "{\"ok\":true,\"plan\":{\"id\":\"plan-4b5e0154-42f3-49dd-a0b7-bc8d10fc7f88-22\",\"basedOnRevision\":2,\"createdAt\":\"2026-09-02T23:19:53.784Z\",\"actor\":\"webmcp\",\"solution\":{\"objective\":\"least_stock\",\"layouts\":[{\"stockId\":\"A-02\",\"stockLabel\":\"Fresh board 02\",\"stockKind\":\"board\",\"stockLengthMm\":2400,\"cuts\":[{\"requirementId\":\"shelf\",\"label\":\"Shelves\",\"instance\":1,\"lengthMm\":720,\"offsetMm\":0},{\"requirementId\":\"shelf\",\"label\":\"Shelves\",\"instance\":2,\"lengthMm\":720,\"offsetMm\":724},{\"requirementId\":\"brace\",\"label\":\"Braces\",\"instance\":1,\"lengthMm\":560,\"offsetMm\":1448},{\"requirementId\":\"rail\",\"label\":\"Rails\",\"instance\":1,\"lengthMm\":310,\"offsetMm\":2012}],\"kerfMm\":16,\"remnantMm\":74,\"remnantKind\":\"scrap\"},{\"stockId\":\"A-03\",\"stockLabel\":\"Fresh board 03\",\"stockKind\":\"board\",\"stockLengthMm\":2400,\"cuts\":[{\"requirementId\":\"shelf\",\"label\":\"Shelves\",\"instance\":3,\"lengthMm\":720,\"offsetMm\":0},{\"requirementId\":\"shelf\",\"label\":\"Shelves\",\"instance\":4,\"lengthMm\":720,\"offsetMm\":724},{\"requirementId\":\"upright\",\"label\":\"Uprights\",\"instance\":1,\"lengthMm\":440,\"offsetMm\":1448},{\"requirementId\":\"upright\",\"label\":\"Uprights\",\"instance\":2,\"lengthMm\":440,\"offsetMm\":1892}],\"kerfMm\":16,\"remnantMm\":64,\"remnantKind\":\"scrap\"},{\"stockId\":\"A-04\",\"stockLabel\":\"Fresh board 04\",\"stockKind\":\"board\",\"stockLengthMm\":2400,\"cuts\":[{\"requirementId\":\"brace\",\"label\":\"Braces\",\"instance\":2,\"lengthMm\":560,\"offsetMm\":0},{\"requirementId\":\"upright\",\"label\":\"Uprights\",\"instance\":3,\"lengthMm\":440,\"offsetMm\":564},{\"requirementId\":\"upright\",\"label\":\"Uprights\",\"instance\":4,\"lengthMm\":440,\"offsetMm\":1008},{\"requirementId\":\"rail\",\"label\":\"Rails\",\"instance\":2,\"lengthMm\":310,\"offsetMm\":1452},{\"requirementId\":\"rail\",\"label\":\"Rails\",\"instance\":3,\"lengthMm\":310,\"offsetMm\":1766},{\"requirementId\":\"rail\",\"label\":\"Rails\",\"instance\":4,\"lengthMm\":310,\"offsetMm\":2080}],\"kerfMm\":24,\"remnantMm\":6,\"remnantKind\":\"scrap\"}],\"metrics\":{\"stockUsedMm\":7200,\"partsMm\":7000,\"kerfMm\":56,\"reusableMm\":0,\"scrapMm\":144,\"boardCount\":3,\"utilization\":0.9722222222222222},\"complete\":true,\"unfulfilled\":[],\"excludedStockIds\":[],\"search\":{\"method\":\"branch-and-bound\",\"provenOptimal\":true,\"nodes\":3564,\"limit\":100000}},\"currentRevision\":2,\"fresh\":true,\"approved\":false,\"awaitingHumanApproval\":false,\"canRequestReview\":true,\"wasteMm\":200},\"physicalModel\":[\"Integer millimetres; all stock has the same material and cross-section.\",\"Entered stock lengths are usable lengths, after the human has deducted end trim and defects.\",\"Each produced part consumes one kerf. No free final factory-end cut is assumed.\",\"Sawdust and short scrap are waste; reusable remnants and unopened stock are not.\",\"A plan is a planning estimate, not a machine instruction or a safe-cutting guarantee.\"]}",
+      "startedAtMs": 543527,
+      "returnedAtMs": 543585
+    },
+    {
+      "order": 14,
+      "tool": "stage_plan_for_review",
+      "reason": "Inspection confirms the new least_stock proposal is complete, fresh and proven optimal at revision 2, using 4 mm kerf and leaving protected A-01 untouched. Stage this exact proposal for new human review without approval or export.",
+      "input": {
+        "planId": "plan-4b5e0154-42f3-49dd-a0b7-bc8d10fc7f88-22",
+        "expectedRevision": 2
+      },
+      "summary": {
+        "ok": true,
+        "objective": "least_stock",
+        "complete": true,
+        "revision": 2,
+        "parts": 14,
+        "stockMm": 7200,
+        "boards": 3,
+        "wasteMm": 200,
+        "reusableMm": 0,
+        "approved": false,
+        "status": "awaiting_human_approval"
+      },
+      "result": {
+        "ok": true,
+        "status": "awaiting_human_approval",
+        "plan": {
+          "id": "plan-4b5e0154-42f3-49dd-a0b7-bc8d10fc7f88-22",
+          "basedOnRevision": 2,
+          "createdAt": "2026-09-02T23:19:53.784Z",
+          "actor": "webmcp",
+          "solution": {
+            "objective": "least_stock",
+            "layouts": [
+              {
+                "stockId": "A-02",
+                "stockLabel": "Fresh board 02",
+                "stockKind": "board",
+                "stockLengthMm": 2400,
+                "cuts": [
+                  {
+                    "requirementId": "shelf",
+                    "label": "Shelves",
+                    "instance": 1,
+                    "lengthMm": 720,
+                    "offsetMm": 0
+                  },
+                  {
+                    "requirementId": "shelf",
+                    "label": "Shelves",
+                    "instance": 2,
+                    "lengthMm": 720,
+                    "offsetMm": 724
+                  },
+                  {
+                    "requirementId": "brace",
+                    "label": "Braces",
+                    "instance": 1,
+                    "lengthMm": 560,
+                    "offsetMm": 1448
+                  },
+                  {
+                    "requirementId": "rail",
+                    "label": "Rails",
+                    "instance": 1,
+                    "lengthMm": 310,
+                    "offsetMm": 2012
+                  }
+                ],
+                "kerfMm": 16,
+                "remnantMm": 74,
+                "remnantKind": "scrap"
+              },
+              {
+                "stockId": "A-03",
+                "stockLabel": "Fresh board 03",
+                "stockKind": "board",
+                "stockLengthMm": 2400,
+                "cuts": [
+                  {
+                    "requirementId": "shelf",
+                    "label": "Shelves",
+                    "instance": 3,
+                    "lengthMm": 720,
+                    "offsetMm": 0
+                  },
+                  {
+                    "requirementId": "shelf",
+                    "label": "Shelves",
+                    "instance": 4,
+                    "lengthMm": 720,
+                    "offsetMm": 724
+                  },
+                  {
+                    "requirementId": "upright",
+                    "label": "Uprights",
+                    "instance": 1,
+                    "lengthMm": 440,
+                    "offsetMm": 1448
+                  },
+                  {
+                    "requirementId": "upright",
+                    "label": "Uprights",
+                    "instance": 2,
+                    "lengthMm": 440,
+                    "offsetMm": 1892
+                  }
+                ],
+                "kerfMm": 16,
+                "remnantMm": 64,
+                "remnantKind": "scrap"
+              },
+              {
+                "stockId": "A-04",
+                "stockLabel": "Fresh board 04",
+                "stockKind": "board",
+                "stockLengthMm": 2400,
+                "cuts": [
+                  {
+                    "requirementId": "brace",
+                    "label": "Braces",
+                    "instance": 2,
+                    "lengthMm": 560,
+                    "offsetMm": 0
+                  },
+                  {
+                    "requirementId": "upright",
+                    "label": "Uprights",
+                    "instance": 3,
+                    "lengthMm": 440,
+                    "offsetMm": 564
+                  },
+                  {
+                    "requirementId": "upright",
+                    "label": "Uprights",
+                    "instance": 4,
+                    "lengthMm": 440,
+                    "offsetMm": 1008
+                  },
+                  {
+                    "requirementId": "rail",
+                    "label": "Rails",
+                    "instance": 2,
+                    "lengthMm": 310,
+                    "offsetMm": 1452
+                  },
+                  {
+                    "requirementId": "rail",
+                    "label": "Rails",
+                    "instance": 3,
+                    "lengthMm": 310,
+                    "offsetMm": 1766
+                  },
+                  {
+                    "requirementId": "rail",
+                    "label": "Rails",
+                    "instance": 4,
+                    "lengthMm": 310,
+                    "offsetMm": 2080
+                  }
+                ],
+                "kerfMm": 24,
+                "remnantMm": 6,
+                "remnantKind": "scrap"
+              }
+            ],
+            "metrics": {
+              "stockUsedMm": 7200,
+              "partsMm": 7000,
+              "kerfMm": 56,
+              "reusableMm": 0,
+              "scrapMm": 144,
+              "boardCount": 3,
+              "utilization": 0.9722222222222222
+            },
+            "complete": true,
+            "unfulfilled": [],
+            "excludedStockIds": [],
+            "search": {
+              "method": "branch-and-bound",
+              "provenOptimal": true,
+              "nodes": 3564,
+              "limit": 100000
+            }
+          },
+          "currentRevision": 2,
+          "fresh": true,
+          "approved": false,
+          "awaitingHumanApproval": true,
+          "canRequestReview": true,
+          "wasteMm": 200
+        },
+        "nextStep": "Wait for the human to review and approve in the site. No tool can approve. After approval, inspect_plan or export_cut_list can confirm the released cut sheet."
+      },
+      "rawResult": "{\"ok\":true,\"status\":\"awaiting_human_approval\",\"plan\":{\"id\":\"plan-4b5e0154-42f3-49dd-a0b7-bc8d10fc7f88-22\",\"basedOnRevision\":2,\"createdAt\":\"2026-09-02T23:19:53.784Z\",\"actor\":\"webmcp\",\"solution\":{\"objective\":\"least_stock\",\"layouts\":[{\"stockId\":\"A-02\",\"stockLabel\":\"Fresh board 02\",\"stockKind\":\"board\",\"stockLengthMm\":2400,\"cuts\":[{\"requirementId\":\"shelf\",\"label\":\"Shelves\",\"instance\":1,\"lengthMm\":720,\"offsetMm\":0},{\"requirementId\":\"shelf\",\"label\":\"Shelves\",\"instance\":2,\"lengthMm\":720,\"offsetMm\":724},{\"requirementId\":\"brace\",\"label\":\"Braces\",\"instance\":1,\"lengthMm\":560,\"offsetMm\":1448},{\"requirementId\":\"rail\",\"label\":\"Rails\",\"instance\":1,\"lengthMm\":310,\"offsetMm\":2012}],\"kerfMm\":16,\"remnantMm\":74,\"remnantKind\":\"scrap\"},{\"stockId\":\"A-03\",\"stockLabel\":\"Fresh board 03\",\"stockKind\":\"board\",\"stockLengthMm\":2400,\"cuts\":[{\"requirementId\":\"shelf\",\"label\":\"Shelves\",\"instance\":3,\"lengthMm\":720,\"offsetMm\":0},{\"requirementId\":\"shelf\",\"label\":\"Shelves\",\"instance\":4,\"lengthMm\":720,\"offsetMm\":724},{\"requirementId\":\"upright\",\"label\":\"Uprights\",\"instance\":1,\"lengthMm\":440,\"offsetMm\":1448},{\"requirementId\":\"upright\",\"label\":\"Uprights\",\"instance\":2,\"lengthMm\":440,\"offsetMm\":1892}],\"kerfMm\":16,\"remnantMm\":64,\"remnantKind\":\"scrap\"},{\"stockId\":\"A-04\",\"stockLabel\":\"Fresh board 04\",\"stockKind\":\"board\",\"stockLengthMm\":2400,\"cuts\":[{\"requirementId\":\"brace\",\"label\":\"Braces\",\"instance\":2,\"lengthMm\":560,\"offsetMm\":0},{\"requirementId\":\"upright\",\"label\":\"Uprights\",\"instance\":3,\"lengthMm\":440,\"offsetMm\":564},{\"requirementId\":\"upright\",\"label\":\"Uprights\",\"instance\":4,\"lengthMm\":440,\"offsetMm\":1008},{\"requirementId\":\"rail\",\"label\":\"Rails\",\"instance\":2,\"lengthMm\":310,\"offsetMm\":1452},{\"requirementId\":\"rail\",\"label\":\"Rails\",\"instance\":3,\"lengthMm\":310,\"offsetMm\":1766},{\"requirementId\":\"rail\",\"label\":\"Rails\",\"instance\":4,\"lengthMm\":310,\"offsetMm\":2080}],\"kerfMm\":24,\"remnantMm\":6,\"remnantKind\":\"scrap\"}],\"metrics\":{\"stockUsedMm\":7200,\"partsMm\":7000,\"kerfMm\":56,\"reusableMm\":0,\"scrapMm\":144,\"boardCount\":3,\"utilization\":0.9722222222222222},\"complete\":true,\"unfulfilled\":[],\"excludedStockIds\":[],\"search\":{\"method\":\"branch-and-bound\",\"provenOptimal\":true,\"nodes\":3564,\"limit\":100000}},\"currentRevision\":2,\"fresh\":true,\"approved\":false,\"awaitingHumanApproval\":true,\"canRequestReview\":true,\"wasteMm\":200},\"nextStep\":\"Wait for the human to review and approve in the site. No tool can approve. After approval, inspect_plan or export_cut_list can confirm the released cut sheet.\"}",
+      "startedAtMs": 547890,
+      "returnedAtMs": 547980
+    }
+  ],
+  "uiActions": [
+    {
+      "action": "Protect A-01",
+      "mechanism": "Actual Playwright UI button click in the live app",
+      "atMs": 1081
+    },
+    {
+      "action": "Camera navigation to actual proposed layout",
+      "mechanism": "Actual UI layout-jump click, not a model tool",
+      "planId": "plan-4b5e0154-42f3-49dd-a0b7-bc8d10fc7f88-6",
+      "atMs": 204809
+    },
+    {
+      "action": "Camera navigation to actual proposed layout",
+      "mechanism": "Actual UI layout-jump click, not a model tool",
+      "planId": "plan-4b5e0154-42f3-49dd-a0b7-bc8d10fc7f88-8",
+      "atMs": 209479
+    },
+    {
+      "action": "Camera navigation to actual proposed layout",
+      "mechanism": "Actual UI layout-jump click, not a model tool",
+      "planId": "plan-4b5e0154-42f3-49dd-a0b7-bc8d10fc7f88-10",
+      "atMs": 215128
+    },
+    {
+      "action": "Acknowledge and approve the exact model-staged proposal",
+      "mechanism": "Actual Playwright UI checkbox and approval-button actions, not a WebMCP tool or cryptographic human identity",
+      "planId": "plan-4b5e0154-42f3-49dd-a0b7-bc8d10fc7f88-6",
+      "observedApprovedPrintPlanId": "plan-4b5e0154-42f3-49dd-a0b7-bc8d10fc7f88-6",
+      "atMs": 395646
+    },
+    {
+      "action": "Download the exact approved CSV",
+      "mechanism": "Actual UI download with actual saved browser artifact",
+      "filename": "offcut-the-little-library-r1.csv",
+      "planId": "plan-4b5e0154-42f3-49dd-a0b7-bc8d10fc7f88-6"
+    },
+    {
+      "action": "Change actual blade kerf from3to4mm and commit with Enter",
+      "mechanism": "Actual Playwright UI edit, not a model/tool mutation",
+      "observedKerfMm": 4,
+      "observedRevision": 2,
+      "oldApprovedPlanId": "plan-4b5e0154-42f3-49dd-a0b7-bc8d10fc7f88-6",
+      "releaseDisabled": true,
+      "atMs": 526917
+    },
+    {
+      "action": "Camera navigation to actual proposed layout",
+      "mechanism": "Actual UI layout-jump click, not a model tool",
+      "planId": "plan-4b5e0154-42f3-49dd-a0b7-bc8d10fc7f88-22",
+      "atMs": 538663
+    }
+  ],
+  "timeline": [
+    {
+      "kind": "page_ready",
+      "atMs": 889
+    },
+    {
+      "kind": "human_ui_protected_A01",
+      "atMs": 1081
+    },
+    {
+      "kind": "actual_model_native_result",
+      "order": 1,
+      "tool": "get_workshop",
+      "cameraAtMs": 150537,
+      "returnedAtMs": 149852,
+      "planId": null
+    },
+    {
+      "kind": "shot_end",
+      "order": 1,
+      "atMs": 152037
+    },
+    {
+      "kind": "actual_model_native_result",
+      "order": 2,
+      "tool": "plan_cuts",
+      "cameraAtMs": 205142,
+      "returnedAtMs": 204178,
+      "planId": "plan-4b5e0154-42f3-49dd-a0b7-bc8d10fc7f88-6"
+    },
+    {
+      "kind": "shot_end",
+      "order": 2,
+      "atMs": 206643
+    },
+    {
+      "kind": "actual_model_native_result",
+      "order": 3,
+      "tool": "plan_cuts",
+      "cameraAtMs": 210119,
+      "returnedAtMs": 208919,
+      "planId": "plan-4b5e0154-42f3-49dd-a0b7-bc8d10fc7f88-8"
+    },
+    {
+      "kind": "shot_end",
+      "order": 3,
+      "atMs": 211624
+    },
+    {
+      "kind": "actual_model_native_result",
+      "order": 4,
+      "tool": "plan_cuts",
+      "cameraAtMs": 215366,
+      "returnedAtMs": 214531,
+      "planId": "plan-4b5e0154-42f3-49dd-a0b7-bc8d10fc7f88-10"
+    },
+    {
+      "kind": "shot_end",
+      "order": 4,
+      "atMs": 216867
+    },
+    {
+      "kind": "actual_model_native_result",
+      "order": 5,
+      "tool": "compare_plans",
+      "cameraAtMs": 220632,
+      "returnedAtMs": 219804,
+      "planId": null
+    },
+    {
+      "kind": "shot_end",
+      "order": 5,
+      "atMs": 222132
+    },
+    {
+      "kind": "actual_model_native_result",
+      "order": 6,
+      "tool": "inspect_plan",
+      "cameraAtMs": 225145,
+      "returnedAtMs": 224472,
+      "planId": "plan-4b5e0154-42f3-49dd-a0b7-bc8d10fc7f88-6"
+    },
+    {
+      "kind": "shot_end",
+      "order": 6,
+      "atMs": 226645
+    },
+    {
+      "kind": "actual_model_native_result",
+      "order": 7,
+      "tool": "stage_plan_for_review",
+      "cameraAtMs": 229591,
+      "returnedAtMs": 229015,
+      "planId": "plan-4b5e0154-42f3-49dd-a0b7-bc8d10fc7f88-6"
+    },
+    {
+      "kind": "shot_end",
+      "order": 7,
+      "atMs": 231092
+    },
+    {
+      "kind": "model_finished_awaiting_human",
+      "atMs": 233406,
+      "planId": "plan-4b5e0154-42f3-49dd-a0b7-bc8d10fc7f88-6"
+    },
+    {
+      "kind": "human_review_layout_camera",
+      "atMs": 392969
+    },
+    {
+      "kind": "human_ui_acknowledged",
+      "atMs": 395226,
+      "planId": "plan-4b5e0154-42f3-49dd-a0b7-bc8d10fc7f88-6"
+    },
+    {
+      "kind": "human_ui_approved",
+      "atMs": 395646,
+      "planId": "plan-4b5e0154-42f3-49dd-a0b7-bc8d10fc7f88-6"
+    },
+    {
+      "kind": "actual_model_native_result",
+      "order": 8,
+      "tool": "inspect_plan",
+      "cameraAtMs": 398386,
+      "returnedAtMs": 398011,
+      "planId": "plan-4b5e0154-42f3-49dd-a0b7-bc8d10fc7f88-6"
+    },
+    {
+      "kind": "shot_end",
+      "order": 8,
+      "atMs": 399886
+    },
+    {
+      "kind": "actual_model_native_result",
+      "order": 9,
+      "tool": "export_cut_list",
+      "cameraAtMs": 403531,
+      "returnedAtMs": 402853,
+      "planId": "plan-4b5e0154-42f3-49dd-a0b7-bc8d10fc7f88-6"
+    },
+    {
+      "kind": "shot_end",
+      "order": 9,
+      "atMs": 405031
+    },
+    {
+      "kind": "actual_approved_csv_download",
+      "atMs": 409537,
+      "planId": "plan-4b5e0154-42f3-49dd-a0b7-bc8d10fc7f88-6",
+      "filename": "offcut-the-little-library-r1.csv"
+    },
+    {
+      "kind": "human_changed_kerf_invalidated_release",
+      "atMs": 526917,
+      "revision": 2
+    },
+    {
+      "kind": "actual_model_native_result",
+      "order": 10,
+      "tool": "get_workshop",
+      "cameraAtMs": 529855,
+      "returnedAtMs": 529196,
+      "planId": null
+    },
+    {
+      "kind": "shot_end",
+      "order": 10,
+      "atMs": 531356
+    },
+    {
+      "kind": "actual_model_native_result",
+      "order": 11,
+      "tool": "inspect_plan",
+      "cameraAtMs": 534367,
+      "returnedAtMs": 533696,
+      "planId": "plan-4b5e0154-42f3-49dd-a0b7-bc8d10fc7f88-6"
+    },
+    {
+      "kind": "shot_end",
+      "order": 11,
+      "atMs": 535868
+    },
+    {
+      "kind": "actual_model_native_result",
+      "order": 12,
+      "tool": "plan_cuts",
+      "cameraAtMs": 538824,
+      "returnedAtMs": 538364,
+      "planId": "plan-4b5e0154-42f3-49dd-a0b7-bc8d10fc7f88-22"
+    },
+    {
+      "kind": "shot_end",
+      "order": 12,
+      "atMs": 540324
+    },
+    {
+      "kind": "actual_model_native_result",
+      "order": 13,
+      "tool": "inspect_plan",
+      "cameraAtMs": 544033,
+      "returnedAtMs": 543585,
+      "planId": "plan-4b5e0154-42f3-49dd-a0b7-bc8d10fc7f88-22"
+    },
+    {
+      "kind": "shot_end",
+      "order": 13,
+      "atMs": 545535
+    },
+    {
+      "kind": "actual_model_native_result",
+      "order": 14,
+      "tool": "stage_plan_for_review",
+      "cameraAtMs": 548386,
+      "returnedAtMs": 547980,
+      "planId": "plan-4b5e0154-42f3-49dd-a0b7-bc8d10fc7f88-22"
+    },
+    {
+      "kind": "shot_end",
+      "order": 14,
+      "atMs": 549886
+    },
+    {
+      "kind": "actual_model_replanned_new_human_review",
+      "atMs": 552614,
+      "planId": "plan-4b5e0154-42f3-49dd-a0b7-bc8d10fc7f88-22",
+      "revision": 2
+    }
+  ],
+  "recording": {
+    "startedAt": 1788390655460,
+    "endedAt": 1788391210293,
+    "appFile": "page@e10286c99aef78e7dfba5b542580bca2.webm",
+    "externalConsoleFile": "page@d5530845f18f4a019194f9b46f4d60d9.webm"
+  },
+  "observedContracts": {
+    "allThreeCompleteObjectives": true,
+    "allSixNativeToolTypesChosenByModel": true,
+    "humanProtectedA01Untouched": true,
+    "modelStoppedBeforeApproval": true,
+    "exactUiApprovedPlanExported": true,
+    "downloadedCsvRows": 15,
+    "humanKerfChangeInvalidatedApproval": true,
+    "oldInspectionFresh": false,
+    "freshReplanRevision": 2,
+    "freshReplanKerfMm": 56,
+    "newReviewUnapproved": true
+  },
+  "consoleErrors": [],
+  "pageErrors": []
+}

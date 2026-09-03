@@ -1,0 +1,22 @@
+{
+  "title": "Offcut — real human-agent cutting plans with native WebMCP",
+  "description": "Offcut is a shared cutting-stock workbench for small workshops and makerspaces. People record usable stock and exact part requirements, protect physical lengths, compare real cutting layouts and release an exact reviewed cut sheet. A browser agent uses six native WebMCP tools on the same live committed workspace.\n\nLive workbench: https://ilyanaxo.github.io/offcut-webmcp/\nPublic MIT source: https://github.com/ilyanaxo/offcut-webmcp\nUse, run and test guide: https://ilyanaxo.github.io/offcut-webmcp/guide.html\n\nThis recording uses14 actual model-selected native tool calls on the public Chrome workbench, not a fabricated conversation or a ChatGPT screen recording. The external receipt panel is a separate recording harness, not a chatbot embedded in Offcut. Person-facing UI controls are exercised through browser automation; the tool capability catalogue has no approval operation, but this is not cryptographic proof of human presence. Waiting time is trimmed.\n\nThe workshop measurements are an original illustrative example. All alternatives produce14 parts totalling7000mm while A-01 stays protected. With3mm kerf and a400mm reusable-remnant threshold, least-stock/fewest-handling opens7200mm across3 lengths and discards200mm (42mm sawdust +158mm short scrap). Keeping useful offcuts opens10080mm across6 lengths, discards42mm and leaves3038mm of qualifying remnants. These are computed scenario trade-offs, not measured workshop-wide money/carbon/cutting-time savings.\n\n00:00 Actual cutting plan\n00:12 Human measurements and protection\n00:29 Real external model/native browser client\n00:45 Three complete planning objectives\n01:06 Exact material trade-off\n01:34 Separate review and approval UI\n01:54 Actual approved CSV export\n02:11 Human change invalidates approval; model replans\n02:28 Public workbench, source and planning limits\n\nOriginal English narration synthesized locally with Piper, en_US-ljspeech-high. Voice model: Bryce Beattie; LJ Speech dataset: Keith Ito and Linda Johnson. Creator/dataset public-domain declarations: https://brycebeattie.com/files/tts/ and https://keithito.com/LJ-Speech-Dataset/ . Jurisdiction/rights scope is recorded in submission/media-rights.json; no human narrator endorsement is claimed. Original Offcut visuals, no copied workshop photos or copyrighted music. Captions use Liberation Sans under SIL OFL1.1; output documents are not required to carry the font license.\n\nOffcut is a planning estimate, not machine-control or a safe-cutting guarantee. Verify actual usable lengths, stock identity, kerf and safe workholding at the bench.",
+  "language": "en",
+  "intended_visibility": "public",
+  "local_video_file": "submission/demo.mp4",
+  "caption_file": "submission/demo-subtitles.vtt",
+  "tags": [
+    "WebMCP",
+    "cutting stock",
+    "human agent collaboration",
+    "makerspace",
+    "material reuse",
+    "open source"
+  ],
+  "account_channel_and_audience_decisions_required": true,
+  "entrant_media_rights_confirmation_required": true,
+  "actual_upload_verified": false,
+  "actual_public_youtube_url": null,
+  "deadline_utc": "2026-09-03T20:00:00Z",
+  "freeze_rule": "Upload, verify public playback, attach the actual URL to Devpost and complete submission before the deadline. Do not replace or edit the judged video/app/source after the deadline."
+}

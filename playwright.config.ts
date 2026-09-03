@@ -8,6 +8,9 @@ const browserTempDir = process.env.TMPDIR || resolve('.cache/browser-tests');
 mkdirSync(browserTempDir, { recursive: true, mode: 0o700 });
 process.env.TMPDIR = browserTempDir;
 
+const applicationUrl = new URL(process.env.OFFCUT_BASE_URL || 'http://127.0.0.1:4173/');
+if (!applicationUrl.pathname.endsWith('/')) applicationUrl.pathname += '/';
+
 const chromePath = process.env.CHROME_PATH;
 const launchOptions = {
   chromiumSandbox: true,
@@ -27,7 +30,7 @@ export default defineConfig({
     browserName: 'chromium',
     ...(chromePath ? {} : { channel: 'chrome' }),
     headless: true,
-    baseURL: process.env.OFFCUT_BASE_URL || 'http://127.0.0.1:4173',
+    baseURL: applicationUrl.href,
     viewport: { width: 1365, height: 900 },
     locale: 'en-US',
     timezoneId: 'UTC',

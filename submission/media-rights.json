@@ -1,0 +1,38 @@
+{
+  "application_and_visuals": {
+    "license": "MIT (repository LICENSE)",
+    "origin": "Original Offcut source, SVG/CSS artwork and illustrative measurements. Screenshots and app footage come from the actual live HTTPS workbench.",
+    "no_customer_measurements_or_copied_workshop_photographs": true,
+    "runtime_dependency_notice": "public/THIRD_PARTY_LICENSES.txt"
+  },
+  "demo_recording": {
+    "origin": "Actual model-selected Chrome native WebMCP calls and actual browser-automated UI controls, recorded on the live app. Waiting time is trimmed; result receipts are actual captured outputs.",
+    "not_a_chatgpt_screen_recording": true,
+    "no_copied_third_party_logos_or_music": true,
+    "referential_names_are_not_endorsements": true
+  },
+  "narration": {
+    "script": "submission/demo-narration.txt",
+    "origin": "Original English script, synthesized locally; no copied source recording and no claim of a human narrator's endorsement.",
+    "software": "Piper legacy v1.2.0, used locally for media production, not embedded in the app",
+    "software_source": "https://github.com/rhasspy/piper/tree/v1.2.0",
+    "voice": "en_US-ljspeech-high",
+    "model_revision": "39ab474be869e9181350af6a65e4953eef67aaa0",
+    "model_card": "https://huggingface.co/rhasspy/piper-voices/resolve/39ab474be869e9181350af6a65e4953eef67aaa0/en/en_US/ljspeech/high/MODEL_CARD",
+    "model_creator_permission": "https://brycebeattie.com/files/tts/",
+    "dataset_permission": "https://keithito.com/LJ-Speech-Dataset/",
+    "librivox_permission": "https://librivox.org/pages/public-domain/",
+    "source_declarations": "The model creator labels LJSpeech-high public domain and allows any legal and ethical purpose. The dataset publisher states the text, recordings and annotations are public domain with no restrictions and no required attribution.",
+    "jurisdiction_boundary": "LJ Speech/LibriVox explicitly guarantee public-domain status in the USA, not all jurisdictions. These records do not assert unconditional worldwide legal clearance. The entrant must confirm applicable rights for their publication.",
+    "transparent_optional_credit": "AI narration generated with Piper, en_US-ljspeech-high. Voice model: Bryce Beattie; LJ Speech dataset: Keith Ito and Linda Johnson (public-domain declarations linked above)."
+  },
+  "caption_font": {
+    "name": "Liberation Sans",
+    "source": "https://github.com/liberationfonts",
+    "license": "SIL Open Font License 1.1",
+    "verified_license_record": "/usr/share/doc/fonts-liberation/copyright",
+    "output_boundary": "The license expressly permits use/embedding and states its font-license requirement does not apply to documents created using the fonts. Font files are not redistributed with the app/demo package."
+  },
+  "entrant_media_rights_confirmation": null,
+  "public_youtube_publication_verified": false
+}

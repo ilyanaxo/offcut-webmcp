@@ -1,0 +1,485 @@
+{
+  "title": "Offcut \u2014 a shared cutting-stock workbench",
+  "tagline": "Measure and protect your stock. Let your browser agent compare cutting plans. Review before releasing a cut sheet.",
+  "language": "English",
+  "artifact_status": "Working public HTTPS app, public MIT source, verified hosted browser/model workflow, and a complete verified165-second English-audio/subtitled demo are prepared. Entrant attestations, actual public YouTube publication and actual Devpost Submitted remain unresolved.",
+  "working_name": {
+    "name": "Offcut",
+    "meaning": "An offcut is a piece left after cutting a longer length of material.",
+    "naming_status": "This is the working name used by the deployed app, not an attestation that the entrant selected or approved the submission title."
+  },
+  "links": {
+    "live_app": "https://ilyanaxo.github.io/offcut-webmcp/",
+    "public_source": "https://github.com/ilyanaxo/offcut-webmcp",
+    "use_run_and_test_guide": "https://ilyanaxo.github.io/offcut-webmcp/guide.html",
+    "youtube_url": null,
+    "devpost_submission_url": null
+  },
+  "description_sections": [
+    {
+      "question": "Why your use case is a strong fit for WebMCP",
+      "heading": "Measured stock is a structured problem",
+      "text": "Offcut is for small workshops, makerspaces and individual makers planning straight crosscuts from boards and existing offcuts of the same material and cross-section. The problem is arranging exact part quantities around usable lengths, blade kerf and pieces someone needs to keep. Those are explicit constraints, not measurements an agent should estimate from a screenshot. WebMCP exposes the committed workshop and checked proposals in the same page the person is using. The browser agent can request and compare alternatives; Offcut's deterministic solver, rather than the language model, checks quantities and physical material balance."
+    },
+    {
+      "question": "How it creates a better user experience",
+      "heading": "Show the trade-off instead of hiding it in a waste score",
+      "text": "People can edit stock and part lists, protect individual lengths, and compare proportional cutting layouts under three objectives. Sawdust, short scrap, reusable remnants and unopened stock remain distinct. In the original illustrative 14-part job, all plans produce 7,000 mm of finished parts with A-01 protected, 3 mm kerf and a 400 mm reusable-remnant threshold. Use less stock and Handle fewer boards each open 7,200 mm across three pieces, with 42 mm sawdust, 158 mm short scrap and no reusable remnant. Keep useful offcuts opens 10,080 mm across six pieces, with 42 mm sawdust, no short scrap and 3,038 mm reusable remnants. Avoiding 158 mm of short scrap therefore opens 2,880 mm more stock and handles three more pieces. These are executed illustrative results, not measured customer, money or environmental savings."
+    },
+    {
+      "question": "Describe what people and agents can do together that was difficult or impossible before",
+      "heading": "One workshop, proposals from an agent, a separate release decision",
+      "text": "The person-facing workflow owns usable measurements and protected stock; agent tools work from that committed workshop instead of a detached copy in chat. In an actual hosted run, the default session model selected 14 native calls covering all six tool types. It generated and compared three complete objective plans, inspected and staged the least-stock plan, then stopped without approval. After separate UI checkbox and approval-button actions, the model inspected and exported that exact approved plan. Committing a kerf change from 3 to 4 mm invalidated the old release. The model read revision 2, identified the old plan as stale and unapproved, and computed, inspected and staged a fresh complete 14-part plan with 56 mm of sawdust, again stopping for review. This run used actual stateless model completions and native Chrome tools; the approval and measurement edits were browser UI automation, not model tools or a ChatGPT screen recording. Approval is absent from the registered tool surface, not cryptographic human-presence authentication. No stock was reserved or consumed."
+    },
+    {
+      "question": "Briefly explain how you implemented WebMCP",
+      "heading": "Native tools backed by the same checked domain operations",
+      "text": "Offcut is a static React/TypeScript application built with Vite. It registers six JSON-schema-defined tools through the real document.modelContext API, with the real native navigator.modelContext surface for Chrome 149 compatibility: get_workshop, plan_cuts, inspect_plan, compare_plans, stage_plan_for_review and export_cut_list. UI and tool operations share the workshop store and deterministic branch-and-bound planner. Planning and staging require the current expectedRevision; incomplete, stale or unapproved plans cannot be released. Registration readiness is reported only after native registration succeeds. There is no polyfill, application backend, embedded model or website API key. Manual planning still works without WebMCP. The physical model is integer-millimetre, one-dimensional crosscutting with one kerf per produced part. Search is capped at 100,000 nodes; a complete bounded result is not labelled optimal unless optimality was proved. It is a planning estimate, not machine control or a safe-cutting guarantee."
+    }
+  ],
+  "demonstrated_case": {
+    "name": "The little library \u2014 original illustrative measurements",
+    "data_origin": "Original sample inputs included with Offcut; no real customer or workshop-impact study is represented.",
+    "material": "Pine \u00b7 18 \u00d7 140 mm \u00b7 usable lengths",
+    "stock_lengths_mm": {
+      "A-01": 3000,
+      "A-02": 2400,
+      "A-03": 2400,
+      "A-04": 2400,
+      "R-01": 1180,
+      "R-02": 960,
+      "R-03": 740,
+      "R-04": 650
+    },
+    "parts": [
+      {
+        "label": "Shelves",
+        "length_mm": 720,
+        "quantity": 4
+      },
+      {
+        "label": "Uprights",
+        "length_mm": 440,
+        "quantity": 4
+      },
+      {
+        "label": "Rails",
+        "length_mm": 310,
+        "quantity": 4
+      },
+      {
+        "label": "Braces",
+        "length_mm": 560,
+        "quantity": 2
+      }
+    ],
+    "scenario_settings": {
+      "protected_stock_ids": ["A-01"],
+      "additional_excluded_stock_ids": [],
+      "kerf_mm_per_part": 3,
+      "minimum_reusable_remnant_mm": 400,
+      "required_part_count": 14,
+      "finished_parts_mm": 7000
+    },
+    "important_setup_detail": "Loading the sample does not protect A-01 automatically. Protect that 3,000 mm length in the UI before solving to reproduce these results.",
+    "results": [
+      {
+        "objective": "least_stock",
+        "ui_label": "Use less stock",
+        "stock_opened_mm": 7200,
+        "stock_pieces": 3,
+        "sawdust_mm": 42,
+        "short_scrap_mm": 158,
+        "reusable_remnants_mm": 0
+      },
+      {
+        "objective": "fewest_boards",
+        "ui_label": "Handle fewer boards",
+        "stock_opened_mm": 7200,
+        "stock_pieces": 3,
+        "sawdust_mm": 42,
+        "short_scrap_mm": 158,
+        "reusable_remnants_mm": 0
+      },
+      {
+        "objective": "least_waste",
+        "ui_label": "Keep useful offcuts",
+        "stock_opened_mm": 10080,
+        "stock_pieces": 6,
+        "sawdust_mm": 42,
+        "short_scrap_mm": 0,
+        "reusable_remnants_mm": 3038
+      }
+    ],
+    "interpretation": "All three plans produce the same 7,000 mm of finished parts and leave A-01 untouched. Relative to least_stock, least_waste has 158 mm less short scrap, 2,880 mm more opened stock, three more stock pieces handled and 3,038 mm more reusable remnants; sawdust remains 42 mm. Reusable remnants are not discarded waste, but their later use is not demonstrated."
+  },
+  "testing_instructions": {
+    "application_access": "Open the live URL directly. Offcut requires no application account, login credentials, payment, API key, installation or local server for judging.",
+    "application_credentials": null,
+    "safe_test_context": "Use a fresh private browser window or test profile so sample replacement does not overwrite your own saved measurements. Keep the same workbench document open during planning, review and export; plans and approvals are page-session state. No physical cutting is needed for judging.",
+    "common_setup": [
+      "Open https://ilyanaxo.github.io/offcut-webmcp/. Use Load illustrative sample, then Replace with sample in the confirmation dialog, to establish the inputs listed in demonstrated_case.",
+      "Protect A-01, the 3,000 mm Long board, using its protection control. Leave all other stock available and do not add tool-side exclusions. Check the 3 mm kerf, 400 mm reusable threshold and four requirement rows listed above.",
+      "Commit any field edit with Enter or by leaving the field. Escape cancels an unfinished edit. Invalid or unfinished fields/new rows block human solving and release. Native tools read committed measurements, not unfinished editor text."
+    ],
+    "manual_no_login_path": [
+      "Choose Use less stock and click Find a cutting plan. Repeat for Handle fewer boards and Keep useful offcuts. Compare the retained proposals with demonstrated_case.results, including finished-part quantities, sawdust, short scrap and reusable remnants. A-01 must not appear among used stock in any layout.",
+      "Select the least-stock proposal and click Review this plan. Check the exact plan reference, stock identities, quantities and physical settings against the illustrative inputs. Before acknowledgement, Approve cut sheet is disabled.",
+      "As the human reviewer, tick I checked the usable lengths, kerf and part quantities against my measurements., then click Approve cut sheet. This is a separate UI action, not a tool call.",
+      "Click Download approved CSV and inspect the downloaded cut list. Click Print approved cut sheet to open the browser's print flow; Save as PDF is a browser option, not a separate Offcut PDF-export tool. These actions release a planning document, not a fabrication or inventory transaction.",
+      "Select a different retained draft after approval. The release panel identifies the approved plan separately, and download/print still use that approved plan rather than the selected draft."
+    ],
+    "native_browser_setup": {
+      "supported_entry_paths": "Use ChatGPT's in-app browser as described by the challenge, or a real WebMCP-capable browser-agent host in Chrome 149 or later. The app itself does not supply or connect a model.",
+      "chrome_flag": "chrome://flags/#enable-webmcp-testing",
+      "chrome_flag_instruction": "Enable the flag and restart Chrome before opening the live app. For an isolated test-browser launch, the native feature flag is --enable-features=WebMCP.",
+      "browser_agent_host_distinction": "The Chrome flag exposes the native browser API; it does not create an agent. A configured agent host must discover and invoke the site's tools. That host may have its own account or provider requirements, separate from Offcut's no-login website.",
+      "native_surface": "Offcut prefers real document.modelContext on the modern native surface and uses only the real native navigator.modelContext compatibility surface in Chrome 149. It does not install a polyfill.",
+      "readiness_check": "Look for Native WebMCP ready and six registered tools in the Browser agent area. This confirms actual native registration, not that ChatGPT or another particular model has connected. Human UI actions and native tool invocations are attributed separately in activity.",
+      "ordinary_browser_fallback": "If the browser reports native WebMCP unavailable, use the complete manual path above. Do not treat manual actions or simulated tool calls as a verified model demonstration."
+    },
+    "agent_prompt": "Inspect my Offcut workshop. Compare complete plans for all three objectives: least_stock, fewest_boards and least_waste. Respect protected stock and the current kerf/reusable-remnant settings. Account separately for sawdust, short scrap and reusable remnants. Stage the least-stock plan for my review. Do not approve it.",
+    "native_tool_workflow": [
+      {
+        "tool": "get_workshop",
+        "inputs": "An empty object.",
+        "expected_observation": "Read the committed workspace, its current revision, protected stock, requirements and settings. Confirm A-01 is protected. Use the returned revision; do not assume a fixed revision number."
+      },
+      {
+        "tool": "plan_cuts",
+        "inputs": "Call once for each objective: least_stock, fewest_boards and least_waste. Supply expectedRevision from get_workshop and the objective. Omit excludedStockIds or supply an empty array for this scenario.",
+        "expected_observation": "Three actual proposal records with returned plan IDs. They must be complete, current and consistent with demonstrated_case.results. An optional excludedStockIds list can protect additional stock, never unlock human-protected stock."
+      },
+      {
+        "tool": "inspect_plan",
+        "inputs": "Supply planId using an actual ID returned by plan_cuts; inspect the alternatives.",
+        "expected_observation": "Exact layouts, part instances, offsets, material balance, freshness and approval status. Check 14 produced parts, 7,000 mm finished length and no use of A-01. Read the actual search proof status rather than assuming every result is globally optimal."
+      },
+      {
+        "tool": "compare_plans",
+        "inputs": "Supply planIds containing the three distinct current complete proposal IDs, with least_stock first as the baseline.",
+        "expected_observation": "Actual comparison deltas. The least-waste alternative opens 2,880 mm more stock, handles three more pieces and has 158 mm less sawdust-plus-short-scrap waste, with sawdust unchanged."
+      },
+      {
+        "tool": "export_cut_list",
+        "inputs": "Before UI approval, supply the least-stock planId.",
+        "expected_observation": "The call is rejected with APPROVAL_REQUIRED. Generating, inspecting or comparing a proposal does not approve it."
+      },
+      {
+        "tool": "stage_plan_for_review",
+        "inputs": "Supply the least-stock planId and the current expectedRevision. Re-read get_workshop if committed measurements changed.",
+        "expected_observation": "The exact fresh complete plan opens in the review dialog and the tool returns awaiting_human_approval. It does not check the acknowledgement or approve the cut sheet."
+      },
+      {
+        "tool": null,
+        "actor": "Human reviewer in the UI",
+        "inputs": "Check the staged proposal against the illustrative inputs, tick the review acknowledgement checkbox, then click Approve cut sheet. Reject proposal is available instead.",
+        "expected_observation": "UI approval releases this exact plan for the current page session. There is no registered approval tool. Keep UI-control approval outside the agent's permissions/workflow if the final decision is to remain with the person."
+      },
+      {
+        "tool": "export_cut_list",
+        "inputs": "After that UI approval, supply the same approved planId.",
+        "expected_observation": "CSV text and a filename for the approved fresh complete plan. The tool returns CSV content; the separate Download approved CSV UI control performs a browser file download, and Print approved cut sheet invokes browser printing."
+      }
+    ],
+    "revision_and_reload_checks": [
+      "After release, change A-02's usable length from 2,400 mm to 2,399 mm and commit with Enter or blur. The workspace revision changes, retained proposals become stale and approval is invalidated; UI download/print are locked until a fresh complete plan is reviewed and approved.",
+      "On the native path, export_cut_list with the old approved planId now returns STALE_PLAN. A plan_cuts request using the old expectedRevision returns REVISION_CONFLICT. Read get_workshop again before a new request.",
+      "Reload the workbench. Validated measurements and protection can persist in localStorage when available, but plans, approval, activity and tool-registration state are not restored as past decisions. Native registration runs again for the new document."
+    ],
+    "source_instructions": "The linked guide contains complete source installation, production-preview and observable-contract test instructions. No application secrets are required. This submission-text preparation did not run builds, tests, formatters, linters or validation commands."
+  },
+  "physical_assumptions_and_limits": {
+    "units": "Integer millimetres",
+    "stock_model": "One-dimensional crosscuts on a homogeneous batch of identical material and cross-section. Enter each physical board or existing offcut separately, using usable length after deducting end trim and unusable defects.",
+    "per_stock_balance": "sum(finished part lengths) + produced part count \u00d7 kerf + final remnant = usable stock length",
+    "kerf_convention": "One saw pass per produced part, including the last; no free final factory-end cut is assumed. With 3 mm kerf, a 997 mm part fits a 1,000 mm usable length but a 1,000 mm part does not under this model.",
+    "remnant_policy": "A positive final remnant at or above the user-set threshold is reusable; a shorter positive remnant is short scrap; zero is neither. Waste is sawdust plus short scrap. Unopened stock and reusable remnants are not waste.",
+    "objective_precedence": {
+      "least_stock": ["opened stock length", "sawdust plus short scrap", "stock-piece count"],
+      "fewest_boards": ["stock-piece count", "opened stock length", "sawdust plus short scrap"],
+      "least_waste": ["sawdust plus short scrap", "opened stock length", "stock-piece count"]
+    },
+    "batch_limits": {
+      "stock_lengths": 24,
+      "requirement_entries": 16,
+      "produced_parts": 40,
+      "search_nodes": 100000
+    },
+    "confidence": "Optimality is reported only for a complete result after valid exhaustive search/pruning. A complete result at the search limit remains feasible with optimality unproved. Failure to find a complete solution within a bound is not proof of infeasibility. Partial proposals identify missing quantities and cannot be approved or exported.",
+    "not_modelled": [
+      "Angled cuts",
+      "Grain matching",
+      "Clamping or safe workholding",
+      "Defect placement within rough stock",
+      "Mixed material or cross-sections"
+    ],
+    "release_boundary": "Only the registered-tool capability boundary excludes approval, stock unlocking and inventory edits. It is not authentication of a physical human and does not prevent trusted same-origin scripts, developer tools or an agent with separately granted UI-control permissions from operating the page.",
+    "inventory_limit": "Approval/export do not reserve, consume or physically cut stock, and do not create a verified fabrication event. Record actual remaining usable inventory yourself for the next job.",
+    "safety": "This is a planning estimate, not machine-control instructions, a certified design or a safe-cutting guarantee. Verify stock identity, usable lengths, actual kerf, quantities and safe workholding at the bench.",
+    "data_handling": "Validated measurements are saved in this site's localStorage when available. Plans, approval and activity are page-session-only. The website has no application backend or model calls; a browser agent receives tool results and may process them under its provider's policies. Hosting and browser policies also apply."
+  },
+  "verification_evidence": {
+    "reporting_boundary": "Actual current-source command results, complete hosted browser scenarios and the14-call real model/native/UI-automation trajectory are recorded in submission/verification.json and submission/agent-trace.json. The final165-second narrated/subtitled MP4 is independently probed, fully decoded and its actual embedded AAC speech is checked with unprompted offline ASR in submission/demo-verification.json. This is not a ChatGPT interface recording, authenticated-human proof, public YouTube publication, official submission or jury-outcome evidence.",
+    "current_source_core_tests": {
+      "status": "Passed in the supplied current-source report",
+      "passed_tests": 841,
+      "expect_calls": 118503,
+      "scope": "Physical feasibility, quantities, material accounting, objective behavior and workshop state/release contracts."
+    },
+    "current_source_browser_tests": {
+      "status": "Passed in the supplied current-source report",
+      "passed_tests": 9,
+      "scope": "Separate native-enabled and ordinary/manual sandboxed Chrome paths, actual CSV/PDF behavior and approval/revision guards."
+    },
+    "independent_small_instance_oracle": {
+      "status": "Passed",
+      "small_cases": 600,
+      "objectives_per_case": 3,
+      "comparisons": 1800,
+      "method": "Independent exhaustive assignment enumeration",
+      "record": "artifacts/verification/core-smoke.json"
+    },
+    "actual_bounded_search_case": {
+      "status": "Executed; complete plans returned with optimality unproved",
+      "stock_lengths": 24,
+      "produced_parts": 40,
+      "nodes_reached_per_objective": 100000,
+      "objectives": ["least_stock", "fewest_boards", "least_waste"],
+      "proven_optimal": false,
+      "record": "submission/verification.json"
+    },
+    "native_and_manual_app_smoke": {
+      "status": "Executed on the actual local production app",
+      "native_chrome_versions": ["149.0.7827.155", "152.0.7977.64"],
+      "native_tools_exercised": [
+        "get_workshop",
+        "plan_cuts",
+        "inspect_plan",
+        "compare_plans",
+        "stage_plan_for_review",
+        "export_cut_list"
+      ],
+      "observations": [
+        "Actual native registration/discovery/execution",
+        "Protected A-01 and exact sample trade-off",
+        "Separate UI acknowledgement and approval",
+        "CSV download and PDF renderer output",
+        "Printing bound to the approved plan rather than a different selected draft",
+        "APPROVAL_REQUIRED, REVISION_CONFLICT and STALE_PLAN guards",
+        "Manual use without a native WebMCP surface"
+      ],
+      "record": "submission/verification.json",
+      "scope_limit": "This record does not verify a ChatGPT in-app-browser window, a model-directed interaction, physical paper printing or account publication."
+    },
+    "hosted_native_smoke": {
+      "status": "Actual public app exercised in a fresh headed Chrome 152 window, as reported by Main",
+      "url": "https://ilyanaxo.github.io/offcut-webmcp/",
+      "chrome_major_version": 152,
+      "ui_loaded": true,
+      "native_tools_discovered": 6,
+      "tool_executed": "get_workshop",
+      "returned_stock_count": 8,
+      "console_errors": 0,
+      "page_errors": 0,
+      "scope_limit": "This initial smoke verifies the public project-subpath UI load, native discovery and get_workshop execution. The completed hosted browser suite and separate actual model-selected native workflow are recorded below; none is a ChatGPT interface recording."
+    },
+    "hosted_browser_suite": {
+      "status": "Passed on the actual public project-subpath URL, as supplied by Main",
+      "url": "https://ilyanaxo.github.io/offcut-webmcp/",
+      "passed_tests": 9,
+      "scope": "Native-enabled and ordinary/manual sandboxed Chrome paths covering protection, objective comparison, review/approved-only release, committed-edit/revision guards, unfinished fields/rows, empty/insufficient stock, real CSV/PDF release, persistence, replacement confirmation and narrow-screen dialog behavior.",
+      "record": "artifact://261",
+      "record_scope": "Supplied internal execution output, not a public judging URL. The full hosted suite passed after test navigation was corrected for the project subpath."
+    },
+    "public_access": {
+      "live_app_status": "Verified public GitHub Pages URL in the supplied deployment evidence",
+      "hosting": "GitHub Pages, gh-pages branch, root path, built and HTTPS enforced",
+      "public_source_status": "Verified public repository in the supplied repository evidence",
+      "license": "MIT",
+      "license_detection": "GitHub's license API detects MIT",
+      "guide_status": "Public use/run/test guide available at the linked URL"
+    },
+    "model_demo": {
+      "status": "Actual model-selected native workflow and complete local165-second English-audio/subtitled demo verified; public YouTube and official submission remain unverified.",
+      "verified": true,
+      "verification_scope": "Actual live HTTPS native model calls, actual automated UI controls, completed edited MP4 with real audio/subtitles, actual media probe/full decode/embedded-audio ASR. Not a ChatGPT screen recording or account-publication proof.",
+      "verified_at_utc": "2026-09-02T23:20:24.101Z",
+      "live_url": "https://ilyanaxo.github.io/offcut-webmcp/",
+      "browser_version": "152.0.7977.64",
+      "model": "Default session model invoked through actual stateless completion calls",
+      "browser_agent_host": "External model-call runner selecting tool names and JSON inputs, then invoking Chrome's actual native getTools/executeTool on the live HTTPS workbench",
+      "interaction_trace": "submission/agent-trace.json",
+      "model_selected_native_calls": 14,
+      "native_tool_types_selected": [
+        "get_workshop",
+        "plan_cuts",
+        "inspect_plan",
+        "compare_plans",
+        "stage_plan_for_review",
+        "export_cut_list"
+      ],
+      "initial_compare_and_review": {
+        "revision": 1,
+        "kerf_mm_per_part": 3,
+        "all_three_objectives_complete": true,
+        "all_three_proposals_compared": true,
+        "least_stock_inspected_and_staged": true,
+        "staged_plan_id": "plan-4b5e0154-42f3-49dd-a0b7-bc8d10fc7f88-6",
+        "model_stopped_before_approval_or_export": true,
+        "protected_A01_untouched": true
+      },
+      "approved_export": {
+        "approval_mechanism": "Actual Playwright UI acknowledgement-checkbox and approval-button actions, separate from model/native tool calls",
+        "exact_ui_approved_plan_id": "plan-4b5e0154-42f3-49dd-a0b7-bc8d10fc7f88-6",
+        "model_inspected_current_approval_and_exported_exact_plan": true,
+        "actual_ui_csv_download": true,
+        "csv_filename": "offcut-the-little-library-r1.csv",
+        "downloaded_csv_rows": 15
+      },
+      "committed_change_and_replan": {
+        "change_mechanism": "Actual Playwright UI kerf edit from 3 to 4 mm, committed with Enter; not a model/tool mutation",
+        "revision": 2,
+        "kerf_mm_per_part": 4,
+        "old_approval_invalidated_and_release_disabled": true,
+        "model_read_current_workshop_and_inspected_old_plan": true,
+        "old_plan_fresh": false,
+        "old_plan_approved": false,
+        "model_did_not_reuse_or_export_old_plan": true,
+        "fresh_least_stock_plan_complete": true,
+        "fresh_plan_id": "plan-4b5e0154-42f3-49dd-a0b7-bc8d10fc7f88-22",
+        "fresh_plan_total_kerf_mm": 56,
+        "fresh_plan_inspected_and_staged": true,
+        "new_review_unapproved": true,
+        "model_stopped_without_new_approval_or_export": true
+      },
+      "ui_actions_were_browser_automation": true,
+      "not_a_ChatGPT_screen_recording": true,
+      "attribution_disclosure": "The model genuinely selected the native calls. Protecting stock, camera/layout navigation, checkbox approval, CSV download and the kerf edit were separate browser UI automation. This is not a recording of a human physically operating the controls or ChatGPT's in-app-browser interface, and the approval boundary does not authenticate human presence.",
+      "console_errors": 0,
+      "page_errors": 0,
+      "video_evidence": {
+        "status": "Complete edited165-second English-audio/subtitled MP4 verified locally; public YouTube upload/playback requires the authorized account.",
+        "raw_app_recording_filename": "page@e10286c99aef78e7dfba5b542580bca2.webm",
+        "raw_external_console_recording_filename": "page@d5530845f18f4a019194f9b46f4d60d9.webm",
+        "recording_reference": "submission/agent-trace.json recording fields",
+        "final_edited_video": "submission/demo.mp4",
+        "final_duration_seconds": 165.0,
+        "english_audio_verified": true,
+        "youtube_url": null,
+        "public_visibility_verified": false,
+        "verification_record": "submission/demo-verification.json",
+        "sha256": "ee5915268fa0b528a87e7aa87d2a532ad3f1491e3eefbef185217e438f63fab5",
+        "caption_file": "submission/demo-subtitles.vtt"
+      },
+      "remaining_verification": "The media and model/native interaction are already verified locally. Actual Public YouTube upload/processed playback, applicable entrant media-rights confirmation and attachment to a real Submitted Devpost entry remain authorized-account/entrant gates."
+    }
+  },
+  "publication_and_entrant_checklist": {
+    "eligibility": {
+      "status": "Entrant attestation required",
+      "age_of_majority_confirmed": null,
+      "country_or_territory_of_residence": null,
+      "supported_and_not_excluded_residence_confirmed": null,
+      "disqualifying_connections_or_conflicts_cleared": null,
+      "disallowed_prior_sponsor_support_cleared": null,
+      "requirement": "Confirm eligibility under Rules section 3 for the actual entrant and every team member, including legal age of majority, supported residence and geographic exclusions, promotion/judge relationships and conflicts. Review the rules' financial or preferential support restriction. GitHub login, repository ownership or a username establishes none of these facts."
+    },
+    "entrant_and_representation": {
+      "status": "Entrant decision and authorization required",
+      "entrant_type": null,
+      "team_members": null,
+      "representative_devpost_profile": null,
+      "representative_authorized": null,
+      "team_membership_compliance_confirmed": null,
+      "requirement": "Choose individual, team or organization entry. Supply actual teammates rather than assuming a solo entrant. A team/organization must authorize an eligible representative to act and submit on its behalf; confirm each member's permitted team/organization participation."
+    },
+    "ownership_and_submission_period": {
+      "status": "Entrant attestation required",
+      "original_contribution_ownership_confirmed": null,
+      "third_party_permissions_and_licenses_confirmed": null,
+      "work_created_or_meaningfully_extended_in_submission_period_confirmed": null,
+      "prior_work_declaration": null,
+      "requirement": "Confirm rights to the entrant's original contributions and compliance with third-party tool, source and asset licenses. Confirm creation during the submission period or meaningful WebMCP extension after its start. If pre-existing work applies, distinguish prior work from new work with the dated evidence required by the rules. MIT detection is verified; legal ownership and these entrant attestations are not."
+    },
+    "devpost_account_and_terms": {
+      "status": "Authorized real-account actions required",
+      "devpost_profile_url": null,
+      "challenge_registration_verified": null,
+      "teammates_added_and_required_invitations_accepted": null,
+      "official_rules_and_devpost_terms_accepted_by_authorized_entrant": null,
+      "requirement": "Use the actual entrant's Devpost account, register for this challenge, resolve team invitations if applicable and have the authorized entrant review and accept the rules/terms. Preparing this artifact does not register anyone, accept terms or authorize representation."
+    },
+    "youtube_demo": {
+      "youtube_url": null,
+      "status": "Verified165-second local English-audio/subtitled demo ready; authorized Public YouTube publication and processed public playback still required.",
+      "public_visibility_verified": false,
+      "duration_seconds": 165,
+      "audio_and_english_verified": true,
+      "working_app_and_webmcp_demo_verified": null,
+      "media_rights_confirmed": null,
+      "requirements": "Publish an actual YouTube video set to Public, shorter than 180 seconds, with English audio clearly demonstrating the working project and how it uses WebMCP. Do not substitute a private/unlisted upload, local video or invented URL. Review third-party trademarks, music and other copyrighted material for permission. Attach the resulting public URL to the real Devpost form and verify public playback.",
+      "model_interaction_demonstrated": true,
+      "local_video_file": "submission/demo.mp4",
+      "upload_metadata_file": "submission/youtube-upload.json",
+      "verification_record": "submission/demo-verification.json"
+    },
+    "actual_devpost_submission": {
+      "status": "Actual Submitted state not verified",
+      "submission_url": null,
+      "submitted_at_utc": null,
+      "green_submitted_state_verified": null,
+      "verification_evidence": null,
+      "requirement": "Before the deadline, enter the live/source URLs, English description/testing instructions, actual public YouTube URL and all other required real-account fields. Complete the final submission action and verify the challenge entry shows Submitted. A repository, draft, portfolio project, saved form or this JSON file is not proof of submission."
+    }
+  },
+  "freeze_and_availability_checklist": {
+    "status": "Entrant commitment and final freeze evidence required",
+    "submission_deadline_utc": "2026-09-03T20:00:00Z",
+    "submission_deadline_local": "September 3, 2026, 1:00 PM Pacific Daylight Time",
+    "minimum_live_and_unchanged_through_utc": "2026-09-22T00:00:00Z",
+    "scheduled_winners_announcement_utc": "2026-09-23T21:00:00Z",
+    "scheduled_announcement_qualification": "The rules say on or around this announcement time; the actual announcement is not yet verified.",
+    "actual_winners_announcement_utc": null,
+    "preferred_retention": "Keep the judged app and linked materials live and unchanged through the actual winners announcement, even if it is later than the scheduled time.",
+    "final_source_commit": null,
+    "final_deployment_reference": null,
+    "final_video_url": null,
+    "freeze_recorded_at_utc": null,
+    "entrant_freeze_commitment_confirmed": null,
+    "free_unrestricted_judge_access_commitment_confirmed": null,
+    "requirements": [
+      "Record the final submitted source commit, live deployment and actual video before the deadline; these values are not inferred from the current public repository.",
+      "Do not change the submission or the judged app/source/linked demo after the deadline. Any exceptional submission modification requires the sponsor/administrator's permission under the rules; portfolio-update permission is not permission to replace the judged entry.",
+      "Keep the app, public source and guide accessible free of charge and without restrictions through the judging period, at least through September 22, 2026 at 00:00 UTC, and preferably through the actual winners announcement. Preserve the public demo as well.",
+      "Verify and retain evidence of the actual Submitted state and public video; do not mark account, eligibility or future availability commitments complete merely because the website is public."
+    ],
+    "candidate_live_deployment_commit": "49ebb877d4c22fac925460894d1ea5f53377aca1",
+    "candidate_local_video_sha256": "ee5915268fa0b528a87e7aa87d2a532ad3f1491e3eefbef185217e438f63fab5",
+    "candidate_source_tag": "v1.0.0-webmcp-challenge"
+  },
+  "requirement_sources": {
+    "official_rules": "https://webmcp.devpost.com/rules",
+    "challenge_requirements": "https://webmcp.devpost.com/",
+    "actual_public_guide": "https://ilyanaxo.github.io/offcut-webmcp/guide.html",
+    "public_source": "https://github.com/ilyanaxo/offcut-webmcp",
+    "proof_record_location_note": "JSON paths identify existing local executed proof records; artifact://261 is the supplied internal hosted-suite execution output. Their individual public availability has not been separately verified.",
+    "proof_records": [
+      "submission/verification.json",
+      "submission/agent-trace.json",
+      "submission/demo-verification.json",
+      "submission/media-rights.json"
+    ]
+  },
+  "local_submission_assets": [
+    "submission/demo.mp4",
+    "submission/demo-subtitles.vtt",
+    "submission/demo-narration.txt",
+    "submission/project-description.txt",
+    "submission/youtube-upload.json",
+    "submission/screenshots/cutting-layout.png",
+    "submission/screenshots/planning-tradeoffs.png",
+    "submission/screenshots/human-review.png",
+    "submission/screenshots/fresh-human-review.png"
+  ]
+}
