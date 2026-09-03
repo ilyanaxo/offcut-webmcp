@@ -1,0 +1,237 @@
+{
+  "schemaVersion": 1,
+  "kind": "Actual current1.1.0 source/static-release/anonymous-download publication observation",
+  "verifiedAt": "2026-09-03T15:50:08.377Z",
+  "candidateVersion": "1.1.0",
+  "sourceSnapshot": {
+    "tag": "v1.1.0-webmcp-challenge",
+    "commit": "69328bb8efa97c290fd7192481c3654f00403aea",
+    "tree": "7f5cba7d3109312457a5960728ca4d9ba25ee2a7",
+    "URL": "https://github.com/ilyanaxo/offcut-webmcp/tree/v1.1.0-webmcp-challenge",
+    "functionalSourceCommit": "f8091483ef2003b1bff361ab8f1b49a5715cd19d",
+    "scope": "Tagged final source/submission/evidence snapshot. Later publication-observation documents do not change this immutabletag or app/video bytes."
+  },
+  "staticDeployment": {
+    "kind": "Actual final public documentation-only deployment observation",
+    "commit": "ffc85c8300d8ec8a17bafa2751fb4b02f2093409",
+    "PagesBuild": {
+      "status": "built",
+      "createdAt": "2026-09-03T15:17:52Z",
+      "updatedAt": "2026-09-03T15:18:22Z",
+      "errorMessage": null
+    },
+    "actualPublicHTTPSDelivery": {
+      "url": "https://ilyanaxo.github.io/offcut-webmcp/guide.html?candidate=ffc85c8",
+      "status": 200,
+      "actualBytes": 35456,
+      "sha256": "bbcf54cba5d581558e04d9cba731d1b19058065bc8dedd5d037f42fa8b637b99",
+      "expectedFinalGuideSha256": "bbcf54cba5d581558e04d9cba731d1b19058065bc8dedd5d037f42fa8b637b99"
+    },
+    "actualAppJSandCSSRemainByteIdenticalToTestedAndCapturedCandidate": true,
+    "testedRecordedStaticCommit": "c88b3050ee128d19b5f79a9380822771a0167160",
+    "functionalSourceCommit": "f8091483ef2003b1bff361ab8f1b49a5715cd19d",
+    "appByteEvidence": "submission/evidence/browser/final-guide-build.portable.json",
+    "scope": "New staticcommit changes onlyguide text. Actual hosted app JS/CSS SHA values match originaltested/captured bytes; no source/browser regression rerun is claimed for thedoc-only publication."
+  },
+  "release": {
+    "id": 382140036,
+    "tagName": "v1.1.0-webmcp-challenge",
+    "URL": "https://github.com/ilyanaxo/offcut-webmcp/releases/tag/v1.1.0-webmcp-challenge",
+    "draft": false,
+    "prerelease": false,
+    "publishedAt": "2026-09-03T15:38:33Z",
+    "assets": [
+      {
+        "name": "demo-subtitles.vtt",
+        "state": "uploaded",
+        "bytes": 3714,
+        "digest": "sha256:985fab1fad837b922dd3c2f1470b4908dc7862b5a6ffc1b14d7e6272114e1fc0",
+        "URL": "https://github.com/ilyanaxo/offcut-webmcp/releases/download/v1.1.0-webmcp-challenge/demo-subtitles.vtt"
+      },
+      {
+        "name": "demo.mp4",
+        "state": "uploaded",
+        "bytes": 12497854,
+        "digest": "sha256:c91ba242684a288452f12d9754caaff662347559714cf7f453c35695282aa79c",
+        "URL": "https://github.com/ilyanaxo/offcut-webmcp/releases/download/v1.1.0-webmcp-challenge/demo.mp4"
+      },
+      {
+        "name": "entry-package.zip",
+        "state": "uploaded",
+        "bytes": 86825234,
+        "digest": "sha256:8a38d5e13c330bff5a3682c214f3b03829903574f370f1745bd599b5b39a9b85",
+        "URL": "https://github.com/ilyanaxo/offcut-webmcp/releases/download/v1.1.0-webmcp-challenge/entry-package.zip"
+      },
+      {
+        "name": "project-description.txt",
+        "state": "uploaded",
+        "bytes": 10326,
+        "digest": "sha256:99e153cbba3185fd7dc43917b986b06c205200f7fa5715f5990fd8bce6fc9142",
+        "URL": "https://github.com/ilyanaxo/offcut-webmcp/releases/download/v1.1.0-webmcp-challenge/project-description.txt"
+      },
+      {
+        "name": "source-recording.mp4",
+        "state": "uploaded",
+        "bytes": 42467633,
+        "digest": "sha256:48e2e955bc43d7b9e5b5cb1cea23b854e5a46f55be9e9f0b92c0c96eb8889711",
+        "URL": "https://github.com/ilyanaxo/offcut-webmcp/releases/download/v1.1.0-webmcp-challenge/source-recording.mp4"
+      },
+      {
+        "name": "youtube-upload.json",
+        "state": "uploaded",
+        "bytes": 4946,
+        "digest": "sha256:f54829a0e6d792a859c4f2ae332c40acfd8233dd27e69b1ce3b585ab8a86556e",
+        "URL": "https://github.com/ilyanaxo/offcut-webmcp/releases/download/v1.1.0-webmcp-challenge/youtube-upload.json"
+      }
+    ]
+  },
+  "actualAnonymousFullDownloads": [
+    {
+      "name": "demo.mp4",
+      "sha256": "c91ba242684a288452f12d9754caaff662347559714cf7f453c35695282aa79c",
+      "bytes": 12497854,
+      "url": "https://github.com/ilyanaxo/offcut-webmcp/releases/download/v1.1.0-webmcp-challenge/demo.mp4",
+      "actualDownloadedSha256": "c91ba242684a288452f12d9754caaff662347559714cf7f453c35695282aa79c",
+      "actualDownloadedBytes": 12497854,
+      "verificationBasis": "Actual SHA256 of the full saved file created by the earlier anonymous fetch matched the verified local/release asset. That fetch wrote only after response.ok; exact body-response status was not retained after a sibling partial-ZIP ENOSPC.",
+      "authorizationHeaderSent": false,
+      "cookiesSent": false
+    },
+    {
+      "name": "source-recording.mp4",
+      "sha256": "48e2e955bc43d7b9e5b5cb1cea23b854e5a46f55be9e9f0b92c0c96eb8889711",
+      "bytes": 42467633,
+      "url": "https://github.com/ilyanaxo/offcut-webmcp/releases/download/v1.1.0-webmcp-challenge/source-recording.mp4",
+      "actualDownloadedSha256": "48e2e955bc43d7b9e5b5cb1cea23b854e5a46f55be9e9f0b92c0c96eb8889711",
+      "actualDownloadedBytes": 42467633,
+      "verificationBasis": "Actual SHA256 of the full saved file created by the earlier anonymous fetch matched the verified local/release asset. That fetch wrote only after response.ok; exact body-response status was not retained after a sibling partial-ZIP ENOSPC.",
+      "authorizationHeaderSent": false,
+      "cookiesSent": false
+    },
+    {
+      "name": "demo-subtitles.vtt",
+      "sha256": "985fab1fad837b922dd3c2f1470b4908dc7862b5a6ffc1b14d7e6272114e1fc0",
+      "bytes": 3714,
+      "url": "https://github.com/ilyanaxo/offcut-webmcp/releases/download/v1.1.0-webmcp-challenge/demo-subtitles.vtt",
+      "actualDownloadedSha256": "985fab1fad837b922dd3c2f1470b4908dc7862b5a6ffc1b14d7e6272114e1fc0",
+      "actualDownloadedBytes": 3714,
+      "verificationBasis": "Actual SHA256 of the full saved file created by the earlier anonymous fetch matched the verified local/release asset. That fetch wrote only after response.ok; exact body-response status was not retained after a sibling partial-ZIP ENOSPC.",
+      "authorizationHeaderSent": false,
+      "cookiesSent": false
+    },
+    {
+      "name": "project-description.txt",
+      "sha256": "99e153cbba3185fd7dc43917b986b06c205200f7fa5715f5990fd8bce6fc9142",
+      "bytes": 10326,
+      "url": "https://github.com/ilyanaxo/offcut-webmcp/releases/download/v1.1.0-webmcp-challenge/project-description.txt",
+      "actualDownloadedSha256": "99e153cbba3185fd7dc43917b986b06c205200f7fa5715f5990fd8bce6fc9142",
+      "actualDownloadedBytes": 10326,
+      "verificationBasis": "Actual SHA256 of the full saved file created by the earlier anonymous fetch matched the verified local/release asset. That fetch wrote only after response.ok; exact body-response status was not retained after a sibling partial-ZIP ENOSPC.",
+      "authorizationHeaderSent": false,
+      "cookiesSent": false
+    },
+    {
+      "name": "youtube-upload.json",
+      "sha256": "f54829a0e6d792a859c4f2ae332c40acfd8233dd27e69b1ce3b585ab8a86556e",
+      "bytes": 4946,
+      "url": "https://github.com/ilyanaxo/offcut-webmcp/releases/download/v1.1.0-webmcp-challenge/youtube-upload.json",
+      "actualDownloadedSha256": "f54829a0e6d792a859c4f2ae332c40acfd8233dd27e69b1ce3b585ab8a86556e",
+      "actualDownloadedBytes": 4946,
+      "verificationBasis": "Actual SHA256 of the full saved file created by the earlier anonymous fetch matched the verified local/release asset. That fetch wrote only after response.ok; exact body-response status was not retained after a sibling partial-ZIP ENOSPC.",
+      "authorizationHeaderSent": false,
+      "cookiesSent": false
+    },
+    {
+      "name": "entry-package.zip",
+      "requestedURL": "https://github.com/ilyanaxo/offcut-webmcp/releases/download/v1.1.0-webmcp-challenge/entry-package.zip",
+      "status": 200,
+      "actualDownloadedBytes": 86825234,
+      "actualDownloadedSha256": "8a38d5e13c330bff5a3682c214f3b03829903574f370f1745bd599b5b39a9b85",
+      "authorizationHeaderSent": false,
+      "cookiesSent": false,
+      "verificationBasis": "Entire actual anonymous HTTP body streamed and hashed without another disk copy; the earlier partial local ZIP copy was removed, not counted as successful."
+    }
+  ],
+  "separateActualAnonymousHEADResponses": [
+    {
+      "name": "demo.mp4",
+      "requestedURL": "https://github.com/ilyanaxo/offcut-webmcp/releases/download/v1.1.0-webmcp-challenge/demo.mp4",
+      "status": 200,
+      "contentLength": 12497854,
+      "contentType": "application/octet-stream",
+      "authorizationHeaderSent": false,
+      "cookiesSent": false
+    },
+    {
+      "name": "entry-package.zip",
+      "requestedURL": "https://github.com/ilyanaxo/offcut-webmcp/releases/download/v1.1.0-webmcp-challenge/entry-package.zip",
+      "status": 200,
+      "contentLength": 86825234,
+      "contentType": "application/octet-stream",
+      "authorizationHeaderSent": false,
+      "cookiesSent": false
+    },
+    {
+      "name": "source-recording.mp4",
+      "requestedURL": "https://github.com/ilyanaxo/offcut-webmcp/releases/download/v1.1.0-webmcp-challenge/source-recording.mp4",
+      "status": 200,
+      "contentLength": 42467633,
+      "contentType": "application/octet-stream",
+      "authorizationHeaderSent": false,
+      "cookiesSent": false
+    },
+    {
+      "name": "demo-subtitles.vtt",
+      "requestedURL": "https://github.com/ilyanaxo/offcut-webmcp/releases/download/v1.1.0-webmcp-challenge/demo-subtitles.vtt",
+      "status": 200,
+      "contentLength": 3714,
+      "contentType": "application/octet-stream",
+      "authorizationHeaderSent": false,
+      "cookiesSent": false
+    },
+    {
+      "name": "project-description.txt",
+      "requestedURL": "https://github.com/ilyanaxo/offcut-webmcp/releases/download/v1.1.0-webmcp-challenge/project-description.txt",
+      "status": 200,
+      "contentLength": 10326,
+      "contentType": "application/octet-stream",
+      "authorizationHeaderSent": false,
+      "cookiesSent": false
+    },
+    {
+      "name": "youtube-upload.json",
+      "requestedURL": "https://github.com/ilyanaxo/offcut-webmcp/releases/download/v1.1.0-webmcp-challenge/youtube-upload.json",
+      "status": 200,
+      "contentLength": 4946,
+      "contentType": "application/octet-stream",
+      "authorizationHeaderSent": false,
+      "cookiesSent": false
+    }
+  ],
+  "allSixActualDownloadedDigestsMatchVerifiedAssets": true,
+  "anonymousDownloadVerificationBoundary": {
+    "initialPartialPackageDiskCopyError": "ENOSPC while copying the package into a temporary verification directory; source/localfinal/release assets were untouched.",
+    "fiveFullReceivedFileHashesVerified": true,
+    "incompletePackageCopyRemoved": true,
+    "completePackageHTTPBodySubsequentlyStreamedAndHashed": true,
+    "noPartialCopyCountedAsSuccessful": true
+  },
+  "packageVerification": {
+    "record": "submission/package-verification.json",
+    "sha256": "8a38d5e13c330bff5a3682c214f3b03829903574f370f1745bd599b5b39a9b85",
+    "bytes": 86825234,
+    "all226ArchiveMemberHashesAndSizesMatch": true,
+    "pathBase": "Repository root inside offcut-submission/; submission/ layout is preserved"
+  },
+  "finalDemoVerification": "submission/demo-verification.json",
+  "sourceFootageIdentity": "submission/evidence/capture-take-02/source-recording.provenance.json",
+  "postPublicationReportScope": "This post-publication observation is intentionally separate from the immutable source tag and ZIP, whose digests cannot include their own eventual publication/anonymous-download reports. No currentsource/media artifact was silentlyreplaced.",
+  "entrantOwnedGates": {
+    "actualPublicYouTubeURL": null,
+    "publicYouTubePlaybackVerified": false,
+    "DevpostSubmittedVerified": false,
+    "eligibilityAuthorityMediaRightsAttestations": null,
+    "winnerOutcomeVerified": false
+  },
+  "scope": "Actual publicGitHub/Pages/HEAD/fullanonymousbody or saved-fileSHA evidence, not YouTube publication, entrant attestation, Submitted status, physical-human authentication or guaranteed winning."
+}
